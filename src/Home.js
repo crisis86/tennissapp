@@ -24,7 +24,6 @@ if (email==='' || email===null) {
         
       
       <h2>Tennis App V: 1.1</h2>
-      
       <p> tu sei il giocatore <b> {datiuserloging.email} </b> </p>     
       <p>Versione Demo per test funzionalità e Debug</p>
       </div> 
