@@ -1,0 +1,403 @@
+{
+  "user": [
+    {
+      "email": "crisis@soccertime.it",
+      "password": "matrix",
+      "name": "Admin Admin",
+      "phone": "132123123",
+      "country": "india",
+      "role": "admin",
+      "address": "fatt e fatt tuoi\n23",
+      "gender": "male",
+      "posizione": 0,
+      "insfida": false,
+      "id": 1
+    },
+    {
+      "email": "prova@soccertime.it",
+      "password": "matrix",
+      "name": "Lino Bordelli",
+      "phone": "132123123",
+      "country": "india",
+      "role": "player",
+      "address": "fatt e fatt tuoi\n23",
+      "gender": "male",
+      "posizione": 7,
+      "insfida": true,
+      "id": 2
+    },
+    {
+      "email": "davideaprea29@libero.it",
+      "password": "123456",
+      "name": "pasquale coppola",
+      "phone": "132123123",
+      "country": "india",
+      "role": "player",
+      "address": "fatt e fatt tuoi\n23",
+      "gender": "male",
+      "posizione": 3,
+      "insfida": true,
+      "id": 3
+    },
+    {
+      "email": "info@franzysonline.it",
+      "password": "11111",
+      "name": "Crescenzo paoletta",
+      "phone": "323232323",
+      "country": "india",
+      "role": "player",
+      "address": "strada provinciale SP 52",
+      "gender": "male",
+      "posizione": 2,
+      "insfida": false,
+      "id": 4
+    },
+    {
+      "email": "iovino@franzysonline.it",
+      "password": "11111",
+      "name": "Luifi iovino",
+      "phone": "323232323",
+      "country": "india",
+      "role": "player",
+      "address": "strada provinciale SP 52",
+      "gender": "male",
+      "posizione": 6,
+      "insfida": true,
+      "id": 5
+    },
+    {
+      "email": "adriana@franzysonline.it",
+      "password": "123456",
+      "name": "Adriana Romano",
+      "phone": "323232323",
+      "country": "india",
+      "role": "player",
+      "address": "strada provinciale SP 52",
+      "gender": "male",
+      "posizione": 5,
+      "insfida": false,
+      "id": 6
+    },
+    {
+      "email": "luis@franzysonline.it",
+      "password": "123456",
+      "name": "luis suarez",
+      "phone": "323232323",
+      "country": "india",
+      "role": "player",
+      "address": "strada provinciale SP 52",
+      "gender": "male",
+      "posizione": 9,
+      "insfida": false,
+      "id": 7
+    },
+    {
+      "email": "luca@franzysonline.it",
+      "password": "123456",
+      "name": "luca durso",
+      "phone": "323232323",
+      "country": "india",
+      "role": "player",
+      "address": "strada provinciale SP 52",
+      "gender": "male",
+      "posizione": 4,
+      "insfida": false,
+      "id": 8
+    },
+    {
+      "email": "Novac@franzysonline.it",
+      "password": "matrix",
+      "name": "Novac Djocovic",
+      "phone": "323232323",
+      "country": "usa",
+      "role": "player",
+      "address": "strada provinciale SP 52",
+      "gender": "male",
+      "posizione": 8,
+      "insfida": false,
+      "id": 9
+    },
+    {
+      "email": "giggi@franzysonline.it",
+      "password": "matrix",
+      "name": "Giggi Franzys",
+      "phone": "323232323",
+      "country": "usa",
+      "role": "player",
+      "address": "strada provinciale SP 52",
+      "gender": "male",
+      "posizione": 10,
+      "insfida": false,
+      "id": 10
+    },
+    {
+      "email": "jepson@franzysonline.it",
+      "password": "matrix",
+      "name": "Jepson Franzys",
+      "phone": "323232323",
+      "country": "usa",
+      "role": "player",
+      "address": "strada provinciale SP 52",
+      "gender": "male",
+      "posizione": 12,
+      "insfida": true,
+      "id": 11
+    },
+    {
+      "email": "luigibidolo@bifo.it",
+      "password": "prova",
+      "name": "luigi bidolo",
+      "phone": "4234234",
+      "country": "Italia",
+      "role": "player",
+      "address": "sdsdsdsdsd",
+      "gender": "male",
+      "posizione": 14,
+      "insfida": false,
+      "id": 12
+    },
+    {
+      "email": "datex@soccertime.it",
+      "password": "profv",
+      "name": "Dente Rune",
+      "phone": "3332154789",
+      "country": "Italia",
+      "role": "player",
+      "address": "via anfiteatro laterizio\n25",
+      "gender": "male",
+      "posizione": 11,
+      "insfida": false,
+      "id": 13
+    },
+    {
+      "email": "siciliano@soccertime.it",
+      "password": "123456",
+      "name": "nicola siciliano",
+      "phone": "234342",
+      "country": "Italia",
+      "role": "player",
+      "address": "rfew",
+      "gender": "male",
+      "posizione": 15,
+      "insfida": false,
+      "id": 14
+    },
+    {
+      "email": "davide@soccertime.it",
+      "password": "123",
+      "name": "Davide Aprea",
+      "phone": "3332154789",
+      "country": "Italia",
+      "role": "player",
+      "address": "via anfiteatro laterizio\n25",
+      "gender": "male",
+      "posizione": 1,
+      "insfida": false,
+      "id": 15
+    },
+    {
+      "email": "suazo@soccertime.it",
+      "password": "123456",
+      "name": "Suazo Martinez",
+      "phone": "3332154789",
+      "country": "Italia",
+      "role": "player",
+      "address": "via anfiteatro laterizio\n25",
+      "gender": "male",
+      "posizione": 56,
+      "insfida": false,
+      "id": 16
+    },
+    {
+      "email": "michele@soccertime.it",
+      "password": "123456",
+      "name": "Michele marotta",
+      "phone": "3332154789",
+      "country": "Italia",
+      "role": "player",
+      "address": "via anfiteatro laterizio\n25",
+      "gender": "male",
+      "posizione": 46,
+      "insfida": false,
+      "id": 17
+    }
+  ],
+  "roleaccess": [
+    {
+      "role": "admin",
+      "menu": "default",
+      "haveadd": true,
+      "haveedit": true,
+      "havedelete": false
+    },
+    {
+      "role": "player",
+      "menu": "default",
+      "haveadd": false,
+      "haveedit": true,
+      "havedelete": false
+    }
+  ],
+  "challenge": [
+    {
+      "datasfida": "10-02-2022",
+      "players": [
+        {
+          "idp1": 6,
+          "p1": "Adriana Romano"
+        },
+        {
+          "idp1": 7,
+          "p2": "luis suarez"
+        }
+      ],
+      "status": "complete",
+      "set1": "6-2",
+      "set2": "6-3",
+      "set3": "7-5",
+      "set4": "",
+      "set5": "",
+      "id": 1
+    },
+    {
+      "datasfida": "15-8-2023",
+      "players": [
+        {
+          "idp1": 3,
+          "p1": "Pasquale coppola"
+        },
+        {
+          "idp2": 2,
+          "p2": "Lino Bordelli"
+        }
+      ],
+      "status": "complete",
+      "set1": "6-2",
+      "set2": "6-3",
+      "set3": "7-5",
+      "set4": "",
+      "set5": "",
+      "id": 2
+    },
+    {
+      "datasfida": "25-1-2023",
+      "players": [
+        {
+          "idp1": 2,
+          "p1": "Lino Bordelli"
+        },
+        {
+          "idp2": 7,
+          "p2": "luis suarez"
+        }
+      ],
+      "status": "complete",
+      "set1": "6-0",
+      "set2": "6-2",
+      "set3": "6-0",
+      "set4": "",
+      "set5": "",
+      "id": 3
+    },
+    {
+      "datasfida": "15-2-2023",
+      "players": [
+        {
+          "idp1": 2,
+          "p1": "Lino Bordelli"
+        },
+        {
+          "idp2": 3,
+          "p2": "Pasquale coppola"
+        }
+      ],
+      "status": "complete",
+      "set1": "2-6",
+      "set2": "6-3",
+      "set3": "7-5",
+      "set4": "7-6",
+      "set5": "",
+      "id": 4
+    },
+    {
+      "datasfida": "24-8-2023",
+      "players": [
+        {
+          "idp1": 11,
+          "p1": "Jepson Franzys"
+        },
+        {
+          "idp2": 9,
+          "p2": "Nova Djocovic"
+        }
+      ],
+      "status": "cancel",
+      "set1": "",
+      "set2": "",
+      "set3": "",
+      "set4": "",
+      "set5": "",
+      "id": 5
+    },
+    {
+      "datasfida": "24-8-2023",
+      "players": [
+        {
+          "idp1": 11,
+          "p1": "Jepson Franzys"
+        },
+        {
+          "idp2": 2,
+          "p2": "Lino Bordelli"
+        }
+      ],
+      "status": "processing",
+      "set1": "",
+      "set2": "",
+      "set3": "",
+      "set4": "",
+      "set5": "",
+      "id": 6
+    },
+    {
+      "datasfida": "24-8-2023",
+      "players": [
+        {
+          "idp1": 5,
+          "p1": "Luifi iovino"
+        },
+        {
+          "idp2": 3,
+          "p2": "pasquale coppola"
+        }
+      ],
+      "status": "pending",
+      "set1": "",
+      "set2": "",
+      "set3": "",
+      "set4": "",
+      "set5": "",
+      "id": 7
+    },
+    {
+      "datasfida": "25-8-2023",
+      "players": [
+        {
+          "idp1": 16,
+          "p1": "Suazo Martinez"
+        },
+        {
+          "idp2": 17,
+          "p2": "Michele marotta"
+        }
+      ],
+      "status": "cancel",
+      "set1": "",
+      "set2": "",
+      "set3": "",
+      "set4": "",
+      "set5": "",
+      "id": 8
+    }
+  ]
+}
