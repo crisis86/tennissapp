@@ -24,7 +24,7 @@ const Login = () => {
             // console.log('proceed');
             //getUsersid();
 
-            fetch("http://localhost:26000/user?email=" + email).then((res) => {
+            fetch("https://tennissapp-68ifdjgkh-crisis86.vercel.app:8000/user?email=" + email).then((res) => {
                 //     console.log(res);
                 return res.json();
             }).then((resp) => {
@@ -62,7 +62,7 @@ const Login = () => {
 
 
     function getUsersid() {
-        fetch("http://localhost:26000/user?email=" + email).then((result) => {
+        fetch("https://tennissapp-68ifdjgkh-crisis86.vercel.app:8000/user?email=" + email).then((result) => {
             result.json().then((resp) => {
                 console.log(resp.id)
 
