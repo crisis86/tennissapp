@@ -13,7 +13,7 @@ const Home = () => {
 let email = sessionStorage.getItem('email')
  
 if (email==='' || email===null) {
-  toast.error('Not Authenticate session');
+  //toast.error('Not Authenticate session');
   usenavigate('/login');
 }
 }, []);
