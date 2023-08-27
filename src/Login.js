@@ -24,7 +24,7 @@ const Login = () => {
             // console.log('proceed');
             //getUsersid();
 
-            fetch("https://tennissapp-git-main-crisis86.vercel.app/api/user?email=" + email,
+            fetch("https://tennissapp-git-main-crisis86.vercel.app/user?email=" + email,
                 {
                     method: "GET",
                     headers: {
