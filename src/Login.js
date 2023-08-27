@@ -28,10 +28,10 @@ const Login = () => {
                 {
                     method: "GET",
                     headers: {
-                   "User-Agent":"*",
-                   "Content-Type": "application/json",
-                   "Accept": "application/json; charset=UTF-8",
-                    }
+                        accept: 'application/json',
+                        'User-agent': 'learning app',
+                      }
+                    
                 }
 
             ).then((res) => {
