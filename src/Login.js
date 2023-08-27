@@ -24,7 +24,7 @@ const Login = () => {
             // console.log('proceed');
             //getUsersid();
 
-            fetch("http://localhost:10000/user?email=" + email).then((res) => {
+            fetch("http://127.0.0.1:10000/user?email=" + email).then((res) => {
                 //     console.log(res);
                 return res.json();
             }).then((resp) => {
