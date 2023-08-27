@@ -13,9 +13,9 @@ const Login = () => {
 
     useEffect(() => {
         sessionStorage.clear();
-   
+
     }, []);
-    
+
 
     const ProceedLogin = (e) => {
         e.preventDefault();
@@ -24,30 +24,39 @@ const Login = () => {
             // console.log('proceed');
             //getUsersid();
 
-            fetch("https://tennissapp-git-main-crisis86.vercel.app/api/user?email=" + email).then((res) => {
+            fetch("https://tennissapp-git-main-crisis86.vercel.app/api/user?email=" + email,
+                {
+                    method: "GET",
+                    headers: {
+                   "User-Agent":"*",
+                   Accept: "application/json; charset=UTF-8",
+                    }
+                }
+
+            ).then((res) => {
                 //     console.log(res);
                 return res.json();
             }).then((resp) => {
-              //  console.log(resp.password)
-               
+                //  console.log(resp.password)
+
                 if (Object.keys(resp).length === 0) {
                     toast.error('Please Enter valid username');
                 } else {
                     setuser(resp);
-                   // console.log(resp[0].password)
-                   
-                   //  console.log(JSON.stringify(user.map(({ password }) => password)));
-                //     console.log(user.map(({ password }) => password));
+                    // console.log(resp[0].password)
+
+                    //  console.log(JSON.stringify(user.map(({ password }) => password)));
+                    //     console.log(user.map(({ password }) => password));
                     console.log(password);
-                    
-                    if  (resp[0].password === password) {
-                        
+
+                    if (resp[0].password === password) {
+
                         sessionStorage.setItem('email', email);
                         sessionStorage.setItem('userrole', resp[0].role);
                         sessionStorage.setItem('iduser', resp[0].id);
                         sessionStorage.setItem('fullname', resp[0].name);
                         sessionStorage.setItem('stoinsfida', resp[0].insfida);
-                        localStorage.setItem('datiuserlogin',JSON.stringify(resp[0]));
+                        localStorage.setItem('datiuserlogin', JSON.stringify(resp[0]));
                         toast.success('Success');
                         usenavigate('/')
                     } else {
