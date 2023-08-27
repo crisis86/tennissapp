@@ -63,7 +63,7 @@ const Listasfida = () => {
                 });
 
 
-                fetch("http://localhost:8000/user/" + idp1, {
+                fetch("http://localhost:10000/user/" + idp1, {
                     method: 'PUT',
                     headers: {
                         'Accept': 'application/json',
@@ -108,7 +108,7 @@ const Listasfida = () => {
         });
         //  console.log(found);
 
-        fetch("http://localhost:8000/user/" + iduser, {
+        fetch("http://localhost:10000/user/" + iduser, {
             method: 'PUT',
             headers: {
                 'Accept': 'application/json',
@@ -148,7 +148,7 @@ const Listasfida = () => {
         }
         console.log(obj);
 
-        fetch("http://localhost:8000/challenge", {
+        fetch("http://localhost:10000/challenge", {
             method: "POST",
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(obj)
@@ -179,7 +179,7 @@ const Listasfida = () => {
         if (idriga > 0) {
             console.log(idriga);
 
-            fetch("http://localhost:8000/challenge/" + idriga, {
+            fetch("http://localhost:10000/challenge/" + idriga, {
                 method: 'PUT',
                 headers: {
                     'Accept': 'application/json',
@@ -203,7 +203,7 @@ const Listasfida = () => {
 
     const checksfidapending = () => {
 
-        fetch("http://localhost:8000/challenge?status=pending").then(res => {
+        fetch("http://localhost:10000/challenge?status=pending").then(res => {
             return res.json();
         }).then(resp => {
 
@@ -217,7 +217,7 @@ const Listasfida = () => {
     }
 
     const loadlistplayer = () => {
-        fetch("http://localhost:8000/user?role=player").then(res => {
+        fetch("http://localhost:10000/user?role=player").then(res => {
             if (!res.ok) {
                 return false
             }

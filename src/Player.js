@@ -21,7 +21,7 @@ const Customer = () => {
     const loadcustomer = () => {
         let player2=false;
 
-        fetch("http://localhost:8000/user?role=player").then(res => {
+        fetch("http://localhost:10000/user?role=player").then(res => {
             if (!res.ok) {
                 player2=true
                 return false
@@ -35,7 +35,7 @@ const Customer = () => {
     const GetUserAccess = () => {
         const userrole = sessionStorage.getItem('userrole') != null ? sessionStorage.getItem('userrole').toString() : '';
         console.log(userrole);
-        fetch("http://localhost:8000/roleaccess?role=" + userrole + "&menu=default").then(res => {
+        fetch("http://localhost:10000/roleaccess?role=" + userrole + "&menu=default").then(res => {
             if (!res.ok) {
                 console.log(res)
                // navigate('/');

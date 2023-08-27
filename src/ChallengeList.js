@@ -20,7 +20,7 @@ const ChallengeList = () => {
 
 
     const loadlistplayer = () => {
-        fetch("http://localhost:8000/user?role=player").then(res => {
+        fetch("http://localhost:10000/user?role=player").then(res => {
             if (!res.ok) {
                 return false
             }
