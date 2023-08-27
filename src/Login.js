@@ -28,8 +28,9 @@ const Login = () => {
                 {
                     method: "GET",
                     headers: {
-                        accept: 'application/json',
-                        'User-agent': 'learning app',
+                        'Content-Type': 'application/json',
+                        'accept': 'application/json',
+                        'User-agent': 'learning app'
                       }
                     
                 }
