@@ -28,13 +28,13 @@ const Login = () => {
                 {
                     method: "GET",
                     headers: {
-                   "User-Agent":"*",
-                   Accept: "application/json; charset=UTF-8",
-                    }
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
                 }
 
             ).then((res) => {
-                //     console.log(res);
+                console.log(res);
                 return res.json();
             }).then((resp) => {
                 //  console.log(resp.password)
