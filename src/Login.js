@@ -28,9 +28,9 @@ const Login = () => {
                 {
                     method: "GET",
                     headers: {
-                        'Accept': 'application/json',
-                        'Content-Type': 'application/json'
-                    },
+                   "User-Agent":"*",
+                   Accept: "application/json; charset=UTF-8",
+                    }
                 }
 
             ).then((res) => {
