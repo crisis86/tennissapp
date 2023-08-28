@@ -36,7 +36,7 @@ const Login = () => {
                 if (!res.ok) {console.log('non è ok');}
                 console.log(JSON.parse(res));
                 return res.json();
-            }).then((JSON.parse(resp)) => {
+            }).then((resp) => {
                    console.log(resp.password)
 
                 if (Object.keys(resp).length === 0) {
