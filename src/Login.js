@@ -30,7 +30,8 @@ const Login = () => {
                     headers: {
                         'Content-Type': 'application/json',
                         'User-agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36',
-                         accept: 'application/json; charset=UTF-8',
+                        'Access-Control-Allow-Origin': 'https://tennissapp-git-main-crisis86.vercel.app',
+                         accept: 'application/json; text/html; charset=UTF-8',
                       }
                     
                 }
