@@ -29,7 +29,6 @@ const Login = () => {
                 headers:{
                 'accept': 'application/json',
                 'User-agent': '*',
-                'Content-Type':'application/json',
                 'Access-Control-Allow-Origin': '*',
                 }
             }).then((res) => {
