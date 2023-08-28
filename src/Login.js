@@ -24,7 +24,7 @@ const Login = () => {
             // console.log('proceed');
             //getUsersid();
 
-            fetch("https://tennissapp.onrender.com:5383/user?email=" + email,
+            fetch("https://tennissapp.onrender.com/api/user?email=" + email,
             {
                 headers:{
                  accept: 'application/json',
