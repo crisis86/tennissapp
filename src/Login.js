@@ -29,6 +29,7 @@ const Login = () => {
                 headers:{
                  accept: 'application/json',
                 'User-agent': 'learning app',
+                'Access-Control-Allow-Origin': '*',
                 }
             }).then((res) => {
                 if (!res.ok) {console.log('non è ok');}
