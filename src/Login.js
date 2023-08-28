@@ -27,7 +27,7 @@ const Login = () => {
             fetch("https://www.anapioficeandfire.com/api/"
             {
                 headers:{
-                'accept': 'application/json',
+                accept: 'application/json',
                 'User-agent': '*',
                 'Content-Type':'application/json',
                 'Access-Control-Allow-Origin': '*',
@@ -35,7 +35,7 @@ const Login = () => {
             }).then((res) => {
                 if (!res.ok) {console.log('non è ok');}
                 console.log(res);
-                console.log(res.text());
+              //  console.log(res.text());
                 return res.json();
             }).then((resp) => {
                    console.log(resp.password)
