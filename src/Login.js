@@ -24,17 +24,7 @@ const Login = () => {
             // console.log('proceed');
             //getUsersid();
 
-            fetch("https://tennissapp.vercel.app/user?email=" + email,
-                {
-                    method: "GET",
-                    headers: {
-                        'Content-Type': 'application/json',
-                        accept: 'application/json'
-                      }
-                    
-                }
-
-            ).then((res) => {
+            fetch("https://tennissapp.vercel.app/user?email=" + email).then((res) => {
                 console.log(res);
                 return res.json();
             }).then((resp) => {
