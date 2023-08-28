@@ -24,7 +24,7 @@ const Login = () => {
             // console.log('proceed');
             //getUsersid();
 
-            fetch("http://localhost:5383/api/user?email=" + email,
+            fetch("https://localhost:5383/api/user?email=" + email,
             {
                 headers:{
                 'accept': 'application/json',
