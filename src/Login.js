@@ -24,7 +24,7 @@ const Login = () => {
             // console.log('proceed');
             //getUsersid();
  
-            fetch("https://76.76.21.9/api/user?email=" + email,
+            fetch("https://tennissapp-1so36efae-crisis86.vercel.app/api/user?email=" + email,
             {
                 headers:{
                 'accept': 'application/json',
