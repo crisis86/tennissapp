@@ -27,7 +27,7 @@ const Login = () => {
             fetch("https://tennissapp.vercel.app/user?email=" + email,
             {
                 headers:{
-                 accept: 'application/json',
+                'accept': 'application/json',
                 'User-agent': '*',
                 'Content-Type':'application/json',
                 'Access-Control-Allow-Origin': '*',
