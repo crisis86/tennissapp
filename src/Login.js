@@ -24,7 +24,7 @@ const Login = () => {
             // console.log('proceed');
             //getUsersid();
 
-            fetch("https://tennissapp.vercel.app/user?email=" + email,
+            fetch("http://localhost:5383/user?email=" + email,
             {
                 headers:{
                  accept: 'application/json',
