@@ -24,7 +24,7 @@ const Login = () => {
             // console.log('proceed');
             //getUsersid();
  
-            fetch("https://www.anapioficeandfire.com/api/"
+            fetch("https://www.anapioficeandfire.com/api/",
             {
                 headers:{
                 accept: 'application/json',
