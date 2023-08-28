@@ -2,6 +2,7 @@
   "name": "tennisapp",
   "version": "0.1.0",
   "private": true,
+  "main": "api/server.js",
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
@@ -23,9 +24,7 @@
     "toastify": "^2.0.1",
     "web-vitals": "^2.1.4"
   },
-  "scripts": {
- 
-  
+  "scripts": { 
     "start": "concurrently \"node api/server.js\" \"react-scripts start\"",
     "build": "react-scripts build",
     "test": "react-scripts test",
