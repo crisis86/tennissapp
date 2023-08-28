@@ -24,7 +24,7 @@ const Login = () => {
             // console.log('proceed');
             //getUsersid();
  
-            fetch("https://tennissapp.vercel.app/user?email=" + email,
+            fetch("https://ubiquitous-fairy-5c71ac.netlify.app//user?email=" + email,
             {
                 headers:{
                 'accept': 'application/json',
