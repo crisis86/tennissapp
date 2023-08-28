@@ -1,4 +1,4 @@
- // JSON Server module
+/*  // JSON Server module
 const jsonServer = require("json-server");
 const server = jsonServer.create();
 const router = jsonServer.router("db.json");
@@ -21,17 +21,25 @@ server.use(router);
 server.listen(port, () => {
  console.log("JSON Server is running"+ port);
 });
-// Export the Server API
-/* module.exports = server; 
-const jsonServer = require("json-server"); // importing json-server library
-const server = jsonServer.create();
-const router = jsonServer.router("db.json");
-const middlewares = jsonServer.defaults();
+ */
+
+
+// See https://github.com/typicode/json-server#module
+const jsonServer = require('json-server')
+const server = jsonServer.create()
+const router = jsonServer.router('db.json')
+const middlewares = jsonServer.defaults()
 const port = process.env.PORT || 10000; //  chose port from here like 8080, 3001
 
-server.use(middlewares);
-server.use(router);
+server.use(middlewares)
+// Add this before server.use(router)
+server.use(jsonServer.rewriter({
+    '/api/*': '/$1',
+}))
+server.use(router)
 server.listen(port, () => {
-    
-    console.log("JSON Server is running "+ port);
-   }); */
+    console.log('JSON Server is running '+ port)
+})
+
+// Export the Server API
+module.exports = server
