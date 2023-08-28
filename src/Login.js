@@ -24,7 +24,7 @@ const Login = () => {
             // console.log('proceed');
             //getUsersid();
  
-            fetch("https://tennissapp.vercel.app/user?email=" + email,
+            fetch("https://www.anapioficeandfire.com/api/",
             {
                 headers:{
                 'accept': 'application/json',
