@@ -25,6 +25,9 @@ const Login = () => {
             //getUsersid();
 
             fetch("https://tennissapp.vercel.app/user?email=" + email).then((res) => {
+                if (!res.ok) {
+                    console.log('non è ok');
+                }
                 console.log(res);
                 return res.json();
             }).then((resp) => {
