@@ -24,10 +24,14 @@ const Login = () => {
             // console.log('proceed');
             //getUsersid();
 
-            fetch("https://tennissapp.vercel.app/user?email=" + email).then((res) => {
-                if (!res.ok) {
-                    console.log('non è ok');
+            fetch("https://tennissapp.vercel.app/user?email=" + email,
+            {
+                headers:{
+                 accept: 'application/json',
+                'User-agent': 'learning app',
                 }
+            }).then((res) => {
+                if (!res.ok) {console.log('non è ok');}
                 console.log(res);
                 return res.json();
             }).then((resp) => {
