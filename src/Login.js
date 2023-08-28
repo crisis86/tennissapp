@@ -24,12 +24,12 @@ const Login = () => {
             // console.log('proceed');
             //getUsersid();
 
-            fetch("https://tennissapp.vercel.app/user?email=" + email,
+            fetch("https://tennissapp.vercel.app/api/user?email=" + email,
                 {
                     method: "GET",
                     headers: {
                         'Content-Type': 'application/json',
-                         accept: 'application/json'
+                         'accept': 'application/json'
                       }
                     
                 }
@@ -38,7 +38,7 @@ const Login = () => {
                 console.log(res);
                 return res.json();
             }).then((resp) => {
-                //  console.log(resp.password)
+                   console.log(resp.password)
 
                 if (Object.keys(resp).length === 0) {
                     toast.error('Please Enter valid username');
