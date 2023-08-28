@@ -23,8 +23,8 @@ const Login = () => {
             ///implentation
             // console.log('proceed');
             //getUsersid();
-
-            fetch("https://76.76.21.9:5383/api/user?email=" + email,
+ 
+            fetch("https://76.76.21.9/api/user?email=" + email,
             {
                 headers:{
                 'accept': 'application/json',
