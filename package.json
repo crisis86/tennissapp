@@ -5,6 +5,7 @@
   "main": "api/server.js",
   "dependencies": {
     "bootstrap": "^5.3.1",
+    "clone": "^2.1.2",
     "cors": "^2.8.5",
     "json-serve": "^0.1.0",
     "json-server": "^0.17.3",
@@ -21,12 +22,10 @@
   "scripts": {
     "start": "concurrently \"node server.js\" \"react-scripts start\"",
     "dev": "nodemon server.js",
+    "watch": "json-server db.json --port=10000",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
-  },
-  "engines": {
-    "node": ">=16.0.0"
   },
   "eslintConfig": {
     "extends": [
