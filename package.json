@@ -2,6 +2,7 @@
   "name": "tennisapp",
   "version": "0.1.0",
   "private": true,
+  "main": "api/server.js",
   "dependencies": {
     "bootstrap": "^5.3.1",
     "cors": "^2.8.5",
@@ -18,7 +19,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "node server.js",
+    "start": "concurrently \"node server.js\" \"react-scripts start\"",
     "dev": "nodemon server.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
