@@ -41,7 +41,7 @@ server.use((req, res, next) => {
 
 server.use(router)
 server.listen(PORT, () => {
-    console.log('JSON Server is running')
+    console.log('JSON Server is running ' + PORT)
 })
 
 // Export the Server API

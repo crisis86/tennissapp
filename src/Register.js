@@ -95,7 +95,7 @@ const Register = () => {
 
     function checkemail(email) {
         
-        fetch("http://localhost:10000/user?role=player&email="+email).then(res => {
+        fetch("https://tennissapp.vercel.app/user?role=player&email="+email).then(res => {
             if (!res.ok) {
                 return false
             }
@@ -119,7 +119,7 @@ const Register = () => {
             let regobj = {email, password, name, phone, country, role, address, gender, posizione,insfida};
             if (IsValidate()) {
           //  console.log(regobj);
-            fetch("http://localhost:10000/user", {
+            fetch("https://tennissapp.vercel.app/user", {
                 method: "POST",
                 headers: { 'content-type': 'application/json' },
                 body: JSON.stringify(regobj)
