@@ -1,4 +1,4 @@
-/* const jsonServer = require('json-server')
+const jsonServer = require('json-server')
 const cors = require('cors')
 const path = require('path')
 
@@ -15,9 +15,9 @@ server.use(router)
 
 server.listen(PORT, () => {
   console.log(`JSON Server is running on http://localhost:${PORT}`)
-}) */
+})
 
-const jsonServer = require('json-server')
+/* const jsonServer = require('json-server')
 const clone = require('clone')
 const data = require('./db.json')
 
@@ -45,4 +45,4 @@ server.listen(PORT, () => {
 })
 
 // Export the Server API
-module.exports = server
+module.exports = server */

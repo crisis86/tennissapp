@@ -2,7 +2,7 @@
   "name": "tennisapp",
   "version": "0.1.0",
   "private": true,
-  "main": "api/server.js",
+  "main": "server.js",
   "dependencies": {
     "bootstrap": "^5.3.1",
     "clone": "^2.1.2",
