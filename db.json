@@ -220,6 +220,19 @@
       "posizione": 46,
       "insfida": false,
       "id": 17
+    },
+    {
+      "email": "davidesdsdx@soccertime.it",
+      "password": "asdasd",
+      "name": "Davide Aprea",
+      "phone": "3332154789",
+      "country": "Italia",
+      "role": "player",
+      "address": "via anfiteatro laterizio\n25",
+      "gender": "male",
+      "posizione": 19,
+      "insfida": false,
+      "id": 18
     }
   ],
   "roleaccess": [
