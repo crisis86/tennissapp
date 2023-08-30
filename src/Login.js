@@ -10,10 +10,12 @@ const Login = () => {
     const [getiduser, setiduser] = useState(null);
     const [password, passwordupdate] = useState('');
     const usenavigate = useNavigate();
+   const produrl = process.env.API_URL || "http://localhost:10000"; 
+   
 
     useEffect(() => {
         sessionStorage.clear();
-
+        console.log(process.env.API_URL)
     }, []);
 
 
@@ -23,8 +25,8 @@ const Login = () => {
             ///implentation
             // console.log('proceed');
             //getUsersid();
- 
-            fetch("https://tennissapp.onrender.com/user?email=" + email,
+         
+            fetch(produrl+"/user?email=" + email,
             {
                 headers:{
                 accept: 'application/json',
