@@ -20,7 +20,7 @@ const ChallengeList = () => {
 
 
     const loadlistplayer = () => {
-        fetch("https://tennissapp.vercel.app/user?role=player").then(res => {
+        fetch(window.$produrl+"/user?role=player").then(res => {
             if (!res.ok) {
                 return false
             }

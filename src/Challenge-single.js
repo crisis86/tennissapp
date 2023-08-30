@@ -52,11 +52,11 @@ const ChallengeSingle = () => {
           
             const results = await Promise.all(
                 [
-                    fetch("http://localhost:10000/user?role=player&name=" + idplayer['name']).then((response) =>
+                    fetch(window.$produrl+"/user?role=player&name=" + idplayer['name']).then((response) =>
                         response.json()),
-                    fetch("http://localhost:10000/user?id=" + iduser).then((response) =>
+                    fetch(window.$produrl+"/user?id=" + iduser).then((response) =>
                         response.json()),
-                    fetch('http://localhost:10000/challenge?q=' + idplayer['name'] + '&status!=cancel').then((response) =>
+                    fetch(window.$produrl+'/challenge?q=' + idplayer['name'] + '&status!=cancel').then((response) =>
                         response.json()
                     ),
                 ]);
@@ -119,7 +119,7 @@ function SfidaAbilitata() {
                 });
 
 
-                fetch("http://localhost:10000/user/" + idp1, {
+                fetch(window.$produrl+"/user/" + idp1, {
                     method: 'PUT',
                     headers: {
                         'Accept': 'application/json',
@@ -163,7 +163,7 @@ function SfidaAbilitata() {
         });
         //  console.log(found);
 
-        fetch("http://localhost:10000/user/" + iduser, {
+        fetch(window.$produrl+"/user/" + iduser, {
             method: 'PUT',
             headers: {
                 'Accept': 'application/json',
@@ -212,7 +212,7 @@ function SfidaAbilitata() {
         }
         console.log(obj);
 
-        fetch("http://localhost:10000/challenge", {
+        fetch(window.$produrl+"/challenge", {
             method: "POST",
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(obj)
@@ -246,7 +246,7 @@ function SfidaAbilitata() {
         if (idriga > 0) {
             console.log(idriga);
 
-            fetch("http://localhost:10000/challenge/" + idriga, {
+            fetch(window.$produrl+"/challenge/" + idriga, {
                 method: 'PUT',
                 headers: {
                     'Accept': 'application/json',
@@ -272,7 +272,7 @@ function SfidaAbilitata() {
     }
     const checksfidapending = () => {
 
-        fetch("http://localhost:10000/challenge?status=pending&q="+idplayer['name']).then(res => {
+        fetch(window.$produrl+"/challenge?status=pending&q="+idplayer['name']).then(res => {
             return res.json();
         }).then(resp => {
             if (Object.keys(resp).length === 0) {

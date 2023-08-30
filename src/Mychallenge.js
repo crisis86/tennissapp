@@ -31,7 +31,7 @@ const Mychallenge = () => {
             const results = await Promise.all(
                 [
 
-                    fetch("http://localhost:10000/user?id=" + iduser).then((response) =>
+                    fetch(window.$produrl+"/user?id=" + iduser).then((response) =>
                         response.json()
                     ),
                 ]);
@@ -89,7 +89,7 @@ const Mychallenge = () => {
                 console.log(challengepending)
                 console.log(found[0])
 
-                fetch("http://localhost:10000/challenge/" + idrecord, {
+                fetch(window.$produrl+"/challenge/" + idrecord, {
                     method: 'PUT',
                     headers: {
                         'Accept': 'application/json',
@@ -160,7 +160,7 @@ const Mychallenge = () => {
 
 
 
-                fetch("http://localhost:10000/user/" + idp1, {
+                fetch(window.$produrl+"/user/" + idp1, {
                     method: 'PUT',
                     headers: {
                         'Accept': 'application/json',
@@ -199,7 +199,7 @@ const Mychallenge = () => {
         });
         //  console.log(found);
 
-        fetch("http://localhost:10000/user/" + iduser, {
+        fetch(window.$produrl+"/user/" + iduser, {
             method: 'PUT',
             headers: {
                 'Accept': 'application/json',
@@ -226,7 +226,7 @@ const Mychallenge = () => {
     const checksfidapending = () => {
 
 
-        fetch("http://localhost:10000/challenge?status!=cancel&q=" + fullname).then(res => {
+        fetch(window.$produrl+"/challenge?status!=cancel&q=" + fullname).then(res => {
             if (!res.ok) {
                 // console.log('nulla')
                 return false
@@ -280,7 +280,7 @@ const Mychallenge = () => {
         if (idriga > 0) {
             console.log(idriga);
 
-            fetch("http://localhost:10000/challenge/" + idriga, {
+            fetch(window.$produrl+"/challenge/" + idriga, {
                 method: 'PUT',
                 headers: {
                     'Accept': 'application/json',
@@ -308,7 +308,7 @@ const Mychallenge = () => {
     }
 
     function loadlistplayer(idgiocatore) {
-        fetch("http://localhost:10000/user?id=" + idgiocatore).then(res => {
+        fetch(window.$produrl+"/user?id=" + idgiocatore).then(res => {
             if (!res.ok) {
                 return false
             }
