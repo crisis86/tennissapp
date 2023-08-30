@@ -9,13 +9,11 @@ const Login = () => {
     const [email, emailupdate] = useState('');
     const [getiduser, setiduser] = useState(null);
     const [password, passwordupdate] = useState('');
-    const usenavigate = useNavigate();
-   const produrl = process.env.API_URL || "http://localhost:10000"; 
-   
+    const usenavigate = useNavigate();   
 
     useEffect(() => {
         sessionStorage.clear();
-        console.log(process.env.API_URL)
+      //  console.log(window.$produrl)
     }, []);
 
 
@@ -26,7 +24,7 @@ const Login = () => {
             // console.log('proceed');
             //getUsersid();
          
-            fetch(produrl+"/user?email=" + email,
+            fetch(window.$produrl+"/user?email=" + email,
             {
                 headers:{
                 accept: 'application/json',

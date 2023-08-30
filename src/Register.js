@@ -18,7 +18,7 @@ const Register = () => {
     const [posizione, posizionechange] = useState(Math.floor(Math.random() * 25));
     const [insfida, insfidachange]=useState(false);
     const [chek, setcheck] = useState(false);
-   
+
   
      
 
@@ -29,7 +29,7 @@ const Register = () => {
 
     const  lastidjson = ()=> {
   
-    fetch("http://localhost:10000/user", {
+    fetch(window.$produrl+"/user", {
         method:'POST'
         }).then(res => {
             if (!res.ok) {
@@ -95,7 +95,7 @@ const Register = () => {
 
     function checkemail(email) {
         
-        fetch("https://tennissapp.vercel.app/user?role=player&email="+email).then(res => {
+        fetch(window.$produrl+"/user?role=player&email="+email).then(res => {
             if (!res.ok) {
                 return false
             }
@@ -119,7 +119,7 @@ const Register = () => {
             let regobj = {email, password, name, phone, country, role, address, gender, posizione,insfida};
             if (IsValidate()) {
           //  console.log(regobj);
-            fetch("https://tennissapp.vercel.app/user", {
+            fetch(window.$produrl+"/user", {
                 method: "POST",
                 headers: { 'content-type': 'application/json' },
                 body: JSON.stringify(regobj)
