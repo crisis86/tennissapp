@@ -17,6 +17,22 @@
     {
       "src": "login",
       "dest": "login.js"
+    },
+    {
+      "src": "reister",
+      "dest": "register.js"
+    },
+    {
+      "src": "home",
+      "dest": "home.js"
+    },
+    {
+      "src": "Mychallenge",
+      "dest": "Mychallenge.js"
+    },
+    {
+      "src": "ChallengeList",
+      "dest": "ChallengeList.js"
     }
   ]
 }
