@@ -2,7 +2,7 @@
   "name": "tennisapp",
   "version": "0.1.0",
   "private": true,
-  "main": "server.js",
+  "main": "api/server.js",
   "dependencies": {
     "bootstrap": "^5.3.1",
     "clone": "^2.1.2",
@@ -23,7 +23,7 @@
       "node" : ">=16.0.0" 
     },
   "scripts": {
-    "start":"node server.js",
+    "start":"node api/server.js",
     "dev": "nodemon server.js",
     "serve": "node server.js",
     "build": "react-scripts build",
