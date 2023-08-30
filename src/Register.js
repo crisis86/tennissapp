@@ -40,7 +40,7 @@ const Register = () => {
         }).then(res => {
           //  console.log(res.length)
             
-            posizionechange(Math.floor(Math.random() * 20));
+            posizionechange(Math.floor(Math.random() * 30));
         });
     }
 
