@@ -16,9 +16,6 @@ const ChallengeList = () => {
 
     }, []);
 
-
-
-
     const loadlistplayer = () => {
         fetch(window.$produrl+"/user?role=player").then(res => {
             if (!res.ok) {
@@ -56,14 +53,11 @@ const ChallengeList = () => {
                                                     <div className="item-content">
                                                         <div className="item-inner item-cell">
                                                             <div className="item-row">
-                                                                {/* <div className="item-cell flex-shrink-0" style={{ width: '2px' }}>
-                                                                    <div className="font-size-24 font-weight-bold"></div>
-                                                                </div> */}
-                                                                <div className="item-cell width-auto">
+                                                              <div className="item-cell width-auto">
                                                                     <img src={logo} height="50" width="50" alt="" />
                                                                 </div>
 
-                                                                <a className='link' style={{ width: '150px' }} href={'/Challenge-single/' + item.name}>
+                                                                <a className='link' style={{ width: '150px' }} href={'/Challenge-single/' + item.id+'/'+item.name}>
 
                                                                     <div className="item-cell">
                                                                             <div className="font-size-20 font-weight-bold text-color-primary">

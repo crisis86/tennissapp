@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
+import Calendar from 'react-calendar';
+import 'react-calendar/dist/Calendar.css';
 import React from "react";
 import { toast } from "react-toastify";
 import Swal from 'sweetalert2';
-
+import dayjs from 'dayjs';
 
 const Mychallenge = () => {
 
@@ -12,45 +14,191 @@ const Mychallenge = () => {
     const [challengepending, setchallengepending] = useState([]);
     const [flagmeplayer, setflagmeplayer] = useState([]);
     const [player, setplayer] = useState([]);
+    const [datadellasfida, setdatadellasfida] = useState(new Date())
+    const locale = 'it';
+
+    const [set1casa, setset1casa] = useState(0)
+    const [set1ospite, setset1ospite] = useState(0)
+
+    const [set2casa, setset2casa] = useState(0)
+    const [set2ospite, setset2ospite] = useState(0)
+
+    const [set3casa, setset3casa] = useState(0)
+    const [set3ospite, setset3ospite] = useState(0)
+
 
 
     useEffect(() => {
         fetchdata();
         checksfidapending();
+        // loadlistplayer();
 
     }, []);
 
-
-
     async function fetchdata() {
 
-
         try {
-
 
             const results = await Promise.all(
                 [
 
-                    fetch(window.$produrl+"/user?id=" + iduser).then((response) =>
+                    fetch(window.$produrl + "/user?id=" + iduser).then((response) =>
+                        response.json()),
+                    fetch(window.$produrl + "/user?insfida=true").then((response) =>
                         response.json()
-                    ),
+
+                        ),
                 ]);
 
 
             setflagmeplayer(results[0]);
-
-
+            setplayer(results[1]);
 
         } catch (error) {
             console.error(error);
         }
     }
 
+    const progmatchandle = (e, idrecord) => {
+        e.preventDefault();
+        //   console.log(datadellasfida)
+
+
+        const formatted = Intl.DateTimeFormat(locale).format(datadellasfida); // 3/19/2023
+
+        Swal.fire({
+            title: 'Sei sicuro?',
+            text: 'Vuoi programmare la sfida?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Si sono sicuro!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire(
+                    'Sfida Programmata!',
+                    'con su successo!'
+                )
+
+                const found = challengepending.filter(obj => {
+
+                    obj.datasfida = formatted;
+
+                    return obj.id === idrecord
+                });
+
+                  console.log(challengepending)
+                   console.log(found)
+
+                fetch(window.$produrl + "/challenge/" + idrecord, {
+                    method: 'PUT',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(found[0])
+                }).then((result) => {
+                    //  console.log(result)
+                    result.json().then((resp) => {
+
+                        fetchdata();
+                        checksfidapending();
+
+                    })
+                }).catch((err) => {
+                    toast.error(err.message);
+                });
+
+            }
+        })
+
+    }
+
+    const aggiornapunteggio = (e, idrecord, p1, p2) => {
+        e.preventDefault();
+
+
+
+        Swal.fire({
+            title: 'Sei sicuro?',
+            text: 'Vuoi aggiornare il risultato?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Operazione irreversibile!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire(
+                    'Sfida Completata!',
+                    'il risultato è stato aggiornato!'
+                )
+                let player1 = 0;
+                let player2 = 0;
+                //  const play = player.map(obj => obj.posizione) 
+
+                const found = challengepending.filter(obj => {
+                    if (obj.id === idrecord) {
+
+                        obj.set1 = set1casa + '-' + set1ospite
+                        obj.set2 = set2casa + '-' + set2ospite
+                        obj.set3 = set3casa + '-' + set3ospite
+                        obj.status = "complete"
+
+                        player1 = obj.players[0].idp1
+                        player2 = obj.players[1].idp2
+
+
+                        // scalarapunti da fare
+                    }
+                    return obj.id === idrecord
+                });
+
+                //    console.log(challengepending)
+                //   console.log(found[0])
+
+                fetch(window.$produrl + "/challenge/" + idrecord, {
+                    method: 'PUT',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(found[0])
+                }).then((result) => {
+                    //  console.log(result)
+                    result.json().then((resp) => {
+
+                        if (player1 !== iduser) {
+                            console.log('sono player1' + player1)
+
+                            resetstatusfida(player1);
+                            ResetesetMysfida(player2);
+                        } else {
+                            console.log('sono player2' + player2)
+
+                            resetstatusfida(player2);
+                            ResetesetMysfida(player1);
+                        }
+
+                        sessionStorage.setItem('stoinsfida', false);
+                        checksfidapending();
+
+                    })
+                }).catch((err) => {
+                    toast.error(err.message);
+                });
+
+            }
+        })
+
+    }
+
     const accettasfidahandle = (e, idrecord, status) => {
         e.preventDefault();
 
-        console.log(idrecord)
-        console.log(status)
+        // console.log(idrecord)
+        //  console.log(status)
 
         let mtext = "Vuoi lanciare la sfida?";
         let mconfirmtext = "Si, invia la sfida";
@@ -80,16 +228,16 @@ const Mychallenge = () => {
                   }); */
 
                 const found = challengepending.filter(obj => {
-
-                    obj.status = 'processing';
-
+                    if (obj.id === idrecord) {
+                        obj.status = 'processing';
+                    }
                     return obj.id === idrecord
                 });
 
-                console.log(challengepending)
-                console.log(found[0])
+                //    console.log(challengepending)
+                //   console.log(found[0])
 
-                fetch(window.$produrl+"/challenge/" + idrecord, {
+                fetch(window.$produrl + "/challenge/" + idrecord, {
                     method: 'PUT',
                     headers: {
                         'Accept': 'application/json',
@@ -97,7 +245,7 @@ const Mychallenge = () => {
                     },
                     body: JSON.stringify(found[0])
                 }).then((result) => {
-                    console.log(result)
+                    //  console.log(result)
                     result.json().then((resp) => {
 
                         checksfidapending();
@@ -113,13 +261,10 @@ const Mychallenge = () => {
 
     }
 
-
-
-    const sfidahandle = (e, idp1, status) => {
+    const sfidahandle = (e, idp1, status, idchallange) => {
         e.preventDefault();
 
-        loadlistplayer(idp1);
-
+        //    loadlistplayer(idp1);
 
         let mtext = "Vuoi lanciare la sfida?";
         let mconfirmtext = "Si, invia la sfida";
@@ -144,7 +289,14 @@ const Mychallenge = () => {
                 )
 
 
+
                 const found = player.filter(obj => {
+
+                    return obj.id === idp1;
+
+                });
+
+                const found2 = found.filter(obj => {
 
                     if (obj.id === idp1 && status === "update") {
                         obj.insfida = true;
@@ -158,22 +310,20 @@ const Mychallenge = () => {
                     return obj.id === idp1;
                 });
 
-
-
-                fetch(window.$produrl+"/user/" + idp1, {
+                fetch(window.$produrl + "/user/" + idp1, {
                     method: 'PUT',
                     headers: {
                         'Accept': 'application/json',
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify(found[0])
+                    body: JSON.stringify(found2[0])
                 }).then((result) => {
-                    console.log(result)
+                    //   console.log(result)
                     result.json().then((resp) => {
 
                         flagmesfida(status);
 
-                        removechallenge();
+                        removechallenge(idchallange);
 
                     })
                 }).catch((err) => {
@@ -199,7 +349,7 @@ const Mychallenge = () => {
         });
         //  console.log(found);
 
-        fetch(window.$produrl+"/user/" + iduser, {
+        fetch(window.$produrl + "/user/" + iduser, {
             method: 'PUT',
             headers: {
                 'Accept': 'application/json',
@@ -222,11 +372,76 @@ const Mychallenge = () => {
 
     }
 
+    function resetstatusfida(idp1) {
+
+
+
+        const found2 = player.filter(obj => {
+
+            if (obj.id === idp1) {
+                obj.insfida = false;
+
+            }
+
+
+            return obj.id === idp1;
+        });
+         
+        console.log(found2);
+
+
+        fetch(window.$produrl + "/user/" + idp1, {
+            method: 'PUT',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(found2[0]),
+        }).then((result) => {
+            //   console.log(result)
+            result.json().then((resp) => {
+ 
+
+            })
+        }).catch((err) => {
+            toast.error(err.message);
+        });
+
+    }
+
+    function ResetesetMysfida(idp1) {
+
+        const found = flagmeplayer.filter(obj => {
+            if (obj.id === idp1) {
+                obj.insfida = false;
+
+            }
+            return obj.id === idp1;
+        });
+
+        //  console.log(found);
+
+        fetch(window.$produrl + "/user/" + idp1, {
+            method: 'PUT',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(found[0]),
+        }).then((result) => {
+            //   console.log(result)
+            result.json().then((resp) => {
+
+          })
+        }).catch((err) => {
+            toast.error(err.message);
+        });
+    }
 
     const checksfidapending = () => {
 
 
-        fetch(window.$produrl+"/challenge?status!=cancel&q=" + fullname).then(res => {
+        fetch(window.$produrl + "/challenge?status!=cancel&q=" + fullname).then(res => {
             if (!res.ok) {
                 // console.log('nulla')
                 return false
@@ -245,18 +460,15 @@ const Mychallenge = () => {
                 /*   const found = challengepending.find(obj => {
                       return obj.datasfida == date;
                     }); */
-                console.log(resp[0].datasfida);
-                console.log(date);
+                //  console.log(resp[0].datasfida);
+                //  console.log(date);
 
                 if (date !== resp[0].datasfida) {
-                    console.log('cancella sfida');
-
-
+                    //    console.log('cancella sfida');
 
                 } else {
 
-
-                    console.log('in attesa di risposta');
+                    //  console.log('in attesa di risposta');
                 }
             }
         }).catch((err) => {
@@ -265,22 +477,23 @@ const Mychallenge = () => {
 
     }
 
-    function removechallenge() {
+    function removechallenge(idrecord) {
 
         let idriga = 0;
 
         const found = challengepending.filter(obj => {
 
-            obj.status = "cancel";
-            idriga = obj.id;
-
+            if (obj.id === idrecord) {
+                obj.status = "cancel";
+                idriga = obj.id;
+            }
             return obj.id;
 
         })
         if (idriga > 0) {
             console.log(idriga);
 
-            fetch(window.$produrl+"/challenge/" + idriga, {
+            fetch(window.$produrl + "/challenge/" + idriga, {
                 method: 'PUT',
                 headers: {
                     'Accept': 'application/json',
@@ -307,15 +520,17 @@ const Mychallenge = () => {
 
     }
 
-    function loadlistplayer(idgiocatore) {
-        fetch(window.$produrl+"/user?id=" + idgiocatore).then(res => {
+    function loadlistplayer() {
+        fetch(window.$produrl + "/user?insfida=true").then(res => {
             if (!res.ok) {
                 return false
             }
             return res.json();
         }).then(res => {
 
+            console.log(res);
             setplayer(res);
+            //  console.log(player[1]);
 
         });
     }
@@ -332,24 +547,26 @@ const Mychallenge = () => {
                 <div className="title">Le tue Sfide </div>
                 <div className="page-content">
                     {challengepending &&
-                        challengepending.map((item, index) => (
+
+
+                        challengepending.sort((a, b) => a.id < b.id ? 1 : -1).map((item, index) => (
                             <div key={index + 1} className="row">
 
 
                                 <div className="col flex-grow-1 margin-right-half">
                                     <div className="block block-strong medium-hide no-hairlines no-margin-vertical sticky sticky-top">
-                                        <div className={item.status === 'processing' ? 'segmented segmented-strong-green' : "segmented segmented-strong"} style={{}}>
+                                        <div className={item.status === 'pending' || item.status === 'processing' ? 'segmented segmented-strong-penging' : 'segmented segmented-strong'}>
 
                                             <ul className="">
 
                                                 <li key={index + 1}>Sfida: {item.players[0].p1} VS {item.players[1].p2}</li>
                                                 <li> Stato {item.status}</li>
-                                                <li> in data {item.datasfida}</li>
+                                                <li>Creata il: {item.datacreate}</li>
+                                                <li>Programmata il: {item.datasfida}</li>
+
                                                 <li>Set1: {item.set1} </li>
                                                 <li>Set2: {item.set2} </li>
                                                 <li>Set3: {item.set3} </li>
-                                                <li>Set4: {item.set4} </li>
-                                                <li>Set4: {item.set5} </li>
 
                                             </ul>
 
@@ -365,26 +582,96 @@ const Mychallenge = () => {
                                         <div className="col flex-shrink-0">
                                             <div className="row">
                                                 <div className="col-100 small-50">
-                                                {item.status === 'pending' &&
-                                                    <button onClick={(e) => sfidahandle(e, item.players[1].idp2, 'cancel')} type="button" className="button button-fade button-small">Annulla</button>
-                                                }
-                                                    </div>
+                                                    {item.status === 'pending' &&
+                                                        <button onClick={(e) => sfidahandle(e, item.players[1].idp2, 'cancel', item.id)} type="button" className="button button-fade button-small">Annulla</button>
+                                                    }
+                                                </div>
                                             </div>
                                         </div>
                                     ) : (
                                         <div className="col flex-shrink-0">
                                             <div className="row">
-                                                <div className="col-100 small-50">
-                                                    {item.status === 'pending' &&
-                                                        <button onClick={(e) => sfidahandle(e, item.players[0].idp1, 'cancel')} type="button" className="button button-fade button-small">Annulla</button>
-                                                    }
-                                                </div>
-                                                <div className="col-100 small-50">
-                                                    {item.status === 'processing' &&
-                                                        <button onClick={(e) => accettasfidahandle(e, item.id, 'accept')} type="button" className="button button-fade button-small">Accetta</button>
-                                                    }
-                                                </div>
+                                                {item.status === 'pending' && item.datasfida === '' &&
+                                                    <>
+                                                        <div className="col-100 small-50">
+                                                            <button onClick={(e) => sfidahandle(e, item.players[0].idp1, 'cancel', item.id)} type="button" className="button button-fade button-small">Annulla</button>
+                                                        </div>
+                                                        <div className="col-100 small-50">
+                                                            <button onClick={(e) => accettasfidahandle(e, item.id, 'accept')} type="button" className="button button-fade button-small">Accetta</button>
+                                                        </div>
+                                                    </>
+                                                }
                                             </div>
+                                            {item.status === 'processing' &&
+                                                <>
+                                                    {item.datasfida === '' ? (
+                                                        <div className="row">
+                                                            <span><i>Programma La sfida</i></span>
+
+                                                            <div>
+                                                                <Calendar minDate={new Date()}
+                                                                    formatday={(locale, date) => dayjs(date).format('dd-m-yyyy')}
+                                                                    onChange={date => setdatadellasfida(date)} value={datadellasfida} />
+                                                                <button onClick={(e) => progmatchandle(e, item.id)} type="button" className="button button-fade button-small">Conferma data</button>
+
+                                                            </div>
+                                                        </div>
+                                                    ) : (
+                                                        <div className="row">
+
+
+                                                            <div>
+                                                                <span><i>Inserisci Il risultati</i></span>
+
+                                                                <table className="data-table">
+                                                                    <tr index={index + 1}>
+                                                                        <td>Set 1</td>
+                                                                        <td>
+                                                                            <input type="number" min="1" max="100" value={set1casa} onChange={e => setset1casa(e.target.value)} className="form-control"></input>
+                                                                        </td>
+                                                                        <td>-</td>
+                                                                        <td>
+                                                                            <input type="number" min="1" max="100" value={set1ospite} onChange={e => setset1ospite(e.target.value)} className="form-control"></input>
+                                                                        </td>
+
+
+                                                                    </tr>
+
+                                                                    <tr>
+                                                                        <td>Set 2</td>
+                                                                        <td>
+                                                                            <input type="number" min="1" max="100" value={set2casa} onChange={e => setset2casa(e.target.value)} className="form-control"></input>
+                                                                        </td>
+                                                                        <td>-</td>
+                                                                        <td>
+                                                                            <input type="number" min="1" max="100" value={set2ospite} onChange={e => setset2ospite(e.target.value)} className="form-control"></input>
+                                                                        </td>
+
+
+                                                                    </tr>
+
+                                                                    <tr>
+                                                                        <td>Set 3</td>
+                                                                        <td>
+                                                                            <input type="number" min="1" max="100" value={set3casa} onChange={e => setset3casa(e.target.value)} className="form-control"></input>
+                                                                        </td>
+                                                                        <td>-</td>
+                                                                        <td>
+                                                                            <input type="number" min="1" max="100" value={set3ospite} onChange={e => setset3ospite(e.target.value)} className="form-control"></input>
+                                                                        </td>
+
+
+                                                                    </tr>
+
+                                                                </table>
+
+                                                                <button style={{ display: 'inerith' }} onClick={(e) => aggiornapunteggio(e, item.id, item.players[0].idp1, item.players[1].idp2)} type="button" className="button button-fill button-small">Aggiorna Risultati</button>
+
+                                                            </div>
+                                                        </div>
+                                                    )}
+                                                </>
+                                            }
                                         </div>
                                     )}
                                 </div>

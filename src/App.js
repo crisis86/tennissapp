@@ -28,7 +28,7 @@ function App() {
       <Route path="/Register" element={<Register />}> </Route>
       <Route path="/lista-sfida" element={<Listasfida />}> </Route>
       <Route path="/Mychallenge" element={<Mychallenge />}> </Route>
-      <Route path="/Challenge-single/:name" element={<ChallengeSingle />}> </Route>
+      <Route path="/Challenge-single/:id/:name" element={<ChallengeSingle />}> </Route>
       
     </Routes>
      </BrowserRouter> 

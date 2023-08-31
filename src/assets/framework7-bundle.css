@@ -5625,6 +5625,18 @@
     transform: translateX(calc(var(--f7-segmented-highlight-active) * 100% + var(--f7-segmented-highlight-active) * var(--f7-segmented-highlight-between)));
     transition: 200ms;
   }
+  .segmented-strong-green { 
+ 
+    --f7-segmented-highlight-num: 1;
+    --f7-segmented-highlight-active: 0;
+    --f7-segmented-highlight-padding: calc(var(--f7-segmented-strong-padding) * 2);
+    --f7-segmented-highlight-between: var(--f7-segmented-strong-between-buttons);
+    --f7-segmented-highlight-width: calc((100% - var(--f7-segmented-highlight-padding) - var(--f7-segmented-highlight-between) * (var(--f7-segmented-highlight-num) - 1)) / var(--f7-segmented-highlight-num));
+    
+    background-color: #8bff80a8;
+    border-radius: var(--f7-button-border-radius);
+    box-shadow: var(--f7-segmented-strong-button-active-box-shadow);
+  }
   .segmented-strong-penging {
     --f7-segmented-highlight-num: 1;
     --f7-segmented-highlight-active: 0;
@@ -11397,7 +11409,6 @@
     --f7-input-info-text-color: rgba(255, 255, 255, 0.45);
   }
   input[type='text'],
-  input[type='password'],
   input[type='search'],
   input[type='email'],
   input[type='tel'],
@@ -11406,7 +11417,6 @@
   input[type='month'],
   input[type='datetime-local'],
   input[type='time'],
-  input[type='number'],
   select,
   textarea {
     box-sizing: border-box;

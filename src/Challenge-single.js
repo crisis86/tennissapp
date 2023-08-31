@@ -30,8 +30,9 @@ const ChallengeSingle = () => {
     // flag per sfidare se è possibile
     const [sfidabutton, setsfidabutton] = useState(false);
   
+    const {id, name} = useParams()
 
-    const idplayer = useParams();
+    //const idplayer = useParams();
 
     //const location = useLocation()
     //const { test } = location.state
@@ -40,7 +41,7 @@ const ChallengeSingle = () => {
         fetchdata();
      //   SfidaAbilitata();
        checksfidapending();
-      
+       
 
     }, []);
 
@@ -52,11 +53,11 @@ const ChallengeSingle = () => {
           
             const results = await Promise.all(
                 [
-                    fetch(window.$produrl+"/user?role=player&name=" + idplayer['name']).then((response) =>
+                    fetch(window.$produrl+"/user?role=player&id=" + id).then((response) =>
                         response.json()),
                     fetch(window.$produrl+"/user?id=" + iduser).then((response) =>
                         response.json()),
-                    fetch(window.$produrl+'/challenge?q=' + idplayer['name'] + '&status!=cancel').then((response) =>
+                    fetch(window.$produrl+'/challenge?q=' + name + '&status!=cancel').then((response) =>
                         response.json()
                     ),
                 ]);
@@ -79,14 +80,16 @@ function SfidaAbilitata() {
     console.log(player.map(obj => obj.posizione));
      console.log(pos);
 }
-    const sfidahandle = (e, idp1, status) => {
+
+
+    const sfidahandle = (e, idp1, idname1, status) => {
 
         e.preventDefault();
 
         let mtext = "Vuoi lanciare la sfida?";
         let mconfirmtext = "Si, invia la sfida";
         if (status === 'cancel') {
-            mtext = "annullando perderai 2 punti in classifica!";
+            mtext = "annullando perderai 2 posizioni in classifica!";
             mconfirmtext = "Si, annulla la sfida!";
         }
 
@@ -133,7 +136,7 @@ function SfidaAbilitata() {
                         flagmesfida(status);
 
                         if (status === 'update') {
-                            addchallenge(idp1);
+                            addchallenge(idp1, idname1);
 
                         } else {
                             removechallenge();
@@ -186,13 +189,14 @@ function SfidaAbilitata() {
 
     }
 
-    function addchallenge(iddasfidare) {
+    function addchallenge(iddasfidare, nomedasfidare) {
 
         const current = new Date();
         const date = `${current.getDate()}-${current.getMonth() + 1}-${current.getFullYear()}`;
         // console.log(date);
         const obj = {
-            "datasfida": date,
+            "datacreate":date,
+            "datasfida": "",
             "players": [
                 {
                 "idp1":iduser,    
@@ -200,15 +204,13 @@ function SfidaAbilitata() {
                 },
                 {
                "idp2":iddasfidare,  
-                "p2": idplayer['name']
+                "p2": nomedasfidare,
                 }
             ],
             "status": 'pending',
             "set1": "",
             "set2": "",
-            "set3": "",
-            "set4": "",
-            "set5": ""
+            "set3": ""
         }
         console.log(obj);
 
@@ -244,7 +246,7 @@ function SfidaAbilitata() {
            
         })
         if (idriga > 0) {
-            console.log(idriga);
+           // console.log(idriga);
 
             fetch(window.$produrl+"/challenge/" + idriga, {
                 method: 'PUT',
@@ -272,7 +274,7 @@ function SfidaAbilitata() {
     }
     const checksfidapending = () => {
 
-        fetch(window.$produrl+"/challenge?status=pending&q="+idplayer['name']).then(res => {
+        fetch(window.$produrl+"/challenge?status=pending&q="+name).then(res => {
             return res.json();
         }).then(resp => {
             if (Object.keys(resp).length === 0) {
@@ -321,11 +323,14 @@ function SfidaAbilitata() {
                                 <div className="col flex-grow-1 margin-right-half">
                                     <div className="multi-line-text lines-2">
                                         <i className="icon material-icons color-green tooltip-init" data-tooltip="Verified">Posizione:{plr.posizione}</i>
+                                       
 
                                         <span className="font-size-22 font-weight-bold vertical-align-middle name"></span>
                                     </div>
+                                    
                                     <div className="font-size-14 single-line-text text-color-gray">{plr.name}</div>
                                 </div>
+                                 
                                 <div className="col flex-shrink-0">
                                 {plr.id !== iduser && 
                                     <div className="row">
@@ -333,19 +338,21 @@ function SfidaAbilitata() {
                                         {plr.insfida  ? (
                                             <div className="col-100 small-50">
                                                {annullabotton &&
-                                                <button onClick={(e) => sfidahandle(e, plr.id, 'cancel')} type="button" className="button button-fade button-small">Annulla</button>
+                                                <button onClick={(e) => sfidahandle(e, plr.id, plr.name, 'cancel')} type="button" className="button button-fade button-small">Annulla</button>
                                                }
                                                 </div>
                                         ) : (
                                            
                                             <div className="col-100 small-50">
-                                                 {miaposizione < plr.posizione + 8 &&
-                                                <button disabled={stoinsfida === 'true'} onClick={(e) => sfidahandle(e, plr.id, 'update')} type="button" className={stoinsfida=== 'true' ? 'disabled button button-fill button-small' : 'button button-fill button-small'}>Sfida</button>
-                                              }
+                                                 {plr.posizione > miaposizione || miaposizione  <= plr.posizione  +9 &&  // fino a 8 posizione sopra
+                                                
+                                                <button disabled={stoinsfida === 'true'} onClick={(e) => sfidahandle(e, plr.id, plr.name, 'update')} type="button" className={stoinsfida=== 'true' ? 'disabled button button-fill button-small' : 'button button-fill button-small'}>Sfida</button>
+                                            
+                                            }
                                             </div>
                                             
-                                        )}
-
+                                         )}
+                                          
                                     </div>
                                 }
                                 </div>
@@ -357,14 +364,12 @@ function SfidaAbilitata() {
                                             <ul className="">
 
                                                 <li>Sfida: {partite.players[0].p1} VS {partite.players[1].p2}</li>
-                                                <li> in data {partite.datasfida}</li>
+                                                <li>Creata il: {partite.datacreate}</li>
+                                                <li>Programmata il: {partite.datasfida}</li>
                                                 <li>Stato: {partite.status} </li>
                                                 <li>Set1: {partite.set1} </li>
                                                 <li>Set2: {partite.set2} </li>
                                                 <li>Set3: {partite.set3} </li>
-                                                <li>Set4: {partite.set4} </li>
-                                                <li>Set5: {partite.set5} </li>
-
                                             </ul>
 
                                         </div>

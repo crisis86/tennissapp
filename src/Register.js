@@ -15,22 +15,24 @@ const Register = () => {
     const [role, rolechange] = useState("player");
     const [address, addresschange] = useState("");
     const [gender, genderchange] = useState("male");
-    const [posizione, posizionechange] = useState(Math.floor(Math.random() * 25));
+    const [posizione, posizionechange] = useState(0);
     const [insfida, insfidachange]=useState(false);
     const [chek, setcheck] = useState(false);
 
   
      
 
-    // useEffect(() => {
-      //  lastidjson();
-    //}, []);
+     useEffect(() => {
+        lastidjson();
+    }, []);
 
 
-    const  lastidjson = ()=> {
+    function  lastidjson() {
+
+        let pos ={};
   
     fetch(window.$produrl+"/user", {
-        method:'POST'
+        method:'GET'
         }).then(res => {
             if (!res.ok) {
            // console.log('nulla')
@@ -38,9 +40,13 @@ const Register = () => {
             }
             return res.json();
         }).then(res => {
-          //  console.log(res.length)
+           
+            pos = res;
+ 
+          let maxValue = Math.max(...pos.map(o => o.posizione))
+
+          posizionechange(maxValue+1)
             
-            posizionechange(Math.floor(Math.random() * 30));
         });
     }
 

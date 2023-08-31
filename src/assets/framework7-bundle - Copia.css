@@ -5560,9 +5560,7 @@
     padding: var(--f7-segmented-strong-padding);
     overflow: hidden;
   }
-  .segmented-strong-green { 
-    background: green !important; 
-  }
+ 
   .segmented-strong .button,
   .ios .segmented-strong-ios .button,
   .md .segmented-strong-md .button,
