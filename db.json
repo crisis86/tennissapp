@@ -830,6 +830,25 @@
       "set2": "",
       "set3": "",
       "id": 26
+    },
+    {
+      "datacreate": "1-9-2023",
+      "datasfida": "3/9/2023",
+      "players": [
+        {
+          "idp1": 19,
+          "p1": "Driss Mertens"
+        },
+        {
+          "idp2": 17,
+          "p2": "Michele marotta"
+        }
+      ],
+      "status": "complete",
+      "set1": "6-3",
+      "set2": "2-6",
+      "set3": "7-5",
+      "id": 27
     }
   ]
 }

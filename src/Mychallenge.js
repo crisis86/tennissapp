@@ -47,7 +47,7 @@ const Mychallenge = () => {
                     fetch(window.$produrl + "/user?insfida=true").then((response) =>
                         response.json()
 
-                        ),
+                    ),
                 ]);
 
 
@@ -88,8 +88,8 @@ const Mychallenge = () => {
                     return obj.id === idrecord
                 });
 
-                  console.log(challengepending)
-                   console.log(found)
+                console.log(challengepending)
+                console.log(found)
 
                 fetch(window.$produrl + "/challenge/" + idrecord, {
                     method: 'PUT',
@@ -386,7 +386,7 @@ const Mychallenge = () => {
 
             return obj.id === idp1;
         });
-         
+
         console.log(found2);
 
 
@@ -400,7 +400,7 @@ const Mychallenge = () => {
         }).then((result) => {
             //   console.log(result)
             result.json().then((resp) => {
- 
+
 
             })
         }).catch((err) => {
@@ -432,7 +432,7 @@ const Mychallenge = () => {
             //   console.log(result)
             result.json().then((resp) => {
 
-          })
+            })
         }).catch((err) => {
             toast.error(err.message);
         });
@@ -586,8 +586,78 @@ const Mychallenge = () => {
                                                         <button onClick={(e) => sfidahandle(e, item.players[1].idp2, 'cancel', item.id)} type="button" className="button button-fade button-small">Annulla</button>
                                                     }
                                                 </div>
+                                                {item.status === 'processing' &&
+                                                    <>
+                                                        {item.datasfida === '' ? (
+                                                            <div className="row">
+                                                                <span><i>Programma La sfida</i></span>
+
+                                                                <div>
+                                                                    <Calendar minDate={new Date()}
+                                                                        formatday={(locale, date) => dayjs(date).format('dd-m-yyyy')}
+                                                                        onChange={date => setdatadellasfida(date)} value={datadellasfida} />
+                                                                    <button onClick={(e) => progmatchandle(e, item.id)} type="button" className="button button-fade button-small">Conferma data</button>
+
+                                                                </div>
+                                                            </div>
+                                                        ) : (
+                                                            <div className="row">
+                                                                
+                                                                <div>
+                                                                    <span><i>Inserisci Il risultati</i></span>
+
+                                                                    <table className="data-table">
+                                                                        <tr index={index + 1}>
+                                                                            <td>Set 1</td>
+                                                                            <td>
+                                                                                <input type="number" min="1" max="100" value={set1casa} onChange={e => setset1casa(e.target.value)} className="form-control"></input>
+                                                                            </td>
+                                                                            <td>-</td>
+                                                                            <td>
+                                                                                <input type="number" min="1" max="100" value={set1ospite} onChange={e => setset1ospite(e.target.value)} className="form-control"></input>
+                                                                            </td>
+
+
+                                                                        </tr>
+
+                                                                        <tr>
+                                                                            <td>Set 2</td>
+                                                                            <td>
+                                                                                <input type="number" min="1" max="100" value={set2casa} onChange={e => setset2casa(e.target.value)} className="form-control"></input>
+                                                                            </td>
+                                                                            <td>-</td>
+                                                                            <td>
+                                                                                <input type="number" min="1" max="100" value={set2ospite} onChange={e => setset2ospite(e.target.value)} className="form-control"></input>
+                                                                            </td>
+
+
+                                                                        </tr>
+
+                                                                        <tr>
+                                                                            <td>Set 3</td>
+                                                                            <td>
+                                                                                <input type="number" min="1" max="100" value={set3casa} onChange={e => setset3casa(e.target.value)} className="form-control"></input>
+                                                                            </td>
+                                                                            <td>-</td>
+                                                                            <td>
+                                                                                <input type="number" min="1" max="100" value={set3ospite} onChange={e => setset3ospite(e.target.value)} className="form-control"></input>
+                                                                            </td>
+
+
+                                                                        </tr>
+
+                                                                    </table>
+
+                                                                    <button style={{ display: 'inerith' }} onClick={(e) => aggiornapunteggio(e, item.id, item.players[0].idp1, item.players[1].idp2)} type="button" className="button button-fill button-small">Aggiorna Risultati</button>
+
+                                                                </div>
+                                                            </div>
+                                                        )}
+                                                    </>
+                                                }
                                             </div>
                                         </div>
+
                                     ) : (
                                         <div className="col flex-shrink-0">
                                             <div className="row">
