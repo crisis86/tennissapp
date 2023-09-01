@@ -4510,6 +4510,7 @@
     align-items: center;
     min-height: calc(var(--f7-list-item-min-height) - var(--menu-list-offset));
     padding-left: calc(var(--f7-list-item-padding-horizontal) + var(--f7-safe-area-left) - var(--menu-list-offset));
+    border-bottom:1px solid #e7e7e7 ;
   }
   .list .item-subtitle {
     position: relative;

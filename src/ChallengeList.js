@@ -3,16 +3,26 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import logo from './assets/logo.svg';
-const iduser = parseInt(sessionStorage.getItem('iduser'))
+
 
 const ChallengeList = () => {
+    const navigate = useNavigate();
+const iduser = parseInt(sessionStorage.getItem('iduser'))
 
     const [playerlist, playerupdt] = useState([]);
 
 
 
     useEffect(() => {
-        loadlistplayer();
+        let email = sessionStorage.getItem('email')
+
+        if (email === '' || email === null) {
+            //toast.error('Not Authenticate session');
+            navigate('/login');
+        } else{
+            loadlistplayer();
+        }
+     
 
     }, []);
 
@@ -49,14 +59,14 @@ const ChallengeList = () => {
                                     <ul>
                                         {playerlist &&
                                             playerlist.sort((a, b) => a.posizione > b.posizione ? 1 : -1).map((item, index) => (
-                                                <li key={index + 1} className= {item.id === iduser ? 'my-rank me' : 'my-rank' }>
-                                                    <div className="item-content">
+                                               <li key={index + 1} className= {item.id === iduser ? 'my-rank me' : 'my-rank' }>
+                                                    <div style={{background: item.insfida ? '#e5da2c':''}} className="item-content">
                                                         <div className="item-inner item-cell">
                                                             <div className="item-row">
+                                                       
                                                               <div className="item-cell width-auto">
                                                                     <img src={logo} height="50" width="50" alt="" />
                                                                 </div>
-
                                                                 <a className='link' style={{ width: '150px' }} href={'/Challenge-single/' + item.id+'/'+item.name}>
 
                                                                     <div className="item-cell">

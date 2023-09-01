@@ -19,7 +19,7 @@ const Register = () => {
     const [insfida, insfidachange]=useState(false);
     const [chek, setcheck] = useState(false);
 
-  
+    const navigate = useNavigate();
      
 
      useEffect(() => {
@@ -50,7 +50,7 @@ const Register = () => {
         });
     }
 
-    const navigate = useNavigate();
+
 
     const IsValidate = () => {
         let isproceed = true;

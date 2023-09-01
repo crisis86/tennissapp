@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
 import { Link } from 'react-router-dom';
@@ -7,9 +7,58 @@ import { IconContext } from 'react-icons';
 import logotennis from './assets/Super-tennis.png';
 
 function Navbar() {
+  const iduser = parseInt(sessionStorage.getItem('iduser'))
   const [sidebar, setSidebar] = useState(false);
-
+  const [challenge, setchallenge] = useState([]);
   const showSidebar = () => setSidebar(!sidebar);
+  const [badge, setbadge] = useState(false)
+
+
+  useEffect(() => {
+
+    if(iduser !== null || iduser !== 0) {
+    //  notificasfida();
+    }
+
+
+}, []);
+
+
+
+  function notificasfida() {
+       
+  
+    fetch(window.$produrl+"/challenge?status!=cancel", {
+        method:'GET'
+        }).then(res => {
+            if (!res.ok) {
+           // console.log('nulla')
+                return false 
+            }
+            return res.json();
+        }).then(res => {
+                       
+          setchallenge(res);
+           
+          const found = challenge.filter(obj => {
+          
+           if (obj.id === iduser) { 
+          if (obj.status === 'processing' || obj.status === "pending") {
+           
+            setbadge(true);
+            }
+            }
+          return obj.id===iduser;
+           
+        })
+
+        console.log(found)
+
+        console.log(badge)
+
+        });
+  }
+
 // console.log(SidebarData);
   return (
    <div>
@@ -31,11 +80,13 @@ function Navbar() {
             {SidebarData.map((item, index) => {
               return (
                 <li key={index} className={item.cName}>
-                  <Link to={item.path}>
+                  <Link className='' to={item.path}>
                     {item.icon}
                     <span>{item.title}</span>
                   </Link>
+                  
                 </li>
+                
               );
             })}
           </ul>

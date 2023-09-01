@@ -4,8 +4,9 @@
   margin: 0;
   padding: 0;
   font-family: 'Lato', sans-serif;
+ 
 }
-
+  
 .App {
   text-align: left;
 }
@@ -35,17 +36,18 @@
   color: #000;
 } 
 .App-link {
-  color:green;
+  color:#32ab32;
 }
 .errmsg{
   color: red;
 }
 .header{
   width: 100%;
-  background-color: blue;
+  background-color: #32ab32;
   color: #fff;
-  padding: 0%;
+  padding: 4px;
   height: auto;
+  overflow: hidden;
  
 }
 a{
@@ -58,12 +60,7 @@ app-check{
   width: 20px;
   margin: 1%;
 }
-.header{
-  width: 100%;
-  background-color: green;
-  color: #fff;
-  padding: 1%;
-}
+
 a.header {
   text-decoration: none;
   color: #fff;
@@ -90,8 +87,14 @@ ul li {
 .text-color-primary a{
   color:#000 !important;
 }
-.ChallengeList, .classifica, country {
+.ChallengeList, country {
   color:#000;
+}
+
+.classifica {
+  color:#007aff !important;
+  font-weight: 600;
+  font-size:18px;
 }
 
 .color-picker-page .color-picker-module,
@@ -102,7 +105,7 @@ ul li {
 }
 
 .me {
-  background: green;
+  background: #32ab32;
   font-weight:bold;
   font-size: 20px;
   color: white;
@@ -130,3 +133,15 @@ ul li {
   background-repeat: repeat-y;
   background-attachment: fixed ;
 }
+
+.postnews {
+  position: relative;
+  padding: 0px 4px;
+  opacity: 0.6;
+  border-radius: 70%;
+  background: red;
+  color: white;
+ 
+
+}
+

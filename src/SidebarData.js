@@ -22,12 +22,12 @@ export const SidebarData = [
     icon: <FaIcons.FaCartPlus />,
     cName: 'nav-text'
   },
-/*   {
-    title: 'Side',
-    path: '/lista-sfida',
+   {
+    title: 'Posts',
+    path: '/Post',
     icon: <FaIcons.FaCartPlus />,
     cName: 'nav-text'
-  }, */
+  }, 
   {
     title: 'Le mie Sfide',
     path: '/Mychallenge',

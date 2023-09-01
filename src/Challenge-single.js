@@ -3,6 +3,7 @@ import React from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import Swal from 'sweetalert2';
 import { toast } from "react-toastify";
+import avatar from './assets/avatar.png';
 
 
 const ChallengeSingle = () => {
@@ -278,7 +279,7 @@ function SfidaAbilitata() {
             return res.json();
         }).then(resp => {
             if (Object.keys(resp).length === 0) {
-             toast.success('nessuna Challenge pending da mostare')
+            // toast.success('nessuna Challenge pending da mostare')
             } else {
                 console.log(resp)
                 setchallengepending(resp);
@@ -304,20 +305,23 @@ function SfidaAbilitata() {
 
     return (
         <>
-            <div className="page">
+            <div className="page-content">
+            <div style={{textAlign:"center"}} className="title"><h1>Scheda Giocatore </h1>  
+            </div>
+            <hr></hr>
                 <div className="left">
                     <a href="/ChallengeList" className="link back">
                         <i className="icon icon-back"></i>
-                        <span className="if-not-md">Back</span>
+                        <span className="if-not-md">BACK</span>
                     </a>
                 </div>
-                <div className="title">Scheda Giocatore </div>
+               
                 <div className="page-content">
                     {player &&
                         player.map((plr, index) => (
                             <div key={index + 1} className="row">
                                 <div className="col flex-shrink-0 width-auto">
-                                    <img className="shape-rounded-square" src="https://source.unsplash.com/bYODySpLIhE/128x128" loading="lazy" height="84" width="84" alt="" />
+                                    <img className="shape-rounded-square" src={avatar} loading="lazy" height="48" width="48" alt="" />
                                 </div>
 
                                 <div className="col flex-grow-1 margin-right-half">
@@ -330,8 +334,10 @@ function SfidaAbilitata() {
                                     
                                     <div className="font-size-14 single-line-text text-color-gray">{plr.name}</div>
                                 </div>
+
+                              
                                  
-                                <div className="col flex-shrink-0">
+                                <div className="col flex-grow-1 margin-right-half">
                                 {plr.id !== iduser && 
                                     <div className="row">
 
@@ -356,6 +362,12 @@ function SfidaAbilitata() {
                                     </div>
                                 }
                                 </div>
+                                <br></br>  <br></br>  <br></br>
+                                <span className="segmented-highlight"></span>
+                                
+                                <div style={{textAlign:"center", background:"#060b26", opacity:0.8, color:'white', fontSize:"20px"}} className="title">Ultimi Match  
+
+                                </div>
                                 {challenge.sort((a, b) => a.id < b.id ? 1 : -1).map((partite, i) => (
                                 
                                     <div key={i + 1} className="block block-strong medium-hide no-hairlines no-margin-vertical sticky sticky-top">
@@ -374,7 +386,7 @@ function SfidaAbilitata() {
 
                                         </div>
 
-                                        <span className="segmented-highlight"></span>
+                                     {/*    <span className="segmented-highlight"></span> */}
 
 
                                     </div>

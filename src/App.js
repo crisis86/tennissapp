@@ -11,6 +11,7 @@ import ChallengeList from './ChallengeList';
 import Listasfida from './lista-sfida';
 import ChallengeSingle from './Challenge-single';
 import Mychallenge from './Mychallenge';
+import Post from './Post';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
       <Route path="/Register" element={<Register />}> </Route>
       <Route path="/lista-sfida" element={<Listasfida />}> </Route>
       <Route path="/Mychallenge" element={<Mychallenge />}> </Route>
+      <Route path="/Post" element={<Post />}> </Route>
       <Route path="/Challenge-single/:id/:name" element={<ChallengeSingle />}> </Route>
       
     </Routes>
