@@ -31,7 +31,7 @@ const Mychallenge = () => {
     useEffect(() => {
         fetchdata();
         checksfidapending();
-     
+
     }, []);
 
     async function fetchdata() {
@@ -44,6 +44,8 @@ const Mychallenge = () => {
                     fetch(window.$produrl + "/user?id=" + iduser).then((response) =>
                         response.json()),
                     fetch(window.$produrl + "/user?insfida=true").then((response) =>
+                        response.json()),
+                        fetch(window.$produrl + "/user?role=player").then((response) =>
                         response.json()
 
                     ),
@@ -52,6 +54,7 @@ const Mychallenge = () => {
 
             setflagmeplayer(results[0]);
             setplayer(results[1]);
+            setclassifica(results[2]);
 
         } catch (error) {
             console.error(error);
@@ -115,30 +118,32 @@ const Mychallenge = () => {
     }
 
     function calcolavincitore() {
-        
-        let player1 =0
-        let player2 =0
-      
-        if (set1casa > set1ospite){
-            player1+=1
-        }else {
-            player2+=1
+
+        let player1 = 0
+        let player2 = 0
+
+        if (set1casa > set1ospite) {
+            player1 += 1
+        } else if (player1 < player2) {
+            player2 += 1
         }
-        if (set2casa > set2ospite){
-            player1+=1
-        }else {
-            player2+=1
+        if (set2casa > set2ospite) {
+            player1 += 1
+        } else if (player1 < player2) {
+            player2 += 1
         }
-        if (set3casa > set3ospite){
-            player1+=1
-        }else {
-            player2+=1
+        if (set3casa > set3ospite) {
+            player1 += 1
+        } else if (player1 < player2) {
+            player2 += 1
         }
-        
-        if(player1 > player2) {
+
+        if (player1 > player2) {
             return "Player1"
-        } else {
+        } else if (player1 < player2) {
             return "Player2"
+        } else {
+            return "Pareggio" // non dovrebbe succedere
         }
 
     }
@@ -175,8 +180,8 @@ const Mychallenge = () => {
                         obj.status = "complete"
 
                         player1 = obj.players[0].idp1
-                        player2 = obj.players[1].idp2   
-                    
+                        player2 = obj.players[1].idp2
+
                     }
                     return obj.id === idrecord
                 });
@@ -195,7 +200,7 @@ const Mychallenge = () => {
                     //  console.log(result)
                     result.json().then((resp) => {
 
-                        if (player1 !== iduser) {
+                        /* if (player1 !== iduser) {
                             console.log('sono player1: ' + player1)
 
                             resetstatusfida(player1);
@@ -205,20 +210,23 @@ const Mychallenge = () => {
 
                             resetstatusfida(player2);
                             ResetesetMysfida(player1);
-                        }
+                        } */
 
                         sessionStorage.setItem('stoinsfida', false);
-                        
-                     // rettifico classifica
-                        if(calcolavincitore() ==="Player1") {
 
-                            SwitchCase('Sfida', player1, player2) 
+                        // rettifico classifica
+                        let vincitore = calcolavincitore()
+                        console.log('sono il vincitore:' +vincitore)
+
+                        if (vincitore === "Player1") {
+
+                            SwitchCase('Sfida', player1, player2)
                         } else {
                             SwitchCase('Sfidato', player1, player2)
                         }
-                           
+                        
 
-                       //+ checksfidapending();
+                        // checksfidapending();
 
                     })
                 }).catch((err) => {
@@ -436,7 +444,7 @@ const Mychallenge = () => {
         }).then((result) => {
             //   console.log(result)
             result.json().then((resp) => {
-             
+
                 toast.error("sfida resettata");
 
             })
@@ -577,12 +585,17 @@ const Mychallenge = () => {
 
     function SwitchCase(props, idp1, idp2) {
 
-        fetch(window.$produrl + "/user?role=player", {
+
+      /*   fetch(window.$produrl + "/user?role=player", {
             method: 'GET'
         }).then(res => {
             if (!res.ok) { return false }
             return res.json();
-        }).then(res => { setclassifica(res) });
+        }).then(res => { setclassifica(res) 
+            console.log(res)
+        });
+
+        console.log(classicica); */
 
         /// recupero posizioni attuali
         let posp1 = 0
@@ -597,7 +610,7 @@ const Mychallenge = () => {
 
         })
         const cercapos2 = classicica.filter(obj => {
-
+                        
             if (obj.id === idp2) {
 
                 posp2 = obj.posizione;
@@ -608,7 +621,7 @@ const Mychallenge = () => {
 
         switch (props) {
             case 'Sfida':
-             
+
                 const found = classicica.sort((a, b) => a.posizione > b.posizione ? 1 : -1).filter((obj, index) => {
                     let indice = posp1 - posp2
 
@@ -616,29 +629,30 @@ const Mychallenge = () => {
                          
                           obj.posizione =  obj.posizione- 1
                       /  console.log(obj.posizione) 
-                      }  */ 
+                      }  */
                     if (index + 1 >= posp2 && index + 1 <= posp1 - 1) {
 
                         obj.posizione = obj.posizione + 1
-                         console.log(obj.posizione)
-                         updateUserPosition(obj)
+                        console.log(obj.posizione)
+                        updateUserPosition(obj)
                     }
                     if (obj.id === idp2) {
-
-                     //   obj.posizione = posp2 + 1 // scendo di una posizione OK
-                       //        console.log("posizione pedente:" +obj.posizione) 
-                      //  updateUserPosition(obj)
+                        obj.insfida=false
+                        //   obj.posizione = posp2 + 1 // scendo di una posizione OK
+                        //        console.log("posizione pedente:" +obj.posizione) 
+                          updateUserPosition(obj)
                     } if (obj.id === idp1) {
 
+                        obj.insfida=false
                         obj.posizione = posp1 - indice // prendo la posizione di chi o sfidato salgo in classifica
-                          console.log("pos vincente" ,obj.posizione) 
-                         updateUserPosition(obj)
+                        console.log("pos vincente", obj.posizione)
+                        updateUserPosition(obj)
                     }
                     return obj.id
 
                 })
-             
-                console.log(JSON.stringify(found));
+
+                
                 return found
 
             case 'Sfidato':

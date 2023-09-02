@@ -61,7 +61,7 @@
       "role": "player",
       "address": "strada provinciale SP 52",
       "gender": "male",
-      "posizione": 11,
+      "posizione": 10,
       "insfida": false,
       "id": 5
     },
@@ -74,7 +74,7 @@
       "role": "player",
       "address": "strada provinciale SP 52",
       "gender": "male",
-      "posizione": 7,
+      "posizione": 5,
       "insfida": false,
       "id": 6
     },
@@ -87,7 +87,7 @@
       "role": "player",
       "address": "strada provinciale SP 52",
       "gender": "male",
-      "posizione": 6,
+      "posizione": 7,
       "insfida": false,
       "id": 7
     },
@@ -100,7 +100,7 @@
       "role": "player",
       "address": "strada provinciale SP 52",
       "gender": "male",
-      "posizione": 10,
+      "posizione": 9,
       "insfida": false,
       "id": 8
     },
@@ -113,7 +113,7 @@
       "role": "player",
       "address": "strada provinciale SP 52",
       "gender": "male",
-      "posizione": 5,
+      "posizione": 6,
       "insfida": false,
       "id": 9
     },
@@ -165,7 +165,7 @@
       "role": "player",
       "address": "via anfiteatro laterizio\n25",
       "gender": "male",
-      "posizione": 15,
+      "posizione": 16,
       "insfida": false,
       "id": 13
     },
@@ -178,7 +178,7 @@
       "role": "player",
       "address": "rfew",
       "gender": "male",
-      "posizione": 9,
+      "posizione": 14,
       "insfida": false,
       "id": 14
     },
@@ -191,7 +191,7 @@
       "role": "player",
       "address": "via anfiteatro laterizio\n25",
       "gender": "male",
-      "posizione": 14,
+      "posizione": 15,
       "insfida": false,
       "id": 15
     },
@@ -217,7 +217,7 @@
       "role": "player",
       "address": "via anfiteatro laterizio\n25",
       "gender": "male",
-      "posizione": 16,
+      "posizione": 11,
       "insfida": false,
       "id": 17
     },
@@ -243,14 +243,14 @@
       "role": "player",
       "address": "",
       "gender": "male",
-      "posizione": 8,
+      "posizione": 9,
       "insfida": false,
       "id": 19
     },
     {
       "email": "prova@gmail.com",
       "password": "123456",
-      "name": "Buonaguro Gemello",
+      "name": "Michele Gemello",
       "phone": "2313123",
       "country": "Italia",
       "role": "player",
@@ -914,30 +914,87 @@
           "p2": "luca durso"
         }
       ],
-      "status": "complete",
-      "set1": "6-3",
-      "set2": "2-6",
-      "set3": "7-5",
+      "status": "processing",
+      "set1": "",
+      "set2": "",
+      "set3": "",
       "id": 30
     },
     {
       "datacreate": "2-9-2023",
-      "datasfida": "6/9/2023",
+      "datasfida": "13/9/2023",
       "players": [
         {
-          "idp1": 8,
-          "p1": "luca durso"
+          "idp1": 17,
+          "p1": "Michele marotta"
         },
         {
-          "idp2": 7,
-          "p2": "luis suarez"
+          "idp2": 11,
+          "p2": "Jepson Franzys"
+        }
+      ],
+      "status": "complete",
+      "set1": "6-3",
+      "set2": "2-6",
+      "set3": "7-5",
+      "id": 31
+    },
+    {
+      "datacreate": "2-9-2023",
+      "datasfida": "5/9/2023",
+      "players": [
+        {
+          "idp1": 17,
+          "p1": "Michele marotta"
+        },
+        {
+          "idp2": 11,
+          "p2": "Jepson Franzys"
         }
       ],
       "status": "complete",
       "set1": "6-3",
       "set2": "2-6",
       "set3": "6-3",
-      "id": 31
+      "id": 32
+    },
+    {
+      "datacreate": "2-9-2023",
+      "datasfida": "6/9/2023",
+      "players": [
+        {
+          "idp1": 17,
+          "p1": "Michele marotta"
+        },
+        {
+          "idp2": 6,
+          "p2": "Adriana Romano"
+        }
+      ],
+      "status": "complete",
+      "set1": "6-3",
+      "set2": "2-6",
+      "set3": "7-5",
+      "id": 33
+    },
+    {
+      "datacreate": "2-9-2023",
+      "datasfida": "6/9/2023",
+      "players": [
+        {
+          "idp1": 6,
+          "p1": "Adriana Romano"
+        },
+        {
+          "idp2": 9,
+          "p2": "Novac Djocovic"
+        }
+      ],
+      "status": "complete",
+      "set1": "6-3",
+      "set2": "2-6",
+      "set3": "7-5",
+      "id": 34
     }
   ]
 }
