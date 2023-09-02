@@ -246,6 +246,19 @@
       "posizione": 8,
       "insfida": false,
       "id": 19
+    },
+    {
+      "email": "prova@gmail.com",
+      "password": "123456",
+      "name": "Buonaguro Gemello",
+      "phone": "2313123",
+      "country": "Italia",
+      "role": "player",
+      "address": "",
+      "gender": "male",
+      "posizione": 19,
+      "insfida": false,
+      "id": 20
     }
   ],
   "post": [
