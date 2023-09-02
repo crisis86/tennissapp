@@ -22,7 +22,7 @@
       "role": "player",
       "address": "fatt e fatt tuoi\n23",
       "gender": "male",
-      "posizione": 1,
+      "posizione": 2,
       "insfida": false,
       "id": 2
     },
@@ -35,7 +35,7 @@
       "role": "player",
       "address": "fatt e fatt tuoi\n23",
       "gender": "male",
-      "posizione": 2,
+      "posizione": 1,
       "insfida": false,
       "id": 3
     },
@@ -48,7 +48,7 @@
       "role": "player",
       "address": "strada provinciale SP 52",
       "gender": "male",
-      "posizione": 3,
+      "posizione": 17,
       "insfida": false,
       "id": 4
     },
@@ -61,7 +61,7 @@
       "role": "player",
       "address": "strada provinciale SP 52",
       "gender": "male",
-      "posizione": 4,
+      "posizione": 11,
       "insfida": false,
       "id": 5
     },
@@ -74,7 +74,7 @@
       "role": "player",
       "address": "strada provinciale SP 52",
       "gender": "male",
-      "posizione": 5,
+      "posizione": 7,
       "insfida": false,
       "id": 6
     },
@@ -100,8 +100,8 @@
       "role": "player",
       "address": "strada provinciale SP 52",
       "gender": "male",
-      "posizione": 7,
-      "insfida": true,
+      "posizione": 10,
+      "insfida": false,
       "id": 8
     },
     {
@@ -113,8 +113,8 @@
       "role": "player",
       "address": "strada provinciale SP 52",
       "gender": "male",
-      "posizione": 8,
-      "insfida": true,
+      "posizione": 5,
+      "insfida": false,
       "id": 9
     },
     {
@@ -126,7 +126,7 @@
       "role": "player",
       "address": "strada provinciale SP 52",
       "gender": "male",
-      "posizione": 9,
+      "posizione": 4,
       "insfida": false,
       "id": 10
     },
@@ -139,7 +139,7 @@
       "role": "player",
       "address": "strada provinciale SP 52",
       "gender": "male",
-      "posizione": 10,
+      "posizione": 12,
       "insfida": false,
       "id": 11
     },
@@ -152,7 +152,7 @@
       "role": "player",
       "address": "sdsdsdsdsd",
       "gender": "male",
-      "posizione": 11,
+      "posizione": 13,
       "insfida": false,
       "id": 12
     },
@@ -165,7 +165,7 @@
       "role": "player",
       "address": "via anfiteatro laterizio\n25",
       "gender": "male",
-      "posizione": 12,
+      "posizione": 15,
       "insfida": false,
       "id": 13
     },
@@ -178,8 +178,8 @@
       "role": "player",
       "address": "rfew",
       "gender": "male",
-      "posizione": 13,
-      "insfida": true,
+      "posizione": 9,
+      "insfida": false,
       "id": 14
     },
     {
@@ -204,7 +204,7 @@
       "role": "player",
       "address": "via anfiteatro laterizio\n25",
       "gender": "male",
-      "posizione": 15,
+      "posizione": 18,
       "insfida": false,
       "id": 16
     },
@@ -230,8 +230,8 @@
       "role": "player",
       "address": "via anfiteatro laterizio\n25",
       "gender": "male",
-      "posizione": 17,
-      "insfida": true,
+      "posizione": 3,
+      "insfida": false,
       "id": 18
     },
     {
@@ -243,7 +243,7 @@
       "role": "player",
       "address": "",
       "gender": "male",
-      "posizione": 18,
+      "posizione": 8,
       "insfida": false,
       "id": 19
     }
@@ -825,7 +825,7 @@
           "p2": "luca durso"
         }
       ],
-      "status": "pending",
+      "status": "cancel",
       "set1": "",
       "set2": "",
       "set3": "",
@@ -849,6 +849,82 @@
       "set2": "2-6",
       "set3": "7-5",
       "id": 27
+    },
+    {
+      "datacreate": "1-9-2023",
+      "datasfida": "",
+      "players": [
+        {
+          "idp1": 19,
+          "p1": "Driss Mertens"
+        },
+        {
+          "idp2": 17,
+          "p2": "Michele marotta"
+        }
+      ],
+      "status": "cancel",
+      "set1": "",
+      "set2": "",
+      "set3": "",
+      "id": 28
+    },
+    {
+      "datacreate": "2-9-2023",
+      "datasfida": "5/9/2023",
+      "players": [
+        {
+          "idp1": 19,
+          "p1": "Driss Mertens"
+        },
+        {
+          "idp2": 10,
+          "p2": "Giggi Franzys"
+        }
+      ],
+      "status": "complete",
+      "set1": "6-2",
+      "set2": "3-6",
+      "set3": "7-5",
+      "id": 29
+    },
+    {
+      "datacreate": "2-9-2023",
+      "datasfida": "5/9/2023",
+      "players": [
+        {
+          "idp1": 14,
+          "p1": "nicola siciliano"
+        },
+        {
+          "idp2": 8,
+          "p2": "luca durso"
+        }
+      ],
+      "status": "complete",
+      "set1": "6-3",
+      "set2": "2-6",
+      "set3": "7-5",
+      "id": 30
+    },
+    {
+      "datacreate": "2-9-2023",
+      "datasfida": "6/9/2023",
+      "players": [
+        {
+          "idp1": 8,
+          "p1": "luca durso"
+        },
+        {
+          "idp2": 7,
+          "p2": "luis suarez"
+        }
+      ],
+      "status": "complete",
+      "set1": "6-3",
+      "set2": "2-6",
+      "set3": "6-3",
+      "id": 31
     }
   ]
 }

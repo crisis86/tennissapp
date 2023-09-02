@@ -14,6 +14,7 @@ const Mychallenge = () => {
     const [challengepending, setchallengepending] = useState([]);
     const [flagmeplayer, setflagmeplayer] = useState([]);
     const [player, setplayer] = useState([]);
+    const [classicica, setclassifica] = useState([]);
     const [datadellasfida, setdatadellasfida] = useState(new Date())
     const locale = 'it';
 
@@ -27,12 +28,10 @@ const Mychallenge = () => {
     const [set3ospite, setset3ospite] = useState(0)
 
 
-
     useEffect(() => {
         fetchdata();
         checksfidapending();
-        // loadlistplayer();
-
+     
     }, []);
 
     async function fetchdata() {
@@ -115,6 +114,35 @@ const Mychallenge = () => {
 
     }
 
+    function calcolavincitore() {
+        
+        let player1 =0
+        let player2 =0
+      
+        if (set1casa > set1ospite){
+            player1+=1
+        }else {
+            player2+=1
+        }
+        if (set2casa > set2ospite){
+            player1+=1
+        }else {
+            player2+=1
+        }
+        if (set3casa > set3ospite){
+            player1+=1
+        }else {
+            player2+=1
+        }
+        
+        if(player1 > player2) {
+            return "Player1"
+        } else {
+            return "Player2"
+        }
+
+    }
+
     const aggiornapunteggio = (e, idrecord, p1, p2) => {
         e.preventDefault();
 
@@ -147,10 +175,8 @@ const Mychallenge = () => {
                         obj.status = "complete"
 
                         player1 = obj.players[0].idp1
-                        player2 = obj.players[1].idp2
-
-
-                        // scalarapunti da fare
+                        player2 = obj.players[1].idp2   
+                    
                     }
                     return obj.id === idrecord
                 });
@@ -170,19 +196,29 @@ const Mychallenge = () => {
                     result.json().then((resp) => {
 
                         if (player1 !== iduser) {
-                            console.log('sono player1' + player1)
+                            console.log('sono player1: ' + player1)
 
                             resetstatusfida(player1);
                             ResetesetMysfida(player2);
                         } else {
-                            console.log('sono player2' + player2)
+                            console.log('sono player2: ' + player2)
 
                             resetstatusfida(player2);
                             ResetesetMysfida(player1);
                         }
 
                         sessionStorage.setItem('stoinsfida', false);
-                        checksfidapending();
+                        
+                     // rettifico classifica
+                        if(calcolavincitore() ==="Player1") {
+
+                            SwitchCase('Sfida', player1, player2) 
+                        } else {
+                            SwitchCase('Sfidato', player1, player2)
+                        }
+                           
+
+                       //+ checksfidapending();
 
                     })
                 }).catch((err) => {
@@ -400,7 +436,8 @@ const Mychallenge = () => {
         }).then((result) => {
             //   console.log(result)
             result.json().then((resp) => {
-
+             
+                toast.error("sfida resettata");
 
             })
         }).catch((err) => {
@@ -431,7 +468,7 @@ const Mychallenge = () => {
         }).then((result) => {
             //   console.log(result)
             result.json().then((resp) => {
-
+                toast.error("sfida MIa resettata");
             })
         }).catch((err) => {
             toast.error(err.message);
@@ -520,18 +557,121 @@ const Mychallenge = () => {
 
     }
 
-    function loadlistplayer() {
-        fetch(window.$produrl + "/user?insfida=true").then(res => {
-            if (!res.ok) {
-                return false
+    function loadnumberphone(idacercare) {
+
+        let telefono = ""
+
+        const found = player.filter(obj => {
+
+            if (obj.id === idacercare) {
+
+                telefono = "Contatto: " + obj.phone;
             }
-            return res.json();
+            return obj.id === idacercare
+
+        })
+
+
+        return telefono
+    }
+
+    function SwitchCase(props, idp1, idp2) {
+
+        fetch(window.$produrl + "/user?role=player", {
+            method: 'GET'
         }).then(res => {
+            if (!res.ok) { return false }
+            return res.json();
+        }).then(res => { setclassifica(res) });
 
-            console.log(res);
-            setplayer(res);
-            //  console.log(player[1]);
+        /// recupero posizioni attuali
+        let posp1 = 0
+        let posp2 = 0
+        const cercapos1 = classicica.filter(obj => {
 
+            if (obj.id === idp1) {
+
+                posp1 = obj.posizione;
+            }
+            return posp1
+
+        })
+        const cercapos2 = classicica.filter(obj => {
+
+            if (obj.id === idp2) {
+
+                posp2 = obj.posizione;
+            }
+            return posp2
+
+        })
+
+        switch (props) {
+            case 'Sfida':
+             
+                const found = classicica.sort((a, b) => a.posizione > b.posizione ? 1 : -1).filter((obj, index) => {
+                    let indice = posp1 - posp2
+
+                    /*    if (index+1 === posp1 ) {
+                         
+                          obj.posizione =  obj.posizione- 1
+                      /  console.log(obj.posizione) 
+                      }  */ 
+                    if (index + 1 >= posp2 && index + 1 <= posp1 - 1) {
+
+                        obj.posizione = obj.posizione + 1
+                         console.log(obj.posizione)
+                         updateUserPosition(obj)
+                    }
+                    if (obj.id === idp2) {
+
+                     //   obj.posizione = posp2 + 1 // scendo di una posizione OK
+                       //        console.log("posizione pedente:" +obj.posizione) 
+                      //  updateUserPosition(obj)
+                    } if (obj.id === idp1) {
+
+                        obj.posizione = posp1 - indice // prendo la posizione di chi o sfidato salgo in classifica
+                          console.log("pos vincente" ,obj.posizione) 
+                         updateUserPosition(obj)
+                    }
+                    return obj.id
+
+                })
+             
+                console.log(JSON.stringify(found));
+                return found
+
+            case 'Sfidato':
+                return 'You are Annulla_sfida.';
+            case 'Annulla_sfida':
+                return 'You are a Manager.';
+            case 'Annullo_forzato':
+                return 'You are a Manager.';
+
+            default:
+                return '';
+        }
+    }
+
+
+
+    function updateUserPosition(ogettogioc) {
+
+        fetch(window.$produrl + "/user/" + ogettogioc.id, {
+            method: 'PUT',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(ogettogioc)
+        }).then((result) => {
+            //  console.log(result)
+            result.json().then((resp) => {
+                console.log(resp)
+
+            })
+        }).catch((err) => {
+            toast.error(err.message);
         });
     }
 
@@ -544,13 +684,17 @@ const Mychallenge = () => {
                         <span className="if-not-md">Back</span>
                     </a>
                 </div>
+
                 <div className="title">Le tue Sfide </div>
                 <div className="page-content">
+
                     {challengepending &&
 
 
                         challengepending.sort((a, b) => a.id < b.id ? 1 : -1).map((item, index) => (
                             <div key={index + 1} className="row">
+
+
 
 
                                 <div className="col flex-grow-1 margin-right-half">
@@ -563,6 +707,11 @@ const Mychallenge = () => {
                                                 <li> Stato {item.status}</li>
                                                 <li>Creata il: {item.datacreate}</li>
                                                 <li>Programmata il: {item.datasfida}</li>
+                                                {item.players[0].idp1 === iduser ? (
+                                                    <li> <b>  {loadnumberphone(item.players[1].idp2)}</b></li>
+                                                ) : (
+                                                    <li> <b>{loadnumberphone(item.players[0].idp1)}</b></li>
+                                                )}
 
                                                 <li>Set1: {item.set1} </li>
                                                 <li>Set2: {item.set2} </li>
@@ -584,7 +733,9 @@ const Mychallenge = () => {
                                                 <div className="col-100 small-50">
                                                     {item.status === 'pending' &&
                                                         <button onClick={(e) => sfidahandle(e, item.players[1].idp2, 'cancel', item.id)} type="button" className="button button-fade button-small">Annulla</button>
+
                                                     }
+
                                                 </div>
                                                 {item.status === 'processing' &&
                                                     <>
@@ -602,7 +753,7 @@ const Mychallenge = () => {
                                                             </div>
                                                         ) : (
                                                             <div className="row">
-                                                                
+
                                                                 <div>
                                                                     <span><i>Inserisci Il risultati</i></span>
 
