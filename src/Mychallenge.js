@@ -31,7 +31,7 @@ const Mychallenge = () => {
     useEffect(() => {
         fetchdata();
         checksfidapending();
-
+      //  SwitchCase("Sfida", 11 ,7)
     }, []);
 
     async function fetchdata() {
@@ -226,7 +226,7 @@ const Mychallenge = () => {
                         }
                         
 
-                        // checksfidapending();
+                          checksfidapending();
 
                     })
                 }).catch((err) => {
@@ -652,7 +652,7 @@ const Mychallenge = () => {
 
                 })
 
-                
+                console.log(JSON.stringify(found));
                 return found
 
             case 'Sfidato':
