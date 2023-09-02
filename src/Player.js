@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
-const Customer = () => {
+const Player = () => {
     const [custlist, custupdate] = useState([]);
     const [haveedit, editchange] = useState(false);
     const [haveview, viewchange] = useState(false);
@@ -19,11 +19,11 @@ const Customer = () => {
     }, []);
 
     const loadcustomer = () => {
-        let player2=false;
+        
 
         fetch(window.$produrl+"/user?role=player").then(res => {
             if (!res.ok) {
-                player2=true
+               
                 return false
             }
             return res.json();
@@ -34,7 +34,7 @@ const Customer = () => {
 
     const GetUserAccess = () => {
         const userrole = sessionStorage.getItem('userrole') != null ? sessionStorage.getItem('userrole').toString() : '';
-        console.log(userrole);
+        
         fetch(window.$produrl+"/roleaccess?role=" + userrole + "&menu=default").then(res => {
             if (!res.ok) {
                 console.log(res)
@@ -60,28 +60,59 @@ const Customer = () => {
 
     const handleadd = () => {
         if(haveadd){
-        toast.success('added')
+           
+     
         }else{
             toast.warning('You are not having access for add');
         }
+
+        navigate('/register')
+
     }
-    const handleedit = () => {
+    const handleedit = (e, param) => {
         if(haveedit){
-        toast.success('edited')
+               
         }
         else{
-            toast.warning('You are not having access for Edit');
+          toast.warning('You are not having access for Edit');
         }
+
+        navigate('/edit/'+param)
     }
 
-    const handleremove = () => {
+    const handleremove = (e, param) => {
+      
+
         if(haveremove){
-        toast.success('removed')
+    //    toast.success('removed')
         }else{
-            toast.warning('You are not having access for remove');
+           toast.warning('You are not having access for remove');
         }
+
+        if (window.confirm("Sei sicuro?")) {
+            removeplayer(param);
+            loadcustomer();
+        }
+       
+        
     }
 
+    function removeplayer(idp) {
+
+        fetch(window.$produrl+"/user/" + idp, {
+            method: 'DELETE',
+        }).then((result) => {
+            //  console.log(result)
+            result.json().then((resp) => {
+                toast.success("Eliminato");
+            })
+        }).catch((err) => {
+            toast.error(err.message);
+        });
+
+
+    
+    }
 
     return (
         <div className="container">
@@ -96,22 +127,24 @@ const Customer = () => {
                     <table className="table table-bordered">
                         <thead className="bg-dark text-white">
                             <tr>
-                                <th>Code</th>
+                                <th>ID</th>
                                 <th>Name</th>
+                                <th>Country</th>
                                 <th>Email</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             {custlist &&
-                                custlist.map(item => (
-                                    <tr key={item.numberuser}>
-                                        <td>{item.numberuser}</td>
-                                        <td>{item.name}</td>
+                                custlist.map((item, index) => (
+                                    <tr key={index+1}>
+                                       <td>{item.id}</td>
+                                       <td>{item.name}</td>
+                                        <td>{item.country}</td>
                                         <td>{item.email}</td>
                                         <td>
-                                            <button onClick={handleedit} className="btn btn-primary">Edit</button> |
-                                            <button onClick={handleremove} className="btn btn-danger">Remove</button>
+                                            <button onClick={(e) => handleedit(e, item.id)} className="btn btn-primary">Edit</button> |
+                                            <button onClick={(e) => handleremove(e, item.id)}   className="btn btn-danger">Remove</button>
                                         </td>
 
                                     </tr>
@@ -125,4 +158,4 @@ const Customer = () => {
     );
 }
 
-export default Customer;
+export default Player;

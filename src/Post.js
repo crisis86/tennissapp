@@ -15,10 +15,16 @@ const Post = () => {
 
     useEffect(() => {
         let email = sessionStorage.getItem('email')
+        let userrole =sessionStorage.getItem('userole')
 
         if (email === '' || email === null) {
             //toast.error('Not Authenticate session');
             usenavigate('/login');
+        }
+
+        if (userrole !== 'admin' ) {
+          toast.error('Not Authorized to acess');
+            usenavigate('/home');
         }
 
     }, [])

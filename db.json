@@ -17,7 +17,7 @@
       "email": "prova@soccertime.it",
       "password": "matrix",
       "name": "Lino Bordelli",
-      "phone": "132123123",
+      "phone": "334918558",
       "country": "india",
       "role": "player",
       "address": "fatt e fatt tuoi\n23",
@@ -323,13 +323,13 @@
       "menu": "default",
       "haveadd": true,
       "haveedit": true,
-      "havedelete": false
+      "havedelete": true
     },
     {
       "role": "player",
       "menu": "default",
       "haveadd": false,
-      "haveedit": true,
+      "haveedit": false,
       "havedelete": false
     }
   ],

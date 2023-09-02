@@ -7,6 +7,7 @@ import Login from './Login';
 import Register from './Register';
 import AppHeader from './AppHeader';
 import Player from './Player';
+import Edit  from './Edit';
 import ChallengeList from './ChallengeList';
 import Listasfida from './lista-sfida';
 import ChallengeSingle from './Challenge-single';
@@ -30,6 +31,7 @@ function App() {
       <Route path="/lista-sfida" element={<Listasfida />}> </Route>
       <Route path="/Mychallenge" element={<Mychallenge />}> </Route>
       <Route path="/Post" element={<Post />}> </Route>
+      <Route path="/Edit/:id" element={<Edit />}> </Route>
       <Route path="/Challenge-single/:id/:name" element={<ChallengeSingle />}> </Route>
       
     </Routes>

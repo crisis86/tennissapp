@@ -2,7 +2,7 @@ import './assets/framework7-bundle.css';
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import logo from './assets/logo.svg';
+import logo from './assets/pallina.png';
 
 
 const ChallengeList = () => {
@@ -54,7 +54,7 @@ const iduser = parseInt(sessionStorage.getItem('iduser'))
                 <div className="tabs">
                     <div className="page-content tab tab-active">
                         <div className="row justify-content-center">
-                            <div className="col-100 medium-75 large-60 xlarge-50">
+                            <div style={{paddingLeft:'0', paddingRight:'0'}} className="col-100 medium-75 large-60 xlarge-50">
                                 <div className="list inset margin-vertical">
                                     <ul>
                                         {playerlist &&
@@ -65,7 +65,7 @@ const iduser = parseInt(sessionStorage.getItem('iduser'))
                                                             <div className="item-row">
                                                        
                                                               <div className="item-cell width-auto">
-                                                                    <img src={logo} height="50" width="50" alt="" />
+                                                                    <img src={logo} height="20" width="20" alt="Pallina" />
                                                                 </div>
                                                                 <a className='link' style={{ width: '150px' }} href={'/Challenge-single/' + item.id+'/'+item.name}>
 

@@ -311,7 +311,7 @@ const Mychallenge = () => {
         let mtext = "Vuoi lanciare la sfida?";
         let mconfirmtext = "Si, invia la sfida";
         if (status === 'cancel') {
-            mtext = "annullando perderai 2 punti in classifica!";
+            mtext = "annullando perderai UNA posizione in classifica!";
             mconfirmtext = "Si, annulla la sfida!";
         }
 
@@ -752,13 +752,13 @@ const Mychallenge = () => {
 
                     }  if (obj.id === idp2) {
 
-                        obj.posizione = posp2 - 1  // sale di uno subisce annullo
+                        obj.posizione = posp2 + 1  // scendo di 1 perchè ho annullato
                         console.log("sale di uno subisce annullo", obj.posizione)
                         updateUserPosition(obj)
                     }
                     if (obj.id === posp2 -1) {
                        
-                        obj.posizione = obj.posizione + 1 // sale di uno quello sotto
+                        obj.posizione = obj.posizione - 1 // sale di uno quello sotto
                         console.log("scendi uno quello sopra", obj.posizione)
                         updateUserPosition(obj)
                     }
@@ -768,7 +768,7 @@ const Mychallenge = () => {
                 return foundannullaforzato;
 
             default:
-                return;
+                return '';
         }
     }
 
