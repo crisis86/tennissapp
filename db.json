@@ -74,7 +74,7 @@
       "role": "player",
       "address": "strada provinciale SP 52",
       "gender": "male",
-      "posizione": 5,
+      "posizione": 6,
       "insfida": false,
       "id": 6
     },
@@ -113,7 +113,7 @@
       "role": "player",
       "address": "strada provinciale SP 52",
       "gender": "male",
-      "posizione": 6,
+      "posizione": 7,
       "insfida": false,
       "id": 9
     },
@@ -126,7 +126,7 @@
       "role": "player",
       "address": "strada provinciale SP 52",
       "gender": "male",
-      "posizione": 4,
+      "posizione": 5,
       "insfida": false,
       "id": 10
     },
@@ -139,7 +139,7 @@
       "role": "player",
       "address": "strada provinciale SP 52",
       "gender": "male",
-      "posizione": 7,
+      "posizione": 3,
       "insfida": false,
       "id": 11
     },
@@ -152,7 +152,7 @@
       "role": "player",
       "address": "sdsdsdsdsd",
       "gender": "male",
-      "posizione": 13,
+      "posizione": 12,
       "insfida": false,
       "id": 12
     },
@@ -178,7 +178,7 @@
       "role": "player",
       "address": "rfew",
       "gender": "male",
-      "posizione": 14,
+      "posizione": 13,
       "insfida": false,
       "id": 14
     },
@@ -217,7 +217,7 @@
       "role": "player",
       "address": "via anfiteatro laterizio\n25",
       "gender": "male",
-      "posizione": 12,
+      "posizione": 14,
       "insfida": false,
       "id": 17
     },
@@ -230,7 +230,7 @@
       "role": "player",
       "address": "via anfiteatro laterizio\n25",
       "gender": "male",
-      "posizione": 3,
+      "posizione": 4,
       "insfida": false,
       "id": 18
     },
@@ -1033,6 +1033,25 @@
       "set2": "2-6",
       "set3": "7-5",
       "id": 36
+    },
+    {
+      "datacreate": "2-9-2023",
+      "datasfida": "7/9/2023",
+      "players": [
+        {
+          "idp1": 17,
+          "p1": "Michele marotta"
+        },
+        {
+          "idp2": 11,
+          "p2": "Jepson Franzys"
+        }
+      ],
+      "status": "complete",
+      "set1": "0-6",
+      "set2": "2-6",
+      "set3": "0-0",
+      "id": 37
     }
   ]
 }

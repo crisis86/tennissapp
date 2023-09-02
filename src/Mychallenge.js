@@ -31,7 +31,7 @@ const Mychallenge = () => {
     useEffect(() => {
         fetchdata();
         checksfidapending();
-      //  SwitchCase("Sfida", 11 ,7)
+       // SwitchCase("Sfidato", 17 ,11) 
     }, []);
 
     async function fetchdata() {
@@ -212,8 +212,6 @@ const Mychallenge = () => {
                             ResetesetMysfida(player1);
                         } */
 
-                        sessionStorage.setItem('stoinsfida', false);
-
                         // rettifico classifica
                         let vincitore = calcolavincitore()
                         console.log('sono il vincitore:' +vincitore)
@@ -225,7 +223,7 @@ const Mychallenge = () => {
                             SwitchCase('Sfidato', player1, player2)
                         }
                         
-
+                        sessionStorage.setItem('stoinsfida', false); // pulisco la session flag sfida
                           checksfidapending();
 
                     })
@@ -656,7 +654,41 @@ const Mychallenge = () => {
                 return found
 
             case 'Sfidato':
-                return 'You are Annulla_sfida.';
+
+            const found2 = classicica.sort((a, b) => a.posizione > b.posizione ? 1 : -1).filter((obj, index) => {
+                
+                 
+                if (index + 1 === posp2 - 1 || index + 1 === posp2 -2) {
+
+                    obj.posizione = obj.posizione + 1
+                    console.log(obj.posizione)
+                    updateUserPosition(obj)
+                }
+                if (obj.id === idp2) {
+                    obj.insfida=false
+                       obj.posizione = posp2 - 2 // Salgo di 2 posizioni
+                            console.log("posizione vincente:" +obj.posizione) 
+                      updateUserPosition(obj)
+                } if (obj.id === idp1) {
+
+                    obj.insfida=false
+                    obj.posizione = posp1 + 1 // scendo di una
+                    console.log("pos perdente", obj.posizione)
+                 updateUserPosition(obj)
+                   
+                } if (index+1 === posp1+1) {
+                    obj.posizione = obj.posizione - 1  // sale di uno quello sotto a me
+                    console.log("pos sotto perdente perdente", obj.posizione)
+                    updateUserPosition(obj)
+                }
+                return obj.id
+
+            })
+
+            console.log(JSON.stringify(found2));
+
+                return found2
+                
             case 'Annulla_sfida':
                 return 'You are a Manager.';
             case 'Annullo_forzato':
