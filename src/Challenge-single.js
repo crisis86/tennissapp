@@ -344,7 +344,7 @@ function SfidaAbilitata() {
                                         {plr.insfida  ? (
                                             <div className="col-100 small-50">
                                                {annullabotton &&
-                                                <button onClick={(e) => sfidahandle(e, plr.id, plr.name, 'cancel')} type="button" className="button button-fade button-small">Annulla</button>
+                                                <button style={{display: 'none'}} onClick={(e) => sfidahandle(e, plr.id, plr.name, 'cancel')} type="button" className="button button-fade button-small">Annulla</button>
                                                }
                                                 </div>
                                         ) : (
