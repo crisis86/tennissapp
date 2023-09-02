@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import FontAwesome from 'react-fontawesome'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCoffee } from '@fortawesome/fontawesome-free-solid'
 
 const Register = () => {
 
@@ -18,9 +21,10 @@ const Register = () => {
     const [posizione, posizionechange] = useState(0);
     const [insfida, insfidachange]=useState(false);
     const [chek, setcheck] = useState(false);
-
     const navigate = useNavigate();
-     
+    const [loading, setloading] = useState(false);
+
+    
 
      useEffect(() => {
         lastidjson();
@@ -121,7 +125,11 @@ const Register = () => {
 
 
     const handlesubmit = (e) => {
+        setloading(true)
             e.preventDefault();
+            setTimeout(() => {
+                          
+     
             let regobj = {email, password, name, phone, country, role, address, gender, posizione,insfida};
             if (IsValidate()) {
           //  console.log(regobj);
@@ -130,13 +138,21 @@ const Register = () => {
                 headers: { 'content-type': 'application/json' },
                 body: JSON.stringify(regobj)
             }).then((res) => {
+                setloading(false)
+              
                 toast.success('Registered successfully.') 
                 navigate('/login');
             }).catch((err) => {
                 toast.error('Failed :' + err.message);
             });
         }
+    }, 3000);
+
+
     }
+
+
+    
     return (
         <div>
             <div className="offset-lg-3 col-lg-6">
@@ -216,8 +232,12 @@ const Register = () => {
                             </div>
 
                         </div>
+                       
+                      
                         <div className="card-footer">
-                            <button type="submit" className="btn btn-primary">Register</button> |
+                            <button disabled={loading} type="submit" className="btn btn-primary">{loading && <FontAwesomeIcon icon="fa-solid fa-spinner" spinPulse size="lg" style={{color: "#fcfcfc",}} />}Sing Up</button> |
+                            
+
                             <Link to={'/login'} className="btn btn-danger">Close</Link>
                         </div>
                     </div>
@@ -227,6 +247,7 @@ const Register = () => {
 
         </div>
     );
+    
 }
 
 export default Register;
