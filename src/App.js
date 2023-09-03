@@ -3,6 +3,7 @@ import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import {ToastContainer} from 'react-toastify';
 import Home from './Home';
+import Logout from './Logout';
 import Login from './Login';
 import Register from './Register';
 import AppHeader from './AppHeader';
@@ -13,6 +14,7 @@ import Listasfida from './lista-sfida';
 import ChallengeSingle from './Challenge-single';
 import Mychallenge from './Mychallenge';
 import Post from './Post';
+
 
 function App() {
   return (
@@ -27,6 +29,7 @@ function App() {
       <Route path="/Player"element={<Player/>}> </Route>
       <Route path="/ChallengeList"element={<ChallengeList/>}> </Route>
       <Route path="/Login" element={<Login />}></Route>
+      <Route path="/Logout" element={<Logout />}></Route>
       <Route path="/Register" element={<Register />}> </Route>
       <Route path="/lista-sfida" element={<Listasfida />}> </Route>
       <Route path="/Mychallenge" element={<Mychallenge />}> </Route>

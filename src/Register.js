@@ -63,7 +63,7 @@ const Register = () => {
             isproceed = false;
             errormessage += ' Username';
         } */
-        checkemail(email);
+        checkemail(email.trim());
               
         if (name === null || name === '') {
             isproceed = false;
@@ -192,7 +192,7 @@ const Register = () => {
                                 <div className="col-lg-6">
                                     <div className="form-group">
                                         <label>Email <span className="errmsg">*</span></label>
-                                        <input value={email}  onChange={e => emailchange(e.target.value)} className="form-control"></input>
+                                        <input style={{textTransform:'lowercase'}} value={email.trim()}  onChange={e => emailchange(e.target.value)} className="form-control"></input>
                                     </div>
                                 </div>
                                 <div className="col-lg-6">

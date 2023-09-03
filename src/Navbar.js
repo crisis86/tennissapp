@@ -16,48 +16,9 @@ function Navbar() {
 
   useEffect(() => {
 
-    if(iduser !== null || iduser !== 0) {
-    //  notificasfida();
-    }
-
-
 }, []);
 
 
-
-  function notificasfida() {
-       
-  
-    fetch(window.$produrl+"/challenge?status!=cancel", {
-        method:'GET'
-        }).then(res => {
-            if (!res.ok) {
-           // console.log('nulla')
-                return false 
-            }
-            return res.json();
-        }).then(res => {
-                       
-          setchallenge(res);
-           
-          const found = challenge.filter(obj => {
-          
-           if (obj.id === iduser) { 
-          if (obj.status === 'processing' || obj.status === "pending") {
-           
-            setbadge(true);
-            }
-            }
-          return obj.id===iduser;
-           
-        })
-
-        console.log(found)
-
-        console.log(badge)
-
-        });
-  }
 
 // console.log(SidebarData);
   return (

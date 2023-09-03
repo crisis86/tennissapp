@@ -706,12 +706,13 @@ const Mychallenge = () => {
                 const foundannulla = classicica.sort((a, b) => a.posizione > b.posizione ? 1 : -1).filter((obj, index) => {
 
                     if (obj.id === idp1) {
-
+                        
+                        obj.insfida=false;
                         obj.posizione = posp1 + 1 // scendo di 1 perchè ho annullato
                         console.log("pod do chi anulla:" + obj.posizione)
                         updateUserPosition(obj)
 
-                    } if (obj.id === posp1 + 1) {
+                    } if (obj.id === posp1 - 1) {
 
                         obj.posizione = obj.posizione - 1 // sale di uno quello sotto
                         console.log("sale di uno quello sotto", obj.posizione)
@@ -719,6 +720,7 @@ const Mychallenge = () => {
 
                     }  if (obj.id === idp2) {
 
+                        obj.insfida=false;
                         obj.posizione = posp2 - 1  // sale di uno subisce annullo
                         console.log("sale di uno subisce annullo", obj.posizione)
                         updateUserPosition(obj)
@@ -740,6 +742,7 @@ const Mychallenge = () => {
 
                     if (obj.id === idp1) {
 
+                        obj.insfida=false;
                         obj.posizione = posp1 + 1 // scendo di 1 perchè ho annullato
                         console.log("pod do chi anulla:" + obj.posizione)
                         updateUserPosition(obj)
@@ -752,6 +755,7 @@ const Mychallenge = () => {
 
                     }  if (obj.id === idp2) {
 
+                        obj.insfida=false;
                         obj.posizione = posp2 + 1  // scendo di 1 perchè ho annullato
                         console.log("sale di uno subisce annullo", obj.posizione)
                         updateUserPosition(obj)

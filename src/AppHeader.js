@@ -7,6 +7,9 @@ const Appheader = () => {
     const usenavigate = useNavigate();
     const location = useLocation();
 
+    const [badge, setbadge] = useState(false)
+    const fullname = sessionStorage.getItem('fullname');
+
     useEffect(() => {
         if (location.pathname === '/login' || location.pathname === '/register') {
             showmenuupdateupdate(false);
@@ -17,19 +20,44 @@ const Appheader = () => {
                 usenavigate('/login');
             } else {
                 displayusernameupdate(username);
-              
+
             }
         }
 
     }, [location])
+
+    
+
+    function checksfida() {
+        fetch(window.$produrl + "/challenge?status!=cancel&q=" +fullname,
+            {
+                headers: {
+                    accept: 'application/json',
+                }
+            }).then((res) => {
+
+                return res.json();
+            }).then((resp) => {
+                if (Object.keys(resp).length === 0) {
+                    setbadge(false)
+                } else {
+                    setbadge(true)
+                }
+            }).catch((err) => {
+                console.log(err.message)
+
+            });
+    }
+
     return (
         <div>
             {showmenu &&
                 <div className="header">
 
-                    
-                    <span style={{ float: 'left' }}>Welcome <i>{sessionStorage.getItem('fullname')}</i>  </span>
-                   <span>  <Link className="logout" style={{ float: 'right', color: '#ffffff !important' }} to={'/login'}>Logout</Link> </span>
+
+                    <span style={{ float: 'left' }}>Ciao <i>{sessionStorage.getItem('fullname')}</i>  </span>
+                    {badge && <span className="badge">News</span>}
+                    <span>  <Link className="logout" style={{ float: 'right', color: '#ffffff !important' }} to={'/logout'}>Logout</Link> </span>
                 </div>
             }
         </div>

@@ -15,12 +15,12 @@ const Edit = () => {
     const [confirmpassword, confirmpassworchange] = useState("");
     const [email, emailchange] = useState("");
     const [phone, phonechange] = useState("");
-    const [country, countrychange] = useState("Italia");
-    const [role, rolechange] = useState("player");
+    const [country, countrychange] = useState("");
+    const [role, rolechange] = useState("");
     const [address, addresschange] = useState("");
-    const [gender, genderchange] = useState("male");
+    const [gender, genderchange] = useState("");
     const [posizione, posizionechange] = useState(0);
-    const [insfida, insfidachange]=useState(false);
+    const [insfida, insfidachange]=useState('');
    
 
     const navigate = useNavigate();
@@ -45,8 +45,7 @@ const Edit = () => {
             }
             return res.json();
         }).then(resp => {
-            
-                  
+                         
 
             namechange(resp.name)
             passwordchange(resp.password)
@@ -202,6 +201,17 @@ const Edit = () => {
                                         <label>Male</label>
                                         <input type="radio" checked={gender === 'female'} onChange={e => genderchange(e.target.value)} name="gender" value="female" className="app-check"></input>
                                         <label>Female</label>
+                                    </div>
+                                </div>
+
+                                <div className="col-lg-6">
+                                    <div className="form-group">
+                                        <label>Sfida Flag</label>
+                                        <br></br>
+                                        <input type="radio" checked={insfida === true} onChange={e => insfidachange(e.target.value)} name="insfida" value="SI" className="app-check"></input>
+                                        <label>Si</label>
+                                        <input type="radio" checked={insfida === false} onChange={e => insfidachange(e.target.value)} name="insfida" value="NO" className="app-check"></input>
+                                        <label>No</label>
                                     </div>
                                 </div>
 

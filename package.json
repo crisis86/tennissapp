@@ -11,6 +11,7 @@
     "clone": "^2.1.2",
     "cors": "^2.8.5",
     "dayjs": "^1.11.9",
+    "js-cookie": "^3.0.5",
     "json-serve": "^0.1.0",
     "json-server": "^0.17.3",
     "react": "^18.2.0",

@@ -8,13 +8,21 @@ const Player = () => {
     const [haveview, viewchange] = useState(false);
     const [haveadd, addchange] = useState(false);
     const [haveremove, removechange] = useState(false);
+    const myrole = sessionStorage.getItem('userrole')
 
     const navigate=useNavigate();
 
 
     useEffect(() => {
-        GetUserAccess();
-        loadcustomer();
+        if(myrole === 'admin') {
+            GetUserAccess();
+            loadcustomer();
+        } else {
+
+            toast.error('You are not authorized to access');
+            navigate('/');
+        }
+       
        
     }, []);
 

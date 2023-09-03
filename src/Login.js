@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import GetCookie from "./hooks/getCookie";
+import SetCookie from "./hooks/setCookie";
+import RenoveCookie from "./hooks/removeCookie";
 
 
 
@@ -9,11 +12,36 @@ const Login = () => {
     const [email, emailupdate] = useState('');
     const [getiduser, setiduser] = useState(null);
     const [password, passwordupdate] = useState('');
-    const usenavigate = useNavigate();   
+    const usenavigate = useNavigate();
+    const savelogin = GetCookie('utente');
+
+
 
     useEffect(() => {
-        sessionStorage.clear();
-      //  console.log(window.$produrl)
+    console.log(savelogin);
+    
+        // sessionStorage.clear();
+        if (savelogin !== undefined) {
+            
+            
+            const obuser =JSON.parse(savelogin);
+
+
+            setTimeout(() => {
+
+                sessionStorage.setItem('email', user.email);
+                sessionStorage.setItem('userrole', user.role);
+                sessionStorage.setItem('iduser', user.id);
+                sessionStorage.setItem('fullname', user.name);
+                sessionStorage.setItem('stoinsfida', user.insfida);
+                localStorage.setItem('datiuserlogin', JSON.stringify(user));
+
+                toast.success('Success');
+                usenavigate('/')
+               // console.log(obuser)
+
+            }, 10);
+        }
     }, []);
 
 
@@ -23,46 +51,48 @@ const Login = () => {
             ///implentation
             // console.log('proceed');
             //getUsersid();
-         
-            fetch(window.$produrl+"/user?email=" + email,
-            {
-                headers:{
-                accept: 'application/json',
-                }
-            }).then((res) => {
-                if (!res.ok) {console.log('non è ok');}
-             
-                return res.json();
-            }).then((resp) => {
-                
-                if (Object.keys(resp).length === 0) {
-                    toast.error('Please Enter valid username');
-                } else {
-                    setuser(resp);
-                    // console.log(resp[0].password)
 
-                    //  console.log(JSON.stringify(user.map(({ password }) => password)));
-                    //     console.log(user.map(({ password }) => password));
-                    console.log(password);
-
-                    if (resp[0].password === password) {
-
-                        sessionStorage.setItem('email', email);
-                        sessionStorage.setItem('userrole', resp[0].role);
-                        sessionStorage.setItem('iduser', resp[0].id);
-                        sessionStorage.setItem('fullname', resp[0].name);
-                        sessionStorage.setItem('stoinsfida', resp[0].insfida);
-                        localStorage.setItem('datiuserlogin', JSON.stringify(resp[0]));
-                        toast.success('Success');
-                        usenavigate('/')
-                    } else {
-                        toast.error('Please Enter valid credentials');
+            fetch(window.$produrl + "/user?email=" + email,
+                {
+                    headers: {
+                        accept: 'application/json',
                     }
-                }
-            }).catch((err) => {
-                console.log(err.message)
-                toast.error('Login Failed due to :' + err.message);
-            });
+                }).then((res) => {
+                    if (!res.ok) { console.log('non è ok'); }
+
+                    return res.json();
+                }).then((resp) => {
+
+                    if (Object.keys(resp).length === 0) {
+                        toast.error('Please Enter valid username');
+                    } else {
+
+                        setuser(resp);
+                        // console.log(resp[0].password)
+
+
+                        //  console.log(JSON.stringify(user.map(({ password }) => password)));
+                        //     console.log(user.map(({ password }) => password));
+
+                        if (resp[0].password === password) {
+                            //    RenoveCookie('utente')
+                            SetCookie('utente', JSON.stringify(resp[0]));
+                            sessionStorage.setItem('email', email);
+                            sessionStorage.setItem('userrole', resp[0].role);
+                            sessionStorage.setItem('iduser', resp[0].id);
+                            sessionStorage.setItem('fullname', resp[0].name);
+                            sessionStorage.setItem('stoinsfida', resp[0].insfida);
+                            localStorage.setItem('datiuserlogin', JSON.stringify(resp[0]));
+                            toast.success('Success');
+                            usenavigate('/')
+                        } else {
+                            toast.error('Please Enter valid credentials');
+                        }
+                    }
+                }).catch((err) => {
+                    console.log(err.message)
+                    toast.error('Login Failed due to :' + err.message);
+                });
         }
     }
 

@@ -84,8 +84,7 @@
   }
   .badge {
     position: relative;
-    top: 298px;
-    right: 36px;
+    
     padding: 0px 4px;
     opacity: 0.5;
     border-radius: 100%;
