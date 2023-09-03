@@ -19,7 +19,7 @@ import Post from './Post';
 function App() {
   return (
     <div className="App">
-     <ToastContainer theme='colored' position='top-center'></ToastContainer>
+     <ToastContainer theme='colored' autoClose='2000' position='top-center'></ToastContainer>
      
    <BrowserRouter>
     <AppHeader></AppHeader>

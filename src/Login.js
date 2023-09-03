@@ -16,9 +16,8 @@ const Login = () => {
     const savelogin = GetCookie('utente');
 
 
-
     useEffect(() => {
-    console.log(savelogin);
+    
     
         // sessionStorage.clear();
         if (savelogin !== undefined) {
@@ -122,9 +121,9 @@ const Login = () => {
     }
 
     return (
-        <div className="row">
-            <div className="list cards-list inset margin-vertical-half no-chevron no-hairlines no-hairlines-between" style={{ marginTop: '100px' }}>
-                <form onSubmit={ProceedLogin} className="">
+        <div className="offset-lg-3 col-lg-6">
+            <div style={{ marginTop: '80px' }}>
+                <form onSubmit={ProceedLogin} className="container">
                     <div className="card">
                         <div className="card-header">
                             <h2>User Login</h2>
@@ -132,7 +131,7 @@ const Login = () => {
                         <div className="card-body">
                             <div className="form-group">
                                 <label>Email <span className="errmsg">*</span></label>
-                                <input value={email} onChange={e => emailupdate(e.target.value)} className="form-control"></input>
+                                <input style={{textTransform:'lowercase'}} value={email} onChange={e => emailupdate(e.target.value)} className="form-control"></input>
                             </div>
                             <div className="form-group">
                                 <label>Password <span className="errmsg">*</span></label>

@@ -6,7 +6,12 @@
 .env/   
 /.pnp
 .pnp.js
-/db.json
+#robamia
+tmp
+lib
+.DS_Store
+.idea
+db.json
 # testing
 /coverage
 

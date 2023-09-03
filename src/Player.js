@@ -137,7 +137,7 @@ const Player = () => {
                             <tr>
                                 <th>ID</th>
                                 <th>Name</th>
-                                <th>Country</th>
+                                <th>Posizione</th>
                                 <th>Email</th>
                                 <th>Action</th>
                             </tr>
@@ -148,7 +148,7 @@ const Player = () => {
                                     <tr key={index+1}>
                                        <td>{item.id}</td>
                                        <td>{item.name}</td>
-                                        <td>{item.country}</td>
+                                        <td>{item.posizione}</td>
                                         <td>{item.email}</td>
                                         <td>
                                             <button onClick={(e) => handleedit(e, item.id)} className="btn btn-primary">Edit</button> |

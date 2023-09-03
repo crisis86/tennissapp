@@ -26,7 +26,7 @@ const Appheader = () => {
 
     }, [location])
 
-    
+ 
 
     function checksfida() {
         fetch(window.$produrl + "/challenge?status!=cancel&q=" +fullname,
@@ -56,7 +56,7 @@ const Appheader = () => {
 
 
                     <span style={{ float: 'left' }}>Ciao <i>{sessionStorage.getItem('fullname')}</i>  </span>
-                    {badge && <span className="badge">News</span>}
+                    {badge === true && <span className="badge">News</span>}
                     <span>  <Link className="logout" style={{ float: 'right', color: '#ffffff !important' }} to={'/logout'}>Logout</Link> </span>
                 </div>
             }

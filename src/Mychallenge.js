@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import React from "react";
@@ -8,6 +9,7 @@ import dayjs from 'dayjs';
 
 const Mychallenge = () => {
 
+    const navigate = useNavigate();
 
     const iduser = parseInt(sessionStorage.getItem('iduser'))
     const fullname = sessionStorage.getItem('fullname')
@@ -29,9 +31,20 @@ const Mychallenge = () => {
 
 
     useEffect(() => {
+
+        let email = sessionStorage.getItem('email')
+
+        if (email === '' || email === null) {
+            //toast.error('Not Authenticate session');
+            navigate('/login');
+        } else {
+      
         fetchdata();
         checksfidapending();
+
         // SwitchCase("Sfidato", 17 ,11) 
+        }
+     
     }, []);
 
     async function fetchdata() {
@@ -595,17 +608,7 @@ const Mychallenge = () => {
 
     function SwitchCase(props, idp1, idp2) {
 
-
-        /*   fetch(window.$produrl + "/user?role=player", {
-              method: 'GET'
-          }).then(res => {
-              if (!res.ok) { return false }
-              return res.json();
-          }).then(res => { setclassifica(res) 
-              console.log(res)
-          });
-  
-          console.log(classicica); */
+        sessionStorage.setItem('stoinsfida', false);
 
         /// recupero posizioni attuali
         let posp1 = 0
@@ -704,7 +707,7 @@ const Mychallenge = () => {
             case 'Annulla_sfida':
 
                 const foundannulla = classicica.sort((a, b) => a.posizione > b.posizione ? 1 : -1).filter((obj, index) => {
-
+                     
                     if (obj.id === idp1) {
                         
                         obj.insfida=false;
@@ -712,7 +715,7 @@ const Mychallenge = () => {
                         console.log("pod do chi anulla:" + obj.posizione)
                         updateUserPosition(obj)
 
-                    } if (obj.id === posp1 - 1) {
+                    } if (index+1 === posp1 + 1) {
 
                         obj.posizione = obj.posizione - 1 // sale di uno quello sotto
                         console.log("sale di uno quello sotto", obj.posizione)
@@ -725,7 +728,7 @@ const Mychallenge = () => {
                         console.log("sale di uno subisce annullo", obj.posizione)
                         updateUserPosition(obj)
                     }
-                    if (obj.id === posp2 -1) {
+                    if (index+1 === posp2 -1) {
                        
                         obj.posizione = obj.posizione + 1 // sale di uno quello sotto
                         console.log("scendi uno quello sopra", obj.posizione)
@@ -755,7 +758,7 @@ const Mychallenge = () => {
 
                     }  if (obj.id === idp2) {
 
-                        obj.insfida=false;
+                         obj.insfida=false;
                         obj.posizione = posp2 + 1  // scendo di 1 perchè ho annullato
                         console.log("sale di uno subisce annullo", obj.posizione)
                         updateUserPosition(obj)

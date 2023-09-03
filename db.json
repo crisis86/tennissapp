@@ -74,7 +74,7 @@
       "role": "player",
       "address": "strada provinciale SP 52",
       "gender": "male",
-      "posizione": 6,
+      "posizione": 8,
       "insfida": false,
       "id": 6
     },
@@ -87,7 +87,7 @@
       "role": "player",
       "address": "strada provinciale SP 52",
       "gender": "male",
-      "posizione": 8,
+      "posizione": 6,
       "insfida": false,
       "id": 7
     },
@@ -100,7 +100,7 @@
       "role": "player",
       "address": "strada provinciale SP 52",
       "gender": "male",
-      "posizione": 10,
+      "posizione": 9,
       "insfida": false,
       "id": 8
     },
@@ -113,7 +113,7 @@
       "role": "player",
       "address": "strada provinciale SP 52",
       "gender": "male",
-      "posizione": 7,
+      "posizione": 5,
       "insfida": false,
       "id": 9
     },
@@ -126,7 +126,7 @@
       "role": "player",
       "address": "strada provinciale SP 52",
       "gender": "male",
-      "posizione": 5,
+      "posizione": 7,
       "insfida": false,
       "id": 10
     },
@@ -243,7 +243,7 @@
       "role": "player",
       "address": "",
       "gender": "male",
-      "posizione": 9,
+      "posizione": 11,
       "insfida": false,
       "id": 19
     },
@@ -259,6 +259,32 @@
       "posizione": 19,
       "insfida": false,
       "id": 20
+    },
+    {
+      "email": "test@test.it",
+      "password": "123123",
+      "name": "Test Davjde",
+      "phone": "123123123",
+      "country": "Italia",
+      "role": "player",
+      "address": "sreerrer",
+      "gender": "male",
+      "posizione": 20,
+      "insfida": false,
+      "id": 21
+    },
+    {
+      "email": "davideaprea2009@libero.it",
+      "password": "234",
+      "name": "davide aprea",
+      "phone": "132123123",
+      "country": "Italia",
+      "role": "player",
+      "address": "fatt e fatt tuoi\n23",
+      "gender": "male",
+      "posizione": 21,
+      "insfida": false,
+      "id": 22
     }
   ],
   "post": [
@@ -914,7 +940,7 @@
           "p2": "luca durso"
         }
       ],
-      "status": "processing",
+      "status": "cancel",
       "set1": "",
       "set2": "",
       "set3": "",
@@ -1052,6 +1078,82 @@
       "set2": "2-6",
       "set3": "0-0",
       "id": 37
+    },
+    {
+      "datacreate": "3-9-2023",
+      "datasfida": "",
+      "players": [
+        {
+          "idp1": 19,
+          "p1": "Driss Mertens"
+        },
+        {
+          "idp2": 7,
+          "p2": "luis suarez"
+        }
+      ],
+      "status": "cancel",
+      "set1": "",
+      "set2": "",
+      "set3": "",
+      "id": 38
+    },
+    {
+      "datacreate": "3-9-2023",
+      "datasfida": "",
+      "players": [
+        {
+          "idp1": 19,
+          "p1": "Driss Mertens"
+        },
+        {
+          "idp2": 8,
+          "p2": "luca durso"
+        }
+      ],
+      "status": "cancel",
+      "set1": "",
+      "set2": "",
+      "set3": "",
+      "id": 39
+    },
+    {
+      "datacreate": "3-9-2023",
+      "datasfida": "",
+      "players": [
+        {
+          "idp1": 10,
+          "p1": "Giggi Franzys"
+        },
+        {
+          "idp2": 18,
+          "p2": "Davide Aprea"
+        }
+      ],
+      "status": "cancel",
+      "set1": "",
+      "set2": "",
+      "set3": "",
+      "id": 40
+    },
+    {
+      "datacreate": "3-9-2023",
+      "datasfida": "",
+      "players": [
+        {
+          "idp1": 10,
+          "p1": "Giggi Franzys"
+        },
+        {
+          "idp2": 11,
+          "p2": "Jepson Franzys"
+        }
+      ],
+      "status": "cancel",
+      "set1": "",
+      "set2": "",
+      "set3": "",
+      "id": 41
     }
   ]
 }

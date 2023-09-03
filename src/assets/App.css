@@ -145,3 +145,6 @@ ul li {
 
 }
 
+.Toastify__close-button {
+  width: 5% !important;
+}

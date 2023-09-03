@@ -33,15 +33,22 @@ const ChallengeSingle = () => {
   
     const {id, name} = useParams()
 
-    //const idplayer = useParams();
-
-    //const location = useLocation()
-    //const { test } = location.state
+    const navigate = useNavigate();
 
     useEffect(() => {
-        fetchdata();
-     //   SfidaAbilitata();
-       checksfidapending();
+
+        let email = sessionStorage.getItem('email')
+
+        if (email === '' || email === null) {
+            //toast.error('Not Authenticate session');
+            navigate('/login');
+        } else{
+                fetchdata();
+            //   SfidaAbilitata();
+              checksfidapending();
+        }
+
+   
        
 
     }, []);
@@ -90,7 +97,7 @@ function SfidaAbilitata() {
         let mtext = "Vuoi lanciare la sfida?";
         let mconfirmtext = "Si, invia la sfida";
         if (status === 'cancel') {
-            mtext = "annullando perderai 2 posizioni in classifica!";
+            mtext = "annullando perderai 1 posizione in classifica!";
             mconfirmtext = "Si, annulla la sfida!";
         }
 
@@ -213,7 +220,7 @@ function SfidaAbilitata() {
             "set2": "",
             "set3": ""
         }
-        console.log(obj);
+      //  console.log(obj);
 
         fetch(window.$produrl+"/challenge", {
             method: "POST",
@@ -231,7 +238,7 @@ function SfidaAbilitata() {
         //usenavigate('/Mychallenge')
         fetchdata();
         checksfidapending();
-
+       
     }
 
     function removechallenge() {
@@ -279,12 +286,13 @@ function SfidaAbilitata() {
             return res.json();
         }).then(resp => {
             if (Object.keys(resp).length === 0) {
+             
             // toast.success('nessuna Challenge pending da mostare')
             } else {
-                console.log(resp)
                 setchallengepending(resp);
+             
 
-                console.log(iduser)
+               // console.log(iduser)
                 if (resp[0].players[0].idp1 === iduser || resp[0].players[1].idp2 === iduser ) {
                        
                     setannullabotton(true);
@@ -350,7 +358,7 @@ function SfidaAbilitata() {
                                         ) : (
                                            
                                             <div className="col-100 small-50">
-                                                 {plr.posizione > miaposizione || miaposizione  <= plr.posizione  +9 &&  // fino a 8 posizione sopra
+                                                 {plr.posizione > miaposizione || miaposizione  < plr.posizione  +9 &&  // fino a 8 posizione sopra
                                                 
                                                 <button disabled={stoinsfida === 'true'} onClick={(e) => sfidahandle(e, plr.id, plr.name, 'update')} type="button" className={stoinsfida=== 'true' ? 'disabled button button-fill button-small' : 'button button-fill button-small'}>Sfida</button>
                                             
