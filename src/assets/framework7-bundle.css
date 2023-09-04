@@ -839,8 +839,8 @@
   }
   .page-content {
     overflow: auto;
-    min-height: 350px;
-    max-height: 350px ; 
+    min-height: 550px;
+    max-height: 550px ; 
     /* min-height: calc(100vh - 200px);
 
     max-height: calc(100vh - 200px);
