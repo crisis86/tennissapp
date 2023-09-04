@@ -609,8 +609,8 @@
     margin: 0;
     padding: 0;
     width: 100%;
-    height: calc(100vh - 50px);
-    background: #ffffff;
+    height: 100%;
+    background: #fff;
     overflow-x: hidden;
     -webkit-text-size-adjust: 100%;
     -webkit-font-smoothing: antialiased;
@@ -839,12 +839,12 @@
   }
   .page-content {
     overflow: auto;
-  /*   min-height: 380px;
-    max-height:380px ; */
-    min-height: calc(100vh - 200px);
+    min-height: 350px;
+    max-height: 350px ; 
+    /* min-height: calc(100vh - 200px);
 
     max-height: calc(100vh - 200px);
-
+ */
     -webkit-overflow-scrolling: touch;
     box-sizing: border-box;
     height: 100%;
