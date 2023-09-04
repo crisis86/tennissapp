@@ -841,9 +841,9 @@
     overflow: auto;
   /*   min-height: 380px;
     max-height:380px ; */
-    min-height: calc(100vh - 180px);
+    min-height: calc(100vh - 220px);
 
-    max-height: calc(100vh - 180px);
+    max-height: calc(100vh - 220px);
 
     -webkit-overflow-scrolling: touch;
     box-sizing: border-box;
