@@ -158,16 +158,14 @@ const Register = () => {
 
 
     }
-
-
     
     return (
-        <div>
+        <div className="page-content">
             <div className="offset-lg-3 col-lg-6">
                 <form className="container" onSubmit={handlesubmit}>
                     <div className="card">
                         <div className="card-header">
-                            <h1>User Registeration</h1>
+                            <h1>Dati Utente</h1>
                         </div>
                         <div className="card-body">
 
@@ -205,7 +203,7 @@ const Register = () => {
                                 </div>
                                 <div className="col-lg-6">
                                     <div className="form-group">
-                                        <label>Tel <span className="errmsg"></span></label>
+                                        <label>Tel. <span className="errmsg"></span></label>
                                         <input value={phone} onChange={e => phonechange(e.target.value)} className="form-control"></input>
                                     </div>
                                 </div>

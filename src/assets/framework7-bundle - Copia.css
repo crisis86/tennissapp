@@ -591,27 +591,20 @@
     font-weight: 400;
     font-style: normal;
   }
-
-
-
-
-  
   html,
   body,
   .framework7-root {
     position: relative;
-    height: 100vh;
+    height: 100%;
     width: 100%;
- 
-   
+    overflow-x: hidden;
   }
   body {
     margin: 0;
     padding: 0;
     width: 100%;
-    height: 100vh;
     background: #fff;
-    overflow-x: hidden;
+    overflow: hidden;
     -webkit-text-size-adjust: 100%;
     -webkit-font-smoothing: antialiased;
     font-family: var(--f7-font-family);
@@ -820,13 +813,14 @@
   }
   .page {
     box-sizing: border-box;
-    position: relative;
+    position: absolute;
+    left: 0;
+    top: 0;
     width: 100%;
     height: 100%;
     transform: none;
     background-color: var(--f7-page-bg-color);
     z-index: 1;
-    overflow-x: hidden;
   }
   .page.stacked {
     display: none;
@@ -839,15 +833,11 @@
   }
   .page-content {
     overflow: auto;
-    min-height: 580px;
-    max-height:580px ;
- 
     -webkit-overflow-scrolling: touch;
     box-sizing: border-box;
     height: 100%;
     position: relative;
     z-index: 1;
-    overflow-x: hidden;
     padding-top: calc(var(--f7-page-navbar-offset, 0px) + var(--f7-page-toolbar-top-offset, 0px) + var(--f7-page-subnavbar-offset, 0px) + var(--f7-page-searchbar-offset, 0px) + var(--f7-page-content-extra-padding-top, 0px));
     padding-bottom: calc(var(--f7-page-toolbar-bottom-offset, 0px) + var(--f7-safe-area-bottom) + var(--f7-page-content-extra-padding-bottom, 0px));
   }
@@ -2922,7 +2912,7 @@
   .views > .toolbar,
   .view > .toolbar,
   .page > .toolbar {
-    position: relative;
+    position: absolute;
   }
   .toolbar-top,
   .ios .toolbar-top-ios,
@@ -3045,8 +3035,7 @@
   .md .toolbar-bottom-md:before,
   .aurora .toolbar-bottom-aurora:before {
     content: '';
-    position: relative
-    ;
+    position: absolute;
     background-color: var(--f7-toolbar-border-color, var(--f7-bars-border-color));
     display: block;
     z-index: 15;
@@ -3064,7 +3053,7 @@
   .md .toolbar-bottom-md:after,
   .aurora .toolbar-bottom-aurora:after {
     content: '';
-    position: relative;
+    position: absolute;
     right: 0;
     width: 100%;
     bottom: 100%;
@@ -3075,7 +3064,7 @@
     transform: translate3d(0, 0, 0);
   }
   .toolbar-inner {
-    position: relative;
+    position: absolute;
     left: 0;
     top: 0;
     width: 100%;
@@ -3129,7 +3118,7 @@
   }
   .tabbar .tab-link-highlight,
   .tabbar-labels .tab-link-highlight {
-    position: relative;
+    position: absolute;
     height: 2px;
     background: var(--f7-tabbar-link-active-border-color, var(--f7-theme-color));
     transition-duration: 300ms;
@@ -3856,7 +3845,7 @@
     margin: var(--f7-block-margin-vertical) 0;
     padding-top: 0;
     padding-bottom: 0;
-    padding-left:0;
+    padding-left: calc(var(--f7-block-padding-horizontal) + var(--f7-safe-area-left));
     padding-right: calc(var(--f7-block-padding-horizontal) + var(--f7-safe-area-right));
     font-size: var(--f7-block-font-size);
   }
@@ -4516,7 +4505,6 @@
     align-items: center;
     min-height: calc(var(--f7-list-item-min-height) - var(--menu-list-offset));
     padding-left: calc(var(--f7-list-item-padding-horizontal) + var(--f7-safe-area-left) - var(--menu-list-offset));
-    border-bottom:1px solid #e7e7e7 ;
   }
   .list .item-subtitle {
     position: relative;
@@ -5422,6 +5410,7 @@
   input[type='reset'].button {
     width: 100%;
   }
+ 
   .button > i + span,
   .button > span + span,
   .button > span + i,
@@ -5566,11 +5555,12 @@
     --f7-button-pressed-bg-color: var(--f7-segmented-strong-button-pressed-bg-color);
     position: relative;
     background: var(--f7-segmented-strong-bg-color);
-    border-radius: 8px;
+    border-radius: calc(var(--f7-button-border-radius) + 2px);
     box-shadow: none;
     padding: var(--f7-segmented-strong-padding);
     overflow: hidden;
   }
+ 
   .segmented-strong .button,
   .ios .segmented-strong-ios .button,
   .md .segmented-strong-md .button,
@@ -5632,31 +5622,6 @@
     transform: translateX(calc(var(--f7-segmented-highlight-active) * 100% + var(--f7-segmented-highlight-active) * var(--f7-segmented-highlight-between)));
     transition: 200ms;
   }
-  .segmented-strong-green { 
- 
-    --f7-segmented-highlight-num: 1;
-    --f7-segmented-highlight-active: 0;
-    --f7-segmented-highlight-padding: calc(var(--f7-segmented-strong-padding) * 2);
-    --f7-segmented-highlight-between: var(--f7-segmented-strong-between-buttons);
-    --f7-segmented-highlight-width: calc((100% - var(--f7-segmented-highlight-padding) - var(--f7-segmented-highlight-between) * (var(--f7-segmented-highlight-num) - 1)) / var(--f7-segmented-highlight-num));
-    
-    background-color: #8bff80a8;
-    border-radius: 8px;
-   box-shadow: var(--f7-segmented-strong-button-active-box-shadow);
-  }
-  .segmented-strong-pending {
-    --f7-segmented-highlight-num: 1;
-    --f7-segmented-highlight-active: 0;
-    --f7-segmented-highlight-padding: calc(var(--f7-segmented-strong-padding) * 2);
-    --f7-segmented-highlight-between: var(--f7-segmented-strong-between-buttons);
-    --f7-segmented-highlight-width: calc((100% - var(--f7-segmented-highlight-padding) - var(--f7-segmented-highlight-between) * (var(--f7-segmented-highlight-num) - 1)) / var(--f7-segmented-highlight-num));
-    
-    background-color: #e5da2c;
-    border-radius: 8px;
-    box-shadow: var(--f7-segmented-strong-button-active-box-shadow);
-    
-  }
- 
   .button:nth-child(2) ~ .segmented-highlight {
     --f7-segmented-highlight-num: 2;
   }
@@ -10295,7 +10260,6 @@
   }
   .tabs-swipeable-wrap > .tabs > .tab {
     display: block;
-    overflow-x: hidden;
   }
   .page > .tabs {
     height: 100%;
@@ -11074,7 +11038,7 @@
     }
   }
   .page.page-with-card-opened .page-content {
-    overflow-x: hidden;
+    overflow: hidden;
   }
   .card-backdrop {
     position: fixed;
@@ -11416,6 +11380,7 @@
     --f7-input-info-text-color: rgba(255, 255, 255, 0.45);
   }
   input[type='text'],
+  input[type='password'],
   input[type='search'],
   input[type='email'],
   input[type='tel'],
@@ -11424,6 +11389,7 @@
   input[type='month'],
   input[type='datetime-local'],
   input[type='time'],
+  input[type='number'],
   select,
   textarea {
     box-sizing: border-box;
@@ -11441,6 +11407,12 @@
     resize: none;
     font-size: inherit;
     color: inherit;
+    
+    background-color: var(--bs-body-bg);
+    background-clip: padding-box;
+    border: var(--bs-border-width) solid var(--bs-border-color);
+    border-radius: var(--bs-border-radius);
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out
   }
   .textarea-resizable-shadow {
     opacity: 0;
@@ -20680,7 +20652,6 @@
   }
   .color-picker-popup .page-content {
     padding-bottom: var(--f7-safe-area-bottom);
-    overflow-x: hidden;
   }
   .color-picker-popover .color-picker,
   .color-picker-popup .color-picker,

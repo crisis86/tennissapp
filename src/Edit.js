@@ -127,7 +127,7 @@ const Edit = () => {
         }
     }
     return (
-        <div>
+        <div className="page-content">
             <div className="offset-lg-3 col-lg-6">
                 <form className="container" onSubmit={handlesubmit}>
                     <div className="card">

@@ -121,6 +121,7 @@ const Login = () => {
     }
 
     return (
+        <div className="page-content"> 
         <div className="offset-lg-3 col-lg-6">
             <div style={{ marginTop: '80px' }}>
                 <form onSubmit={ProceedLogin} className="container">
@@ -140,13 +141,13 @@ const Login = () => {
                         </div>
                         <div className="card-footer">
                             <button type="submit" className="btn btn-primary">Login</button> |
-                            <Link className="btn btn-success" to={'/register'}>Sign </Link>
+                            <Link className="btn btn-success" to={'/register'}>Sing </Link>
                         </div>
                     </div>
                 </form>
             </div>
         </div>
-
+</div>
     );
 }
 
