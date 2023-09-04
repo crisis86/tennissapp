@@ -803,7 +803,7 @@ const Mychallenge = () => {
 
     return (
         <>
-            <div className="page">
+            <div className="page-content">
                 <div className="left">
                     <a href="/ChallengeList" className="link back">
                         <i className="icon icon-back"></i>
@@ -811,8 +811,7 @@ const Mychallenge = () => {
                     </a>
                 </div>
 
-                <div className="title">Le tue Sfide </div>
-                <div className="page-content">
+                <div className="">
                     <div style={{ textAlign: "center", background: "#060b26", opacity: 0.8, color: 'white', fontSize: "20px" }} className="title">Ultime Sfide
 
                     </div>

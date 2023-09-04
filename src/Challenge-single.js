@@ -313,18 +313,13 @@ function SfidaAbilitata() {
 
     return (
         <>
-            <div className="page">
+            <div className="page-content">
             <div style={{textAlign:"center"}} className="title"><h1>Scheda Giocatore </h1>  
             </div>
             <hr></hr>
-                <div className="left">
-                    <a href="/ChallengeList" className="link back">
-                        <i className="icon icon-back"></i>
-                        <span className="if-not-md">BACK</span>
-                    </a>
-                </div>
                
-                <div className="page-content">
+               
+                <div className="">
                     {player &&
                         player.map((plr, index) => (
                             <div key={index + 1} className="row">
@@ -343,7 +338,12 @@ function SfidaAbilitata() {
                                     <div className="font-size-14 single-line-text text-color-gray">{plr.name}</div>
                                 </div>
 
-                              
+                                <div className="left">
+                    <a href="/ChallengeList" className="link back">
+                        <i className="icon icon-back"></i>
+                        <span className="if-not-md">Back</span>
+                    </a>
+                </div>
                                  
                                 <div className="col flex-grow-1 margin-right-half">
                                 {plr.id !== iduser && 
@@ -370,7 +370,7 @@ function SfidaAbilitata() {
                                     </div>
                                 }
                                 </div>
-                                <br></br>  <br></br>  
+                                 
                                 <span className="segmented-highlight"></span>
                                 
                                 <div style={{textAlign:"center", background:"#060b26", opacity:0.8, color:'white', fontSize:"20px"}} className="title">Ultime Sfide  
