@@ -313,7 +313,7 @@ function SfidaAbilitata() {
 
     return (
         <>
-            <div className="page-content">
+            <div className="page">
             <div style={{textAlign:"center"}} className="title"><h1>Scheda Giocatore </h1>  
             </div>
             <hr></hr>

@@ -602,8 +602,7 @@
     position: relative;
     height: 100vh;
     width: 100%;
- 
-   
+      
   }
   body {
     margin: 0;
@@ -612,7 +611,7 @@
     height: 100vh;
     height: -webkit-fill-avaible;
     background: #fff;
-    overflow-x: hidden;
+    overflow: hidden;
     -webkit-text-size-adjust: 100%;
     -webkit-font-smoothing: antialiased;
     font-family: var(--f7-font-family);
