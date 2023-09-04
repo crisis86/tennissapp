@@ -257,7 +257,7 @@
       "address": "",
       "gender": "male",
       "posizione": 19,
-      "insfida": false,
+      "insfida": true,
       "id": 20
     },
     {
@@ -283,7 +283,7 @@
       "address": "fatt e fatt tuoi\n23",
       "gender": "male",
       "posizione": 21,
-      "insfida": false,
+      "insfida": true,
       "id": 22
     }
   ],
@@ -1173,6 +1173,25 @@
       "set2": "",
       "set3": "",
       "id": 42
+    },
+    {
+      "datacreate": "4-9-2023",
+      "datasfida": "",
+      "players": [
+        {
+          "idp1": 22,
+          "p1": "davide aprea"
+        },
+        {
+          "idp2": 20,
+          "p2": "Michele Gemello"
+        }
+      ],
+      "status": "pending",
+      "set1": "",
+      "set2": "",
+      "set3": "",
+      "id": 43
     }
   ]
 }

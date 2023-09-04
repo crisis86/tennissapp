@@ -4,7 +4,6 @@ import { Link, useParams, useNavigate } from "react-router-dom";
 import Swal from 'sweetalert2';
 import { toast } from "react-toastify";
 import avatar from './assets/avatar.png';
-import addNotification from "react-push-notification";
 import pallina from './assets/pallina.png';
 
 
@@ -239,7 +238,7 @@ const ChallengeSingle = () => {
         });
 
         //usenavigate('/Mychallenge')
-        sendnotify(fullname, nomedasfidare, date, "sfida")
+     
         fetchdata();
         checksfidapending();
 
@@ -283,7 +282,7 @@ const ChallengeSingle = () => {
                 toast.error(err.message);
             });
 
-            sendnotify(fullname, nomegiocatore1, date, "annulla")
+         
             checksfidapending();
             fetchdata();
 
@@ -320,26 +319,7 @@ const ChallengeSingle = () => {
 
     }
 
-function sendnotify(giocatore1, giocatore2, datacreazione,status) {
-
-    let ntitolo=""
-    let ndescrizione=""
-    if(status==='annulla') {
-        ntitolo="Sifda annullata!";
-        ndescrizione=giocatore1+ " ha ANNULLATO la sfida conntro "+ giocatore2+ " <br> in data:  " +datacreazione;
-    }else {
-        ntitolo="nuova sfida in attesa!";
-        ndescrizione=giocatore1+ " ha SFIDATO "+ giocatore2+ " <br> in data:  " +datacreazione;
-    }
-    addNotification({
-        title:ntitolo,
-        message: ndescrizione,
-        duration:4000,
-        icon: pallina,
-        native:true,
-        onClick: ()=> window.location=window.$produrl
-    })
-}
+ 
 
     return (
         <>

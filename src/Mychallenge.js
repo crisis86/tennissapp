@@ -6,7 +6,6 @@ import React from "react";
 import { toast } from "react-toastify";
 import Swal from 'sweetalert2';
 import dayjs from 'dayjs';
-import addNotification from "react-push-notification";
 import pallina from './assets/pallina.png';
 
 const Mychallenge = () => {
@@ -802,26 +801,7 @@ const Mychallenge = () => {
             toast.error(err.message);
         });
     }
-    function sendnotify(giocatore1, giocatore2, datacreazione,status) {
-
-        let ntitolo=""
-        let ndescrizione=""
-        if(status==='annulla') {
-            ntitolo="Sifda annullata!";
-            ndescrizione=giocatore1+ " ha ANNULLATO la sfida conntro "+ giocatore2+ " <br> in data:  " +datacreazione;
-        }else {
-            ntitolo="nuova sfida in attesa!";
-            ndescrizione=giocatore1+ " ha SFIDATO "+ giocatore2+ " <br> in data:  " +datacreazione;
-        }
-        addNotification({
-            title:ntitolo,
-            message: ndescrizione,
-            duration:4000,
-            icon: pallina,
-            native:true,
-            onClick: ()=> window.location=window.$produrl
-        })
-    }
+     
     return (
         <>
             <div className="page-content">
