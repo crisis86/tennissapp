@@ -12,7 +12,7 @@ function Navbar() {
   const [challenge, setchallenge] = useState([]);
   const showSidebar = () => setSidebar(!sidebar);
   const [badge, setbadge] = useState(false)
-
+  const myrole = sessionStorage.getItem('userrole')
 
   useEffect(() => {
 
@@ -25,7 +25,7 @@ function Navbar() {
    <div>
       <IconContext.Provider value={{ color: '#fff' }}>
         <div className='navbar'>
-          <Link to='#' className='menu-bars'>
+          <Link style={{display: myrole==='admin' ? '' : 'none' }} to='#' className='menu-bars'>
             <FaIcons.FaBars onClick={showSidebar} />
           </Link>
           <div className='logo'><img width="150px" src={logotennis} alt='logo'></img></div>

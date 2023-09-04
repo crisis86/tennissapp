@@ -179,7 +179,7 @@
       "address": "rfew",
       "gender": "male",
       "posizione": 13,
-      "insfida": false,
+      "insfida": true,
       "id": 14
     },
     {
@@ -200,12 +200,12 @@
       "password": "123456",
       "name": "Suazo Martinez",
       "phone": "3332154789",
-      "country": "Italia",
+      "country": "usa",
       "role": "player",
       "address": "via anfiteatro laterizio\n25",
       "gender": "male",
       "posizione": 15,
-      "insfida": false,
+      "insfida": true,
       "id": 16
     },
     {
@@ -1154,6 +1154,25 @@
       "set2": "",
       "set3": "",
       "id": 41
+    },
+    {
+      "datacreate": "4-9-2023",
+      "datasfida": "",
+      "players": [
+        {
+          "idp1": 16,
+          "p1": "Suazo Martinez"
+        },
+        {
+          "idp2": 14,
+          "p2": "nicola siciliano"
+        }
+      ],
+      "status": "pending",
+      "set1": "",
+      "set2": "",
+      "set3": "",
+      "id": 42
     }
   ]
 }

@@ -352,7 +352,7 @@ function SfidaAbilitata() {
                                         {plr.insfida  ? (
                                             <div className="col-100 small-50">
                                                {annullabotton &&
-                                                <button style={{display: 'none'}} onClick={(e) => sfidahandle(e, plr.id, plr.name, 'cancel')} type="button" className="button button-fade button-small">Annulla</button>
+                                                <button style={{display: 'none'}} onClick={(e) => sfidahandle(e, plr.id, plr.name, 'cancel')} type="button" className="button button-fill color-red">Annulla</button>
                                                }
                                                 </div>
                                         ) : (
@@ -370,33 +370,36 @@ function SfidaAbilitata() {
                                     </div>
                                 }
                                 </div>
-                                <br></br>  <br></br>  <br></br>
+                                <br></br>  <br></br>  
                                 <span className="segmented-highlight"></span>
                                 
-                                <div style={{textAlign:"center", background:"#060b26", opacity:0.8, color:'white', fontSize:"20px"}} className="title">Ultimi Match  
+                                <div style={{textAlign:"center", background:"#060b26", opacity:0.8, color:'white', fontSize:"20px"}} className="title">Ultime Sfide  
 
                                 </div>
                                 {challenge.sort((a, b) => a.id < b.id ? 1 : -1).map((partite, i) => (
-                                
+                                  <div style={{paddingLeft:'5px'}}  className="card no-shadow no-safe-area-left">
+                                <div className="card-contet">
                                     <div key={i + 1} className="block block-strong medium-hide no-hairlines no-margin-vertical sticky sticky-top">
-                                        <div className={partite.status==='pending' || partite.status==='processing' ? 'segmented segmented-strong-penging':'segmented segmented-strong'}>
+                                        <div className={partite.status==='pending' || partite.status==='processing' ? 'list no-chevron no-hairlines no-hairlines-between no-safe-areas segmented-strong-pending':'list no-chevron no-hairlines no-hairlines-between no-safe-areas segmented-strong'}>
 
-                                            <ul className="">
+                                            <ul>
 
                                                 <li>Sfida: {partite.players[0].p1} VS {partite.players[1].p2}</li>
                                                 <li>Creata il: {partite.datacreate}</li>
                                                 <li>Programmata il: {partite.datasfida}</li>
                                                 <li>Stato: {partite.status} </li>
-                                                <li>Set1: {partite.set1} </li>
-                                                <li>Set2: {partite.set2} </li>
-                                                <li>Set3: {partite.set3} </li>
+                                                <li style={{ textAlign: 'center' }}><b>Score</b></li>
+                                                <li style={{ textAlign: 'center' }}>Set1: <b>{partite.set1} </b></li>
+                                                <li style={{ textAlign: 'center' }}>Set2: <b>{partite.set2} </b></li>
+                                                <li style={{ textAlign: 'center' }}>Set3: <b>{partite.set3} </b> </li>
                                             </ul>
 
                                         </div>
 
                                      {/*    <span className="segmented-highlight"></span> */}
 
-
+                                        </div>
+                                        </div>
                                     </div>
                                 ))}
 

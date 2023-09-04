@@ -183,7 +183,7 @@ const Register = () => {
                                 <div className="col-lg-6">
                                     <div className="form-group">
                                         <label>Nome e Cognome <span className="errmsg">*</span></label>
-                                        <input value={name} onChange={e => namechange(e.target.value)} className="form-control"></input>
+                                        <input style={{textTransform:'capitalize'}} value={name} onChange={e => namechange(e.target.value)} className="form-control"></input>
                                     </div>
                                 </div>
                                 <div className="col-lg-6">
@@ -211,7 +211,7 @@ const Register = () => {
                                 </div>
                                 <div className="col-lg-6">
                                     <div className="form-group">
-                                        <label>Cittaà <span className="errmsg">*</span></label>
+                                        <label>Città <span className="errmsg">*</span></label>
                                         <select value={country} onChange={e => countrychange(e.target.value)} className="form-control">
                                         <option value="Italia">Italia</option>
                                             <option value="india">India</option>

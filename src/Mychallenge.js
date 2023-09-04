@@ -38,13 +38,13 @@ const Mychallenge = () => {
             //toast.error('Not Authenticate session');
             navigate('/login');
         } else {
-      
-        fetchdata();
-        checksfidapending();
 
-        // SwitchCase("Sfidato", 17 ,11) 
+            fetchdata();
+            checksfidapending();
+
+            // SwitchCase("Sfidato", 17 ,11) 
         }
-     
+
     }, []);
 
     async function fetchdata() {
@@ -707,29 +707,29 @@ const Mychallenge = () => {
             case 'Annulla_sfida':
 
                 const foundannulla = classicica.sort((a, b) => a.posizione > b.posizione ? 1 : -1).filter((obj, index) => {
-                     
+
                     if (obj.id === idp1) {
-                        
-                        obj.insfida=false;
+
+                        obj.insfida = false;
                         obj.posizione = posp1 + 1 // scendo di 1 perchè ho annullato
                         console.log("pod do chi anulla:" + obj.posizione)
                         updateUserPosition(obj)
 
-                    } if (index+1 === posp1 + 1) {
+                    } if (index + 1 === posp1 + 1) {
 
                         obj.posizione = obj.posizione - 1 // sale di uno quello sotto
                         console.log("sale di uno quello sotto", obj.posizione)
                         updateUserPosition(obj)
 
-                    }  if (obj.id === idp2) {
+                    } if (obj.id === idp2) {
 
-                        obj.insfida=false;
+                        obj.insfida = false;
                         obj.posizione = posp2 - 1  // sale di uno subisce annullo
                         console.log("sale di uno subisce annullo", obj.posizione)
                         updateUserPosition(obj)
                     }
-                    if (index+1 === posp2 -1) {
-                       
+                    if (index + 1 === posp2 - 1) {
+
                         obj.posizione = obj.posizione + 1 // sale di uno quello sotto
                         console.log("scendi uno quello sopra", obj.posizione)
                         updateUserPosition(obj)
@@ -745,7 +745,7 @@ const Mychallenge = () => {
 
                     if (obj.id === idp1) {
 
-                        obj.insfida=false;
+                        obj.insfida = false;
                         obj.posizione = posp1 + 1 // scendo di 1 perchè ho annullato
                         console.log("pod do chi anulla:" + obj.posizione)
                         updateUserPosition(obj)
@@ -756,15 +756,15 @@ const Mychallenge = () => {
                         console.log("sale di uno quello sotto", obj.posizione)
                         updateUserPosition(obj)
 
-                    }  if (obj.id === idp2) {
+                    } if (obj.id === idp2) {
 
-                         obj.insfida=false;
+                        obj.insfida = false;
                         obj.posizione = posp2 + 1  // scendo di 1 perchè ho annullato
                         console.log("sale di uno subisce annullo", obj.posizione)
                         updateUserPosition(obj)
                     }
-                    if (obj.id === posp2 -1) {
-                       
+                    if (obj.id === posp2 - 1) {
+
                         obj.posizione = obj.posizione - 1 // sale di uno quello sotto
                         console.log("scendi uno quello sopra", obj.posizione)
                         updateUserPosition(obj)
@@ -813,21 +813,22 @@ const Mychallenge = () => {
 
                 <div className="title">Le tue Sfide </div>
                 <div className="page-content">
+                    <div style={{ textAlign: "center", background: "#060b26", opacity: 0.8, color: 'white', fontSize: "20px" }} className="title">Ultime Sfide
 
+                    </div>
                     {challengepending &&
 
 
                         challengepending.sort((a, b) => a.id < b.id ? 1 : -1).map((item, index) => (
-                            <div key={index + 1} className="row">
+                            <div key={index + 1} style={{ paddingLeft: '5px' }} className="card no-shadow no-safe-area-left">
 
 
-
-
-                                <div className="col flex-grow-1 margin-right-half">
+                                <div className="card-contet">
                                     <div className="block block-strong medium-hide no-hairlines no-margin-vertical sticky sticky-top">
-                                        <div className={item.status === 'pending' || item.status === 'processing' ? 'segmented segmented-strong-penging' : 'segmented segmented-strong'}>
 
-                                            <ul className="">
+                                        <div className={item.status === 'pending' || item.status === 'processing' ? 'list no-chevron no-hairlines no-hairlines-between no-safe-areas segmented-strong-pending' : 'list no-chevron no-hairlines no-hairlines-between no-safe-areas segmented-strong'}>
+
+                                            <ul>
 
                                                 <li key={index + 1}>Sfida: {item.players[0].p1} VS {item.players[1].p2}</li>
                                                 <li> Stato {item.status}</li>
@@ -838,16 +839,16 @@ const Mychallenge = () => {
                                                 ) : (
                                                     <li> <b>{loadnumberphone(item.players[0].idp1)}</b></li>
                                                 )}
-
-                                                <li>Set1: {item.set1} </li>
-                                                <li>Set2: {item.set2} </li>
-                                                <li>Set3: {item.set3} </li>
+                                                <li style={{ textAlign: 'center' }}><b>Score</b></li>
+                                                <li style={{ textAlign: 'center' }}>Set1: <b>{item.set1} </b></li>
+                                                <li style={{ textAlign: 'center' }}>Set2: <b>{item.set2} </b></li>
+                                                <li style={{ textAlign: 'center' }}>Set3: <b>{item.set3} </b> </li>
 
                                             </ul>
 
                                         </div>
 
-                                        <span className="segmented-highlight"></span>
+
 
                                     </div>
                                 </div>
@@ -858,7 +859,7 @@ const Mychallenge = () => {
                                             <div className="row">
                                                 <div className="col-100 small-50">
                                                     {item.status === 'pending' &&
-                                                        <button onClick={(e) => sfidahandle(e, item.players[1].idp2, 'cancel', item.id)} type="button" className="button button-fade button-small">Annulla</button>
+                                                        <button onClick={(e) => sfidahandle(e, item.players[1].idp2, 'cancel', item.id)} type="button" className="button button-fill color-red">Annulla</button>
 
                                                     }
 
@@ -873,7 +874,7 @@ const Mychallenge = () => {
                                                                     <Calendar minDate={new Date()}
                                                                         formatday={(locale, date) => dayjs(date).format('dd-m-yyyy')}
                                                                         onChange={date => setdatadellasfida(date)} value={datadellasfida} />
-                                                                    <button onClick={(e) => progmatchandle(e, item.id)} type="button" className="button button-fade button-small">Conferma data</button>
+                                                                    <button onClick={(e) => progmatchandle(e, item.id)} type="button" className="button button-fill button-small">Conferma data</button>
 
                                                                 </div>
                                                             </div>
@@ -941,10 +942,10 @@ const Mychallenge = () => {
                                                 {item.status === 'pending' && item.datasfida === '' &&
                                                     <>
                                                         <div className="col-100 small-50">
-                                                            <button onClick={(e) => sfidahandle(e, item.players[0].idp1, 'cancel', item.id)} type="button" className="button button-fade button-small">Annulla</button>
+                                                            <button onClick={(e) => sfidahandle(e, item.players[0].idp1, 'cancel', item.id)} type="button" className="button button-fill color-red">Annulla</button>
                                                         </div>
                                                         <div className="col-100 small-50">
-                                                            <button onClick={(e) => accettasfidahandle(e, item.id, 'accept')} type="button" className="button button-fade button-small">Accetta</button>
+                                                            <button onClick={(e) => accettasfidahandle(e, item.id, 'accept')} type="button" className="button button-fill button-small">Accetta</button>
                                                         </div>
                                                     </>
                                                 }
@@ -959,7 +960,7 @@ const Mychallenge = () => {
                                                                 <Calendar minDate={new Date()}
                                                                     formatday={(locale, date) => dayjs(date).format('dd-m-yyyy')}
                                                                     onChange={date => setdatadellasfida(date)} value={datadellasfida} />
-                                                                <button onClick={(e) => progmatchandle(e, item.id)} type="button" className="button button-fade button-small">Conferma data</button>
+                                                                <button onClick={(e) => progmatchandle(e, item.id)} type="button" className="button button-fill button-small">Conferma data</button>
 
                                                             </div>
                                                         </div>

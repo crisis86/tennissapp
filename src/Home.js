@@ -76,7 +76,7 @@ const Home = () => {
                                             </div>
                                             <div className="item-row margin-top">
                                                 <div className="item-cell">
-                                                    <a href="/jobs-single/" className="font-size-14 multi-line-text lines-3 text-color-gray">{item.descrizione}</a>
+                                                    <div href="/jobs-single/" className="font-size-14 multi-line-text lines-3 text-color-gray">{item.descrizione}</div>
                                                 </div>
                                             </div>
 

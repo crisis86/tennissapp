@@ -30,7 +30,7 @@
     "node": ">=16.0.0"
   },
   "scripts": {
-    "start": "node server.js",
+    "start": "nodemon server.js",
     "dev": "nodemon server.js",
     "serve": "node server.js",
     "build": "react-scripts build",

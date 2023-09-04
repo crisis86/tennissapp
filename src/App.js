@@ -7,6 +7,7 @@ import Logout from './Logout';
 import Login from './Login';
 import Register from './Register';
 import AppHeader from './AppHeader';
+import AppFooter from './AppFooter';
 import Player from './Player';
 import Edit  from './Edit';
 import ChallengeList from './ChallengeList';
@@ -17,13 +18,15 @@ import Post from './Post';
 
 
 function App() {
+
+
   return (
     <div className="App">
      <ToastContainer theme='colored' autoClose='2000' position='top-center'></ToastContainer>
      
    <BrowserRouter>
     <AppHeader></AppHeader>
-    <Navbar />
+    <Navbar /> 
     <Routes>
       <Route path="/" element={<Home />}></Route>
       <Route path="/Player"element={<Player/>}> </Route>
@@ -38,17 +41,9 @@ function App() {
       <Route path="/Challenge-single/:id/:name" element={<ChallengeSingle />}> </Route>
       
     </Routes>
+    <AppFooter></AppFooter>
      </BrowserRouter> 
 
-    {/*  <BrowserRouter>
-     <AppHeader></AppHeader>
-        <Navbar />
-        <Switch>
-          <Route path='/' exact component={Home} />
-          <Route path='/Player' component={Player} />
-          <Route path='/ChallengeList' component={ChallengeList} />
-        </Switch>
-      </BrowserRouter> */}
      
     </div>
   );

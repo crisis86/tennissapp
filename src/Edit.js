@@ -8,8 +8,8 @@ const Edit = () => {
     //const [id, idchange] = useState(0);
     const id = useParams()
 
- 
-    
+
+    const myrole = sessionStorage.getItem('userrole')
     const [name, namechange] = useState("");
     const [password, passwordchange] = useState("");
     const [confirmpassword, confirmpassworchange] = useState("");
@@ -20,32 +20,32 @@ const Edit = () => {
     const [address, addresschange] = useState("");
     const [gender, genderchange] = useState("");
     const [posizione, posizionechange] = useState(0);
-    const [insfida, insfidachange]=useState('');
-   
+    const [insfida, insfidachange] = useState('');
+
 
     const navigate = useNavigate();
-     
 
-     useEffect(() => {
+
+    useEffect(() => {
         lastidjson();
     }, []);
 
 
- function  lastidjson() {
-  
-    fetch(window.$produrl+"/user/"+id['id'], {
-        method:'GET',
-        headers:{
-            accept: 'application/json',
+    function lastidjson() {
+
+        fetch(window.$produrl + "/user/" + id['id'], {
+            method: 'GET',
+            headers: {
+                accept: 'application/json',
             }
         }).then(res => {
             if (!res.ok) {
-           // console.log('nulla')
-                return false 
+                // console.log('nulla')
+                return false
             }
             return res.json();
         }).then(resp => {
-                         
+
 
             namechange(resp.name)
             passwordchange(resp.password)
@@ -58,7 +58,7 @@ const Edit = () => {
             genderchange(resp.gender)
             posizionechange(resp.posizione)
             insfidachange(resp.insfida)
-            
+
         });
     }
 
@@ -67,12 +67,12 @@ const Edit = () => {
     const IsValidate = () => {
         let isproceed = true;
         let errormessage = 'Please enter the value in ';
-       /*  if (id === null || id === '') {
-            isproceed = false;
-            errormessage += ' Username';
-        } */
-        
-              
+        /*  if (id === null || id === '') {
+             isproceed = false;
+             errormessage += ' Username';
+         } */
+
+
         if (name === null || name === '') {
             isproceed = false;
             errormessage += ' Fullname';
@@ -83,22 +83,22 @@ const Edit = () => {
         }
         if (password !== confirmpassword) {
             isproceed = false;
-            errormessage ="Le password non conicidono";
+            errormessage = "Le password non conicidono";
         }
         if (email === null || email === '') {
             isproceed = false;
             errormessage += ' Email';
-        } 
-        
-       
-          
+        }
 
-        if(!isproceed){
+
+
+
+        if (!isproceed) {
             toast.warning(errormessage)
-        }else{
-            if(/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(email)){
+        } else {
+            if (/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(email)) {
 
-            }else{
+            } else {
                 isproceed = false;
                 toast.warning('Please enter the valid email')
             }
@@ -106,21 +106,21 @@ const Edit = () => {
         return isproceed;
     }
 
- 
-    
+
+
 
     const handlesubmit = (e) => {
-            e.preventDefault();
-            let regobj = {email, password, name, phone, country, role, address, gender, posizione,insfida};
-            if (IsValidate()) {
-          //  console.log(regobj);
-            fetch(window.$produrl+"/user/"+id['id'], {
+        e.preventDefault();
+        let regobj = { email, password, name, phone, country, role, address, gender, posizione, insfida };
+        if (IsValidate()) {
+            //  console.log(regobj);
+            fetch(window.$produrl + "/user/" + id['id'], {
                 method: "PUT",
                 headers: { 'content-type': 'application/json' },
                 body: JSON.stringify(regobj)
             }).then((res) => {
-                toast.success('Modified successfully.') 
-               // navigate('/Player');
+                toast.success('Modified successfully.')
+                // navigate('/Player');
             }).catch((err) => {
                 toast.error('Failed :' + err.message);
             });
@@ -136,15 +136,17 @@ const Edit = () => {
                         </div>
                         <div className="card-body">
 
-                      
 
-                                  <div className="row">
-                                <div className="col-lg-6"> 
-                                    <div className="form-group">
-                                        <label>Poizione <span className="errmsg">*</span></label> 
-                                        <input type="number" style={{background: '#32ab32', opacity:0.8, color:"white"}}  value={posizione} onChange={e => posizionechange(e.target.value)}  className="form-control"></input>
-                                      {/* <input disabled value={id} onChange={e => idchange(e.target.value)} className="form-control"></input>  */}
-                                    </div>
+
+                            <div className="row">
+                                <div className="col-lg-6">
+                                    {myrole==='admin' &&
+                                        <div className="form-group">
+                                            <label>Poizione <span className="errmsg">*</span></label>
+                                            <input type="number" style={{ background: '#32ab32', opacity: 0.8, color: "white" }} value={posizione} onChange={e => posizionechange(e.target.value)} className="form-control"></input>
+                                            {/* <input disabled value={id} onChange={e => idchange(e.target.value)} className="form-control"></input>  */}
+                                        </div>
+                                    }
                                 </div>
                                 <div className="col-lg-6">
                                     <div className="form-group">
@@ -167,7 +169,7 @@ const Edit = () => {
                                 <div className="col-lg-6">
                                     <div className="form-group">
                                         <label>Email <span className="errmsg">*</span></label>
-                                        <input disabled value={email}  onChange={e => emailchange(e.target.value)} className="form-control"></input>
+                                        <input disabled value={email} onChange={e => emailchange(e.target.value)} className="form-control"></input>
                                     </div>
                                 </div>
                                 <div className="col-lg-6">
@@ -180,7 +182,7 @@ const Edit = () => {
                                     <div className="form-group">
                                         <label>Country <span className="errmsg">*</span></label>
                                         <select value={country} onChange={e => countrychange(e.target.value)} className="form-control">
-                                        <option value="Italia">Italia</option>
+                                            <option value="Italia">Italia</option>
                                             <option value="india">India</option>
                                             <option value="usa">USA</option>
                                             <option value="singapore">Singapore</option>
@@ -203,25 +205,25 @@ const Edit = () => {
                                         <label>Female</label>
                                     </div>
                                 </div>
-
-                                <div className="col-lg-6">
-                                    <div className="form-group">
-                                        <label>Sfida Flag</label>
-                                        <br></br>
-                                        <input type="radio" checked={insfida === true} onChange={e => insfidachange(e.target.value)} name="insfida" value="SI" className="app-check"></input>
-                                        <label>Si</label>
-                                        <input type="radio" checked={insfida === false} onChange={e => insfidachange(e.target.value)} name="insfida" value="NO" className="app-check"></input>
-                                        <label>No</label>
+                                {myrole==='admin' &&
+                                    <div className="col-lg-6">
+                                        <div className="form-group">
+                                            <label>Sfida Flag</label>
+                                            <br></br>
+                                            <input type="radio" checked={insfida === true} onChange={e => insfidachange(e.target.value)} name="insfida" value="SI" className="app-check"></input>
+                                            <label>Si</label>
+                                            <input type="radio" checked={insfida === false} onChange={e => insfidachange(e.target.value)} name="insfida" value="NO" className="app-check"></input>
+                                            <label>No</label>
+                                        </div>
                                     </div>
-                                </div>
-
+                                }
                             </div>
-                    
-                       
+
+
                         </div>
                         <div className="card-footer">
                             <button type="submit" className="btn btn-primary">Modifica</button> |
-                            
+
                         </div>
                     </div>
                 </form>

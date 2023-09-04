@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import * as FaIcons from 'react-icons/fa';
 
 const Appheader = () => {
     const [displayusername, displayusernameupdate] = useState('');
@@ -57,7 +58,8 @@ const Appheader = () => {
 
                     <span style={{ float: 'left' }}>Ciao <i>{sessionStorage.getItem('fullname')}</i>  </span>
                     {badge === true && <span className="badge">News</span>}
-                    <span>  <Link className="logout" style={{ float: 'right', color: '#ffffff !important' }} to={'/logout'}>Logout</Link> </span>
+                    <span>  <Link className="logout" style={{ float: 'right', color: '#ffffff !important' }} to={'/logout'}>
+                    <FaIcons.FaSignOutAlt style={{color: '#ffffff' }} /></Link> </span>
                 </div>
             }
         </div>

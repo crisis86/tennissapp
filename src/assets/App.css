@@ -148,3 +148,7 @@ ul li {
 .Toastify__close-button {
   width: 5% !important;
 }
+
+.btn-primary {
+  background-color: #32ab32 !important;
+}
