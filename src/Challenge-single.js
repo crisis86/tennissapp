@@ -4,6 +4,8 @@ import { Link, useParams, useNavigate } from "react-router-dom";
 import Swal from 'sweetalert2';
 import { toast } from "react-toastify";
 import avatar from './assets/avatar.png';
+import addNotification from "react-push-notification";
+import pallina from './assets/pallina.png';
 
 
 const ChallengeSingle = () => {
@@ -145,9 +147,10 @@ const ChallengeSingle = () => {
 
                         if (status === 'update') {
                             addchallenge(idp1, idname1);
+                           
 
                         } else {
-                            removechallenge();
+                            removechallenge(idname1);
                         }
 
 
@@ -236,14 +239,20 @@ const ChallengeSingle = () => {
         });
 
         //usenavigate('/Mychallenge')
+        sendnotify(fullname, nomedasfidare, date, "sfida")
         fetchdata();
         checksfidapending();
 
+       
+
     }
 
-    function removechallenge() {
+    function removechallenge(nomegiocatore1) {
 
         let idriga = 0;
+
+        const current = new Date();
+        const date = `${current.getDate()}-${current.getMonth() + 1}-${current.getFullYear()}`;
 
         const found = challengepending.filter(obj => {
 
@@ -274,6 +283,8 @@ const ChallengeSingle = () => {
                 toast.error(err.message);
             });
 
+            sendnotify(fullname, nomegiocatore1, date, "annulla")
+            checksfidapending();
             fetchdata();
 
         } else {
@@ -309,7 +320,26 @@ const ChallengeSingle = () => {
 
     }
 
+function sendnotify(giocatore1, giocatore2, datacreazione,status) {
 
+    let ntitolo=""
+    let ndescrizione=""
+    if(status==='annulla') {
+        ntitolo="Sifda annullata!";
+        ndescrizione=giocatore1+ " ha ANNULLATO la sfida conntro "+ giocatore2+ " <br> in data:  " +datacreazione;
+    }else {
+        ntitolo="nuova sfida in attesa!";
+        ndescrizione=giocatore1+ " ha SFIDATO "+ giocatore2+ " <br> in data:  " +datacreazione;
+    }
+    addNotification({
+        title:ntitolo,
+        message: ndescrizione,
+        duration:4000,
+        icon: pallina,
+        native:true,
+        onClick: ()=> window.location=window.$produrl
+    })
+}
 
     return (
         <>
