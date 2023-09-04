@@ -153,7 +153,7 @@
       "address": "sdsdsdsdsd",
       "gender": "male",
       "posizione": 12,
-      "insfida": false,
+      "insfida": "true",
       "id": 12
     },
     {
@@ -179,7 +179,7 @@
       "address": "rfew",
       "gender": "male",
       "posizione": 13,
-      "insfida": true,
+      "insfida": "false",
       "id": 14
     },
     {
@@ -205,7 +205,7 @@
       "address": "via anfiteatro laterizio\n25",
       "gender": "male",
       "posizione": 15,
-      "insfida": true,
+      "insfida": "false",
       "id": 16
     },
     {

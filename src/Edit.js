@@ -209,11 +209,11 @@ const Edit = () => {
                                     <div className="col-lg-6">
                                         <div className="form-group">
                                             <label>Sfida Flag</label>
-                                            <br></br>
-                                            <input type="radio" checked={insfida === true} onChange={e => insfidachange(e.target.value)} name="insfida" value="SI" className="app-check"></input>
-                                            <label>Si</label>
-                                            <input type="radio" checked={insfida === false} onChange={e => insfidachange(e.target.value)} name="insfida" value="NO" className="app-check"></input>
-                                            <label>No</label>
+                                                                      
+                                            <select value={insfida} onChange={e => insfidachange(e.target.value)} className="form-control">
+                                            <option value="true">Si</option>
+                                            <option value="false">No</option>
+                                        </select>
                                         </div>
                                     </div>
                                 }

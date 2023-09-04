@@ -123,7 +123,7 @@ const Player = () => {
     }
 
     return (
-        <div className="container">
+        <div className="page-content">
 
             <div className="card">
                 <div className="card-header">

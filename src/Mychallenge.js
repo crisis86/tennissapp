@@ -838,10 +838,10 @@ const Mychallenge = () => {
                                                 ) : (
                                                     <li> <b>{loadnumberphone(item.players[0].idp1)}</b></li>
                                                 )}
-                                                <li style={{ textAlign: 'center' }}><b>Score</b></li>
-                                                <li style={{ textAlign: 'center' }}>Set1: <b>{item.set1} </b></li>
-                                                <li style={{ textAlign: 'center' }}>Set2: <b>{item.set2} </b></li>
-                                                <li style={{ textAlign: 'center' }}>Set3: <b>{item.set3} </b> </li>
+                                                <li ><b>Score</b></li>
+                                                <li >Set1: <b>{item.set1} </b></li>
+                                                <li >Set2: <b>{item.set2} </b></li>
+                                                <li >Set3: <b>{item.set3} </b> </li>
 
                                             </ul>
 

@@ -13,7 +13,7 @@ const ChallengeSingle = () => {
     //nome user collegato
     const fullname = sessionStorage.getItem('fullname');
     // dati utente collegato
-    const datiuserloging= JSON.parse(localStorage.getItem('datiuserlogin'));
+    const datiuserloging = JSON.parse(localStorage.getItem('datiuserlogin'));
     const miaposizione = parseInt(datiuserloging.posizione);
     // oggetto giocatore 
     const [player, setplayer] = useState([]);
@@ -27,11 +27,11 @@ const ChallengeSingle = () => {
     // flag SFIDA user collegato
     const [stoinsfida, setstoinsifa] = useState(sessionStorage.getItem('stoinsfida'));
     //flag annulla bottone
-    const [annullabotton, setannullabotton ] = useState(false);
+    const [annullabotton, setannullabotton] = useState(false);
     // flag per sfidare se è possibile
     const [sfidabutton, setsfidabutton] = useState(false);
-  
-    const {id, name} = useParams()
+
+    const { id, name } = useParams()
 
     const navigate = useNavigate();
 
@@ -42,14 +42,14 @@ const ChallengeSingle = () => {
         if (email === '' || email === null) {
             //toast.error('Not Authenticate session');
             navigate('/login');
-        } else{
-                fetchdata();
+        } else {
+            fetchdata();
             //   SfidaAbilitata();
-              checksfidapending();
+            checksfidapending();
         }
 
-   
-       
+
+
 
     }, []);
 
@@ -58,22 +58,22 @@ const ChallengeSingle = () => {
 
         try {
 
-          
+
             const results = await Promise.all(
                 [
-                    fetch(window.$produrl+"/user?role=player&id=" + id).then((response) =>
+                    fetch(window.$produrl + "/user?role=player&id=" + id).then((response) =>
                         response.json()),
-                    fetch(window.$produrl+"/user?id=" + iduser).then((response) =>
+                    fetch(window.$produrl + "/user?id=" + iduser).then((response) =>
                         response.json()),
-                    fetch(window.$produrl+'/challenge?q=' + name + '&status!=cancel').then((response) =>
+                    fetch(window.$produrl + '/challenge?q=' + name + '&status!=cancel').then((response) =>
                         response.json()
                     ),
                 ]);
             setplayer(results[0]);
-            
+
 
             setflagmeplayer(results[1]);
-        
+
             setchallenge(results[2]);
 
         } catch (error) {
@@ -81,13 +81,13 @@ const ChallengeSingle = () => {
         }
     }
 
-function SfidaAbilitata() {
+    function SfidaAbilitata() {
 
-    const pos = player.map(obj => obj.posizione) 
-    
-    console.log(player.map(obj => obj.posizione));
-     console.log(pos);
-}
+        const pos = player.map(obj => obj.posizione)
+
+        console.log(player.map(obj => obj.posizione));
+        console.log(pos);
+    }
 
 
     const sfidahandle = (e, idp1, idname1, status) => {
@@ -115,8 +115,8 @@ function SfidaAbilitata() {
                     'Confermato!',
                     'con su successo!'
                 )
-             
-             
+
+
                 const found = player.filter(obj => {
                     if (obj.id === idp1 && status === "update") {
                         obj.insfida = true;
@@ -130,7 +130,7 @@ function SfidaAbilitata() {
                 });
 
 
-                fetch(window.$produrl+"/user/" + idp1, {
+                fetch(window.$produrl + "/user/" + idp1, {
                     method: 'PUT',
                     headers: {
                         'Accept': 'application/json',
@@ -174,7 +174,7 @@ function SfidaAbilitata() {
         });
         //  console.log(found);
 
-        fetch(window.$produrl+"/user/" + iduser, {
+        fetch(window.$produrl + "/user/" + iduser, {
             method: 'PUT',
             headers: {
                 'Accept': 'application/json',
@@ -203,16 +203,16 @@ function SfidaAbilitata() {
         const date = `${current.getDate()}-${current.getMonth() + 1}-${current.getFullYear()}`;
         // console.log(date);
         const obj = {
-            "datacreate":date,
+            "datacreate": date,
             "datasfida": "",
             "players": [
                 {
-                "idp1":iduser,    
-                "p1": fullname
+                    "idp1": iduser,
+                    "p1": fullname
                 },
                 {
-               "idp2":iddasfidare,  
-                "p2": nomedasfidare,
+                    "idp2": iddasfidare,
+                    "p2": nomedasfidare,
                 }
             ],
             "status": 'pending',
@@ -220,16 +220,16 @@ function SfidaAbilitata() {
             "set2": "",
             "set3": ""
         }
-      //  console.log(obj);
+        //  console.log(obj);
 
-        fetch(window.$produrl+"/challenge", {
+        fetch(window.$produrl + "/challenge", {
             method: "POST",
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(obj)
         }).then((res) => {
             console.log('challenge creato')
             sessionStorage.setItem('stoinsfida', true);
-                setstoinsifa(true);
+            setstoinsifa(true);
             // console.log('sto in sfida: ' +stoinsfida)
         }).catch((err) => {
             toast.error('addchallenge :' + err.message);
@@ -238,7 +238,7 @@ function SfidaAbilitata() {
         //usenavigate('/Mychallenge')
         fetchdata();
         checksfidapending();
-       
+
     }
 
     function removechallenge() {
@@ -251,12 +251,12 @@ function SfidaAbilitata() {
             idriga = obj.id;
 
             return obj.id;
-           
+
         })
         if (idriga > 0) {
-           // console.log(idriga);
+            // console.log(idriga);
 
-            fetch(window.$produrl+"/challenge/" + idriga, {
+            fetch(window.$produrl + "/challenge/" + idriga, {
                 method: 'PUT',
                 headers: {
                     'Accept': 'application/json',
@@ -282,27 +282,27 @@ function SfidaAbilitata() {
     }
     const checksfidapending = () => {
 
-        fetch(window.$produrl+"/challenge?status=pending&q="+name).then(res => {
+        fetch(window.$produrl + "/challenge?status=pending&q=" + name).then(res => {
             return res.json();
         }).then(resp => {
             if (Object.keys(resp).length === 0) {
-             
-            // toast.success('nessuna Challenge pending da mostare')
+
+                // toast.success('nessuna Challenge pending da mostare')
             } else {
                 setchallengepending(resp);
-             
 
-               // console.log(iduser)
-                if (resp[0].players[0].idp1 === iduser || resp[0].players[1].idp2 === iduser ) {
-                       
+
+                // console.log(iduser)
+                if (resp[0].players[0].idp1 === iduser || resp[0].players[1].idp2 === iduser) {
+
                     setannullabotton(true);
 
-                    } else {
-                        setannullabotton(false);
-                    }
-                        
+                } else {
+                    setannullabotton(false);
+                }
+
             }
-          
+
         }).catch((err) => {
             toast.error('checksfidapending failerd to :' + err.message);
         });
@@ -314,11 +314,11 @@ function SfidaAbilitata() {
     return (
         <>
             <div className="page-content">
-            <div style={{textAlign:"center"}} className="title"><h1>Scheda Giocatore </h1>  
-            </div>
-            <hr></hr>
-               
-               
+                <div style={{ textAlign: "center" }} className="title"><h1>Scheda Giocatore </h1>
+                </div>
+                <hr></hr>
+
+
                 <div className="">
                     {player &&
                         player.map((plr, index) => (
@@ -330,75 +330,75 @@ function SfidaAbilitata() {
                                 <div className="col flex-grow-1 margin-right-half">
                                     <div className="multi-line-text lines-2">
                                         <i className="icon material-icons color-green tooltip-init" data-tooltip="Verified">Posizione:{plr.posizione}</i>
-                                       
+
 
                                         <span className="font-size-22 font-weight-bold vertical-align-middle name"></span>
                                     </div>
-                                    
+
                                     <div className="font-size-14 single-line-text text-color-gray">{plr.name}</div>
                                 </div>
 
                                 <div className="left">
-                    <a href="/ChallengeList" className="link back">
-                        <i className="icon icon-back"></i>
-                        <span className="if-not-md">Back</span>
-                    </a>
-                </div>
-                                 
-                                <div className="col flex-grow-1 margin-right-half">
-                                {plr.id !== iduser && 
-                                    <div className="row">
-
-                                        {plr.insfida  ? (
-                                            <div className="col-100 small-50">
-                                               {annullabotton &&
-                                                <button style={{display: 'none'}} onClick={(e) => sfidahandle(e, plr.id, plr.name, 'cancel')} type="button" className="button button-fill color-red">Annulla</button>
-                                               }
-                                                </div>
-                                        ) : (
-                                           
-                                            <div className="col-100 small-50">
-                                                 {plr.posizione > miaposizione || miaposizione  < plr.posizione  +9 &&  // fino a 8 posizione sopra
-                                                
-                                                <button disabled={stoinsfida === 'true'} onClick={(e) => sfidahandle(e, plr.id, plr.name, 'update')} type="button" className={stoinsfida=== 'true' ? 'disabled button button-fill button-small' : 'button button-fill button-small'}>Sfida</button>
-                                            
-                                            }
-                                            </div>
-                                            
-                                         )}
-                                          
-                                    </div>
-                                }
+                                    <a href="/ChallengeList" className="link back">
+                                        <i className="icon icon-back"></i>
+                                        <span className="if-not-md">Back</span>
+                                    </a>
                                 </div>
-                                 
+
+                                <div className="col flex-grow-1 margin-right-half">
+                                    {plr.id !== iduser &&
+                                        <div className="row">
+
+                                            {plr.insfida ? (
+                                                <div className="col-100 small-50">
+                                                    {annullabotton &&
+                                                        <button style={{ display: 'none' }} onClick={(e) => sfidahandle(e, plr.id, plr.name, 'cancel')} type="button" className="button button-fill color-red">Annulla</button>
+                                                    }
+                                                </div>
+                                            ) : (
+
+                                                <div className="col-100 small-50">
+                                                    {plr.posizione > miaposizione || miaposizione < plr.posizione + 9 &&  // fino a 8 posizione sopra
+
+                                                        <button disabled={stoinsfida === 'true'} onClick={(e) => sfidahandle(e, plr.id, plr.name, 'update')} type="button" className={stoinsfida === 'true' ? 'disabled button button-fill button-small' : 'button button-fill button-small'}>Sfida</button>
+
+                                                    }
+                                                </div>
+
+                                            )}
+
+                                        </div>
+                                    }
+                                </div>
+
                                 <span className="segmented-highlight"></span>
-                                
-                                <div style={{textAlign:"center", background:"#060b26", opacity:0.8, color:'white', fontSize:"20px"}} className="title">Ultime Sfide  
+
+                                <div style={{ textAlign: "center", background: "#060b26", opacity: 0.8, color: 'white', fontSize: "20px" }} className="title">Ultime Sfide
 
                                 </div>
                                 {challenge.sort((a, b) => a.id < b.id ? 1 : -1).map((partite, i) => (
-                                  <div style={{paddingLeft:'5px'}}  className="card no-shadow no-safe-area-left">
-                                <div className="card-contet">
-                                    <div key={i + 1} className="block block-strong medium-hide no-hairlines no-margin-vertical sticky sticky-top">
-                                        <div className={partite.status==='pending' || partite.status==='processing' ? 'list no-chevron no-hairlines no-hairlines-between no-safe-areas segmented-strong-pending':'list no-chevron no-hairlines no-hairlines-between no-safe-areas segmented-strong'}>
+                                    <div style={{ paddingLeft: '5px' }} className="card no-shadow no-safe-area-left">
+                                        <div className="card-contet">
+                                            <div key={i + 1} className="block block-strong medium-hide no-hairlines no-margin-vertical sticky sticky-top">
+                                                <div className={partite.status === 'pending' || partite.status === 'processing' ? 'list no-chevron no-hairlines no-hairlines-between no-safe-areas segmented-strong-pending' : 'list no-chevron no-hairlines no-hairlines-between no-safe-areas segmented-strong'}>
 
-                                            <ul>
+                                                    <ul>
 
-                                                <li>Sfida: {partite.players[0].p1} VS {partite.players[1].p2}</li>
-                                                <li>Creata il: {partite.datacreate}</li>
-                                                <li>Programmata il: {partite.datasfida}</li>
-                                                <li>Stato: {partite.status} </li>
-                                                <li style={{ textAlign: 'center' }}><b>Score</b></li>
-                                                <li style={{ textAlign: 'center' }}>Set1: <b>{partite.set1} </b></li>
-                                                <li style={{ textAlign: 'center' }}>Set2: <b>{partite.set2} </b></li>
-                                                <li style={{ textAlign: 'center' }}>Set3: <b>{partite.set3} </b> </li>
-                                            </ul>
+                                                        <li>Sfida: {partite.players[0].p1} VS {partite.players[1].p2}</li>
+                                                        <li>Creata il: {partite.datacreate}</li>
+                                                        <li>Programmata il: {partite.datasfida}</li>
+                                                        <li>Stato: {partite.status} </li>
+                                                        <li ><b>Score</b></li>
+                                                        <li >Set1: <b>{partite.set1} </b></li>
+                                                        <li >Set2: <b>{partite.set2} </b></li>
+                                                        <li >Set3: <b>{partite.set3} </b> </li>
+                                                    </ul>
 
-                                        </div>
+                                                </div>
 
-                                     {/*    <span className="segmented-highlight"></span> */}
+                                                {/*    <span className="segmented-highlight"></span> */}
 
-                                        </div>
+                                            </div>
                                         </div>
                                     </div>
                                 ))}
