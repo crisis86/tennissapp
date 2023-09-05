@@ -3,7 +3,7 @@
   "version": 2,
   "crons": [
     {
-      "path": "/api/cron",
+      "path": "/api/cron/route",
       "schedule": "0 11 * * *"
     }
   ]

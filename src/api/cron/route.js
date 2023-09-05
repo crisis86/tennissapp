@@ -1,9 +1,8 @@
 
-export async function GET(request) {
- 
-     console.log(request)
-   
-      return new Response('Failed to get sharedKey', { status: 200 });
- 
-      
-  } 
+
+module.exports = (req, res) => {
+  res.send({
+    status: 200,
+    message: "Hello world!!",
+  });
+};
