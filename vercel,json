@@ -18,5 +18,11 @@
       "src": "login",
       "dest": "login.js"
     }
-  ]
+  ],
+   "crons": [
+      {
+        "path": "/api/cron?key=sharedKey",
+        "schedule": "20 * * * *"
+      }
+    ]
 }

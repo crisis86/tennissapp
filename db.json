@@ -152,8 +152,8 @@
       "role": "player",
       "address": "sdsdsdsdsd",
       "gender": "male",
-      "posizione": 12,
-      "insfida": "true",
+      "posizione": 13,
+      "insfida": "false",
       "id": 12
     },
     {
@@ -178,8 +178,8 @@
       "role": "player",
       "address": "rfew",
       "gender": "male",
-      "posizione": 13,
-      "insfida": "false",
+      "posizione": 12,
+      "insfida": false,
       "id": 14
     },
     {
@@ -191,7 +191,7 @@
       "role": "player",
       "address": "via anfiteatro laterizio\n25",
       "gender": "male",
-      "posizione": 16,
+      "posizione": 15,
       "insfida": false,
       "id": 15
     },
@@ -204,8 +204,8 @@
       "role": "player",
       "address": "via anfiteatro laterizio\n25",
       "gender": "male",
-      "posizione": 15,
-      "insfida": "false",
+      "posizione": 16,
+      "insfida": false,
       "id": 16
     },
     {
@@ -276,7 +276,7 @@
     {
       "email": "davideaprea2009@libero.it",
       "password": "234",
-      "name": "davide aprea",
+      "name": "Ciccio Graziani",
       "phone": "132123123",
       "country": "Italia",
       "role": "player",
@@ -1168,7 +1168,7 @@
           "p2": "nicola siciliano"
         }
       ],
-      "status": "pending",
+      "status": "cancel",
       "set1": "",
       "set2": "",
       "set3": "",
@@ -1187,7 +1187,7 @@
           "p2": "Michele Gemello"
         }
       ],
-      "status": "pending",
+      "status": "processing",
       "set1": "",
       "set2": "",
       "set3": "",
