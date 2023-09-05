@@ -62,9 +62,7 @@ const Home = () => {
                                                             {item.title}
                                                         </div>
                                                         <div className="item-cell flex-shrink-0 width-auto line-height-1">
-
                                                             <i className="postnews">News</i>
-
                                                         </div>
                                                     </div>
                                                     <div className="item-row">
@@ -76,7 +74,7 @@ const Home = () => {
                                             </div>
                                             <div className="item-row margin-top">
                                                 <div className="item-cell">
-                                                    <div href="/jobs-single/" className="font-size-14 multi-line-text lines-3 text-color-gray">{item.descrizione}</div>
+                                                    <div className="font-size-14 multi-line-text lines-3 text-color-gray">{item.descrizione}</div>
                                                 </div>
                                             </div>
 
