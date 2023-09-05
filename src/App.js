@@ -15,7 +15,7 @@ import Listasfida from './lista-sfida';
 import ChallengeSingle from './Challenge-single';
 import Mychallenge from './Mychallenge';
 import Post from './Post';
-
+ 
 
 function App() {
 
@@ -39,6 +39,7 @@ function App() {
       <Route path="/Post" element={<Post />}> </Route>
       <Route path="/Edit/:id" element={<Edit />}> </Route>
       <Route path="/Challenge-single/:id/:name" element={<ChallengeSingle />}> </Route>
+ 
       
     </Routes>
     <AppFooter></AppFooter>
