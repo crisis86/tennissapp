@@ -10,11 +10,15 @@
     },
     {
       "src": "/(.*)",
-      "dest": "/src/home.js"
+      "dest": "index.js"
   },
   {
     "src": "/login",
-    "dest": "/src/login.js"
+    "dest": "/login.js"
+},
+{
+  "src": "/home",
+  "dest": "/home.js"
 }
   ],
   "crons": [
