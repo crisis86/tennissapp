@@ -27,10 +27,10 @@ const Appheader = () => {
 
     }, [location])
 
- 
+   
 
     function checksfida() {
-        fetch(window.$produrl + "/challenge?status!=cancel&q=" +fullname,
+        fetch(window.$produrl + "/challenge?status!=complete",
             {
                 headers: {
                     accept: 'application/json',

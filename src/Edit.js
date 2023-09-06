@@ -20,7 +20,7 @@ const Edit = () => {
     const [address, addresschange] = useState("");
     const [gender, genderchange] = useState("");
     const [posizione, posizionechange] = useState(0);
-    const [insfida, insfidachange] = useState('');
+    const [insfida, insfidachange] = useState(false);
 
 
     const navigate = useNavigate();

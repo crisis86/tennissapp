@@ -6,12 +6,12 @@ export default function handler(request, response) {
       return;
     } */
 
-    console.log('hello world')
+   /*  console.log('hello world')
     response.send({
       status:200,
       message:"hello world"
-    })
+    }) */
    
-/*     response.status(200).json({ success: true });
- */  }
+    response.status(200).json({ success: true });
+   }
   

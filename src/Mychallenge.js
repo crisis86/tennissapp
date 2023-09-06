@@ -751,7 +751,7 @@ const Mychallenge = () => {
                         console.log("pod do chi anulla:" + obj.posizione)
                         updateUserPosition(obj)
 
-                    } if (obj.id === posp1 + 1) {
+                    } if (index+1 === posp1 + 1) {
 
                         obj.posizione = obj.posizione - 1 // sale di uno quello sotto
                         console.log("sale di uno quello sotto", obj.posizione)
@@ -764,7 +764,7 @@ const Mychallenge = () => {
                         console.log("sale di uno subisce annullo", obj.posizione)
                         updateUserPosition(obj)
                     }
-                    if (obj.id === posp2 - 1) {
+                    if (index+1 === posp2 - 1) {
 
                         obj.posizione = obj.posizione - 1 // sale di uno quello sotto
                         console.log("scendi uno quello sopra", obj.posizione)
