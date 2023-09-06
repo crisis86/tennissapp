@@ -11,7 +11,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
  
 window.$produrl = "https://tennissapp.onrender.com";
-window.$devurl = "http://localhost:10000";
+window.$produrl = "http://localhost:10000";
 
 
 
