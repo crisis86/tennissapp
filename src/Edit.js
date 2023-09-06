@@ -111,7 +111,7 @@ const Edit = () => {
 
     const handlesubmit = (e) => {
         e.preventDefault();
-        let regobj = { email, password, name, phone, country, role, address, gender, posizione, insfida };
+        let regobj = { email, password, name, phone, country, role, address, gender, posizione, insfida};
         if (IsValidate()) {
             //  console.log(regobj);
             fetch(window.$produrl + "/user/" + id['id'], {
@@ -210,9 +210,9 @@ const Edit = () => {
                                         <div className="form-group">
                                             <label>Sfida Flag</label>
                                                                       
-                                            <select value={insfida} onChange={e => insfidachange(e.target.value)} className="form-control">
-                                            <option value="true">Si</option>
-                                            <option value="false">No</option>
+                                            <select value={insfida} onChange={e => insfidachange((e.target.value))} className="form-control">
+                                            <option value={true}>Si</option>
+                                            <option value={false}>No</option>
                                         </select>
                                         </div>
                                     </div>

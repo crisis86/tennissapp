@@ -7,7 +7,7 @@
   ],
   "user": [
     {
-      "email": "admin@soccertime.it",
+      "email": "admin@admin.it",
       "password": "matrix",
       "name": "Admin Admin",
       "phone": "132123123",
@@ -42,7 +42,7 @@
       "address": "fatt e fatt tuoi\n23",
       "gender": "male",
       "posizione": 1,
-      "insfida": false,
+      "insfida": "false",
       "id": 3
     },
     {
@@ -291,6 +291,19 @@
       "posizione": 22,
       "insfida": false,
       "id": 22
+    },
+    {
+      "email": "buonaguromichele@gmail.com",
+      "password": "123456",
+      "name": "Michele test",
+      "phone": "3345927928",
+      "country": "Italia",
+      "role": "player",
+      "address": "",
+      "gender": "male",
+      "posizione": 23,
+      "insfida": false,
+      "id": 23
     }
   ],
   "post": [
