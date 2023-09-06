@@ -153,6 +153,8 @@ const Register = () => {
                 setloading(false)
                 toast.error('Failed :' + err.message);
             });
+        }else {
+            setloading(false)
         }
     }, 3000);
 

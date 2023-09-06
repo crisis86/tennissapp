@@ -3,7 +3,9 @@ import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import GetCookie from "./hooks/getCookie";
 import SetCookie from "./hooks/setCookie";
-import RenoveCookie from "./hooks/removeCookie";
+import FontAwesome from 'react-fontawesome'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCoffee } from '@fortawesome/fontawesome-free-solid'
 
 
 
@@ -12,6 +14,7 @@ const Login = () => {
     const [email, emailupdate] = useState('');
     const [getiduser, setiduser] = useState(null);
     const [password, passwordupdate] = useState('');
+    const [loading, setloading] = useState(false);
     const usenavigate = useNavigate();
     const savelogin = GetCookie('utente');
 
@@ -20,31 +23,35 @@ const Login = () => {
     
     
         // sessionStorage.clear();
-        if (savelogin !== undefined) {
+        if (savelogin !== undefined ) {
             
-            
+            console.log(savelogin)   
             const obuser =JSON.parse(savelogin);
 
+           // setuser(obuser);
 
-            setTimeout(() => {
+            console.log(obuser)   
 
-                sessionStorage.setItem('email', user.email);
-                sessionStorage.setItem('userrole', user.role);
-                sessionStorage.setItem('iduser', user.id);
-                sessionStorage.setItem('fullname', user.name);
-                sessionStorage.setItem('stoinsfida', user.insfida);
-                localStorage.setItem('datiuserlogin', JSON.stringify(user));
+                sessionStorage.setItem('email', obuser.email);
+                sessionStorage.setItem('userrole', obuser.role);
+                sessionStorage.setItem('iduser', obuser.id);
+                sessionStorage.setItem('fullname', obuser.name);
+                sessionStorage.setItem('stoinsfida', obuser.insfida);
+                localStorage.setItem('datiuserlogin', JSON.stringify(obuser));
 
-                toast.success('Success');
+               // toast.success('Success');
                 usenavigate('/')
                // console.log(obuser)
 
-            }, 10);
+           
+        }else {
+            console.log('cookie vuoto')   
         }
     }, []);
 
 
     const ProceedLogin = (e) => {
+        setloading(true)
         e.preventDefault();
         if (validate()) {
             ///implentation
@@ -57,12 +64,13 @@ const Login = () => {
                         accept: 'application/json',
                     }
                 }).then((res) => {
-                    if (!res.ok) { console.log('non è ok'); }
+                    if (!res.ok) {    setloading(false); }
 
                     return res.json();
                 }).then((resp) => {
 
                     if (Object.keys(resp).length === 0) {
+                        setloading(false)
                         toast.error('Please Enter valid username');
                     } else {
 
@@ -83,8 +91,10 @@ const Login = () => {
                             sessionStorage.setItem('stoinsfida', resp[0].insfida);
                             localStorage.setItem('datiuserlogin', JSON.stringify(resp[0]));
                             toast.success('Success');
+                            setloading(false)
                             usenavigate('/')
                         } else {
+                            setloading(false)
                             toast.error('Please Enter valid credentials');
                         }
                     }
@@ -92,6 +102,8 @@ const Login = () => {
                     console.log(err.message)
                     toast.error('Login Failed due to :' + err.message);
                 });
+        }else {
+            setloading(false)
         }
     }
 
@@ -110,10 +122,12 @@ const Login = () => {
     const validate = () => {
         let result = true;
         if (email === '' || email === null) {
+            setloading(false);
             result = false;
             toast.warning('Please Enter Username');
         }
         if (password === '' || password === null) {
+            setloading(false);
             result = false;
             toast.warning('Please Enter Password');
         }
@@ -140,7 +154,7 @@ const Login = () => {
                             </div>
                         </div>
                         <div className="card-footer">
-                            <button type="submit" className="btn btn-primary">Login</button> |
+                            <button disabled={loading} type="submit" className="btn btn-primary">{loading && <FontAwesomeIcon icon="fa-solid fa-spinner" spinPulse size="lg" style={{color: "#fcfcfc",}} />}Login</button> |
                             <Link className="btn btn-success" to={'/register'}>Sing </Link>
                         </div>
                     </div>

@@ -1,4 +1,10 @@
 {
+  "season": [
+    {
+    "start":true,
+    "data":"01-01-2023"
+    }
+  ],
   "user": [
     {
       "email": "admin@soccertime.it",

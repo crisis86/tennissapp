@@ -15,10 +15,19 @@ import Listasfida from './lista-sfida';
 import ChallengeSingle from './Challenge-single';
 import Mychallenge from './Mychallenge';
 import Post from './Post';
- 
+import { useEffect } from 'react';
+
+
+
 
 function App() {
+  /*const cron =require('node-schedule');
 
+   useEffect(() => {
+    cron.scheduleJob('* * * * *', () => {
+      console.log('running a task every minute');
+    });
+}, []); */
 
   return (
     <div className="App">
