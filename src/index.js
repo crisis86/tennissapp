@@ -10,8 +10,8 @@ import 'react-toastify/dist/ReactToastify.css';
 //import reportWebVitals from './reportWebVitals';
 
  
-window.$devurl = "https://tennissapp.onrender.com";
-window.$produrl = "http://localhost:10000";
+window.$produrl = "https://tennissapp.onrender.com";
+window.$devurl = "http://localhost:10000";
 
 const cron =require('node-schedule');
 
