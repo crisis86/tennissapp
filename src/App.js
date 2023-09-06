@@ -76,7 +76,8 @@ function App() {
           datasfida = Date.parse(obj.datasfida.toString());
           const currentDay = current.getDate();
 
-          if (currentDay + 2 > currentDate) {
+          // if (currentDay + 2 > currentDate) {
+            if (currentDay === currentDay) {
             console.log('sfida scaduta tra ' + obj.players[0].p1 + " VS " + obj.players[1].p2)
 
             obj.status = 'cancel';
