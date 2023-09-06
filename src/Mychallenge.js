@@ -508,23 +508,6 @@ const Mychallenge = () => {
             } else {
                 setchallengepending(resp);
                 // console.log(resp[0].datasfida);
-
-                const current = new Date();
-                const date = `${current.getDate()}-${current.getMonth() + 1}-${current.getFullYear()}`;
-
-                /*   const found = challengepending.find(obj => {
-                      return obj.datasfida == date;
-                    }); */
-                //  console.log(resp[0].datasfida);
-                //  console.log(date);
-
-                if (date !== resp[0].datasfida) {
-                    //    console.log('cancella sfida');
-
-                } else {
-
-                    //  console.log('in attesa di risposta');
-                }
             }
         }).catch((err) => {
             toast.error('checksfidapending failerd to :' + err.message);
