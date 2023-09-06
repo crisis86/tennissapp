@@ -121,7 +121,7 @@ function App() {
 
   function penalizzazione(idp1, idp2) {
 
-    fetch(window.$produrl + "/user?role=platyer", {
+    fetch(window.$produrl + "/user?role=player", {
       method: 'GET',
       headers: {
         accept: 'application/json',
