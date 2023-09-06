@@ -11,8 +11,8 @@ import 'react-toastify/dist/ReactToastify.css';
 //import reportWebVitals from './reportWebVitals';
 
  
-window.$produrl = "https://tennissapp.onrender.com";
-window.$devurl = "http://localhost:10000";
+window.$devurl = "https://tennissapp.onrender.com";
+window.$produrl = "http://localhost:10000";
      
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
