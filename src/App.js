@@ -21,13 +21,8 @@ import { useEffect } from 'react';
 
 
 function App() {
-  /*const cron =require('node-schedule');
+ 
 
-   useEffect(() => {
-    cron.scheduleJob('* * * * *', () => {
-      console.log('running a task every minute');
-    });
-}, []); */
 
   return (
     <div className="App">
