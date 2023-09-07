@@ -47,7 +47,7 @@ const Run = () => {
         if (obj.status === 'pending' || obj.status === 'processing') {
 
           datasfida = Date.parse(obj.datasfida.toString());
-          const currentDay = current.getDate();
+          const currentDay = datasfida.getDate();
 
           // if (currentDay + 2 > currentDate) {
             if (currentDay === currentDay) {

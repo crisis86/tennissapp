@@ -28,7 +28,7 @@
       "role": "player",
       "address": "fatt e fatt tuoi\n23",
       "gender": "male",
-      "posizione": 3,
+      "posizione": 2,
       "insfida": false,
       "id": 2
     },
@@ -145,7 +145,7 @@
       "role": "player",
       "address": "strada provinciale SP 52",
       "gender": "male",
-      "posizione": 2,
+      "posizione": 3,
       "insfida": false,
       "id": 11
     },
@@ -275,7 +275,7 @@
       "role": "player",
       "address": "sreerrer",
       "gender": "male",
-      "posizione": 21,
+      "posizione": 22,
       "insfida": false,
       "id": 21
     },
@@ -288,7 +288,7 @@
       "role": "player",
       "address": "fatt e fatt tuoi\n23",
       "gender": "male",
-      "posizione": 22,
+      "posizione": 23,
       "insfida": false,
       "id": 22
     },
@@ -381,7 +381,7 @@
   "challenge": [
     {
       "datacreate": "10-2-2022",
-      "datasfida": "15-2-2022",
+      "datasfida": "15/2/2022",
       "players": [
         {
           "idp1": 6,
@@ -402,7 +402,7 @@
     },
     {
       "datacreate": "10-2-2022",
-      "datasfida": "15-8-2023",
+      "datasfida": "15/8/2023",
       "players": [
         {
           "idp1": 3,
@@ -423,7 +423,7 @@
     },
     {
       "datacreate": "25-1-2023",
-      "datasfida": "30-1-2023",
+      "datasfida": "30/1/2023",
       "players": [
         {
           "idp1": 2,
@@ -444,7 +444,7 @@
     },
     {
       "datacreate": "15-2-2022",
-      "datasfida": "18-2-2023",
+      "datasfida": "18/2/2023",
       "players": [
         {
           "idp1": 2,
@@ -1154,6 +1154,44 @@
       "set2": "",
       "set3": "",
       "id": 40
+    },
+    {
+      "datacreate": "01-9-2023",
+      "datasfida": "06/9/2023",
+      "players": [
+        {
+          "idp1": 2,
+          "p1": "Lino Bordelli"
+        },
+        {
+          "idp2": 11,
+          "p2": "Jepson Franzys"
+        }
+      ],
+      "status": "complete",
+      "set1": "6-3",
+      "set2": "2-6",
+      "set3": "7-5",
+      "id": 41
+    },
+    {
+      "datacreate": "7-9-2023",
+      "datasfida": "8/9/2023",
+      "players": [
+        {
+          "idp1": 22,
+          "p1": "Ciccio Graziani"
+        },
+        {
+          "idp2": 20,
+          "p2": "Michele Gemello"
+        }
+      ],
+      "status": "complete",
+      "set1": "6-3",
+      "set2": "6-3",
+      "set3": "0-0",
+      "id": 42
     }
   ]
 }

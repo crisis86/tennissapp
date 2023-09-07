@@ -24,11 +24,14 @@ const ChallengeSingle = () => {
     const [challenge, setchallenge] = useState([]);
     // sfida pendign giocatore
     const [challengepending, setchallengepending] = useState([]);
+    const [datadioggi, setdatadioggi] = useState(new Date());
+   
 
     // flag SFIDA user collegato
-    const [stoinsfida, setstoinsifa] = useState(sessionStorage.getItem('stoinsfida'));
+    // const [stoinsfida, setstoinsifa] = useState(sessionStorage.getItem('stoinsfida'));
     //flag annulla bottone
     const [annullabotton, setannullabotton] = useState(false);
+    const [sfidabottone, setsfidabottone] = useState(true);
     // flag per sfidare se è possibile
     const [sfidabutton, setsfidabutton] = useState(false);
 
@@ -46,7 +49,9 @@ const ChallengeSingle = () => {
         } else {
             fetchdata();
             //   SfidaAbilitata();
+            getlastsfidacomplete();
             checksfidapending();
+
         }
 
 
@@ -81,6 +86,7 @@ const ChallengeSingle = () => {
             console.error(error);
         }
     }
+
 
     function SfidaAbilitata() {
 
@@ -146,7 +152,7 @@ const ChallengeSingle = () => {
 
                         if (status === 'update') {
                             addchallenge(idp1, idname1);
-                           
+
 
                         } else {
                             removechallenge(idname1);
@@ -231,18 +237,18 @@ const ChallengeSingle = () => {
         }).then((res) => {
             console.log('challenge creato')
             sessionStorage.setItem('stoinsfida', true);
-            setstoinsifa(true);
+            //    setstoinsifasetstoinsifa(true);
             // console.log('sto in sfida: ' +stoinsfida)
         }).catch((err) => {
             toast.error('addchallenge :' + err.message);
         });
 
         //usenavigate('/Mychallenge')
-     
+
         fetchdata();
         checksfidapending();
 
-       
+
 
     }
 
@@ -276,13 +282,13 @@ const ChallengeSingle = () => {
                 result.json().then((resp) => {
                     //  console.log(resp)
                     sessionStorage.setItem('stoinsfida', false);
-                    setstoinsifa(false);
+                    // setstoinsifa(false);
                 })
             }).catch((err) => {
                 toast.error(err.message);
             });
 
-         
+
             checksfidapending();
             fetchdata();
 
@@ -290,6 +296,68 @@ const ChallengeSingle = () => {
             toast.error('idriga: ' + idriga);
         }
     }
+
+    const getlastsfidacomplete = () => {
+
+        let sfidecoolete = {};
+        // let datalastfida = new Date();
+
+        fetch(window.$produrl + "/challenge?status=complete&q=" + name, {
+            method: 'GET'
+        }).then(res => {
+            if (!res.ok) {
+                // console.log('nulla')
+                return false
+            }
+            return res.json();
+        }).then(res => {
+            if (Object.keys(res).length > 0) {
+            sfidecoolete = res;
+
+            // datalastfida = Math.max(...sfidecoolete.map(o => o.datasfida))
+
+            let recorddatalastfida = sfidecoolete.sort((a, b) => a.datasfida > b.datasfida ? 1 : -1)[0]
+
+            let splidate = recorddatalastfida.datasfida.split("/")
+              let dataconvert = new Date(splidate[2] + "/" + splidate[1] + "/" + splidate[0])
+
+            // To calculate the time difference of two dates
+          //  let Difference_In_Time = datadioggi.getTime() - dataconvert.getTime();
+            // To calculate the no. of days between two dates
+           // let Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24);
+
+            console.log(datadioggi.getDate())
+            console.log(dataconvert.getDate())
+
+            //   const Daysfida = datalastfida.getDate();
+            const time = Math.abs(dataconvert - datadioggi);
+            const days = Math.ceil(time / (1000 * 60 * 60 * 24));
+            console.log(days);
+
+
+            if (days > 2) {
+                console.log("maggiore = di 2 days")
+
+                 setsfidabutton(true)
+            } else {
+                console.log("minore di 2 days")
+                if(recorddatalastfida.players[0].id === iduser) {
+                    console.log("sono io blocca")
+                    setsfidabutton(false)
+                }else {
+                    setsfidabutton(true)
+                    console.log("non sono io")
+                }
+            
+          
+            }
+        } else {
+            setsfidabutton(true)
+            console.log("vuoto")
+        }
+        });
+    }
+
     const checksfidapending = () => {
 
         fetch(window.$produrl + "/challenge?status=pending&q=" + name).then(res => {
@@ -319,7 +387,7 @@ const ChallengeSingle = () => {
 
     }
 
- 
+
 
     return (
         <>
@@ -327,8 +395,6 @@ const ChallengeSingle = () => {
                 <div style={{ textAlign: "center" }} className="title"><h1>Scheda Giocatore </h1>
                 </div>
                 <hr></hr>
-
-
                 <div className="">
                     {player &&
                         player.map((plr, index) => (
@@ -368,11 +434,17 @@ const ChallengeSingle = () => {
                                             ) : (
 
                                                 <div className="col-100 small-50">
-                                                    {plr.posizione > miaposizione || miaposizione < plr.posizione + 9 &&  // fino a 8 posizione sopra
 
-                                                        <button disabled={stoinsfida === 'true'} onClick={(e) => sfidahandle(e, plr.id, plr.name, 'update')} type="button" className={stoinsfida === 'true' ? 'disabled button button-fill button-small' : 'button button-fill button-small'}>Sfida</button>
+                                                       {sfidabutton && 
+                                                    <>
+                                                        {plr.posizione > miaposizione || miaposizione < plr.posizione + 9 &&  // fino a 8 posizione sopra
 
-                                                    }
+                                                            <button disabled={plr.insfida === 'true'} onClick={(e) => sfidahandle(e, plr.id, plr.name, 'update')} type="button" className={plr.insfida === 'true' ? 'disabled button button-fill button-small' : 'button button-fill button-small'}>Sfida</button>
+
+                                                        }
+                                                    </>
+                                                  }
+
                                                 </div>
 
                                             )}
@@ -387,9 +459,9 @@ const ChallengeSingle = () => {
 
                                 </div>
                                 {challenge.sort((a, b) => a.id < b.id ? 1 : -1).map((partite, i) => (
-                                    <div style={{ paddingLeft: '5px' }} className="card no-shadow no-safe-area-left">
+                                    <div key={i + 1} style={{ paddingLeft: '5px' }} className="card no-shadow no-safe-area-left">
                                         <div className="card-contet">
-                                            <div key={i + 1} className="block block-strong medium-hide no-hairlines no-margin-vertical sticky sticky-top">
+                                            <div className="block block-strong medium-hide no-hairlines no-margin-vertical sticky sticky-top">
                                                 <div className={partite.status === 'pending' || partite.status === 'processing' ? 'list no-chevron no-hairlines no-hairlines-between no-safe-areas segmented-strong-pending' : 'list no-chevron no-hairlines no-hairlines-between no-safe-areas segmented-strong'}>
 
                                                     <ul>
