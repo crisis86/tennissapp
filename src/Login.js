@@ -35,7 +35,6 @@ const Login = () => {
                 sessionStorage.setItem('fullname', obuser.name);
                 sessionStorage.setItem('stoinsfida', obuser.insfida);
                 localStorage.setItem('datiuserlogin', JSON.stringify(obuser));
-
                // toast.success('Success');
                 usenavigate('/')
                // console.log(obuser)
@@ -68,7 +67,7 @@ const Login = () => {
 
                     if (Object.keys(resp).length === 0) {
                         setloading(false)
-                        toast.error('Please Enter valid username');
+                        toast.error('Please Enter valid email');
                     } else {
 
                         setuser(resp);

@@ -15,8 +15,6 @@ const Listasfida = () => {
 
     const navigate = useNavigate();
     //costanti sfidante
-
-
     useEffect(() => {
         loadlistplayer();
         checksfidapending();
