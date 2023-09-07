@@ -144,7 +144,7 @@ const Login = () => {
                         <div className="card-body">
                             <div className="form-group">
                                 <label>Email <span className="errmsg">*</span></label>
-                                <input style={{textTransform:'lowercase'}} value={email} onChange={e => emailupdate(e.target.value)} className="form-control"></input>
+                                <input style={{textTransform:'lowercase'}} value={email} onChange={e => emailupdate(e.target.value.toLowerCase())} className="form-control"></input>
                             </div>
                             <div className="form-group">
                                 <label>Password <span className="errmsg">*</span></label>
