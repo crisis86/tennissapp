@@ -6,7 +6,7 @@ import SetCookie from "./hooks/setCookie";
 import FontAwesome from 'react-fontawesome'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCoffee } from '@fortawesome/fontawesome-free-solid'
-
+import logo from './assets/pallina.png';
 
 
 const Login = () => {
@@ -122,7 +122,7 @@ const Login = () => {
         if (email === '' || email === null) {
             setloading(false);
             result = false;
-            toast.warning('Please Enter Username');
+            toast.warning('Please Enter email');
         }
         if (password === '' || password === null) {
             setloading(false);
@@ -133,13 +133,14 @@ const Login = () => {
     }
 
     return (
-        <div className="page"> 
+        <div className="page-content"> 
         <div className="offset-lg-3 col-lg-6">
             <div style={{ marginTop: '80px' }}>
                 <form onSubmit={ProceedLogin} className="container">
                     <div className="card">
                         <div className="card-header">
                             <h2>User Login</h2>
+                            <span><a href="/login"><img src={logo} width="30px" /></a></span>
                         </div>
                         <div className="card-body">
                             <div className="form-group">
