@@ -19,6 +19,7 @@ const Mychallenge = () => {
     const [player, setplayer] = useState([]);
     const [classicica, setclassifica] = useState([]);
     const [datadellasfida, setdatadellasfida] = useState(new Date())
+    const [today, setday] = useState(new Date())
     const locale = 'it';
 
     const [set1casa, setset1casa] = useState(0)
@@ -862,8 +863,9 @@ const Mychallenge = () => {
                                                             </div>
                                                         ) : (
                                                             <div className="row">
-
+                                                            {today >= Date.parse(item.datasfida) &&
                                                                 <div>
+                                                               
                                                                     <span><i>Inserisci Il risultati</i></span>
 
                                                                     <table className="data-table">
@@ -910,7 +912,9 @@ const Mychallenge = () => {
 
                                                                     <button style={{ display: 'inerith' }} onClick={(e) => aggiornapunteggio(e, item.id, item.players[0].idp1, item.players[1].idp2)} type="button" className="button button-fill button-small">Aggiorna Risultati</button>
 
+                                                             
                                                                 </div>
+                                                                   }
                                                             </div>
                                                         )}
                                                     </>
