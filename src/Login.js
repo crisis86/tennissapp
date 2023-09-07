@@ -96,6 +96,7 @@ const Login = () => {
                         }
                     }
                 }).catch((err) => {
+                    setloading(false)
                     console.log(err.message)
                     toast.error('Login Failed due to :' + err.message);
                 });
