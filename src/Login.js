@@ -97,7 +97,7 @@ const Login = () => {
                     }
                 }).catch((err) => {
                     setloading(false)
-                    console.log(err.message)
+                   
                     toast.error('Login Failed due to :' + err.message);
                 });
         }else {
@@ -133,7 +133,7 @@ const Login = () => {
     }
 
     return (
-        <div className="page-content"> 
+        <div className="page"> 
         <div className="offset-lg-3 col-lg-6">
             <div style={{ marginTop: '80px' }}>
                 <form onSubmit={ProceedLogin} className="container">
