@@ -67,7 +67,7 @@ const Login = () => {
 
                     if (Object.keys(resp).length === 0) {
                         setloading(false)
-                        toast.error('Please Enter valid email');
+                        toast.error(email + ' not valid');
                     } else {
 
                         setuser(resp);
