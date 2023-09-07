@@ -13,7 +13,7 @@ import Edit from './Edit';
 import ChallengeList from './ChallengeList';
 import Listasfida from './lista-sfida';
 import ChallengeSingle from './Challenge-single';
-import Mychallenge from './Mychallenge';
+import Mychallenge from './mychallenge';
 import Post from './Post';
 import { useState, useEffect } from 'react';
 import index from 'toastify';
