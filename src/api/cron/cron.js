@@ -6,8 +6,8 @@ export default function handler(request, response) {
       return;
     } */
 
-   /*  console.log('hello world')
-    response.send({
+  console.log('hello world')
+    /*   response.send({
       status:200,
       message:"hello world"
     }) */
