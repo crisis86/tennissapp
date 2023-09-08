@@ -340,8 +340,8 @@ const ChallengeSingle = () => {
 
                  setsfidabutton(true)
             } else {
-                console.log("minore di 2 days " + recorddatalastfida.players[0].id)
-                if(recorddatalastfida.players[0].id === iduser) {
+                console.log("minore di 2 days " + recorddatalastfida.players[0].idp1)
+                if(recorddatalastfida.players[0].idp1 === iduser) {
                     console.log("sono io blocca")
                     setsfidabutton(false)
                 }else {
