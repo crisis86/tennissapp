@@ -20,7 +20,7 @@ const Edit = () => {
     const [address, addresschange] = useState("");
     const [gender, genderchange] = useState("");
     const [posizione, posizionechange] = useState(0);
-    const [insfida, insfidachange] = useState(false);
+    const [insfida, insfidachange] = useState(false)
 
 
     const navigate = useNavigate();
@@ -111,6 +111,8 @@ const Edit = () => {
 
     const handlesubmit = (e) => {
         e.preventDefault();
+
+     
         let regobj = { email, password, name, phone, country, role, address, gender, posizione, insfida};
         if (IsValidate()) {
             //  console.log(regobj);
@@ -120,7 +122,8 @@ const Edit = () => {
                 body: JSON.stringify(regobj)
             }).then((res) => {
                 toast.success('Modified successfully.')
-                // navigate('/Player');
+                 navigate('/Player');
+                
             }).catch((err) => {
                 toast.error('Failed :' + err.message);
             });
@@ -209,10 +212,10 @@ const Edit = () => {
                                     <div className="col-lg-6">
                                         <div className="form-group">
                                             <label>Sfida Flag</label>
-                                                                      
-                                            <select value={insfida} onChange={e => insfidachange((e.target.value))} className="form-control">
-                                            <option value={true}>Si</option>
-                                            <option value={false}>No</option>
+ 
+                                            <select value={insfida} onChange={e => insfidachange((JSON.parse(e.target.value)))} className="form-control">
+                                            <option value="true">Si</option>
+                                            <option value="false">No</option>
                                         </select>
                                         </div>
                                     </div>

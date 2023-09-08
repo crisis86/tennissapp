@@ -113,6 +113,7 @@ const Player = () => {
             //  console.log(result)
             result.json().then((resp) => {
                 toast.success("Eliminato");
+                navigate('/player')
             })
         }).catch((err) => {
             toast.error(err.message);
