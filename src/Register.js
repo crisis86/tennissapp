@@ -189,7 +189,7 @@ const Register = () => {
                                 <div className="col-lg-6">
                                     <div className="form-group">
                                         <label>Email <span className="errmsg">*</span></label>
-                                        <input style={{textTransform:'lowercase'}} value={email.trim()}   onBlur={e => IsValidate()} onChange={e => emailchange(e.target.value)} className="form-control"></input>
+                                        <input style={{textTransform:'lowercase'}} value={email.trim()}   onBlur={e => IsValidate()} onChange={e => emailchange(e.target.value).toLowerCase()} className="form-control"></input>
                                     </div>
                                 </div>  <div className="col-lg-6">
                                     <div className="form-group">
