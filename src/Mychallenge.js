@@ -81,8 +81,8 @@ const Mychallenge = () => {
         //   console.log(datadellasfida)
 
 
-        const formatted = Intl.DateTimeFormat(locale).format(datadellasfida); // 3/19/2023
-
+      //  const formatted = Intl.DateTimeFormat(locale).format(datadellasfida); // 3/19/2023
+        const formatted = dayjs(datadellasfida).format('DD/MM/YYYY')
         Swal.fire({
             title: 'Sei sicuro?',
             text: 'Vuoi programmare la sfida?',
@@ -863,58 +863,58 @@ const Mychallenge = () => {
                                                             </div>
                                                         ) : (
                                                             <div className="row">
-                                                            {today >= Date.parse(item.datasfida) &&
-                                                                <div>
-                                                               
-                                                                    <span><i>Inserisci Il risultati</i></span>
+                                                                {dayjs(today).format('YYYY-MM-DD') >= dayjs(item.datasfida).format('YYYY-MM-DD') &&
+                                                                    <div>
 
-                                                                    <table className="data-table">
-                                                                        <tr index={index + 1}>
-                                                                            <td>Set 1</td>
-                                                                            <td>
-                                                                                <input type="number" min="1" max="100" value={set1casa} onChange={e => setset1casa(e.target.value)} className="form-control"></input>
-                                                                            </td>
-                                                                            <td>-</td>
-                                                                            <td>
-                                                                                <input type="number" min="1" max="100" value={set1ospite} onChange={e => setset1ospite(e.target.value)} className="form-control"></input>
-                                                                            </td>
+                                                                        <span><i>Inserisci Il risultati </i></span>
 
-
-                                                                        </tr>
-
-                                                                        <tr>
-                                                                            <td>Set 2</td>
-                                                                            <td>
-                                                                                <input type="number" min="1" max="100" value={set2casa} onChange={e => setset2casa(e.target.value)} className="form-control"></input>
-                                                                            </td>
-                                                                            <td>-</td>
-                                                                            <td>
-                                                                                <input type="number" min="1" max="100" value={set2ospite} onChange={e => setset2ospite(e.target.value)} className="form-control"></input>
-                                                                            </td>
+                                                                        <table className="data-table">
+                                                                            <tr index={index + 1}>
+                                                                                <td>Set 1</td>
+                                                                                <td>
+                                                                                    <input type="number" min="1" max="100" value={set1casa} onChange={e => setset1casa(e.target.value)} className="form-control"></input>
+                                                                                </td>
+                                                                                <td>-</td>
+                                                                                <td>
+                                                                                    <input type="number" min="1" max="100" value={set1ospite} onChange={e => setset1ospite(e.target.value)} className="form-control"></input>
+                                                                                </td>
 
 
-                                                                        </tr>
+                                                                            </tr>
 
-                                                                        <tr>
-                                                                            <td>Set 3</td>
-                                                                            <td>
-                                                                                <input type="number" min="1" max="100" value={set3casa} onChange={e => setset3casa(e.target.value)} className="form-control"></input>
-                                                                            </td>
-                                                                            <td>-</td>
-                                                                            <td>
-                                                                                <input type="number" min="1" max="100" value={set3ospite} onChange={e => setset3ospite(e.target.value)} className="form-control"></input>
-                                                                            </td>
+                                                                            <tr>
+                                                                                <td>Set 2</td>
+                                                                                <td>
+                                                                                    <input type="number" min="1" max="100" value={set2casa} onChange={e => setset2casa(e.target.value)} className="form-control"></input>
+                                                                                </td>
+                                                                                <td>-</td>
+                                                                                <td>
+                                                                                    <input type="number" min="1" max="100" value={set2ospite} onChange={e => setset2ospite(e.target.value)} className="form-control"></input>
+                                                                                </td>
 
 
-                                                                        </tr>
+                                                                            </tr>
 
-                                                                    </table>
+                                                                            <tr>
+                                                                                <td>Set 3</td>
+                                                                                <td>
+                                                                                    <input type="number" min="1" max="100" value={set3casa} onChange={e => setset3casa(e.target.value)} className="form-control"></input>
+                                                                                </td>
+                                                                                <td>-</td>
+                                                                                <td>
+                                                                                    <input type="number" min="1" max="100" value={set3ospite} onChange={e => setset3ospite(e.target.value)} className="form-control"></input>
+                                                                                </td>
 
-                                                                    <button style={{ display: 'inerith' }} onClick={(e) => aggiornapunteggio(e, item.id, item.players[0].idp1, item.players[1].idp2)} type="button" className="button button-fill button-small">Aggiorna Risultati</button>
 
-                                                             
-                                                                </div>
-                                                                   }
+                                                                            </tr>
+
+                                                                        </table>
+
+                                                                        <button style={{ display: 'inerith' }} onClick={(e) => aggiornapunteggio(e, item.id, item.players[0].idp1, item.players[1].idp2)} type="button" className="button button-fill button-small">Aggiorna Risultati</button>
+
+
+                                                                    </div>
+                                                                }
                                                             </div>
                                                         )}
                                                     </>
@@ -924,6 +924,7 @@ const Mychallenge = () => {
 
                                     ) : (
                                         <div className="col flex-shrink-0">
+                                          
                                             <div className="row">
                                                 {item.status === 'pending' && item.datasfida === '' &&
                                                     <>
@@ -944,7 +945,7 @@ const Mychallenge = () => {
 
                                                             <div>
                                                                 <Calendar minDate={new Date()}
-                                                                    formatday={(locale, date) => dayjs(date).format('dd-m-yyyy')}
+                                                                    formatday={(locale, date) => dayjs(date).format('DD/MM/YYYY')}
                                                                     onChange={date => setdatadellasfida(date)} value={datadellasfida} />
                                                                 <button onClick={(e) => progmatchandle(e, item.id)} type="button" className="button button-fill button-small">Conferma data</button>
 
@@ -952,7 +953,7 @@ const Mychallenge = () => {
                                                         </div>
                                                     ) : (
                                                         <div className="row">
-
+                                                        {dayjs(today).format('YYYY-MM-DD') >= dayjs(item.datasfida).format('YYYY-MM-DD') &&
 
                                                             <div>
                                                                 <span><i>Inserisci Il risultati</i></span>
@@ -1002,6 +1003,7 @@ const Mychallenge = () => {
                                                                 <button style={{ display: 'inerith' }} onClick={(e) => aggiornapunteggio(e, item.id, item.players[0].idp1, item.players[1].idp2)} type="button" className="button button-fill button-small">Aggiorna Risultati</button>
 
                                                             </div>
+                                                    }
                                                         </div>
                                                     )}
                                                 </>
