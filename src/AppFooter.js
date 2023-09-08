@@ -12,13 +12,13 @@ const AppFooter = () => {
     const iduser = parseInt(sessionStorage.getItem('iduser'))
 
     useEffect(() => {
-        if (location.pathname === '/login' || location.pathname === '/register') {
+        if (location.pathname === '/login' || location.pathname === '/register' || location.pathname === '/Regolamento.html') {
             showmenuupdateupdate(false);
         } else {
             showmenuupdateupdate(true);
             let username = sessionStorage.getItem('iduser');
             if (username === '' || username === null) {
-                usenavigate('/login');
+             //   usenavigate('/login');
             } else {
                 displayusernameupdate(username);
 

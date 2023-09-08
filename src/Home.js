@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import avatar from './assets/avatar.png';
 
 const Home = () => {
@@ -8,7 +8,7 @@ const Home = () => {
     const uname = sessionStorage.getItem('email')
     const datiuserloging = JSON.parse(localStorage.getItem('datiuserlogin'))
     const [post, setposts] = useState([]);
-
+    const location = useLocation();
 
     const loadpost = () => {
 
@@ -29,6 +29,10 @@ const Home = () => {
 
 
     useEffect(() => {
+
+        if (location.pathname === '/Regolamento') {
+            usenavigate('/Regolamento');
+        }
         let email = sessionStorage.getItem('email')
 
         if (email === '' || email === null) {

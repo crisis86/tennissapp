@@ -105,15 +105,6 @@ const Login = () => {
     }
 
 
-    function getUsersid() {
-        fetch("http://localhost:10000/user?email=" + email).then((result) => {
-            result.json().then((resp) => {
-                console.log(resp.id)
-
-                setiduser(resp.id)
-            })
-        })
-    }
 
 
     const validate = () => {
@@ -155,6 +146,7 @@ const Login = () => {
                             <button disabled={loading} type="submit" className="btn btn-primary">{loading && <FontAwesomeIcon icon="fa-solid fa-spinner" spinPulse size="lg" style={{color: "#fcfcfc",}} />}Login</button> |
                             <Link className="btn btn-success" to={'/register'}>Sing </Link>
                         </div>
+                        <span><a href="/Regolamento.html">Regolamento</a></span>
                     </div>
                 </form>
             </div>

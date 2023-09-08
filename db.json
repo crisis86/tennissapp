@@ -35,7 +35,7 @@
     {
       "email": "davideaprea29@libero.it",
       "password": "123456",
-      "name": "pasquale coppola",
+      "name": "Pasquale Coppola",
       "phone": "132123123",
       "country": "india",
       "role": "player",
@@ -171,7 +171,7 @@
       "role": "player",
       "address": "via anfiteatro laterizio\n25",
       "gender": "male",
-      "posizione": 18,
+      "posizione": 19,
       "insfida": false,
       "id": 13
     },
@@ -262,7 +262,7 @@
       "role": "player",
       "address": "",
       "gender": "male",
-      "posizione": 20,
+      "posizione": 22,
       "insfida": false,
       "id": 20
     },
@@ -275,7 +275,7 @@
       "role": "player",
       "address": "sreerrer",
       "gender": "male",
-      "posizione": 22,
+      "posizione": 21,
       "insfida": false,
       "id": 21
     },
@@ -288,7 +288,7 @@
       "role": "player",
       "address": "fatt e fatt tuoi\n23",
       "gender": "male",
-      "posizione": 23,
+      "posizione": 20,
       "insfida": false,
       "id": 22
     },
@@ -301,9 +301,35 @@
       "role": "player",
       "address": "",
       "gender": "male",
-      "posizione": 19,
+      "posizione": 18,
       "insfida": false,
       "id": 23
+    },
+    {
+      "email": "maket@gmail.com",
+      "password": "123456",
+      "name": "Marek Hamsik",
+      "phone": "33349185385",
+      "country": "Italia",
+      "role": "player",
+      "address": "sdsfsdfsdfsdfdd",
+      "gender": "male",
+      "posizione": 23,
+      "insfida": false,
+      "id": 24
+    },
+    {
+      "email": "nicolas@gmail.com",
+      "password": "123456",
+      "name": "nicola cage",
+      "phone": "33333333",
+      "country": "Italia",
+      "role": "player",
+      "address": "22222",
+      "gender": "male",
+      "posizione": 24,
+      "insfida": false,
+      "id": 25
     }
   ],
   "post": [
@@ -1249,6 +1275,82 @@
       "set2": "0-0",
       "set3": "0-0",
       "id": 45
+    },
+    {
+      "datacreate": "8-9-2023",
+      "datasfida": "08/09/2023",
+      "players": [
+        {
+          "idp1": 24,
+          "p1": "Marek Hamsik"
+        },
+        {
+          "idp2": 21,
+          "p2": "Test Davjde"
+        }
+      ],
+      "status": "complete",
+      "set1": "6-3",
+      "set2": "0-0",
+      "set3": "0-0",
+      "id": 46
+    },
+    {
+      "datacreate": "8-9-2023",
+      "datasfida": "08/09/2023",
+      "players": [
+        {
+          "idp1": 21,
+          "p1": "Test Davjde"
+        },
+        {
+          "idp2": 23,
+          "p2": "Michele test"
+        }
+      ],
+      "status": "complete",
+      "set1": "6-3",
+      "set2": "6-2",
+      "set3": "0-0",
+      "id": 47
+    },
+    {
+      "datacreate": "8-9-2023",
+      "datasfida": "08/09/2023",
+      "players": [
+        {
+          "idp1": 23,
+          "p1": "Michele test"
+        },
+        {
+          "idp2": 13,
+          "p2": "Dente Rune"
+        }
+      ],
+      "status": "complete",
+      "set1": "9-4",
+      "set2": "0-0",
+      "set3": "0-0",
+      "id": 48
+    },
+    {
+      "datacreate": "8-9-2023",
+      "datasfida": "08/09/2023",
+      "players": [
+        {
+          "idp1": 25,
+          "p1": "nicola cage"
+        },
+        {
+          "idp2": 22,
+          "p2": "Ciccio Graziani"
+        }
+      ],
+      "status": "complete",
+      "set1": "2-6",
+      "set2": "2-6",
+      "set3": "0-0",
+      "id": 49
     }
   ]
 }

@@ -27,7 +27,15 @@ const Edit = () => {
 
 
     useEffect(() => {
+        let email = sessionStorage.getItem('email')
+
+        if (email === '' || email === null) {
+            //toast.error('Not Authenticate session');
+            navigate('/login');
+        } else{
+
         lastidjson();
+        }
     }, []);
 
 
@@ -135,7 +143,7 @@ const Edit = () => {
                 <form className="container" onSubmit={handlesubmit}>
                     <div className="card">
                         <div className="card-header">
-                            <h1>User Registeration</h1>
+                            <h1>Dati Utente</h1>
                         </div>
                         <div className="card-body">
 
@@ -228,6 +236,7 @@ const Edit = () => {
                             <button type="submit" className="btn btn-primary">Modifica</button> |
 
                         </div>
+                        <span><a href="/Regolamento.html">Regolamento</a></span> 
                     </div>
                 </form>
             </div>

@@ -15,18 +15,9 @@ import Listasfida from './lista-sfida';
 import ChallengeSingle from './Challenge-single';
 import Mychallenge from './Mychallenge'
 import Post from './Post';
-import { useState, useEffect } from 'react';
-import index from 'toastify';
-
-
-
-function App() {
-
-  const [challenge, setchallenge] = useState([]);
-  const [classifica, setclassifica] = useState([]);
-  const iduser = parseInt(sessionStorage.getItem('iduser'))
-
+import Regolamento from './Regolamento';
  
+function App() {
 
 //  useEffect(() => {
  //   cron.scheduleJob('*/10 * * * *', () => {
@@ -47,6 +38,7 @@ function App() {
         <AppHeader></AppHeader>
         <Navbar />
         <Routes>
+          <Route path="/Regolamento.html" element={<Regolamento />}></Route>
           <Route path="/" element={<Home />}></Route>
           <Route path="/Player" element={<Player />}> </Route>
           <Route path="/ChallengeList" element={<ChallengeList />}> </Route>

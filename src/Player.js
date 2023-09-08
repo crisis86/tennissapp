@@ -97,7 +97,7 @@ const Player = () => {
            toast.warning('You are not having access for remove');
         }
 
-        if (window.confirm("Sei sicuro?")) {
+        if (window.confirm("Sei sicuro? l'operazione porterà alla cancellazione dei dati")) {
             removeplayer(param);
             loadcustomer();
         }
@@ -112,7 +112,7 @@ const Player = () => {
         }).then((result) => {
             //  console.log(result)
             result.json().then((resp) => {
-                toast.success("Eliminato");
+                toast.success("Player Eliminato!");
                 navigate('/player')
             })
         }).catch((err) => {
@@ -145,15 +145,15 @@ const Player = () => {
                         </thead>
                         <tbody>
                             {custlist &&
-                                custlist.map((item, index) => (
+                                custlist.sort((a, b) => a.posizione > b.posizione ? 1 : -1).map((item, index) => (
                                     <tr key={index+1}>
                                        <td>{item.id}</td>
                                        <td>{item.name}</td>
                                         <td>{item.posizione}</td>
                                         <td>{item.email}</td>
                                         <td>
-                                            <button onClick={(e) => handleedit(e, item.id)} className="btn btn-primary">Edit</button> |
-                                            <button onClick={(e) => handleremove(e, item.id)}   className="btn btn-danger">Remove</button>
+                                            <button onClick={(e) => handleedit(e, item.id)} className="btn btn-primary">Edit</button> &nbsp;
+                                            <button onClick={(e) => handleremove(e, item.id)}   className="btn btn-danger">X</button>
                                         </td>
 
                                     </tr>

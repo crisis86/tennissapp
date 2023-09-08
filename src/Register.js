@@ -158,7 +158,6 @@ const Register = () => {
         }
     }, 3000);
 
-
     }
     
     return (
@@ -189,7 +188,7 @@ const Register = () => {
                                 <div className="col-lg-6">
                                     <div className="form-group">
                                         <label>Email <span className="errmsg">*</span></label>
-                                        <input style={{textTransform:'lowercase'}} value={email.trim()}   onBlur={e => IsValidate()} onChange={e => emailchange(e.target.value).toLowerCase()} className="form-control"></input>
+                                        <input style={{textTransform:'lowercase'}} value={email.trim()}   onBlur={e => IsValidate()} onChange={e => emailchange(e.target.value.toLowerCase())} className="form-control"></input>
                                     </div>
                                 </div>  <div className="col-lg-6">
                                     <div className="form-group">
@@ -248,6 +247,7 @@ const Register = () => {
 
                             <Link to={'/login'} className="btn btn-danger">Close</Link>
                         </div>
+                        <span><a href="/Regolamento.html">Regolamento</a></span>
                     </div>
                 </form>
             </div>

@@ -81,7 +81,7 @@ const Mychallenge = () => {
         //   console.log(datadellasfida)
 
 
-      //  const formatted = Intl.DateTimeFormat(locale).format(datadellasfida); // 3/19/2023
+        //  const formatted = Intl.DateTimeFormat(locale).format(datadellasfida); // 3/19/2023
         const formatted = dayjs(datadellasfida).format('DD/MM/YYYY')
         Swal.fire({
             title: 'Sei sicuro?',
@@ -623,11 +623,7 @@ const Mychallenge = () => {
                 const found = classicica.sort((a, b) => a.posizione > b.posizione ? 1 : -1).filter((obj, index) => {
                     let indice = posp1 - posp2
 
-                    /*    if (index+1 === posp1 ) {
-                         
-                          obj.posizione =  obj.posizione- 1
-                      /  console.log(obj.posizione) 
-                      }  */
+
                     if (index + 1 >= posp2 && index + 1 <= posp1 - 1) {
 
                         obj.posizione = obj.posizione + 1
@@ -636,7 +632,7 @@ const Mychallenge = () => {
                     }
                     if (obj.id === idp2) {
                         obj.insfida = false
-                        //   obj.posizione = posp2 + 1 // scendo di una posizione OK
+                        obj.posizione = posp2 + 1 // scendo di una posizione OK
                         //        console.log("posizione pedente:" +obj.posizione) 
                         updateUserPosition(obj)
                     } if (obj.id === idp1) {
@@ -667,20 +663,32 @@ const Mychallenge = () => {
                     if (obj.id === idp2) {
                         obj.insfida = false
                         obj.posizione = posp2 - 2 // Salgo di 2 posizioni
+
+                        if (obj.posizione <= 0) { obj.posizione = 1 }  //check primo classifica 
+
                         console.log("posizione vincente:" + obj.posizione)
                         updateUserPosition(obj)
+
                     } if (obj.id === idp1) {
 
                         obj.insfida = false
-                        obj.posizione = posp1 + 1 // scendo di una
+
+                        if (!obj.length === -1) { //controllo la fine della classifica
+                            obj.posizione = posp1 + 1 // scendo di una
+                        }
+
                         console.log("pos perdente", obj.posizione)
                         updateUserPosition(obj)
 
                     } if (index + 1 === posp1 + 1) {
                         obj.posizione = obj.posizione - 1  // sale di uno quello sotto a me
+
+                        if (obj.posizione <= 0) { obj.posizione = 1 }  //check primo classifica 
+
                         console.log("pos sotto perdente perdente", obj.posizione)
                         updateUserPosition(obj)
                     }
+
                     return obj.id
 
                 })
@@ -696,13 +704,18 @@ const Mychallenge = () => {
                     if (obj.id === idp1) {
 
                         obj.insfida = false;
-                        obj.posizione = posp1 + 1 // scendo di 1 perchè ho annullato
+                        if (!obj.length === -1) { //controllo la fine della classifica
+                            obj.posizione = posp1 + 1 // scendo di 1 perchè ho annullato
+                        }
                         console.log("pod do chi anulla:" + obj.posizione)
                         updateUserPosition(obj)
 
                     } if (index + 1 === posp1 + 1) {
 
                         obj.posizione = obj.posizione - 1 // sale di uno quello sotto
+
+                        if (obj.posizione <= 0) { obj.posizione = 1 }  //check primo classifica 
+
                         console.log("sale di uno quello sotto", obj.posizione)
                         updateUserPosition(obj)
 
@@ -710,12 +723,15 @@ const Mychallenge = () => {
 
                         obj.insfida = false;
                         obj.posizione = posp2 - 1  // sale di uno subisce annullo
+
+                        if (obj.posizione <= 0) { obj.posizione = 1 }  //check primo classifica 
+
                         console.log("sale di uno subisce annullo", obj.posizione)
                         updateUserPosition(obj)
                     }
                     if (index + 1 === posp2 - 1) {
 
-                        obj.posizione = obj.posizione + 1 // sale di uno quello sotto
+                        obj.posizione = obj.posizione + 1 // scende di uno quello sopra
                         console.log("scendi uno quello sopra", obj.posizione)
                         updateUserPosition(obj)
                     }
@@ -731,26 +747,32 @@ const Mychallenge = () => {
                     if (obj.id === idp1) {
 
                         obj.insfida = false;
-                        obj.posizione = posp1 + 1 // scendo di 1 perchè ho annullato
+                        if (!obj.length === -1) { //controllo la fine della classifica
+                            obj.posizione = posp1 + 1 // scendo di 1 perchè ho annullato
+                        }
                         console.log("pod do chi anulla:" + obj.posizione)
                         updateUserPosition(obj)
 
                     } if (index + 1 === posp1 + 1) {
 
                         obj.posizione = obj.posizione - 1 // sale di uno quello sotto
+                        if (obj.posizione <= 0) { obj.posizione = 1 }  //check primo classifica 
                         console.log("sale di uno quello sotto", obj.posizione)
                         updateUserPosition(obj)
 
                     } if (obj.id === idp2) {
 
                         obj.insfida = false;
-                        obj.posizione = posp2 + 1  // scendo di 1 perchè ho annullato
+                        if (!obj.length === -1) { //controllo la fine della classifica
+                            obj.posizione = posp2 + 1  // scendo di 1 perchè ho annullato
+                        }
                         console.log("sale di uno subisce annullo", obj.posizione)
                         updateUserPosition(obj)
                     }
                     if (index + 1 === posp2 + 1) {
 
                         obj.posizione = obj.posizione - 1 // sale di uno quello sotto
+                        if (obj.posizione <= 0) { obj.posizione = 1 }  //check primo classifica 
                         console.log("scendi uno quello sopra", obj.posizione)
                         updateUserPosition(obj)
                     }
@@ -924,7 +946,7 @@ const Mychallenge = () => {
 
                                     ) : (
                                         <div className="col flex-shrink-0">
-                                          
+
                                             <div className="row">
                                                 {item.status === 'pending' && item.datasfida === '' &&
                                                     <>
@@ -953,57 +975,57 @@ const Mychallenge = () => {
                                                         </div>
                                                     ) : (
                                                         <div className="row">
-                                                        {dayjs(today).format('YYYY-MM-DD') >= dayjs(item.datasfida).format('YYYY-MM-DD') &&
+                                                            {dayjs(today).format('YYYY-MM-DD') >= dayjs(item.datasfida).format('YYYY-MM-DD') &&
 
-                                                            <div>
-                                                                <span><i>Inserisci Il risultati</i></span>
+                                                                <div>
+                                                                    <span><i>Inserisci Il risultati</i></span>
 
-                                                                <table className="data-table">
-                                                                    <tr index={index + 1}>
-                                                                        <td>Set 1</td>
-                                                                        <td>
-                                                                            <input type="number" min="1" max="100" value={set1casa} onChange={e => setset1casa(e.target.value)} className="form-control"></input>
-                                                                        </td>
-                                                                        <td>-</td>
-                                                                        <td>
-                                                                            <input type="number" min="1" max="100" value={set1ospite} onChange={e => setset1ospite(e.target.value)} className="form-control"></input>
-                                                                        </td>
-
-
-                                                                    </tr>
-
-                                                                    <tr>
-                                                                        <td>Set 2</td>
-                                                                        <td>
-                                                                            <input type="number" min="1" max="100" value={set2casa} onChange={e => setset2casa(e.target.value)} className="form-control"></input>
-                                                                        </td>
-                                                                        <td>-</td>
-                                                                        <td>
-                                                                            <input type="number" min="1" max="100" value={set2ospite} onChange={e => setset2ospite(e.target.value)} className="form-control"></input>
-                                                                        </td>
+                                                                    <table className="data-table">
+                                                                        <tr index={index + 1}>
+                                                                            <td>Set 1</td>
+                                                                            <td>
+                                                                                <input type="number" min="1" max="100" value={set1casa} onChange={e => setset1casa(e.target.value)} className="form-control"></input>
+                                                                            </td>
+                                                                            <td>-</td>
+                                                                            <td>
+                                                                                <input type="number" min="1" max="100" value={set1ospite} onChange={e => setset1ospite(e.target.value)} className="form-control"></input>
+                                                                            </td>
 
 
-                                                                    </tr>
+                                                                        </tr>
 
-                                                                    <tr>
-                                                                        <td>Set 3</td>
-                                                                        <td>
-                                                                            <input type="number" min="1" max="100" value={set3casa} onChange={e => setset3casa(e.target.value)} className="form-control"></input>
-                                                                        </td>
-                                                                        <td>-</td>
-                                                                        <td>
-                                                                            <input type="number" min="1" max="100" value={set3ospite} onChange={e => setset3ospite(e.target.value)} className="form-control"></input>
-                                                                        </td>
+                                                                        <tr>
+                                                                            <td>Set 2</td>
+                                                                            <td>
+                                                                                <input type="number" min="1" max="100" value={set2casa} onChange={e => setset2casa(e.target.value)} className="form-control"></input>
+                                                                            </td>
+                                                                            <td>-</td>
+                                                                            <td>
+                                                                                <input type="number" min="1" max="100" value={set2ospite} onChange={e => setset2ospite(e.target.value)} className="form-control"></input>
+                                                                            </td>
 
 
-                                                                    </tr>
+                                                                        </tr>
 
-                                                                </table>
+                                                                        <tr>
+                                                                            <td>Set 3</td>
+                                                                            <td>
+                                                                                <input type="number" min="1" max="100" value={set3casa} onChange={e => setset3casa(e.target.value)} className="form-control"></input>
+                                                                            </td>
+                                                                            <td>-</td>
+                                                                            <td>
+                                                                                <input type="number" min="1" max="100" value={set3ospite} onChange={e => setset3ospite(e.target.value)} className="form-control"></input>
+                                                                            </td>
 
-                                                                <button style={{ display: 'inerith' }} onClick={(e) => aggiornapunteggio(e, item.id, item.players[0].idp1, item.players[1].idp2)} type="button" className="button button-fill button-small">Aggiorna Risultati</button>
 
-                                                            </div>
-                                                    }
+                                                                        </tr>
+
+                                                                    </table>
+
+                                                                    <button style={{ display: 'inerith' }} onClick={(e) => aggiornapunteggio(e, item.id, item.players[0].idp1, item.players[1].idp2)} type="button" className="button button-fill button-small">Aggiorna Risultati</button>
+
+                                                                </div>
+                                                            }
                                                         </div>
                                                     )}
                                                 </>
