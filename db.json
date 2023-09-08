@@ -330,6 +330,19 @@
       "posizione": 24,
       "insfida": false,
       "id": 25
+    },
+    {
+      "email": "pippo@pippo.it",
+      "password": "123456",
+      "name": "pippo pluto",
+      "phone": "33333",
+      "country": "Italia",
+      "role": "player",
+      "address": "",
+      "gender": "male",
+      "posizione": 25,
+      "insfida": false,
+      "id": 26
     }
   ],
   "post": [
