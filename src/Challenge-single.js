@@ -302,7 +302,7 @@ const ChallengeSingle = () => {
         let sfidecoolete = {};
         // let datalastfida = new Date();
 
-        fetch(window.$produrl + "/challenge?status=complete&q=" + name, {
+        fetch(window.$produrl + "/challenge?status=complete&q=" + fullname, {
             method: 'GET'
         }).then(res => {
             if (!res.ok) {
@@ -318,7 +318,7 @@ const ChallengeSingle = () => {
 
             let recorddatalastfida = sfidecoolete.sort((a, b) => a.datasfida > b.datasfida ? 1 : -1)[0]
 
-            let splidate = recorddatalastfida.datasfida.split("/")
+              let splidate = recorddatalastfida.datasfida.split("/")
               let dataconvert = new Date(splidate[2] + "/" + splidate[1] + "/" + splidate[0])
 
             // To calculate the time difference of two dates
