@@ -146,7 +146,7 @@
       "address": "strada provinciale SP 52",
       "gender": "male",
       "posizione": 2,
-      "insfida": true,
+      "insfida": false,
       "id": 11
     },
     {

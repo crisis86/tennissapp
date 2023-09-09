@@ -3,6 +3,11 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import * as FaIcons6 from 'react-icons/fa6';
 import * as HiIcons from 'react-icons/hi';
 import * as FaIcons from 'react-icons/fa';
+import iconhome from './assets/icone/home.svg';
+import iconclass from './assets/icone/classifica-1.svg';
+import iconprofilo from './assets/icone/profilo.svg';
+import iconpost from './assets/icone/post.svg';
+import iconchallenge from './assets/icone/sfide.svg';
 
 const AppFooter = () => {
     const [displayusername, displayusernameupdate] = useState('');
@@ -18,7 +23,7 @@ const AppFooter = () => {
             showmenuupdateupdate(true);
             let username = sessionStorage.getItem('iduser');
             if (username === '' || username === null) {
-             //   usenavigate('/login');
+                //   usenavigate('/login');
             } else {
                 displayusernameupdate(username);
 
@@ -35,33 +40,39 @@ const AppFooter = () => {
                         <div className="toolbar-inner">
                             <a href="/" className="tab-link tab-link-active">
                                 <span className="icons">
-                                    <FaIcons6.FaHouse style={{ fontSize: '25px', color: '#32ab32' }} />,
+                                     
+                                    <img src={iconhome} width={30}  />
+                                    {/*   <FaIcons6.FaHouse style={{ fontSize: '25px', color: '#32ab32' }} />, */}
                                 </span>
                                 {/*   <span className="tabbar-label" data-i18n="home">Home</span> */}
                             </a>
                             <a href="/Mychallenge" className="tab-link">
                                 <span className="icons">
-                                    <FaIcons.FaCalendarAlt style={{ fontSize: '25px', color: '#32ab32' }} />,
+                                <img src={iconchallenge} width={36} />
+                                    {/* <FaIcons.FaCalendarAlt style={{ fontSize: '25px', color: '#32ab32' }} />, */}
 
                                 </span>
                                 {/* <span className="tabbar-label" data-i18n="components">Components</span> */}
                             </a>
                             <a href="/ChallengeList" className="tab-link">
                                 <span className="icons">
-                                    <HiIcons.HiChartBar style={{ fontSize: '25px', color: '#32ab32' }} />,
+                                <img src={iconclass} width={36} />
+                                  {/*   <HiIcons.HiChartBar style={{ fontSize: '25px', color: '#32ab32' }} />, */}
 
                                 </span>
                                 {/*  <span className="tabbar-label" data-i18n="screens">Screens</span> */}
                             </a>
                             <a href="/post" className="tab-link">
                                 <span className="icons">
-                                    <FaIcons6.FaRegNewspaper style={{ fontSize: '25px', color: '#32ab32' }} />,
+                                <img src={iconpost} width={32} />
+                                  {/*   <FaIcons6.FaRegNewspaper style={{ fontSize: '25px', color: '#32ab32' }} />, */}
                                 </span>
                                 {/*   <span className="tabbar-label" data-i18n="integrations">Integrations</span> */}
                             </a>
-                            <a  href={'/edit/' + iduser} className="tab-link">
+                            <a href={'/edit/' + iduser} className="tab-link">
                                 <span className="icons">
-                                    <HiIcons.HiUser style={{ fontSize: '25px', color: '#32ab32' }} />,
+                                <img src={iconprofilo} width={20} />
+                                    {/* <HiIcons.HiUser style={{ fontSize: '25px', color: '#32ab32' }} />, */}
                                 </span>
                                 {/*  <span className="tabbar-label" data-i18n="more">More</span> */}
                             </a>
