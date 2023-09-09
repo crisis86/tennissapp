@@ -330,7 +330,7 @@ const ChallengeSingle = () => {
             console.log(dataconvert.getDate())
 
             //   const Daysfida = datalastfida.getDate();
-            const time = Math.abs(dataconvert - datadioggi);
+            const time = Math.abs(datadioggi - dataconvert);
             const days = Math.ceil(time / (1000 * 60 * 60 * 24));
             console.log(days);
 
@@ -445,7 +445,7 @@ const ChallengeSingle = () => {
                                                         }
                                                     </>
                                             ):(
-                                                   <span>Giorni restanti per sfidare: {giornisfida}</span>
+                                                   <div style={{textAlign:'center',margin:'0 auto'}}>Giorni restanti per sfidare: {giornisfida}</div>
                                             )}
 
                                                 </div>
