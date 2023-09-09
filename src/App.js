@@ -1,5 +1,5 @@
 import Navbar from './Navbar';
-import React from 'react';
+import { React, useEffect } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import Home from './Home';
@@ -19,7 +19,12 @@ import Regolamento from './Regolamento';
  
 function App() {
 
+  let vh = window.innerHeight * 0.01;
+  // Then we set the value in the --vh custom property to the root of the document
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
+
 //  useEffect(() => {
+
  //   cron.scheduleJob('*/10 * * * *', () => {
   //    const current = new Date();
    //   const date = `${current.getDate()}-${current.getMonth() + 1}-${current.getFullYear()} : ${current.getHours()}-${current.getMinutes()}-${current.getSeconds()}`;

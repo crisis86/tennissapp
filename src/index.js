@@ -1,7 +1,6 @@
 import logo from './assets/logo.svg';
 import React from 'react';
 import App from './App';
-import { useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import './assets/index.css';
 import './assets/App.css';
