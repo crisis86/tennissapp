@@ -71,6 +71,9 @@ const Home = () => {
                                                     </div>
                                                     <div className="item-row">
                                                         <div className="item-cell">
+                                                        <a className='link' href={'/Challenge-single/' + item.iduser+'/'+item.nameuser}>
+                                                        <span style={{ fontSize: "12px" }}> <i>{item.nameuser}</i></span>
+                                                        </a>
                                                             <span style={{ fontSize: "12px" }}> <i>{item.datapost}</i></span>
                                                         </div>
                                                     </div>

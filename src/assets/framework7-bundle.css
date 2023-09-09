@@ -845,7 +845,7 @@
 
     max-height: calc(100vh - 240px);  */
     height: 100vh; /* Fallback for browsers that do not support Custom Properties */
-    height: calc(var(--vh, 1vh) * 77);
+    height: calc(var(--vh, 1vh) * 76);
    
     
     -webkit-overflow-scrolling: touch;
