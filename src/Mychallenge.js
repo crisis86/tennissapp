@@ -620,9 +620,9 @@ const Mychallenge = () => {
         switch (props) {
             case 'Sfida':
 
-                const found = classicica.sort((a, b) => a.posizione > b.posizione ? 1 : -1).filter((obj, index) => {
-                    let indice = posp1 - posp2
+                let indice = posp1 - posp2
 
+                const found = classicica.sort((a, b) => a.posizione > b.posizione ? 1 : -1).filter((obj, index) => {
 
                     if (index + 1 >= posp2 && index + 1 <= posp1 - 1) {
 
@@ -646,15 +646,19 @@ const Mychallenge = () => {
 
                 })
 
-              //  console.log(JSON.stringify(found));
+                //  console.log(JSON.stringify(found));
                 return found
 
             case 'Sfidato':
 
+
                 const found2 = classicica.sort((a, b) => a.posizione > b.posizione ? 1 : -1).filter((obj, index) => {
-                   let indicep= 2;
-                     
-                    if (index + 1 === posp2 - 1 || index + 1 === posp2 - 2) {
+
+                    //   if (index + 1 === posp2 - 1 || index + 1 === posp2 - 2) {
+                    if (index + 1 >= posp2 - 2 && index + 1 <= posp2) {
+                        
+                        if (posp2===2) {return} // esco perchè rimango al secondo posto
+                        if(posp2===3 && obj.posizione===1) { return} // esco per non cambiare la posizione al numero1
 
                         obj.posizione = obj.posizione + 1
                         console.log(obj.posizione)
@@ -664,8 +668,8 @@ const Mychallenge = () => {
                         obj.insfida = false
                         obj.posizione = posp2 - 2 // Salgo di 2 posizioni
 
-                    //    if (obj.posizione <= 0) { obj.posizione = 2; indicep=1 }  //check sedondo classifica divento >1 
-                     //   if (obj.posizione === 1) { obj.posizione = 2; indicep=0 }  //check primo classifica se ero 3 divento 1
+                        //  if (obj.posizione <= 0) { obj.posizione = 2; indicep=0 }  //check sedondo classifica divento >1 
+                        if (obj.posizione <=1) { obj.posizione = 2; }  //check primo classifica se ero 3 divento 1
 
                         console.log("posizione vincente:" + obj.posizione)
                         updateUserPosition(obj)
@@ -674,10 +678,10 @@ const Mychallenge = () => {
 
                         obj.insfida = false
 
-                       if (!Object.keys(classicica).length <= index) { //controllo la fine della classifica
+                        if (!Object.keys(classicica).length <= index) { //controllo la fine della classifica
                             obj.posizione = posp1 + 1 // scendo di una
                         }
-              
+                        console.log("lunghezza ", index)
                         console.log("pos perdente", obj.posizione)
                         updateUserPosition(obj)
 
@@ -686,7 +690,7 @@ const Mychallenge = () => {
 
                         if (obj.posizione <= 0) { obj.posizione = 1 }  //check primo classifica 
 
-                        console.log("pos sotto perdente perdente", obj.posizione)
+                        console.log("pos sotto al perdente", obj.posizione + " " + obj.name)
                         updateUserPosition(obj)
                     }
 

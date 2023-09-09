@@ -28,7 +28,7 @@
       "role": "player",
       "address": "fatt e fatt tuoi\n23",
       "gender": "male",
-      "posizione": 2,
+      "posizione": 3,
       "insfida": false,
       "id": 2
     },
@@ -80,7 +80,7 @@
       "role": "player",
       "address": "strada provinciale SP 52",
       "gender": "male",
-      "posizione": 7,
+      "posizione": 5,
       "insfida": false,
       "id": 6
     },
@@ -93,8 +93,8 @@
       "role": "player",
       "address": "strada provinciale SP 52",
       "gender": "male",
-      "posizione": 6,
-      "insfida": true,
+      "posizione": 8,
+      "insfida": false,
       "id": 7
     },
     {
@@ -106,7 +106,7 @@
       "role": "player",
       "address": "strada provinciale SP 52",
       "gender": "male",
-      "posizione": 8,
+      "posizione": 9,
       "insfida": false,
       "id": 8
     },
@@ -132,7 +132,7 @@
       "role": "player",
       "address": "strada provinciale SP 52",
       "gender": "male",
-      "posizione": 9,
+      "posizione": 7,
       "insfida": false,
       "id": 10
     },
@@ -145,7 +145,7 @@
       "role": "player",
       "address": "strada provinciale SP 52",
       "gender": "male",
-      "posizione": 3,
+      "posizione": 2,
       "insfida": true,
       "id": 11
     },
@@ -184,7 +184,7 @@
       "role": "player",
       "address": "rfew",
       "gender": "male",
-      "posizione": 14,
+      "posizione": 13,
       "insfida": false,
       "id": 14
     },
@@ -223,7 +223,7 @@
       "role": "player",
       "address": "via anfiteatro laterizio\n25",
       "gender": "male",
-      "posizione": 13,
+      "posizione": 14,
       "insfida": false,
       "id": 17
     },
@@ -236,7 +236,7 @@
       "role": "player",
       "address": "via anfiteatro laterizio\n25",
       "gender": "male",
-      "posizione": 5,
+      "posizione": 6,
       "insfida": false,
       "id": 18
     },
@@ -1365,7 +1365,7 @@
       "set3": "0-0",
       "id": 49
     },
-  {
+    {
       "datacreate": "9/9/2023",
       "datasfida": "09/09/2023",
       "players": [
@@ -1378,11 +1378,49 @@
           "p2": "Jepson Franzys"
         }
       ],
-      "status": "processing",
-      "set1": "0-0",
+      "status": "complete",
+      "set1": "2-6",
       "set2": "0-0",
       "set3": "0-0",
       "id": 50
+    },
+    {
+      "datacreate": "9/9/2023",
+      "datasfida": "09/09/2023",
+      "players": [
+        {
+          "idp1": 18,
+          "p1": "Davide Aprea"
+        },
+        {
+          "idp2": 11,
+          "p2": "Jepson Franzys"
+        }
+      ],
+      "status": "complete",
+      "set1": "2-6",
+      "set2": "0-0",
+      "set3": "0-0",
+      "id": 51
+    },
+    {
+      "datacreate": "9/9/2023",
+      "datasfida": "09/09/2023",
+      "players": [
+        {
+          "idp1": 17,
+          "p1": "Michele marotta"
+        },
+        {
+          "idp2": 10,
+          "p2": "Giggi Franzys"
+        }
+      ],
+      "status": "complete",
+      "set1": "2-6",
+      "set2": "0-0",
+      "set3": "0-0",
+      "id": 52
     }
   ]
 }
