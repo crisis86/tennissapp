@@ -19,21 +19,18 @@ import Regolamento from './Regolamento';
  
 function App() {
 
-  let vh = window.innerHeight * 0.01;
-  // Then we set the value in the --vh custom property to the root of the document
-  document.documentElement.style.setProperty('--vh', `${vh}px`);
+  
 
-//  useEffect(() => {
+  useEffect(() => {
+    let vh = window.innerHeight * 0.01;
+    // Then we set the value in the --vh custom property to the root of the document
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+  
+  // cron.scheduleJob('*/10 * * * *', () => {    
+  //  console.log('running a task every minute', date);
+  //  });
 
- //   cron.scheduleJob('*/10 * * * *', () => {
-  //    const current = new Date();
-   //   const date = `${current.getDate()}-${current.getMonth() + 1}-${current.getFullYear()} : ${current.getHours()}-${current.getMinutes()}-${current.getSeconds()}`;
-   //   console.log('running a task every minute', date);
-
-//      controllasfide();
-      // loadchallenge();
- //   });
-//  }, [])
+  }, [])
 
   return (
     <div className="App">
