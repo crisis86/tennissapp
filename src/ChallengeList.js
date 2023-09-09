@@ -60,7 +60,7 @@ const iduser = parseInt(sessionStorage.getItem('iduser'))
                                         {playerlist &&
                                             playerlist.sort((a, b) => a.posizione > b.posizione ? 1 : -1).map((item, index) => (
                                                <li key={index + 1} className= {item.id === iduser ? 'my-rank me' : 'my-rank' }>
-                                                    <div style={{background: item.insfida ? '#e5da2c':''}} className="item-content">
+                                                    <div style={{background: item.insfida ? '#fb8438':'', fontWeight: item.insfida ? 'bold' : '500'}} className="item-content">
                                                         <div className="item-inner item-cell">
                                                             <div className="item-row">
                                                        
@@ -76,8 +76,13 @@ const iduser = parseInt(sessionStorage.getItem('iduser'))
 
                                                                             </div>
                                                                     
-                                                                       
+                                                                       {item.id === iduser ? (
                                                                         <div className="country font-size-14 text-color-gray">{item.country}</div>
+
+                                                                       ):(
+                                                                        <div  className="country font-size-14 text-color-gray">{item.insfida  ? 'Non Sfidabile' : 'Sfidabile'}</div>
+
+                                                                       )} 
 
                                                                     </div>
                                                                 </a>

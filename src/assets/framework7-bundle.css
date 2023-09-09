@@ -14,7 +14,7 @@
   Core
   ==================== */
   :root {
-    --f7-theme-color: #007aff;
+    --f7-theme-color: #0054b4;
     --f7-theme-color-rgb: 0, 122, 255;
     --f7-theme-color-shade: #0066d6;
     --f7-theme-color-tint: #298fff;
@@ -535,7 +535,7 @@
     --f7-theme-color-tint: #a3a3a7;
   }
   .text-color-gray {
-    --f7-theme-color-text-color: #8e8e93;
+    --f7-theme-color-text-color: #545454;
   }
   .bg-color-gray {
     --f7-theme-color-bg-color: #8e8e93;
@@ -5654,7 +5654,7 @@
     --f7-segmented-highlight-between: var(--f7-segmented-strong-between-buttons);
     --f7-segmented-highlight-width: calc((100% - var(--f7-segmented-highlight-padding) - var(--f7-segmented-highlight-between) * (var(--f7-segmented-highlight-num) - 1)) / var(--f7-segmented-highlight-num));
     
-    background-color: #e5da2c;
+    background-color: #f47f35;
     border-radius: 8px;
     box-shadow: var(--f7-segmented-strong-button-active-box-shadow);
     

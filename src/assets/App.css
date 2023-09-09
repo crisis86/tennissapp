@@ -43,7 +43,7 @@
 }
 .header{
   width: 100%;
-  background-color: #32ab32;
+  background-color: #71b852;
   color: #fff;
   padding: 4px;
   height: auto;
@@ -105,7 +105,7 @@ ul li {
 }
 
 .me {
-  background: #32ab32;
+  background: #71b852;
   font-weight:bold;
   font-size: 20px;
   color: white;
