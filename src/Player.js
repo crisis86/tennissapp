@@ -128,7 +128,7 @@ const Player = () => {
 
             <div className="card">
                 <div className="card-header">
-                    <h3>Customer Listing</h3>
+                    <h3>Lista Giocatori</h3>
                 </div>
                 <div className="card-body">
                     <button onClick={handleadd} className="btn btn-success">Add (+)</button>
@@ -141,6 +141,7 @@ const Player = () => {
                                 <th>Posizione</th>
                                 <th>Email</th>
                                 <th>Action</th>
+                             
                             </tr>
                         </thead>
                         <tbody>

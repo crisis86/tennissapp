@@ -25,8 +25,8 @@ const ChallengeSingle = () => {
     // sfida pendign giocatore
     const [challengepending, setchallengepending] = useState([]);
     const [datadioggi, setdatadioggi] = useState(new Date());
+    const [giornisfida, setgiornisfida] = useState(0);
    
-
     // flag SFIDA user collegato
     // const [stoinsfida, setstoinsifa] = useState(sessionStorage.getItem('stoinsfida'));
     //flag annulla bottone
@@ -334,9 +334,9 @@ const ChallengeSingle = () => {
             const days = Math.ceil(time / (1000 * 60 * 60 * 24));
             console.log(days);
 
-
+ 
             if (days > 2) {
-                console.log("maggiore = di 2 days")
+                console.log("> = di 2 days")
 
                  setsfidabutton(true)
             } else {
@@ -344,6 +344,7 @@ const ChallengeSingle = () => {
                 if(recorddatalastfida.players[0].idp1 === iduser) {
                     console.log("sono io blocca")
                     setsfidabutton(false)
+                    setgiornisfida(days);
                 }else {
                     setsfidabutton(true )
                     console.log("non sono io")
@@ -435,7 +436,7 @@ const ChallengeSingle = () => {
 
                                                 <div className="col-100 small-50">
 
-                                                       {sfidabutton && 
+                                                       {sfidabutton ? (
                                                     <>
                                                         {plr.posizione > miaposizione || miaposizione <= plr.posizione + 8 &&  // fino a 8 posizione sopra
 
@@ -443,7 +444,9 @@ const ChallengeSingle = () => {
 
                                                         }
                                                     </>
-                                                  }
+                                            ):(
+                                                   <span>Giorni restanti per sfidare: {giornisfida}</span>
+                                            )}
 
                                                 </div>
 
