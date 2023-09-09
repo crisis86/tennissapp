@@ -330,12 +330,12 @@ const ChallengeSingle = () => {
             console.log(dataconvert.getDate())
 
             //   const Daysfida = datalastfida.getDate();
-            const time = Math.abs(datadioggi - dataconvert);
+            const time = Math.abs(dataconvert - datadioggi);
             const days = Math.ceil(time / (1000 * 60 * 60 * 24));
             console.log(days);
 
  
-            if (days > 2) {
+            if (days >= 2) {
                 console.log("> = di 2 days")
 
                  setsfidabutton(true)
