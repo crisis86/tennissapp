@@ -6,6 +6,8 @@ import { SidebarData } from './SidebarData';
 import { IconContext } from 'react-icons';
 import logotennis from './assets/Super-tennis.png';
 
+
+
 function Navbar() {
   const iduser = parseInt(sessionStorage.getItem('iduser'))
   const [sidebar, setSidebar] = useState(false);

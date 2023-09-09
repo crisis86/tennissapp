@@ -465,7 +465,7 @@ const ChallengeSingle = () => {
                                     <div key={i + 1} style={{ paddingLeft: '5px' }} className="card no-shadow no-safe-area-left">
                                         <div className="card-contet">
                                             <div className="block block-strong medium-hide no-hairlines no-margin-vertical sticky sticky-top">
-                                                <div className={partite.status === 'pending' || partite.status === 'processing' ? 'list no-chevron no-hairlines no-hairlines-between no-safe-areas segmented-strong-pending' : 'list no-chevron no-hairlines no-hairlines-between no-safe-areas segmented-strong'}>
+                                                <div style={{padding: '5px 8px'}} className={partite.status === 'pending' || partite.status === 'processing' ? 'list no-chevron no-hairlines no-hairlines-between no-safe-areas segmented-strong-pending' : 'list no-chevron no-hairlines no-hairlines-between no-safe-areas segmented-strong'}>
 
                                                     <ul>
 
