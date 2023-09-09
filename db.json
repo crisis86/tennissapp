@@ -94,7 +94,7 @@
       "address": "strada provinciale SP 52",
       "gender": "male",
       "posizione": 6,
-      "insfida": false,
+      "insfida": true,
       "id": 7
     },
     {
@@ -146,7 +146,7 @@
       "address": "strada provinciale SP 52",
       "gender": "male",
       "posizione": 3,
-      "insfida": false,
+      "insfida": true,
       "id": 11
     },
     {
@@ -1364,6 +1364,25 @@
       "set2": "2-6",
       "set3": "0-0",
       "id": 49
+    },
+  {
+      "datacreate": "9/9/2023",
+      "datasfida": "09/09/2023",
+      "players": [
+        {
+          "idp1": 7,
+          "p1": "luis suarez"
+        },
+        {
+          "idp2": 11,
+          "p2": "Jepson Franzys"
+        }
+      ],
+      "status": "processing",
+      "set1": "0-0",
+      "set2": "0-0",
+      "set3": "0-0",
+      "id": 50
     }
   ]
 }

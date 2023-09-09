@@ -632,7 +632,7 @@ const Mychallenge = () => {
                     }
                     if (obj.id === idp2) {
                         obj.insfida = false
-                        obj.posizione = posp2 + 1 // scendo di una posizione OK
+                        obj.posizione = posp2 + 1 // scendo di una posizione 
                         //        console.log("posizione pedente:" +obj.posizione) 
                         updateUserPosition(obj)
                     } if (obj.id === idp1) {
@@ -646,14 +646,14 @@ const Mychallenge = () => {
 
                 })
 
-                console.log(JSON.stringify(found));
+              //  console.log(JSON.stringify(found));
                 return found
 
             case 'Sfidato':
 
                 const found2 = classicica.sort((a, b) => a.posizione > b.posizione ? 1 : -1).filter((obj, index) => {
-
-
+                   let indicep= 2;
+                     
                     if (index + 1 === posp2 - 1 || index + 1 === posp2 - 2) {
 
                         obj.posizione = obj.posizione + 1
@@ -664,7 +664,8 @@ const Mychallenge = () => {
                         obj.insfida = false
                         obj.posizione = posp2 - 2 // Salgo di 2 posizioni
 
-                        if (obj.posizione <= 0) { obj.posizione = 1 }  //check primo classifica 
+                    //    if (obj.posizione <= 0) { obj.posizione = 2; indicep=1 }  //check sedondo classifica divento >1 
+                     //   if (obj.posizione === 1) { obj.posizione = 2; indicep=0 }  //check primo classifica se ero 3 divento 1
 
                         console.log("posizione vincente:" + obj.posizione)
                         updateUserPosition(obj)
@@ -673,10 +674,10 @@ const Mychallenge = () => {
 
                         obj.insfida = false
 
-                        if (!obj.length === -1) { //controllo la fine della classifica
+                       if (!Object.keys(classicica).length <= index) { //controllo la fine della classifica
                             obj.posizione = posp1 + 1 // scendo di una
                         }
-
+              
                         console.log("pos perdente", obj.posizione)
                         updateUserPosition(obj)
 
@@ -704,7 +705,7 @@ const Mychallenge = () => {
                     if (obj.id === idp1) {
 
                         obj.insfida = false;
-                        if (!obj.length === -1) { //controllo la fine della classifica
+                        if (!Object.keys(classicica).length <= index) { //controllo la fine della classifica
                             obj.posizione = posp1 + 1 // scendo di 1 perchè ho annullato
                         }
                         console.log("pod do chi anulla:" + obj.posizione)
@@ -747,7 +748,7 @@ const Mychallenge = () => {
                     if (obj.id === idp1) {
 
                         obj.insfida = false;
-                        if (!obj.length === -1) { //controllo la fine della classifica
+                        if (!Object.keys(classicica).length <= index) { //controllo la fine della classifica
                             obj.posizione = posp1 + 1 // scendo di 1 perchè ho annullato
                         }
                         console.log("pod do chi anulla:" + obj.posizione)
@@ -763,7 +764,7 @@ const Mychallenge = () => {
                     } if (obj.id === idp2) {
 
                         obj.insfida = false;
-                        if (!obj.length === -1) { //controllo la fine della classifica
+                        if (!Object.keys(classicica).length <= index) { //controllo la fine della classifica
                             obj.posizione = posp2 + 1  // scendo di 1 perchè ho annullato
                         }
                         console.log("sale di uno subisce annullo", obj.posizione)
@@ -864,7 +865,7 @@ const Mychallenge = () => {
                                             <div className="row">
                                                 <div className="col-100 small-50">
                                                     {item.status === 'pending' &&
-                                                        <button onClick={(e) => sfidahandle(e, item.players[1].idp2, 'cancel', item.id)} type="button" className="button button-fill color-red">Annulla</button>
+                                                        <button onClick={(e) => sfidahandle(e, item.players[1].idp2, 'cancel', item.id)} type="button" className="button button-fill color-red">Annulla </button>
 
                                                     }
 
@@ -952,7 +953,7 @@ const Mychallenge = () => {
                                                     <>
                                                         <div className="col-100 small-50">
                                                             <button onClick={(e) => sfidahandle(e, item.players[0].idp1, 'cancel', item.id)} type="button" className="button button-fill color-red">Annulla</button>
-                                                        </div>
+                                                        </div>&nbsp;
                                                         <div className="col-100 small-50">
                                                             <button onClick={(e) => accettasfidahandle(e, item.id, 'accept')} type="button" className="button button-fill button-small">Accetta</button>
                                                         </div>
