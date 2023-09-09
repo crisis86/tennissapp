@@ -208,7 +208,7 @@ const ChallengeSingle = () => {
     function addchallenge(iddasfidare, nomedasfidare) {
 
         const current = new Date();
-        const date = `${current.getDate()}-${current.getMonth() + 1}-${current.getFullYear()}`;
+        const date = `${current.getDate()}/${current.getMonth() + 1}/${current.getFullYear()}`;
         // console.log(date);
         const obj = {
             "datacreate": date,
@@ -335,10 +335,10 @@ const ChallengeSingle = () => {
             console.log(days);
 
  
-            if (days >= 2) {
+            if (days > 2) {
                 console.log("> = di 2 days")
 
-                 setsfidabutton(true)
+                 setsfidabutton(dataconvert.getDate() - dataconvert.getDate())
             } else {
                 console.log("minore di 2 days " + recorddatalastfida.players[0].idp1)
                 if(recorddatalastfida.players[0].idp1 === iduser) {
