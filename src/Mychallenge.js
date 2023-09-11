@@ -215,22 +215,11 @@ const Mychallenge = () => {
                     //  console.log(result)
                     result.json().then((resp) => {
 
-                        /* if (player1 !== iduser) {
-                            console.log('sono player1: ' + player1)
-
-                            resetstatusfida(player1);
-                            ResetesetMysfida(player2);
-                        } else {
-                            console.log('sono player2: ' + player2)
-
-                            resetstatusfida(player2);
-                            ResetesetMysfida(player1);
-                        } */
-
-                        // rettifico classifica
+                 
                         let vincitore = calcolavincitore()
                         // console.log('sono il vincitore:' +vincitore)
 
+                             // rettifico classifica
                         if (vincitore === "Player1") {
 
                             SwitchCase('Sfida', player1, player2)
@@ -627,6 +616,7 @@ const Mychallenge = () => {
                     if (index + 1 >= posp2 && index + 1 <= posp1 - 1) {
 
                         obj.posizione = obj.posizione + 1
+                        if(obj.id ===idp1) { obj.insfida = false} // ulteriore controllo dello sfidato 
                         console.log(obj.posizione)
                         updateUserPosition(obj)
                     }
