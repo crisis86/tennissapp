@@ -668,9 +668,10 @@ const Mychallenge = () => {
 
                         obj.insfida = false
 
-                        if (!Object.keys(classicica).length <= index) { //controllo la fine della classifica
+                        if (!Object.keys(classicica).length <= index + 1) { //controllo la fine della classifica
                             obj.posizione = posp1 + 1 // scendo di una
                         }
+                        console.log("lunghezza array ", Object.keys(classicica).length)
                         console.log("lunghezza ", index)
                         console.log("pos perdente", obj.posizione)
                         updateUserPosition(obj)
@@ -699,7 +700,7 @@ const Mychallenge = () => {
                     if (obj.id === idp1) {
 
                         obj.insfida = false;
-                        if (!Object.keys(classicica).length <= index) { //controllo la fine della classifica
+                        if (!Object.keys(classicica).length <= index +1) { //controllo la fine della classifica
                             obj.posizione = posp1 + 1 // scendo di 1 perchè ho annullato
                         }
                         console.log("pod do chi anulla:" + obj.posizione)
@@ -742,7 +743,7 @@ const Mychallenge = () => {
                     if (obj.id === idp1) {
 
                         obj.insfida = false;
-                        if (!Object.keys(classicica).length <= index) { //controllo la fine della classifica
+                        if (!Object.keys(classicica).length <= index +1) { //controllo la fine della classifica
                             obj.posizione = posp1 + 1 // scendo di 1 perchè ho annullato
                         }
                         console.log("pod do chi anulla:" + obj.posizione)
@@ -758,7 +759,7 @@ const Mychallenge = () => {
                     } if (obj.id === idp2) {
 
                         obj.insfida = false;
-                        if (!Object.keys(classicica).length <= index) { //controllo la fine della classifica
+                        if (!Object.keys(classicica).length <= index +1) { //controllo la fine della classifica
                             obj.posizione = posp2 + 1  // scendo di 1 perchè ho annullato
                         }
                         console.log("sale di uno subisce annullo", obj.posizione)

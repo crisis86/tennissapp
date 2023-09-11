@@ -80,7 +80,7 @@
       "role": "player",
       "address": "ssdsdsd",
       "gender": "male",
-      "posizione": 5,
+      "posizione": 6,
       "insfida": false,
       "id": 6
     },
@@ -93,7 +93,7 @@
       "role": "player",
       "address": "sddffdf",
       "gender": "male",
-      "posizione": 7,
+      "posizione": 5,
       "insfida": false,
       "id": 7
     },
@@ -106,7 +106,7 @@
       "role": "player",
       "address": "sdsdsdsdsd",
       "gender": "male",
-      "posizione": 8,
+      "posizione": 9,
       "insfida": false,
       "id": 8
     },
@@ -119,7 +119,7 @@
       "role": "player",
       "address": "via anfiteatro laterizio 25",
       "gender": "male",
-      "posizione": 6,
+      "posizione": 7,
       "insfida": false,
       "id": 9
     }
@@ -253,6 +253,25 @@
       "set2": "",
       "set3": "",
       "id": 3
+    },
+    {
+      "datacreate": "11/9/2023",
+      "datasfida": "12/09/2023",
+      "players": [
+        {
+          "idp1": 8,
+          "p1": "Romolo Manfredi"
+        },
+        {
+          "idp2": 7,
+          "p2": "Daniele Ippolito"
+        }
+      ],
+      "status": "complete",
+      "set1": "2-6",
+      "set2": "0-0",
+      "set3": "0-0",
+      "id": 4
     }
   ]
 }
