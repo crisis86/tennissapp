@@ -154,7 +154,7 @@ const Edit = () => {
                                     {myrole==='admin' &&
                                         <div className="form-group">
                                             <label>Poizione <span className="errmsg">*</span></label>
-                                            <input type="number" style={{ background: '#32ab32', opacity: 0.8, color: "white" }} value={posizione} onChange={e => posizionechange(e.target.value)} className="form-control"></input>
+                                            <input type="number" style={{ background: '#32ab32', opacity: 0.8, color: "white" }} value={posizione} onChange={e => posizionechange(parseInt(e.target.value))} className="form-control"></input>
                                             {/* <input disabled value={id} onChange={e => idchange(e.target.value)} className="form-control"></input>  */}
                                         </div>
                                     }

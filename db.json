@@ -262,8 +262,8 @@
       "role": "player",
       "address": "",
       "gender": "male",
-      "posizione": 22,
-      "insfida": true,
+      "posizione": 24,
+      "insfida": false,
       "id": 20
     },
     {
@@ -314,7 +314,7 @@
       "role": "player",
       "address": "sdsfsdfsdfsdfdd",
       "gender": "male",
-      "posizione": 23,
+      "posizione": 25,
       "insfida": false,
       "id": 24
     },
@@ -327,7 +327,7 @@
       "role": "player",
       "address": "22222",
       "gender": "male",
-      "posizione": 24,
+      "posizione": 26,
       "insfida": false,
       "id": 25
     },
@@ -340,8 +340,8 @@
       "role": "player",
       "address": "",
       "gender": "male",
-      "posizione": 25,
-      "insfida": true,
+      "posizione": 28,
+      "insfida": false,
       "id": 26
     },
     {
@@ -353,8 +353,8 @@
       "role": "player",
       "address": "Via Madonna delle grazie 120 ",
       "gender": "male",
-      "posizione": 26,
-      "insfida": true,
+      "posizione": 27,
+      "insfida": false,
       "id": 27
     },
     {
@@ -366,9 +366,22 @@
       "role": "player",
       "address": "Via Madonna delle grazie 120 ",
       "gender": "male",
-      "posizione": 27,
-      "insfida": true,
+      "posizione": 23,
+      "insfida": false,
       "id": 28
+    },
+    {
+      "email": "crisis@crisis.it",
+      "password": "123456",
+      "name": "criris Davide",
+      "phone": "3333333",
+      "country": "Italia",
+      "role": "player",
+      "address": "sdsdsdsd",
+      "gender": "male",
+      "posizione": 22,
+      "insfida": false,
+      "id": 29
     }
   ],
   "post": [
@@ -1480,10 +1493,10 @@
           "p2": "Michele Gemello"
         }
       ],
-      "status": "processing",
-      "set1": "",
-      "set2": "",
-      "set3": "",
+      "status": "complete",
+      "set1": "6-3",
+      "set2": "0-0",
+      "set3": "0-0",
       "id": 54
     },
     {
@@ -1499,11 +1512,30 @@
           "p2": "pippo pluto"
         }
       ],
-      "status": "processing",
-      "set1": "",
-      "set2": "",
-      "set3": "",
+      "status": "complete",
+      "set1": "6-3",
+      "set2": "0-0",
+      "set3": "0-0",
       "id": 55
+    },
+    {
+      "datacreate": "11/9/2023",
+      "datasfida": "11/09/2023",
+      "players": [
+        {
+          "idp1": 29,
+          "p1": "criris Davide"
+        },
+        {
+          "idp2": 28,
+          "p2": "Amedeo tortora "
+        }
+      ],
+      "status": "complete",
+      "set1": "6-2",
+      "set2": "0-0",
+      "set3": "0-0",
+      "id": 56
     }
   ]
 }
