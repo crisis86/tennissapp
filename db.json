@@ -20,368 +20,108 @@
       "id": 1
     },
     {
-      "email": "prova@soccertime.it",
-      "password": "matrix",
-      "name": "Lino Bordelli",
-      "phone": "334918558",
-      "country": "india",
+      "email": "sinner@sinner.it",
+      "password": "123456",
+      "name": "Jannik Sinner",
+      "phone": "3333333",
+      "country": "Italia",
       "role": "player",
-      "address": "fatt e fatt tuoi\n23",
+      "address": "sdfasdsads",
       "gender": "male",
-      "posizione": 3,
+      "posizione": 1,
       "insfida": true,
       "id": 2
     },
     {
-      "email": "davideaprea29@libero.it",
+      "email": "musett@musett.it",
       "password": "123456",
-      "name": "Pasquale Coppola",
-      "phone": "132123123",
-      "country": "india",
+      "name": "Lorenzo Musetti",
+      "phone": "33333333",
+      "country": "Italia",
       "role": "player",
-      "address": "fatt e fatt tuoi\n23",
+      "address": "dfdfdfdf",
       "gender": "male",
-      "posizione": 1,
-      "insfida": false,
+      "posizione": 2,
+      "insfida": true,
       "id": 3
     },
     {
-      "email": "info@franzysonline.it",
-      "password": "11111",
-      "name": "Crescenzo paoletta",
-      "phone": "323232323",
-      "country": "india",
+      "email": "osimen@osimen.it",
+      "password": "123456",
+      "name": "Victor Osimen",
+      "phone": "1231232323",
+      "country": "Italia",
       "role": "player",
-      "address": "strada provinciale SP 52",
+      "address": "wrwrer",
       "gender": "male",
-      "posizione": 17,
+      "posizione": 3,
       "insfida": false,
       "id": 4
     },
     {
-      "email": "iovino@franzysonline.it",
-      "password": "11111",
-      "name": "Luifi iovino",
-      "phone": "323232323",
-      "country": "india",
+      "email": "giovanni@giovanni.it",
+      "password": "123456",
+      "name": "Giovanni di Lorenzo",
+      "phone": "234234234",
+      "country": "Italia",
       "role": "player",
-      "address": "strada provinciale SP 52",
+      "address": "",
       "gender": "male",
-      "posizione": 11,
+      "posizione": 4,
       "insfida": false,
       "id": 5
     },
     {
-      "email": "adriana@franzysonline.it",
+      "email": "parisi@parisi.it",
       "password": "123456",
-      "name": "Adriana Romano",
-      "phone": "323232323",
-      "country": "india",
+      "name": "Massimo parisi",
+      "phone": "33333333",
+      "country": "Italia",
       "role": "player",
-      "address": "strada provinciale SP 52",
+      "address": "ssdsdsd",
       "gender": "male",
       "posizione": 5,
       "insfida": false,
       "id": 6
     },
     {
-      "email": "luis@franzysonline.it",
+      "email": "ippolito@ippolito.it",
       "password": "123456",
-      "name": "luis suarez",
-      "phone": "323232323",
-      "country": "india",
+      "name": "Daniele Ippolito",
+      "phone": "22222222",
+      "country": "Italia",
       "role": "player",
-      "address": "strada provinciale SP 52",
+      "address": "sddffdf",
       "gender": "male",
-      "posizione": 8,
+      "posizione": 7,
       "insfida": false,
       "id": 7
     },
     {
-      "email": "luca@franzysonline.it",
+      "email": "manfredi@manfredi.it",
       "password": "123456",
-      "name": "luca durso",
-      "phone": "323232323",
-      "country": "india",
-      "role": "player",
-      "address": "strada provinciale SP 52",
-      "gender": "male",
-      "posizione": 9,
-      "insfida": false,
-      "id": 8
-    },
-    {
-      "email": "Novac@franzysonline.it",
-      "password": "matrix",
-      "name": "Novac Djocovic",
-      "phone": "323232323",
-      "country": "usa",
-      "role": "player",
-      "address": "strada provinciale SP 52",
-      "gender": "male",
-      "posizione": 4,
-      "insfida": false,
-      "id": 9
-    },
-    {
-      "email": "webmaster@franzysonline.it",
-      "password": "matrix",
-      "name": "Giggi Franzys",
-      "phone": "323232323",
-      "country": "usa",
-      "role": "player",
-      "address": "strada provinciale SP 52",
-      "gender": "male",
-      "posizione": 7,
-      "insfida": false,
-      "id": 10
-    },
-    {
-      "email": "jepson@franzysonline.it",
-      "password": "matrix",
-      "name": "Jepson Franzys",
-      "phone": "323232323",
-      "country": "usa",
-      "role": "player",
-      "address": "strada provinciale SP 52",
-      "gender": "male",
-      "posizione": 2,
-      "insfida": false,
-      "id": 11
-    },
-    {
-      "email": "luigibidolo@bifo.it",
-      "password": "prova",
-      "name": "luigi bidolo",
-      "phone": "4234234",
+      "name": "Romolo Manfredi",
+      "phone": "12123123",
       "country": "Italia",
       "role": "player",
       "address": "sdsdsdsdsd",
       "gender": "male",
-      "posizione": 12,
+      "posizione": 8,
       "insfida": false,
-      "id": 12
+      "id": 8
     },
     {
-      "email": "datex@soccertime.it",
-      "password": "profv",
-      "name": "Dente Rune",
-      "phone": "3332154789",
-      "country": "Italia",
-      "role": "player",
-      "address": "via anfiteatro laterizio\n25",
-      "gender": "male",
-      "posizione": 19,
-      "insfida": false,
-      "id": 13
-    },
-    {
-      "email": "siciliano@soccertime.it",
-      "password": "123456",
-      "name": "nicola siciliano",
-      "phone": "234342",
-      "country": "Italia",
-      "role": "player",
-      "address": "rfew",
-      "gender": "male",
-      "posizione": 13,
-      "insfida": false,
-      "id": 14
-    },
-    {
-      "email": "zuich@soccertime.it",
-      "password": "123",
-      "name": "Zuich jesh",
-      "phone": "3332154789",
-      "country": "Italia",
-      "role": "player",
-      "address": "via anfiteatro laterizio\n25",
-      "gender": "male",
-      "posizione": 15,
-      "insfida": false,
-      "id": 15
-    },
-    {
-      "email": "suazo@soccertime.it",
-      "password": "123456",
-      "name": "Suazo Martinez",
-      "phone": "3332154789",
-      "country": "usa",
-      "role": "player",
-      "address": "via anfiteatro laterizio\n25",
-      "gender": "male",
-      "posizione": 16,
-      "insfida": false,
-      "id": 16
-    },
-    {
-      "email": "michele@soccertime.it",
-      "password": "123456",
-      "name": "Michele marotta",
-      "phone": "3332154789",
-      "country": "Italia",
-      "role": "player",
-      "address": "via anfiteatro laterizio\n25",
-      "gender": "male",
-      "posizione": 14,
-      "insfida": false,
-      "id": 17
-    },
-    {
-      "email": "crisis@soccertime.it",
+      "email": "crisisart86@gmail.com",
       "password": "matrix",
       "name": "Davide Aprea",
-      "phone": "3332154789",
+      "phone": "3349185385",
       "country": "Italia",
       "role": "player",
-      "address": "via anfiteatro laterizio\n25",
+      "address": "via anfiteatro laterizio 25",
       "gender": "male",
       "posizione": 6,
       "insfida": false,
-      "id": 18
-    },
-    {
-      "email": "driss@libero.it",
-      "password": "123456",
-      "name": "Driss Mertens",
-      "phone": "2313123",
-      "country": "Italia",
-      "role": "player",
-      "address": "",
-      "gender": "male",
-      "posizione": 10,
-      "insfida": false,
-      "id": 19
-    },
-    {
-      "email": "prova@gmail.com",
-      "password": "123456",
-      "name": "Michele Gemello",
-      "phone": "2313123",
-      "country": "Italia",
-      "role": "player",
-      "address": "",
-      "gender": "male",
-      "posizione": 24,
-      "insfida": false,
-      "id": 20
-    },
-    {
-      "email": "test@test.it",
-      "password": "123456",
-      "name": "Test Davjde",
-      "phone": "123123123",
-      "country": "Italia",
-      "role": "player",
-      "address": "sreerrer",
-      "gender": "male",
-      "posizione": 21,
-      "insfida": false,
-      "id": 21
-    },
-    {
-      "email": "davideaprea2009@libero.it",
-      "password": "234",
-      "name": "Ciccio Graziani",
-      "phone": "132123123",
-      "country": "Italia",
-      "role": "player",
-      "address": "fatt e fatt tuoi\n23",
-      "gender": "male",
-      "posizione": 20,
-      "insfida": false,
-      "id": 22
-    },
-    {
-      "email": "buonaguromichele@gmail.com",
-      "password": "123456",
-      "name": "Michele test",
-      "phone": "3345927928",
-      "country": "Italia",
-      "role": "player",
-      "address": "",
-      "gender": "male",
-      "posizione": 18,
-      "insfida": false,
-      "id": 23
-    },
-    {
-      "email": "maket@gmail.com",
-      "password": "123456",
-      "name": "Marek Hamsik",
-      "phone": "33349185385",
-      "country": "Italia",
-      "role": "player",
-      "address": "sdsfsdfsdfsdfdd",
-      "gender": "male",
-      "posizione": 25,
-      "insfida": false,
-      "id": 24
-    },
-    {
-      "email": "nicolas@gmail.com",
-      "password": "123456",
-      "name": "nicola cage",
-      "phone": "33333333",
-      "country": "Italia",
-      "role": "player",
-      "address": "22222",
-      "gender": "male",
-      "posizione": 26,
-      "insfida": false,
-      "id": 25
-    },
-    {
-      "email": "pippo@pippo.it",
-      "password": "123456",
-      "name": "pippo pluto",
-      "phone": "33333",
-      "country": "Italia",
-      "role": "player",
-      "address": "",
-      "gender": "male",
-      "posizione": 28,
-      "insfida": false,
-      "id": 26
-    },
-    {
-      "email": "francescolizza@gmail.com",
-      "password": "francesco ",
-      "name": "Francesco lizza ",
-      "phone": "3896669711",
-      "country": "Italia",
-      "role": "player",
-      "address": "Via Madonna delle grazie 120 ",
-      "gender": "male",
-      "posizione": 27,
-      "insfida": false,
-      "id": 27
-    },
-    {
-      "email": "amedeotortora@gmail.com",
-      "password": "amedeo",
-      "name": "Amedeo tortora ",
-      "phone": "3896669711",
-      "country": "Italia",
-      "role": "player",
-      "address": "Via Madonna delle grazie 120 ",
-      "gender": "male",
-      "posizione": 23,
-      "insfida": false,
-      "id": 28
-    },
-    {
-      "email": "crisis@crisis.it",
-      "password": "123456",
-      "name": "criris Davide",
-      "phone": "3333333",
-      "country": "Italia",
-      "role": "player",
-      "address": "sdsdsdsd",
-      "gender": "male",
-      "posizione": 22,
-      "insfida": false,
-      "id": 29
+      "id": 9
     }
   ],
   "post": [
@@ -462,1099 +202,57 @@
       "datasfida": "15/2/2022",
       "players": [
         {
-          "idp1": 6,
-          "p1": "Adriana Romano"
+          "idp1": 0,
+          "p1": "Admin Admin"
         },
         {
-          "idp1": 7,
-          "p2": "luis suarez"
+          "idp1": 0,
+          "p2": "Admin Admin"
         }
       ],
-      "status": "complete",
-      "set1": "6-2",
-      "set2": "6-3",
-      "set3": "7-5",
-      "set4": "",
-      "set5": "",
+      "status": "canel",
+      "set1": "0-0",
+      "set2": "0-0",
+      "set3": "0-0",
       "id": 1
     },
     {
-      "datacreate": "10-2-2022",
-      "datasfida": "15/8/2023",
-      "players": [
-        {
-          "idp1": 3,
-          "p1": "Pasquale coppola"
-        },
-        {
-          "idp2": 2,
-          "p2": "Lino Bordelli"
-        }
-      ],
-      "status": "complete",
-      "set1": "6-2",
-      "set2": "6-3",
-      "set3": "7-5",
-      "set4": "",
-      "set5": "",
-      "id": 2
-    },
-    {
-      "datacreate": "25-1-2023",
-      "datasfida": "30/1/2023",
-      "players": [
-        {
-          "idp1": 2,
-          "p1": "Lino Bordelli"
-        },
-        {
-          "idp2": 7,
-          "p2": "luis suarez"
-        }
-      ],
-      "status": "complete",
-      "set1": "6-0",
-      "set2": "6-2",
-      "set3": "6-0",
-      "set4": "",
-      "set5": "",
-      "id": 3
-    },
-    {
-      "datacreate": "15-2-2022",
-      "datasfida": "18/2/2023",
-      "players": [
-        {
-          "idp1": 2,
-          "p1": "Lino Bordelli"
-        },
-        {
-          "idp2": 3,
-          "p2": "Pasquale coppola"
-        }
-      ],
-      "status": "complete",
-      "set1": "2-6",
-      "set2": "6-3",
-      "set3": "7-5",
-      "set4": "7-6",
-      "set5": "",
-      "id": 4
-    },
-    {
-      "datacreate": "15-2-2022",
-      "datasfida": "",
-      "players": [
-        {
-          "idp1": 11,
-          "p1": "Jepson Franzys"
-        },
-        {
-          "idp2": 9,
-          "p2": "Nova Djocovic"
-        }
-      ],
-      "status": "cancel",
-      "set1": "",
-      "set2": "",
-      "set3": "",
-      "set4": "",
-      "set5": "",
-      "id": 5
-    },
-    {
-      "datacreate": "24-8-2022",
-      "datasfida": "",
-      "players": [
-        {
-          "idp1": 11,
-          "p1": "Jepson Franzys"
-        },
-        {
-          "idp2": 2,
-          "p2": "Lino Bordelli"
-        }
-      ],
-      "status": "cancel",
-      "set1": "",
-      "set2": "",
-      "set3": "",
-      "set4": "",
-      "set5": "",
-      "id": 6
-    },
-    {
-      "datacreate": "24-8-2023",
-      "datasfida": "",
-      "players": [
-        {
-          "idp1": 5,
-          "p1": "Luifi iovino"
-        },
-        {
-          "idp2": 3,
-          "p2": "pasquale coppola"
-        }
-      ],
-      "status": "cancel",
-      "set1": "",
-      "set2": "",
-      "set3": "",
-      "set4": "",
-      "set5": "",
-      "id": 7
-    },
-    {
-      "datacreate": "25-8-2023",
-      "datasfida": "",
-      "players": [
-        {
-          "idp1": 16,
-          "p1": "Suazo Martinez"
-        },
-        {
-          "idp2": 17,
-          "p2": "Michele marotta"
-        }
-      ],
-      "status": "cancel",
-      "set1": "",
-      "set2": "",
-      "set3": "",
-      "set4": "",
-      "set5": "",
-      "id": 8
-    },
-    {
-      "datacreate": "30-8-2023",
-      "datasfida": "",
-      "players": [
-        {
-          "idp1": 2,
-          "p1": "Lino Bordelli"
-        },
-        {
-          "idp2": 5,
-          "p2": "Luifi iovino"
-        }
-      ],
-      "status": "cancel",
-      "set1": "",
-      "set2": "",
-      "set3": "",
-      "id": 9
-    },
-    {
-      "datacreate": "30-8-2023",
-      "datasfida": "",
-      "players": [
-        {
-          "idp1": 18,
-          "p1": "Davide Aprea"
-        },
-        {
-          "idp2": 14,
-          "p2": "nicola siciliano"
-        }
-      ],
-      "status": "cancel",
-      "set1": "",
-      "set2": "",
-      "set3": "",
-      "id": 10
-    },
-    {
-      "datacreate": "31-8-2023",
-      "datasfida": "1/9/2023",
-      "players": [
-        {
-          "idp1": 18,
-          "p1": "Davide Aprea"
-        },
-        {
-          "idp2": 12,
-          "p2": "luigi bidolo"
-        }
-      ],
-      "status": "complete",
-      "set1": "7-5",
-      "set2": "6-3",
-      "set3": "6-2",
-      "id": 11
-    },
-    {
-      "datacreate": "31-8-2023",
-      "datasfida": "",
-      "players": [
-        {
-          "idp1": 12,
-          "p1": "luigi bidolo"
-        },
-        {
-          "idp2": 11,
-          "p2": "Jepson Franzys"
-        }
-      ],
-      "status": "cancel",
-      "set1": "",
-      "set2": "",
-      "set3": "",
-      "id": 12
-    },
-    {
-      "datacreate": "31-8-2023",
-      "datasfida": "1/9/2023",
-      "players": [
-        {
-          "idp1": 18,
-          "p1": "Davide Aprea"
-        },
-        {
-          "idp2": 12,
-          "p2": "luigi bidolo"
-        }
-      ],
-      "status": "complete",
-      "set1": "7-5",
-      "set2": "6-3",
-      "set3": "6-2",
-      "id": 13
-    },
-    {
-      "datacreate": "31-8-2023",
-      "datasfida": "1/9/2023",
-      "players": [
-        {
-          "idp1": 18,
-          "p1": "Davide Aprea"
-        },
-        {
-          "idp2": 12,
-          "p2": "luigi bidolo"
-        }
-      ],
-      "status": "complete",
-      "set1": "7-5",
-      "set2": "6-3",
-      "set3": "6-2",
-      "id": 14
-    },
-    {
-      "datacreate": "31-8-2023",
-      "datasfida": "",
-      "players": [
-        {
-          "idp1": 12,
-          "p1": "luigi bidolo"
-        },
-        {
-          "idp2": 2,
-          "p2": "Lino Bordelli"
-        }
-      ],
-      "status": "cancel",
-      "set1": "",
-      "set2": "",
-      "set3": "",
-      "id": 15
-    },
-    {
-      "datacreate": "31-8-2023",
-      "datasfida": "2/9/2023",
-      "players": [
-        {
-          "idp1": 14,
-          "p1": "nicola siciliano"
-        },
-        {
-          "idp2": 18,
-          "p2": "Davide Aprea"
-        }
-      ],
-      "status": "complete",
-      "set1": "0-0",
-      "set2": "0-0",
-      "set3": "0-0",
-      "id": 16
-    },
-    {
-      "datacreate": "31-8-2023",
-      "datasfida": "",
-      "players": [
-        {
-          "idp1": 10,
-          "p1": "Giggi Franzys"
-        },
-        {
-          "idp2": 6,
-          "p2": "Adriana Romano"
-        }
-      ],
-      "status": "cancel",
-      "set1": "",
-      "set2": "",
-      "set3": "",
-      "id": 17
-    },
-    {
-      "datacreate": "31-8-2023",
-      "datasfida": "1/9/2023",
-      "players": [
-        {
-          "idp1": 10,
-          "p1": "Giggi Franzys"
-        },
-        {
-          "idp2": 6,
-          "p2": "Adriana Romano"
-        }
-      ],
-      "status": "complete",
-      "set1": "6-3",
-      "set2": "2-6",
-      "set3": "7-5",
-      "id": 18
-    },
-    {
-      "datacreate": "31-8-2023",
-      "datasfida": "",
-      "players": [
-        {
-          "idp1": 6,
-          "p1": "Adriana Romano"
-        },
-        {
-          "idp2": 12,
-          "p2": "luigi bidolo"
-        }
-      ],
-      "status": "cancel",
-      "set1": "",
-      "set2": "",
-      "set3": "",
-      "id": 19
-    },
-    {
-      "datacreate": "31-8-2023",
-      "datasfida": "2/9/2023",
-      "players": [
-        {
-          "idp1": 6,
-          "p1": "Adriana Romano"
-        },
-        {
-          "idp2": 12,
-          "p2": "luigi bidolo"
-        }
-      ],
-      "status": "complete",
-      "set1": "6-6",
-      "set2": "3-6",
-      "set3": "6-3",
-      "id": 20
-    },
-    {
-      "datacreate": "31-8-2023",
-      "datasfida": "",
-      "players": [
-        {
-          "idp1": 12,
-          "p1": "luigi bidolo"
-        },
-        {
-          "idp2": 15,
-          "p2": "Zuich jesh"
-        }
-      ],
-      "status": "cancel",
-      "set1": "",
-      "set2": "",
-      "set3": "",
-      "id": 21
-    },
-    {
-      "datacreate": "31-8-2023",
-      "datasfida": "",
-      "players": [
-        {
-          "idp1": 12,
-          "p1": "luigi bidolo"
-        },
-        {
-          "idp2": 15,
-          "p2": "Zuich jesh"
-        }
-      ],
-      "status": "cancel",
-      "set1": "",
-      "set2": "",
-      "set3": "",
-      "id": 22
-    },
-    {
-      "datacreate": "31-8-2023",
-      "datasfida": "",
-      "players": [
-        {
-          "idp1": 16,
-          "p1": "Suazo Martinez"
-        },
-        {
-          "idp2": 17,
-          "p2": "Michele marotta"
-        }
-      ],
-      "status": "cancel",
-      "set1": "",
-      "set2": "",
-      "set3": "",
-      "id": 23
-    },
-    {
-      "datacreate": "31-8-2023",
-      "datasfida": "",
-      "players": [
-        {
-          "idp1": 16,
-          "p1": "Suazo Martinez"
-        },
-        {
-          "idp2": 17,
-          "p2": "Michele marotta"
-        }
-      ],
-      "status": "cancel",
-      "set1": "",
-      "set2": "",
-      "set3": "",
-      "id": 24
-    },
-    {
-      "datacreate": "31-8-2023",
-      "datasfida": "3/9/2023",
-      "players": [
-        {
-          "idp1": 17,
-          "p1": "Michele marotta"
-        },
-        {
-          "idp2": 11,
-          "p2": "Jepson Franzys"
-        }
-      ],
-      "status": "complete",
-      "set1": "6-3",
-      "set2": "2-6",
-      "set3": "7-5",
-      "id": 25
-    },
-    {
-      "datacreate": "31-8-2023",
-      "datasfida": "",
+      "datacreate": "11/9/2023",
+      "datasfida": "11/09/2023",
       "players": [
         {
           "idp1": 9,
-          "p1": "Novac Djocovic"
-        },
-        {
-          "idp2": 8,
-          "p2": "luca durso"
-        }
-      ],
-      "status": "cancel",
-      "set1": "",
-      "set2": "",
-      "set3": "",
-      "id": 26
-    },
-    {
-      "datacreate": "1-9-2023",
-      "datasfida": "3/9/2023",
-      "players": [
-        {
-          "idp1": 19,
-          "p1": "Driss Mertens"
-        },
-        {
-          "idp2": 17,
-          "p2": "Michele marotta"
-        }
-      ],
-      "status": "complete",
-      "set1": "6-3",
-      "set2": "2-6",
-      "set3": "7-5",
-      "id": 27
-    },
-    {
-      "datacreate": "1-9-2023",
-      "datasfida": "",
-      "players": [
-        {
-          "idp1": 19,
-          "p1": "Driss Mertens"
-        },
-        {
-          "idp2": 17,
-          "p2": "Michele marotta"
-        }
-      ],
-      "status": "cancel",
-      "set1": "",
-      "set2": "",
-      "set3": "",
-      "id": 28
-    },
-    {
-      "datacreate": "2-9-2023",
-      "datasfida": "5/9/2023",
-      "players": [
-        {
-          "idp1": 19,
-          "p1": "Driss Mertens"
-        },
-        {
-          "idp2": 10,
-          "p2": "Giggi Franzys"
-        }
-      ],
-      "status": "complete",
-      "set1": "6-2",
-      "set2": "3-6",
-      "set3": "7-5",
-      "id": 29
-    },
-    {
-      "datacreate": "2-9-2023",
-      "datasfida": "5/9/2023",
-      "players": [
-        {
-          "idp1": 14,
-          "p1": "nicola siciliano"
-        },
-        {
-          "idp2": 8,
-          "p2": "luca durso"
-        }
-      ],
-      "status": "cancel",
-      "set1": "",
-      "set2": "",
-      "set3": "",
-      "id": 30
-    },
-    {
-      "datacreate": "2-9-2023",
-      "datasfida": "13/9/2023",
-      "players": [
-        {
-          "idp1": 17,
-          "p1": "Michele marotta"
-        },
-        {
-          "idp2": 11,
-          "p2": "Jepson Franzys"
-        }
-      ],
-      "status": "complete",
-      "set1": "6-3",
-      "set2": "2-6",
-      "set3": "7-5",
-      "id": 31
-    },
-    {
-      "datacreate": "2-9-2023",
-      "datasfida": "5/9/2023",
-      "players": [
-        {
-          "idp1": 17,
-          "p1": "Michele marotta"
-        },
-        {
-          "idp2": 11,
-          "p2": "Jepson Franzys"
-        }
-      ],
-      "status": "complete",
-      "set1": "6-3",
-      "set2": "2-6",
-      "set3": "6-3",
-      "id": 32
-    },
-    {
-      "datacreate": "2-9-2023",
-      "datasfida": "6/9/2023",
-      "players": [
-        {
-          "idp1": 17,
-          "p1": "Michele marotta"
-        },
-        {
-          "idp2": 6,
-          "p2": "Adriana Romano"
-        }
-      ],
-      "status": "complete",
-      "set1": "6-3",
-      "set2": "2-6",
-      "set3": "7-5",
-      "id": 33
-    },
-    {
-      "datacreate": "2-9-2023",
-      "datasfida": "6/9/2023",
-      "players": [
-        {
-          "idp1": 6,
-          "p1": "Adriana Romano"
-        },
-        {
-          "idp2": 9,
-          "p2": "Novac Djocovic"
-        }
-      ],
-      "status": "complete",
-      "set1": "6-3",
-      "set2": "2-6",
-      "set3": "7-5",
-      "id": 34
-    },
-    {
-      "datacreate": "2-9-2023",
-      "datasfida": "3/9/2023",
-      "players": [
-        {
-          "idp1": 11,
-          "p1": "Jepson Franzys"
-        },
-        {
-          "idp2": 7,
-          "p2": "luis suarez"
-        }
-      ],
-      "status": "complete",
-      "set1": "6-3",
-      "set2": "2-6",
-      "set3": "7-5",
-      "id": 35
-    },
-    {
-      "datacreate": "2-9-2023",
-      "datasfida": "6/9/2023",
-      "players": [
-        {
-          "idp1": 16,
-          "p1": "Suazo Martinez"
-        },
-        {
-          "idp2": 15,
-          "p2": "Zuich jesh"
-        }
-      ],
-      "status": "complete",
-      "set1": "6-3",
-      "set2": "2-6",
-      "set3": "7-5",
-      "id": 36
-    },
-    {
-      "datacreate": "2-9-2023",
-      "datasfida": "7/9/2023",
-      "players": [
-        {
-          "idp1": 17,
-          "p1": "Michele marotta"
-        },
-        {
-          "idp2": 11,
-          "p2": "Jepson Franzys"
-        }
-      ],
-      "status": "complete",
-      "set1": "0-6",
-      "set2": "2-6",
-      "set3": "0-0",
-      "id": 37
-    },
-    {
-      "datacreate": "3-9-2023",
-      "datasfida": "",
-      "players": [
-        {
-          "idp1": 19,
-          "p1": "Driss Mertens"
-        },
-        {
-          "idp2": 7,
-          "p2": "luis suarez"
-        }
-      ],
-      "status": "cancel",
-      "set1": "",
-      "set2": "",
-      "set3": "",
-      "id": 38
-    },
-    {
-      "datacreate": "3-9-2023",
-      "datasfida": "",
-      "players": [
-        {
-          "idp1": 19,
-          "p1": "Driss Mertens"
-        },
-        {
-          "idp2": 8,
-          "p2": "luca durso"
-        }
-      ],
-      "status": "cancel",
-      "set1": "",
-      "set2": "",
-      "set3": "",
-      "id": 39
-    },
-    {
-      "datacreate": "3-9-2023",
-      "datasfida": "",
-      "players": [
-        {
-          "idp1": 10,
-          "p1": "Giggi Franzys"
-        },
-        {
-          "idp2": 18,
-          "p2": "Davide Aprea"
-        }
-      ],
-      "status": "cancel",
-      "set1": "",
-      "set2": "",
-      "set3": "",
-      "id": 40
-    },
-    {
-      "datacreate": "01-9-2023",
-      "datasfida": "06/9/2023",
-      "players": [
-        {
-          "idp1": 2,
-          "p1": "Lino Bordelli"
-        },
-        {
-          "idp2": 11,
-          "p2": "Jepson Franzys"
-        }
-      ],
-      "status": "complete",
-      "set1": "6-3",
-      "set2": "2-6",
-      "set3": "7-5",
-      "id": 41
-    },
-    {
-      "datacreate": "7-9-2023",
-      "datasfida": "8/9/2023",
-      "players": [
-        {
-          "idp1": 22,
-          "p1": "Ciccio Graziani"
-        },
-        {
-          "idp2": 20,
-          "p2": "Michele Gemello"
-        }
-      ],
-      "status": "complete",
-      "set1": "6-3",
-      "set2": "6-3",
-      "set3": "0-0",
-      "id": 42
-    },
-    {
-      "datacreate": "8-9-2023",
-      "datasfida": "9/9/2023",
-      "players": [
-        {
-          "idp1": 16,
-          "p1": "Suazo Martinez"
-        },
-        {
-          "idp2": 15,
-          "p2": "Zuich jesh"
-        }
-      ],
-      "status": "complete",
-      "set1": "6-3",
-      "set2": "0-0",
-      "set3": "0-0",
-      "id": 43
-    },
-    {
-      "datacreate": "8-9-2023",
-      "datasfida": "",
-      "players": [
-        {
-          "idp1": 15,
-          "p1": "Zuich jesh"
-        },
-        {
-          "idp2": 17,
-          "p2": "Michele marotta"
-        }
-      ],
-      "status": "cancel",
-      "set1": "",
-      "set2": "",
-      "set3": "",
-      "id": 44
-    },
-    {
-      "datacreate": "8-9-2023",
-      "datasfida": "09/09/2023",
-      "players": [
-        {
-          "idp1": 15,
-          "p1": "Zuich jesh"
-        },
-        {
-          "idp2": 16,
-          "p2": "Suazo Martinez"
-        }
-      ],
-      "status": "processing",
-      "set1": "0-0",
-      "set2": "0-0",
-      "set3": "0-0",
-      "id": 45
-    },
-    {
-      "datacreate": "8-9-2023",
-      "datasfida": "08/09/2023",
-      "players": [
-        {
-          "idp1": 24,
-          "p1": "Marek Hamsik"
-        },
-        {
-          "idp2": 21,
-          "p2": "Test Davjde"
-        }
-      ],
-      "status": "complete",
-      "set1": "6-3",
-      "set2": "0-0",
-      "set3": "0-0",
-      "id": 46
-    },
-    {
-      "datacreate": "8-9-2023",
-      "datasfida": "08/09/2023",
-      "players": [
-        {
-          "idp1": 21,
-          "p1": "Test Davjde"
-        },
-        {
-          "idp2": 23,
-          "p2": "Michele test"
-        }
-      ],
-      "status": "complete",
-      "set1": "6-3",
-      "set2": "6-2",
-      "set3": "0-0",
-      "id": 47
-    },
-    {
-      "datacreate": "8-9-2023",
-      "datasfida": "08/09/2023",
-      "players": [
-        {
-          "idp1": 23,
-          "p1": "Michele test"
-        },
-        {
-          "idp2": 13,
-          "p2": "Dente Rune"
-        }
-      ],
-      "status": "complete",
-      "set1": "9-4",
-      "set2": "0-0",
-      "set3": "0-0",
-      "id": 48
-    },
-    {
-      "datacreate": "8-9-2023",
-      "datasfida": "08/09/2023",
-      "players": [
-        {
-          "idp1": 25,
-          "p1": "nicola cage"
-        },
-        {
-          "idp2": 22,
-          "p2": "Ciccio Graziani"
-        }
-      ],
-      "status": "complete",
-      "set1": "2-6",
-      "set2": "2-6",
-      "set3": "0-0",
-      "id": 49
-    },
-    {
-      "datacreate": "9/9/2023",
-      "datasfida": "09/09/2023",
-      "players": [
-        {
-          "idp1": 7,
-          "p1": "luis suarez"
-        },
-        {
-          "idp2": 11,
-          "p2": "Jepson Franzys"
-        }
-      ],
-      "status": "complete",
-      "set1": "2-6",
-      "set2": "0-0",
-      "set3": "0-0",
-      "id": 50
-    },
-    {
-      "datacreate": "9/9/2023",
-      "datasfida": "09/09/2023",
-      "players": [
-        {
-          "idp1": 18,
           "p1": "Davide Aprea"
         },
         {
-          "idp2": 11,
-          "p2": "Jepson Franzys"
+          "idp2": 7,
+          "p2": "Daniele Ippolito"
         }
       ],
       "status": "complete",
-      "set1": "2-6",
+      "set1": "9-3",
       "set2": "0-0",
       "set3": "0-0",
-      "id": 51
-    },
-    {
-      "datacreate": "9/9/2023",
-      "datasfida": "09/09/2023",
-      "players": [
-        {
-          "idp1": 17,
-          "p1": "Michele marotta"
-        },
-        {
-          "idp2": 10,
-          "p2": "Giggi Franzys"
-        }
-      ],
-      "status": "complete",
-      "set1": "2-6",
-      "set2": "0-0",
-      "set3": "0-0",
-      "id": 52
+      "id": 2
     },
     {
       "datacreate": "11/9/2023",
       "datasfida": "",
       "players": [
         {
-          "idp1": 10,
-          "p1": "Giggi Franzys"
+          "idp1": 3,
+          "p1": "Lorenzo Musetti"
         },
         {
-          "idp2": 18,
-          "p2": "Davide Aprea"
+          "idp2": 2,
+          "p2": "Jannik Sinner"
         }
       ],
-      "status": "pending",
+      "status": "processing",
       "set1": "",
       "set2": "",
       "set3": "",
-      "id": 53
-    },
-    {
-      "datacreate": "11/9/2023",
-      "datasfida": "11/09/2023",
-      "players": [
-        {
-          "idp1": 28,
-          "p1": "Amedeo tortora "
-        },
-        {
-          "idp2": 20,
-          "p2": "Michele Gemello"
-        }
-      ],
-      "status": "complete",
-      "set1": "6-3",
-      "set2": "0-0",
-      "set3": "0-0",
-      "id": 54
-    },
-    {
-      "datacreate": "11/9/2023",
-      "datasfida": "11/09/2023",
-      "players": [
-        {
-          "idp1": 27,
-          "p1": "Francesco lizza "
-        },
-        {
-          "idp2": 26,
-          "p2": "pippo pluto"
-        }
-      ],
-      "status": "complete",
-      "set1": "6-3",
-      "set2": "0-0",
-      "set3": "0-0",
-      "id": 55
-    },
-    {
-      "datacreate": "11/9/2023",
-      "datasfida": "11/09/2023",
-      "players": [
-        {
-          "idp1": 29,
-          "p1": "criris Davide"
-        },
-        {
-          "idp2": 28,
-          "p2": "Amedeo tortora "
-        }
-      ],
-      "status": "complete",
-      "set1": "6-2",
-      "set2": "0-0",
-      "set3": "0-0",
-      "id": 56
-    },
-    {
-      "datacreate": "11/9/2023",
-      "datasfida": "",
-      "players": [
-        {
-          "idp1": 2,
-          "p1": "Lino Bordelli"
-        },
-        {
-          "idp2": 11,
-          "p2": "Jepson Franzys"
-        }
-      ],
-      "status": "pending",
-      "set1": "",
-      "set2": "",
-      "set3": "",
-      "id": 57
+      "id": 3
     }
   ]
 }

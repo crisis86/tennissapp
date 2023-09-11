@@ -25,7 +25,7 @@ const ChallengeSingle = () => {
     const [challengepending, setchallengepending] = useState([]);
     const [datadioggi, setdatadioggi] = useState(new Date());
     const [giornisfida, setgiornisfida] = useState(0);
-   
+
     // flag SFIDA user collegato
     // const [stoinsfida, setstoinsifa] = useState(sessionStorage.getItem('stoinsfida'));
     //flag annulla bottone
@@ -50,7 +50,7 @@ const ChallengeSingle = () => {
             //   SfidaAbilitata();
             getlastsfidacomplete();
             checksfidapending();
-        //    sendemail('test', 'crisisart86@gmail.com','test test test');
+           //   sendemail('test', 'crisisart86@gmail.com','test test test');
 
         }
     }, []);
@@ -240,45 +240,29 @@ const ChallengeSingle = () => {
 
         fetchdata();
         checksfidapending();
- 
+
     }
 
-    function sendemail(names, emails, message ) {
-        
-      /*   fetch({
-            method: "POST", 
-            url:"http://localhost:3002/send", 
-            data: {
-                name: names,   
-                email: emails,  
-                messsage: message
-            }
-        }).then((response)=>{
-            if (response.data.msg === 'success'){
-                toast.success("Message Sent."); 
-                this.resetForm()
-            }else if(response.data.msg === 'fail'){
-                toast.error("Message failed to send.")
-            }
-        }) */
+    function sendemail(names, emails, message) {
+
         let data = {
-            name:names,
-            email:emails,
-            message:message
+            name: names,
+            email: emails,
+            message: message
         }
-        console.log(data);
-        fetch("http://localhost:3002/send", {
+       // console.log(data);
+        fetch(window.$servEmail + "/send", {
             method: "POST",
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(data)
         }).then((res) => {
-           
-               toast.success("Message Sent."); 
-                       
+
+            toast.success("Message Sent.");
+
         }).catch((err) => {
             toast.error(err + " Message failed to send.")
         });
-        
+
     }
 
 
@@ -342,50 +326,50 @@ const ChallengeSingle = () => {
             return res.json();
         }).then(res => {
             if (Object.keys(res).length > 0) {
-            sfidecoolete = res;
+                sfidecoolete = res;
 
-            // datalastfida = Math.max(...sfidecoolete.map(o => o.datasfida))
+                // datalastfida = Math.max(...sfidecoolete.map(o => o.datasfida))
 
-            let recorddatalastfida = sfidecoolete.sort((a, b) => a.datasfida > b.datasfida ? 1 : -1)[0]
+                let recorddatalastfida = sfidecoolete.sort((a, b) => a.datasfida > b.datasfida ? 1 : -1)[0]
 
-              let splidate = recorddatalastfida.datasfida.split("/")
-              let dataconvert = new Date(splidate[2] + "/" + splidate[1] + "/" + splidate[0])
+                let splidate = recorddatalastfida.datasfida.split("/")
+                let dataconvert = new Date(splidate[2] + "/" + splidate[1] + "/" + splidate[0])
 
-            // To calculate the time difference of two dates
-          //  let Difference_In_Time = datadioggi.getTime() - dataconvert.getTime();
-            // To calculate the no. of days between two dates
-           // let Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24);
+                // To calculate the time difference of two dates
+                //  let Difference_In_Time = datadioggi.getTime() - dataconvert.getTime();
+                // To calculate the no. of days between two dates
+                // let Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24);
 
-            console.log(datadioggi.getDate())
-            console.log(dataconvert.getDate())
+                console.log(datadioggi.getDate())
+                console.log(dataconvert.getDate())
 
-            //   const Daysfida = datalastfida.getDate();
-            const time = Math.abs(dataconvert - datadioggi);
-            const days = Math.ceil(time / (1000 * 60 * 60 * 24));
-            console.log(days);
+                //   const Daysfida = datalastfida.getDate();
+                const time = Math.abs(dataconvert - datadioggi);
+                const days = Math.ceil(time / (1000 * 60 * 60 * 24));
+                console.log(days);
 
- 
-            if (days > 2) {
-                console.log("> = di 2 days")
 
-                 setsfidabutton(true)
-            } else {
-                console.log("minore di 2 days " + recorddatalastfida.players[0].idp1)
-                if(recorddatalastfida.players[0].idp1 === iduser) {
-                    console.log("sono io blocca")
-                    setsfidabutton(false)
-                    setgiornisfida(parseInt(datadioggi.getDate()) - parseInt(dataconvert.getDate()));
-                }else {
-                    setsfidabutton(true )
-                    console.log("non sono io")
+                if (days > 2) {
+                    console.log("> = di 2 days")
+
+                    setsfidabutton(true)
+                } else {
+                    console.log("minore di 2 days " + recorddatalastfida.players[0].idp1)
+                    if (recorddatalastfida.players[0].idp1 === iduser) {
+                        console.log("sono io blocca")
+                        setsfidabutton(false)
+                        setgiornisfida(parseInt(days+1));
+                    } else {
+                        setsfidabutton(true)
+                        console.log("non sono io")
+                    }
+
+
                 }
-            
-          
+            } else {
+                setsfidabutton(true)
+                console.log("vuoto")
             }
-        } else {
-            setsfidabutton(true)
-            console.log("vuoto")
-        }
         });
     }
 
@@ -417,7 +401,7 @@ const ChallengeSingle = () => {
         });
 
     }
-    
+
     return (
         <>
             <div className="page-content">
@@ -464,17 +448,17 @@ const ChallengeSingle = () => {
 
                                                 <div className="col-100 small-50">
 
-                                                       {sfidabutton ? (
-                                                    <>
-                                                        {plr.posizione > miaposizione || miaposizione <= plr.posizione + 8 &&  // fino a 8 posizione sopra
+                                                    {sfidabutton ? (
+                                                        <>
+                                                            {plr.posizione > miaposizione || miaposizione <= plr.posizione + 8 &&  // fino a 8 posizione sopra
 
-                                                            <button disabled={plr.insfida === 'true'} onClick={(e) => sfidahandle(e, plr.id, plr.name, 'update')} type="button" className={plr.insfida === 'true' ? 'disabled button button-fill button-small' : 'button button-fill button-small'}>Sfida</button>
+                                                                <button disabled={plr.insfida === 'true'} onClick={(e) => sfidahandle(e, plr.id, plr.name, 'update')} type="button" className={plr.insfida === 'true' ? 'disabled button button-fill button-small' : 'button button-fill button-small'}>Sfida</button>
 
-                                                        }
-                                                    </>
-                                            ):(
-                                                   <div style={{textAlign:'center',margin:'0 auto'}}>Giorni restanti per sfidare: {giornisfida}</div>
-                                            )}
+                                                            }
+                                                        </>
+                                                    ) : (
+                                                        <div style={{ textAlign: 'center', margin: '0 auto' }}>Giorni restanti per sfidare: {giornisfida}</div>
+                                                    )}
 
                                                 </div>
 
@@ -493,7 +477,7 @@ const ChallengeSingle = () => {
                                     <div key={i + 1} style={{ paddingLeft: '5px' }} className="card no-shadow no-safe-area-left">
                                         <div className="card-contet">
                                             <div className="block block-strong medium-hide no-hairlines no-margin-vertical sticky sticky-top">
-                                                <div style={{padding: '5px 8px'}} className={partite.status === 'pending' || partite.status === 'processing' ? 'list no-chevron no-hairlines no-hairlines-between no-safe-areas segmented-strong-pending' : 'list no-chevron no-hairlines no-hairlines-between no-safe-areas segmented-strong'}>
+                                                <div style={{ padding: '5px 8px' }} className={partite.status === 'pending' || partite.status === 'processing' ? 'list no-chevron no-hairlines no-hairlines-between no-safe-areas segmented-strong-pending' : 'list no-chevron no-hairlines no-hairlines-between no-safe-areas segmented-strong'}>
 
                                                     <ul>
 
