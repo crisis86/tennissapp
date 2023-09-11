@@ -124,7 +124,7 @@
       "id": 9
     },
     {
-      "email": "giggi@franzysonline.it",
+      "email": "webmaster@franzysonline.it",
       "password": "matrix",
       "name": "Giggi Franzys",
       "phone": "323232323",
@@ -133,7 +133,7 @@
       "address": "strada provinciale SP 52",
       "gender": "male",
       "posizione": 7,
-      "insfida": false,
+      "insfida": true,
       "id": 10
     },
     {
@@ -237,7 +237,7 @@
       "address": "via anfiteatro laterizio\n25",
       "gender": "male",
       "posizione": 6,
-      "insfida": false,
+      "insfida": true,
       "id": 18
     },
     {
@@ -263,7 +263,7 @@
       "address": "",
       "gender": "male",
       "posizione": 22,
-      "insfida": false,
+      "insfida": true,
       "id": 20
     },
     {
@@ -341,8 +341,34 @@
       "address": "",
       "gender": "male",
       "posizione": 25,
-      "insfida": false,
+      "insfida": true,
       "id": 26
+    },
+    {
+      "email": "francescolizza@gmail.com",
+      "password": "francesco ",
+      "name": "Francesco lizza ",
+      "phone": "3896669711",
+      "country": "Italia",
+      "role": "player",
+      "address": "Via Madonna delle grazie 120 ",
+      "gender": "male",
+      "posizione": 26,
+      "insfida": true,
+      "id": 27
+    },
+    {
+      "email": "amedeotortora@gmail.com",
+      "password": "amedeo",
+      "name": "Amedeo tortora ",
+      "phone": "3896669711",
+      "country": "Italia",
+      "role": "player",
+      "address": "Via Madonna delle grazie 120 ",
+      "gender": "male",
+      "posizione": 27,
+      "insfida": true,
+      "id": 28
     }
   ],
   "post": [
@@ -1421,6 +1447,63 @@
       "set2": "0-0",
       "set3": "0-0",
       "id": 52
+    },
+    {
+      "datacreate": "11/9/2023",
+      "datasfida": "",
+      "players": [
+        {
+          "idp1": 10,
+          "p1": "Giggi Franzys"
+        },
+        {
+          "idp2": 18,
+          "p2": "Davide Aprea"
+        }
+      ],
+      "status": "pending",
+      "set1": "",
+      "set2": "",
+      "set3": "",
+      "id": 53
+    },
+    {
+      "datacreate": "11/9/2023",
+      "datasfida": "11/09/2023",
+      "players": [
+        {
+          "idp1": 28,
+          "p1": "Amedeo tortora "
+        },
+        {
+          "idp2": 20,
+          "p2": "Michele Gemello"
+        }
+      ],
+      "status": "processing",
+      "set1": "",
+      "set2": "",
+      "set3": "",
+      "id": 54
+    },
+    {
+      "datacreate": "11/9/2023",
+      "datasfida": "11/09/2023",
+      "players": [
+        {
+          "idp1": 27,
+          "p1": "Francesco lizza "
+        },
+        {
+          "idp2": 26,
+          "p2": "pippo pluto"
+        }
+      ],
+      "status": "processing",
+      "set1": "",
+      "set2": "",
+      "set3": "",
+      "id": 55
     }
   ]
 }

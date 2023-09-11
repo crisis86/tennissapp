@@ -4,7 +4,6 @@ import { Link, useParams, useNavigate } from "react-router-dom";
 import Swal from 'sweetalert2';
 import { toast } from "react-toastify";
 import avatar from './assets/avatar.png';
-import pallina from './assets/pallina.png';
 
 
 const ChallengeSingle = () => {
@@ -51,19 +50,12 @@ const ChallengeSingle = () => {
             //   SfidaAbilitata();
             getlastsfidacomplete();
             checksfidapending();
-
         }
-
-
-
-
     }, []);
 
     async function fetchdata() {
 
-
         try {
-
 
             const results = await Promise.all(
                 [
@@ -76,7 +68,6 @@ const ChallengeSingle = () => {
                     ),
                 ]);
             setplayer(results[0]);
-
 
             setflagmeplayer(results[1]);
 
@@ -247,10 +238,9 @@ const ChallengeSingle = () => {
 
         fetchdata();
         checksfidapending();
-
-
-
+ 
     }
+
 
     function removechallenge(nomegiocatore1) {
 
@@ -387,9 +377,7 @@ const ChallengeSingle = () => {
         });
 
     }
-
-
-
+    
     return (
         <>
             <div className="page-content">

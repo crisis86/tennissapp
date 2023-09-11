@@ -16,10 +16,12 @@ import ChallengeSingle from './Challenge-single';
 import Mychallenge from './Mychallenge'
 import Post from './Post';
 import Regolamento from './Regolamento';
- 
-function App() {
 
-  
+
+
+
+function App() {  
+
 
   useEffect(() => {
     let vh = window.innerHeight * 0.01;
@@ -29,6 +31,7 @@ function App() {
   // cron.scheduleJob('*/10 * * * *', () => {    
   //  console.log('running a task every minute', date);
   //  });
+
 
   }, [])
 
