@@ -17,9 +17,6 @@ import Mychallenge from './Mychallenge'
 import Post from './Post';
 import Regolamento from './Regolamento';
 
-
-
-
 function App() {  
 
 

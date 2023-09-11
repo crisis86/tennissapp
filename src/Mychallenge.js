@@ -105,8 +105,8 @@ const Mychallenge = () => {
                     return obj.id === idrecord
                 });
 
-                console.log(challengepending)
-                console.log(found)
+              //  console.log(challengepending)
+              //  console.log(found)
 
                 fetch(window.$produrl + "/challenge/" + idrecord, {
                     method: 'PUT',

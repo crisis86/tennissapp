@@ -50,6 +50,8 @@ const ChallengeSingle = () => {
             //   SfidaAbilitata();
             getlastsfidacomplete();
             checksfidapending();
+        //    sendemail('test', 'crisisart86@gmail.com','test test test');
+
         }
     }, []);
 
@@ -241,6 +243,44 @@ const ChallengeSingle = () => {
  
     }
 
+    function sendemail(names, emails, message ) {
+        
+      /*   fetch({
+            method: "POST", 
+            url:"http://localhost:3002/send", 
+            data: {
+                name: names,   
+                email: emails,  
+                messsage: message
+            }
+        }).then((response)=>{
+            if (response.data.msg === 'success'){
+                toast.success("Message Sent."); 
+                this.resetForm()
+            }else if(response.data.msg === 'fail'){
+                toast.error("Message failed to send.")
+            }
+        }) */
+        let data = {
+            name:names,
+            email:emails,
+            message:message
+        }
+        console.log(data);
+        fetch("http://localhost:3002/send", {
+            method: "POST",
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify(data)
+        }).then((res) => {
+           
+               toast.success("Message Sent."); 
+                       
+        }).catch((err) => {
+            toast.error(err + " Message failed to send.")
+        });
+        
+    }
+
 
     function removechallenge(nomegiocatore1) {
 
@@ -334,7 +374,7 @@ const ChallengeSingle = () => {
                 if(recorddatalastfida.players[0].idp1 === iduser) {
                     console.log("sono io blocca")
                     setsfidabutton(false)
-                    setgiornisfida(datadioggi.getDate() - dataconvert.getDate());
+                    setgiornisfida(parseInt(datadioggi.getDate()) - parseInt(dataconvert.getDate()));
                 }else {
                     setsfidabutton(true )
                     console.log("non sono io")

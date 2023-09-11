@@ -29,7 +29,7 @@
       "address": "fatt e fatt tuoi\n23",
       "gender": "male",
       "posizione": 3,
-      "insfida": false,
+      "insfida": true,
       "id": 2
     },
     {
@@ -133,7 +133,7 @@
       "address": "strada provinciale SP 52",
       "gender": "male",
       "posizione": 7,
-      "insfida": true,
+      "insfida": false,
       "id": 10
     },
     {
@@ -237,7 +237,7 @@
       "address": "via anfiteatro laterizio\n25",
       "gender": "male",
       "posizione": 6,
-      "insfida": true,
+      "insfida": false,
       "id": 18
     },
     {
@@ -1536,6 +1536,25 @@
       "set2": "0-0",
       "set3": "0-0",
       "id": 56
+    },
+    {
+      "datacreate": "11/9/2023",
+      "datasfida": "",
+      "players": [
+        {
+          "idp1": 2,
+          "p1": "Lino Bordelli"
+        },
+        {
+          "idp2": 11,
+          "p2": "Jepson Franzys"
+        }
+      ],
+      "status": "pending",
+      "set1": "",
+      "set2": "",
+      "set3": "",
+      "id": 57
     }
   ]
 }
