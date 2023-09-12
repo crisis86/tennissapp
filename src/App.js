@@ -26,7 +26,7 @@ function App() {
     document.documentElement.style.setProperty('--vh', `${vh}px`);
   
     const cron = require('node-schedule')
-    cron.scheduleJob('*/10 * * * *', () => {    
+    cron.scheduleJob('*/5 * * * *', () => {    
  
        controllasfide();
       console.log('running a task every 10 minute', new Date());
@@ -69,7 +69,7 @@ function App() {
        // console.log(obj.status)
         if (obj.status === 'processing') {
   
-        let datasdellfida = Date.parse(obj.datasfida.toString());
+        let datasdellfida = Date.parse(obj.datacreate.toString());
           
         let splidate = datasdellfida.split("/")
         let dataconvert = new Date(splidate[2] + "/" + splidate[1] + "/" + splidate[0])
