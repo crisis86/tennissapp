@@ -26,10 +26,10 @@ function App() {
     document.documentElement.style.setProperty('--vh', `${vh}px`);
   
     const cron = require('node-schedule')
-    cron.scheduleJob('*/5 * * * *', () => {    
+    cron.scheduleJob('*/1 * * * *', () => {    
  
        controllasfide();
-      console.log('running a task every 10 minute', new Date());
+      console.log('running a task every  minute', new Date());
     });
 
 
@@ -69,7 +69,7 @@ function App() {
        // console.log(obj.status)
         if (obj.status === 'processing') {
   
-        let datasdellfida = Date.parse(obj.datacreate);
+        let datasdellfida = obj.datacreate;
 
         console.log(datasdellfida)
           
