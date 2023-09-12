@@ -71,7 +71,7 @@ function App() {
   
         let datasdellfida = Date.parse(obj.datasfida.toString());
           
-        let splidate = datasdellfida.datasfida.split("/")
+        let splidate = datasdellfida.split("/")
         let dataconvert = new Date(splidate[2] + "/" + splidate[1] + "/" + splidate[0])
   
           const time = Math.abs(dataconvert - current);
