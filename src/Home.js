@@ -10,26 +10,10 @@ const Home = () => {
     const uname = sessionStorage.getItem('email')
     const datiuserloging = JSON.parse(localStorage.getItem('datiuserlogin'))
     const [post, setposts] = useState([]);
+    const [challenge, setchallenge] = useState([]);
     const location = useLocation();
 
-    const loadpost = () => {
-
-        fetch(window.$produrl + "/post").then(res => {
-            if (!res.ok) {
-                console.log(res)
-                // navigate('/');
-                return false;
-            }
-            return res.json();
-        }).then(res => {
-            setposts(res);
-        })
-
-
-    }
-
-
-
+    
     useEffect(() => {
 
         if (location.pathname === '/Regolamento') {
@@ -41,18 +25,37 @@ const Home = () => {
             //toast.error('Not Authenticate session');
             usenavigate('/login');
         } else {
-            loadpost();
+        
+            loadcgallenge();
         }
     }, []);
+
+
+ 
+    const loadcgallenge = () => {
+
+        fetch(window.$produrl + "/challenge").then(res => {
+            if (!res.ok) {
+                console.log(res)
+                // navigate('/');
+                return false;
+            }
+            return res.json();
+        }).then(res => {
+            setchallenge(res);
+        })
+
+
+    }
 
 
     return (
         <div className="page-content">
             <div className="list cards-list inset margin-vertical-half no-chevron no-hairlines no-hairlines-between">
                 <ul className="row align-items-stretch">
-                    {post &&
-                        post.sort((a, b) => a.id < b.id ? 1 : -1).map((item, index) => (
-                            <li key={index + 1} className="col-100 small-50 xlarge-100">
+                    {challenge &&
+                        challenge.sort((a, b) => a.id < b.id ? 1 : -1).map((item, index) => (
+                            <li style={{border:'1px solid #cbc4c4', borderRadius:'10px'}} key={index + 1} className="col-100 small-50 xlarge-100">
                                 <div className="item-content height-100">
                                     <div className="item-inner item-cell height-100 padding-vertical">
                                         <div className="item-row flex-direction-column height-100">
@@ -73,20 +76,47 @@ const Home = () => {
                                                     </div>
                                                     <div className="item-row">
                                                         <div className="item-cell">
-                                                        <a className='link' href={'/Challenge-single/' + item.iduser+'/'+item.nameuser}>
-                                                        <span style={{ fontSize: "12px" }}> <i>{item.nameuser}</i></span>
-                                                        </a>
-                                                            <span style={{ fontSize: "12px" }}> <i>{item.datapost}</i></span>
+                                                       STATUS: {item.status}
+                                                            <span style={{ fontSize: "14px" }}>Creata: <i>{item.datacreate}</i></span>
+                                                            <br></br>
+                                                            <span style={{ fontSize: "14px" }}>Programmata: <i>{item.datasfida}</i></span>
+
                                                         </div>
+
                                                     </div>
                                                 </div>
                                             </div>
                                             <div className="item-row margin-top">
-                                                <div className="item-cell">
-                                                    <div className="font-size-14 multi-line-text lines-3 text-color-gray">{item.descrizione}</div>
+                                                <div style={{textAlign:'center', background:'#e7e7e7', opacity:'0.7', marginRight:'20px'}} className="item-cell">
+                                                    <div className="font-size-14 multi-line-text lines-3 text-color-gray">
+                                                    <a className='link' href={'/Challenge-single/' + item.players[0].idp1+'/'+item.players[0].p1}>
+                                                        <span style={{ fontSize: "14px" }}> <i>{item.players[0].p1}</i></span>
+                                                        </a>
+                                                        <span>vs</span>
+                                                        <a className='link' href={'/Challenge-single/' + item.players[1].idp2+'/'+item.players[1].p2}>
+                                                        <span style={{ fontSize: "14px" }}> <i>{item.players[1].p2}</i></span>
+                                                        </a>
+                                                    </div>
                                                 </div>
                                             </div>
+                                            <div className="card-contet">
+                                            <div className="block block-strong medium-hide no-hairlines no-margin-vertical sticky sticky-top">
+                                                <div style={{ padding: '5px 8px' }} className={item.status === 'pending' || item.status === 'processing' ? 'list no-chevron no-hairlines no-hairlines-between no-safe-areas segmented-strong-pending' : 'list no-chevron no-hairlines no-hairlines-between no-safe-areas segmented-strong'}>
 
+                                                    <ul>
+
+                                                        <li style={{textAlign:'center'}} ><b>Score</b></li>
+                                                        <li style={{textAlign:'center'}} >Set1: <b>{item.set1} </b></li>
+                                                        <li  style={{textAlign:'center'}}>Set2: <b>{item.set2} </b></li>
+                                                        <li style={{textAlign:'center'}} >Set3: <b>{item.set3} </b> </li>
+                                                    </ul>
+
+                                                </div>
+
+                                                {/*    <span className="segmented-highlight"></span> */}
+
+                                            </div>
+                                        </div>
                                         </div>
                                     </div>
                                 </div>
