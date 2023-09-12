@@ -105,8 +105,8 @@ const Mychallenge = () => {
                     return obj.id === idrecord
                 });
 
-              //  console.log(challengepending)
-              //  console.log(found)
+                //  console.log(challengepending)
+                //  console.log(found)
 
                 fetch(window.$produrl + "/challenge/" + idrecord, {
                     method: 'PUT',
@@ -215,11 +215,11 @@ const Mychallenge = () => {
                     //  console.log(result)
                     result.json().then((resp) => {
 
-                 
+
                         let vincitore = calcolavincitore()
                         // console.log('sono il vincitore:' +vincitore)
 
-                             // rettifico classifica
+                        // rettifico classifica
                         if (vincitore === "Player1") {
 
                             SwitchCase('Sfida', player1, player2)
@@ -542,7 +542,7 @@ const Mychallenge = () => {
                     if (player1 === iduser) {
                         SwitchCase('Annulla_sfida', player1, player2)
                     } else {
-                        SwitchCase('Annulla_sfida', player2, player2)
+                        SwitchCase('Annulla_sfida', player2, player1)
                     }
 
 
@@ -616,7 +616,7 @@ const Mychallenge = () => {
                     if (index + 1 >= posp2 && index + 1 <= posp1 - 1) {
 
                         obj.posizione = obj.posizione + 1
-                        if(obj.id ===idp1) { obj.insfida = false} // ulteriore controllo dello sfidato 
+                        if (obj.id === idp1) { obj.insfida = false } // ulteriore controllo dello sfidato 
                         console.log(obj.posizione)
                         updateUserPosition(obj)
                     }
@@ -646,9 +646,9 @@ const Mychallenge = () => {
 
                     //   if (index + 1 === posp2 - 1 || index + 1 === posp2 - 2) {
                     if (index + 1 >= posp2 - 2 && index + 1 <= posp2) {
-                        
-                        if (posp2===2) {return} // esco perchè rimango al secondo posto
-                        if(posp2===3 && obj.posizione===1) { return} // esco per non cambiare la posizione al numero1
+
+                        if (posp2 === 2) { return } // esco perchè rimango al secondo posto
+                        if (posp2 === 3 && obj.posizione === 1) { return } // esco per non cambiare la posizione al numero1
 
                         obj.posizione = obj.posizione + 1
                         console.log(obj.posizione)
@@ -659,7 +659,7 @@ const Mychallenge = () => {
                         obj.posizione = posp2 - 2 // Salgo di 2 posizioni
 
                         //  if (obj.posizione <= 0) { obj.posizione = 2; indicep=0 }  //check sedondo classifica divento >1 
-                        if (obj.posizione <=1) { obj.posizione = 2; }  //check primo classifica se ero 3 divento 1
+                        if (obj.posizione <= 1) { obj.posizione = 2; }  //check primo classifica se ero 3 divento 1
 
                         console.log("posizione vincente:" + obj.posizione)
                         updateUserPosition(obj)
@@ -668,7 +668,7 @@ const Mychallenge = () => {
 
                         obj.insfida = false
 
-                        if (!Object.keys(classicica).length <= index + 1) { //controllo la fine della classifica
+                        if (Object.keys(classicica).length > index + 1) { //controllo la fine della classifica
                             obj.posizione = posp1 + 1 // scendo di una
                         }
                         console.log("lunghezza array ", Object.keys(classicica).length)
@@ -700,37 +700,54 @@ const Mychallenge = () => {
                     if (obj.id === idp1) {
 
                         obj.insfida = false;
-                        if (!Object.keys(classicica).length <= index +1) { //controllo la fine della classifica
-                            obj.posizione = posp1 + 1 // scendo di 1 perchè ho annullato
+                        if (Object.keys(classicica).length > index + 1) { //controllo la fine della classifica
+                            obj.posizione = obj.posizione + 1 // scendo di 1 perchè ho annullato
+                          
+                            console.log("id chi anulla:" + obj.id)
+                            console.log("posizione iniz:" + posp1)
+                            console.log("pod do chi anulla:" + obj.posizione)
                         }
-                        console.log("pod do chi anulla:" + obj.posizione)
+                        
                         updateUserPosition(obj)
 
-                    } if (index + 1 === posp1 + 1) {
+                    }
+
+                    if (index + 1 === posp1 + 1) {
+
+                        if(obj.id!==idp2) {
 
                         obj.posizione = obj.posizione - 1 // sale di uno quello sotto
-
+                       
                         if (obj.posizione <= 0) { obj.posizione = 1 }  //check primo classifica 
 
                         console.log("sale di uno quello sotto", obj.posizione)
                         updateUserPosition(obj)
-
-                    } if (obj.id === idp2) {
+                    }
+                    }
+                    
+                    if (obj.id === idp2) {
 
                         obj.insfida = false;
-                        obj.posizione = posp2 - 1  // sale di uno subisce annullo
+                        obj.posizione = obj.posizione - 1  // sale di uno subisce annullo
 
                         if (obj.posizione <= 0) { obj.posizione = 1 }  //check primo classifica 
 
+                        console.log("id chi subisce anullo:" + obj.id)
+                        console.log("posizione iniz:" + posp2)
                         console.log("sale di uno subisce annullo", obj.posizione)
                         updateUserPosition(obj)
                     }
+
                     if (index + 1 === posp2 - 1) {
+
+                        if(obj.id!==idp1) {
 
                         obj.posizione = obj.posizione + 1 // scende di uno quello sopra
                         console.log("scendi uno quello sopra", obj.posizione)
                         updateUserPosition(obj)
+                        }
                     }
+                   
                     return obj.id
 
                 })
@@ -743,34 +760,37 @@ const Mychallenge = () => {
                     if (obj.id === idp1) {
 
                         obj.insfida = false;
-                        if (!Object.keys(classicica).length <= index +1) { //controllo la fine della classifica
+                        if (Object.keys(classicica).length > index + 1) { //controllo la fine della classifica
                             obj.posizione = posp1 + 1 // scendo di 1 perchè ho annullato
                         }
                         console.log("pod do chi anulla:" + obj.posizione)
                         updateUserPosition(obj)
 
                     } if (index + 1 === posp1 + 1) {
-
+                        if(obj.id!==idp2) {
                         obj.posizione = obj.posizione - 1 // sale di uno quello sotto
                         if (obj.posizione <= 0) { obj.posizione = 1 }  //check primo classifica 
                         console.log("sale di uno quello sotto", obj.posizione)
                         updateUserPosition(obj)
+                        }
 
                     } if (obj.id === idp2) {
 
                         obj.insfida = false;
-                        if (!Object.keys(classicica).length <= index +1) { //controllo la fine della classifica
+                        if (Object.keys(classicica).length > index + 1) { //controllo la fine della classifica
                             obj.posizione = posp2 + 1  // scendo di 1 perchè ho annullato
                         }
                         console.log("sale di uno subisce annullo", obj.posizione)
                         updateUserPosition(obj)
                     }
                     if (index + 1 === posp2 + 1) {
-
+                        
+                        if(obj.id!==idp1) {
                         obj.posizione = obj.posizione - 1 // sale di uno quello sotto
                         if (obj.posizione <= 0) { obj.posizione = 1 }  //check primo classifica 
                         console.log("scendi uno quello sopra", obj.posizione)
                         updateUserPosition(obj)
+                        }
                     }
 
                 })
@@ -827,7 +847,7 @@ const Mychallenge = () => {
                                 <div className="card-contet">
                                     <div className="block block-strong medium-hide no-hairlines no-margin-vertical sticky sticky-top">
 
-                                        <div style={{padding: '5px 8px'}} className={item.status === 'pending' || item.status === 'processing' ? 'list no-chevron no-hairlines no-hairlines-between no-safe-areas segmented-strong-pending' : 'list no-chevron no-hairlines no-hairlines-between no-safe-areas segmented-strong'}>
+                                        <div style={{ padding: '5px 8px' }} className={item.status === 'pending' || item.status === 'processing' ? 'list no-chevron no-hairlines no-hairlines-between no-safe-areas segmented-strong-pending' : 'list no-chevron no-hairlines no-hairlines-between no-safe-areas segmented-strong'}>
 
                                             <ul>
 
@@ -881,7 +901,7 @@ const Mychallenge = () => {
                                                             </div>
                                                         ) : (
                                                             <div className="row">
-                                                               {dayjs(today).format('DD/MM/YYYY') >= dayjs(item.datasfida).format('MM/DD/YYYY') &&
+                                                                {dayjs(today).format('DD/MM/YYYY') >= dayjs(item.datasfida).format('MM/DD/YYYY') &&
                                                                     <div>
 
                                                                         <span><i>Inserisci Il risultati </i></span>
@@ -972,7 +992,7 @@ const Mychallenge = () => {
                                                     ) : (
                                                         <div className="row">
                                                             <>
-                                                          
+
                                                             </>
                                                             {dayjs(today).format('DD/MM/YYYY') >= dayjs(item.datasfida).format('MM/DD/YYYY') &&
 

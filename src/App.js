@@ -25,22 +25,21 @@ function App() {
     // Then we set the value in the --vh custom property to the root of the document
     document.documentElement.style.setProperty('--vh', `${vh}px`);
   
-    const cron = require('node-schedule')
-    cron.scheduleJob('*/1 * * * *', () => {    
+  //  const cron = require('node-schedule')
+  //  cron.scheduleJob('*/1 * * * *', () => {    
  
-       controllasfide();
-      console.log('running a task every  minute', new Date());
-    });
+//      controllasfide();
+  //    console.log('running a task every  minute', new Date());
+  //  });
 
 
   }, [])
 
 
 
-
   function controllasfide() {
  
-    fetch("https://tennissapp.onrender.com/challenge?status=processing", {
+    fetch(window.$produrl+"/challenge?status=processing", {
       method: 'GET',
       headers: {
         accept: 'application/json',
@@ -81,7 +80,7 @@ function App() {
           console.log(days);
   
           // idays > 2{
-            if (days === days) {
+            if (days > 2) {
             console.log('sfida scaduta tra ' + obj.players[0].p1 + " VS " + obj.players[1].p2)
   
             obj.status = 'cancel';
@@ -103,7 +102,7 @@ function App() {
   
   function cancelchallenge(objchallenge, idriga) {
   
-    fetch("https://tennissapp.onrender.com/challenge/" + idriga, {
+    fetch(window.$produrl+"/challenge/" + idriga, {
       method: 'PUT',
       headers: {
         'Accept': 'application/json',
@@ -125,7 +124,7 @@ function App() {
   
   function penalizzazione(idp1, idp2) {
   
-    fetch("https://tennissapp.onrender.com/user?role=player", {
+    fetch(window.$produrl+"/user?role=player", {
       method: 'GET',
       headers: {
         accept: 'application/json',
@@ -163,36 +162,43 @@ function App() {
     const foundannullaforzato = plrlist.sort((a, b) => a.posizione > b.posizione ? 1 : -1).filter((obj, index) => {
   
       if (obj.id === idp1) {
-  
         obj.insfida = false;
-        if (!Object.keys(plrlist).length <= index +1) { //controllo la fine della classifica
+
+        if(obj.posizione !== 1) { 
+       
+        if (Object.keys(plrlist).length > index +1) { //controllo la fine della classifica
             obj.posizione = posp1 + 1 // scendo di 1 perchè ho annullato
         }
+      }
         console.log("pod do chi anulla:" + obj.posizione)
         updateUserPosition(obj)
   
     } if (index + 1 === posp1 + 1) {
-  
+      if(obj.id!==idp2) {
         obj.posizione = obj.posizione - 1 // sale di uno quello sotto
         if (obj.posizione <= 0) { obj.posizione = 1 }  //check primo classifica 
         console.log("sale di uno quello sotto", obj.posizione)
         updateUserPosition(obj)
-  
+      }
     } if (obj.id === idp2) {
-  
-        obj.insfida = false;
-        if (!Object.keys(plrlist).length <= index +1)  { //controllo la fine della classifica
+      obj.insfida = false;
+      if(obj.posizione !== 1) { 
+      
+        if (Object.keys(plrlist).length > index +1)  { //controllo la fine della classifica
             obj.posizione = posp2 + 1  // scendo di 1 perchè ho annullato
         }
+      }
         console.log("sale di uno subisce annullo", obj.posizione)
         updateUserPosition(obj)
+     
     }
     if (index + 1 === posp2 + 1) {
-  
+      if(obj.id!==idp1) {
         obj.posizione = obj.posizione - 1 // sale di uno quello sotto
         if (obj.posizione <= 0) { obj.posizione = 1 }  //check primo classifica 
         console.log("scendi uno quello sopra", obj.posizione)
         updateUserPosition(obj)
+      }
     }
       return obj.id
   
@@ -202,7 +208,7 @@ function App() {
   }
   function updateUserPosition(ogettogioc) {
   
-    fetch("https://tennissapp.onrender.com/user/" + ogettogioc.id, {
+    fetch(window.$produrl+"/user/" + ogettogioc.id, {
       method: 'PUT',
       headers: {
         'Accept': 'application/json',
@@ -219,8 +225,6 @@ function App() {
       console.log(err.message);
     });
   }
-
-
 
 
   return (

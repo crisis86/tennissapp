@@ -358,7 +358,7 @@ const ChallengeSingle = () => {
                     if (recorddatalastfida.players[0].idp1 === iduser) {
                         console.log("sono io blocca")
                         setsfidabutton(false)
-                        setgiornisfida(parseInt(days+1));
+                        setgiornisfida(parseInt(days-1));
                     } else {
                         setsfidabutton(true)
                         console.log("non sono io")

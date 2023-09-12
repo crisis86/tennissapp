@@ -29,7 +29,7 @@
       "address": "sdfasdsads",
       "gender": "male",
       "posizione": 1,
-      "insfida": true,
+      "insfida": false,
       "id": 2
     },
     {
@@ -41,8 +41,8 @@
       "role": "player",
       "address": "dfdfdfdf",
       "gender": "male",
-      "posizione": 2,
-      "insfida": true,
+      "posizione": 3,
+      "insfida": false,
       "id": 3
     },
     {
@@ -54,7 +54,7 @@
       "role": "player",
       "address": "wrwrer",
       "gender": "male",
-      "posizione": 3,
+      "posizione": 2,
       "insfida": false,
       "id": 4
     },
@@ -106,7 +106,7 @@
       "role": "player",
       "address": "sdsdsdsdsd",
       "gender": "male",
-      "posizione": 8,
+      "posizione": 7,
       "insfida": false,
       "id": 8
     },
@@ -119,9 +119,22 @@
       "role": "player",
       "address": "via anfiteatro laterizio 25",
       "gender": "male",
-      "posizione": 7,
+      "posizione": 8,
       "insfida": false,
       "id": 9
+    },
+    {
+      "email": "lucas@lucas.it",
+      "password": "123456",
+      "name": "Luca Leiva",
+      "phone": "20213121",
+      "country": "Italia",
+      "role": "player",
+      "address": "sdsdsdsd",
+      "gender": "male",
+      "posizione": 9,
+      "insfida": false,
+      "id": 10
     }
   ],
   "post": [
@@ -248,7 +261,7 @@
           "p2": "Jannik Sinner"
         }
       ],
-      "status": "processing",
+      "status": "cancel",
       "set1": "",
       "set2": "",
       "set3": "",
@@ -272,6 +285,63 @@
       "set2": "0-0",
       "set3": "0-0",
       "id": 4
+    },
+    {
+      "datacreate": "12/9/2023",
+      "datasfida": "",
+      "players": [
+        {
+          "idp1": 7,
+          "p1": "Daniele Ippolito"
+        },
+        {
+          "idp2": 5,
+          "p2": "Giovanni di Lorenzo"
+        }
+      ],
+      "status": "cancel",
+      "set1": "",
+      "set2": "",
+      "set3": "",
+      "id": 5
+    },
+    {
+      "datacreate": "12/9/2023",
+      "datasfida": "",
+      "players": [
+        {
+          "idp1": 10,
+          "p1": "Luca Leiva"
+        },
+        {
+          "idp2": 5,
+          "p2": "Giovanni di Lorenzo"
+        }
+      ],
+      "status": "cancel",
+      "set1": "",
+      "set2": "",
+      "set3": "",
+      "id": 6
+    },
+    {
+      "datacreate": "12/9/2023",
+      "datasfida": "",
+      "players": [
+        {
+          "idp1": 10,
+          "p1": "Luca Leiva"
+        },
+        {
+          "idp2": 9,
+          "p2": "Davide Aprea"
+        }
+      ],
+      "status": "cancel",
+      "set1": "",
+      "set2": "",
+      "set3": "",
+      "id": 7
     }
   ]
 }
