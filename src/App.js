@@ -40,7 +40,7 @@ function App() {
 
   function controllasfide() {
  
-    fetch("https://tennissapp.onrender.com/challenge?status!=complete", {
+    fetch("https://tennissapp.onrender.com/challenge?status=processing", {
       method: 'GET',
       headers: {
         accept: 'application/json',
@@ -69,7 +69,9 @@ function App() {
        // console.log(obj.status)
         if (obj.status === 'processing') {
   
-        let datasdellfida = Date.parse(obj.datacreate.toString());
+        let datasdellfida = Date.parse(obj.datacreate);
+
+        console.log(datasdellfida)
           
         let splidate = datasdellfida.split("/")
         let dataconvert = new Date(splidate[2] + "/" + splidate[1] + "/" + splidate[0])
