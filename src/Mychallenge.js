@@ -968,7 +968,7 @@ const Mychallenge = () => {
                                                             </div>
                                                         ) : (
                                                             <div className="row">
-                                                                {dayjs(today).format('DD/MM/YYYY') >= dayjs(item.datasfida).format('DD/MM/YYYY') &&
+                                                              {/*   {dayjs(today).format('DD/MM/YYYY') >= dayjs(item.datasfida).format('MM/DD/YYYY') && */}
                                                                     <div>
 
                                                                         <span><i>Inserisci Il risultati </i></span>
@@ -1019,7 +1019,11 @@ const Mychallenge = () => {
 
 
                                                                     </div>
-                                                                }
+                                                              
+
+
+
+                                                              
                                                             </div>
                                                         )}
                                                     </>
