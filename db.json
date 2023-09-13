@@ -81,7 +81,7 @@
       "address": "ssdsdsd",
       "gender": "male",
       "posizione": 6,
-      "insfida": false,
+      "insfida": true,
       "id": 6
     },
     {
@@ -133,7 +133,7 @@
       "address": "sdsdsdsd",
       "gender": "male",
       "posizione": 9,
-      "insfida": false,
+      "insfida": true,
       "id": 10
     }
   ],
@@ -342,6 +342,25 @@
       "set2": "",
       "set3": "",
       "id": 7
+    },
+    {
+      "datacreate": "13/9/2023",
+      "datasfida": "",
+      "players": [
+        {
+          "idp1": 10,
+          "p1": "Luca Leiva"
+        },
+        {
+          "idp2": 6,
+          "p2": "Massimo parisi"
+        }
+      ],
+      "status": "pending",
+      "set1": "",
+      "set2": "",
+      "set3": "",
+      "id": 8
     }
   ]
 }

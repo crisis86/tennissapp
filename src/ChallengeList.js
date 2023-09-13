@@ -63,7 +63,6 @@ const iduser = parseInt(sessionStorage.getItem('iduser'))
                                                     <div style={{borderRadius: item.insfida ? '30px' : '0' , background: item.insfida ? '#fb8438':'', fontWeight: item.insfida ? 'bold' : '500'}} className="item-content">
                                                         <div className="item-inner item-cell">
                                                             <div className="item-row">
-                                                       
                                                               <div className="item-cell width-auto">
                                                                     <img src={logo} height="20" width="20" alt="Pallina" />
                                                                 </div>
