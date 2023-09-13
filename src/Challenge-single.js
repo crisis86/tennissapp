@@ -25,6 +25,8 @@ const ChallengeSingle = () => {
     const [challengepending, setchallengepending] = useState([]);
     const [datadioggi, setdatadioggi] = useState(new Date());
     const [giornisfida, setgiornisfida] = useState(0);
+   
+
 
     // flag SFIDA user collegato
     // const [stoinsfida, setstoinsifa] = useState(sessionStorage.getItem('stoinsfida'));
@@ -50,7 +52,7 @@ const ChallengeSingle = () => {
             //   SfidaAbilitata();
             getlastsfidacomplete();
             checksfidapending();
-           //   sendemail('test', 'crisisart86@gmail.com','test test test');
+            //   sendemail('test', 'crisisart86@gmail.com','test test test');
 
         }
     }, []);
@@ -116,15 +118,14 @@ const ChallengeSingle = () => {
                     'con su successo!'
                 )
 
-
+                let mailforsend="";
                 const found = player.filter(obj => {
                     if (obj.id === idp1 && status === "update") {
                         obj.insfida = true;
-
+                        mailforsend= obj.email
                     } else {
                         obj.insfida = false;
-
-                        obj.posizione = obj.posizione + 1;
+                        mailforsend= obj.email
                     }
                     return obj.id === idp1;
                 });
@@ -144,7 +145,7 @@ const ChallengeSingle = () => {
                         flagmesfida(status);
 
                         if (status === 'update') {
-                            addchallenge(idp1, idname1);
+                            addchallenge(idp1, idname1, mailforsend);
 
 
                         } else {
@@ -198,7 +199,7 @@ const ChallengeSingle = () => {
 
     }
 
-    function addchallenge(iddasfidare, nomedasfidare) {
+    function addchallenge(iddasfidare, nomedasfidare, emailperinvio) {
 
         const current = new Date();
         const date = `${current.getDate()}/${current.getMonth() + 1}/${current.getFullYear()}`;
@@ -230,7 +231,9 @@ const ChallengeSingle = () => {
         }).then((res) => {
             console.log('challenge creato')
             sessionStorage.setItem('stoinsfida', true);
-            //    setstoinsifasetstoinsifa(true);
+
+           //  sendemail(nomedasfidare, emailperinvio, 'add')
+
             // console.log('sto in sfida: ' +stoinsfida)
         }).catch((err) => {
             toast.error('addchallenge :' + err.message);
@@ -243,14 +246,23 @@ const ChallengeSingle = () => {
 
     }
 
-    function sendemail(names, emails, message) {
+    function sendemail(names, emails, status) {
+
+        let message = "";
+        if (status === 'add') {
+            message = "Ciao " + names + ", \n\n" +
+                "Sei stato Sfidato ad " + fullname + " \n" +
+                "Controlla Le tue Sfide cliccando sul link https://tennissapp.vercel.app/Mychallenge \n per accettare o rifiutare la sfida \n\n" +
+                "Questa email è stata inviata da SpinupTennis"
+
+        } 
 
         let data = {
             name: names,
             email: emails,
             message: message
         }
-       // console.log(data);
+        // console.log(data);
         fetch(window.$servEmail + "/send", {
             method: "POST",
             headers: { 'content-type': 'application/json' },
@@ -296,7 +308,7 @@ const ChallengeSingle = () => {
                 result.json().then((resp) => {
                     //  console.log(resp)
                     sessionStorage.setItem('stoinsfida', false);
-                    // setstoinsifa(false);
+                 
                 })
             }).catch((err) => {
                 toast.error(err.message);
@@ -358,7 +370,7 @@ const ChallengeSingle = () => {
                     if (recorddatalastfida.players[0].idp1 === iduser) {
                         console.log("sono io blocca")
                         setsfidabutton(false)
-                        setgiornisfida(parseInt(days-1));
+                        setgiornisfida(parseInt(days - 1));
                     } else {
                         setsfidabutton(true)
                         console.log("non sono io")
@@ -402,6 +414,7 @@ const ChallengeSingle = () => {
 
     }
 
+ 
     return (
         <>
             <div className="page-content">

@@ -99,7 +99,13 @@ const Register = () => {
         }else{
             if(/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(email)){
 
-            }else{
+            }else if (/^[a-zA-Z0-9]+\.[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(email)){
+             
+            }else if (/^[a-zA-Z0-9]+\-[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(email)){
+             
+            }else if (/^[a-zA-Z0-9]+\_[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(email)){
+             
+            } else {
                 isproceed = false;
                 toast.warning('Please enter the valid email')
             }

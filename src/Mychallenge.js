@@ -14,6 +14,7 @@ const Mychallenge = () => {
 
     const iduser = parseInt(sessionStorage.getItem('iduser'))
     const fullname = sessionStorage.getItem('fullname')
+    let emailnotif = sessionStorage.getItem('email')
     const [challengepending, setchallengepending] = useState([]);
     const [flagmeplayer, setflagmeplayer] = useState([]);
     const [player, setplayer] = useState([]);
@@ -267,18 +268,22 @@ const Mychallenge = () => {
                     'Sfida Confermata!',
                     'con su successo!'
                 )
-
-                /* const found = challengepending.find(obj => {
-                    obj.status= 'processing';
-                    return obj.id === idrecord;
-                  }); */
+                 
+                
+                 let player = 0;
+                 let datiemail = "";
 
                 const found = challengepending.filter(obj => {
                     if (obj.id === idrecord) {
                         obj.status = 'processing';
+                      
+                        player = obj.players[0].idp1
                     }
                     return obj.id === idrecord
                 });
+
+                 datiemail=loademailsend(player);
+                 let datisplit = datiemail.split('#')
 
                 //    console.log(challengepending)
                 //   console.log(found[0])
@@ -293,7 +298,9 @@ const Mychallenge = () => {
                 }).then((result) => {
                     //  console.log(result)
                     result.json().then((resp) => {
-
+                       
+                    //   sendemail(datisplit[0], datisplit[1], 'add')
+                        fetchdata();
                         checksfidapending();
 
                     })
@@ -333,24 +340,26 @@ const Mychallenge = () => {
                     'Confermato!',
                     'con su successo!'
                 )
+                 
+                let emailsfindate =""
+                let nomesfidate= ""
 
                 const found = player.filter(obj => {
-
                     return obj.id === idp1;
-
                 });
 
                 const found2 = found.filter(obj => {
 
                     if (obj.id === idp1 && status === "update") {
                         obj.insfida = true;
-
+                        emailsfindate=obj.email
+                        nomesfidate=obj.name
                     } else {
                         obj.insfida = false;
-
-                        //   obj.posizione = obj.posizione + 1;
+                        emailsfindate=obj.email
+                        nomesfidate=obj.name
                     }
-
+          
                     return obj.id === idp1;
                 });
 
@@ -364,6 +373,8 @@ const Mychallenge = () => {
                 }).then((result) => {
                     //   console.log(result)
                     result.json().then((resp) => {
+
+                     //   sendemail(nomesfidate,emailsfindate,'remove')
 
                         flagmesfida(status);
 
@@ -418,8 +429,6 @@ const Mychallenge = () => {
 
     function resetstatusfida(idp1) {
 
-
-
         const found2 = player.filter(obj => {
 
             if (obj.id === idp1) {
@@ -427,12 +436,10 @@ const Mychallenge = () => {
 
             }
 
-
             return obj.id === idp1;
         });
 
         console.log(found2);
-
 
         fetch(window.$produrl + "/user/" + idp1, {
             method: 'PUT',
@@ -509,7 +516,6 @@ const Mychallenge = () => {
 
         let player1 = 0
         let player2 = 0
-
         let idriga = 0;
 
         const found = challengepending.filter(obj => {
@@ -541,9 +547,11 @@ const Mychallenge = () => {
 
                     if (player1 === iduser) {
                         SwitchCase('Annulla_sfida', player1, player2)
+                       
                     } else {
                         SwitchCase('Annulla_sfida', player2, player1)
                     }
+                    
 
 
                     sessionStorage.setItem('stoinsfida', false);
@@ -578,6 +586,25 @@ const Mychallenge = () => {
 
 
         return telefono
+    }
+
+    function loademailsend(idacercare) {
+
+        let emailsend = ""
+        let nomesend = ""
+
+        const found = player.filter(obj => {
+
+            if (obj.id === idacercare) {
+                nomesend = obj.name;
+                emailsend = obj.email;
+            }
+            return obj.id === idacercare
+
+        })
+
+
+        return nomesend+"#"+emailsend
     }
 
     function SwitchCase(props, idp1, idp2) {
@@ -821,6 +848,42 @@ const Mychallenge = () => {
         }).catch((err) => {
             toast.error(err.message);
         });
+    }
+
+    function sendemail(names, emails, status) {
+
+        let message = "";
+        if (status === 'add') {
+            message = "Ciao " + names + ", \n\n" +
+                "Sfida accettata da " + fullname + " \n" +
+                "Controlla Le tue Sfide cliccando sul link https://tennissapp.vercel.app/Mychallenge \n per accettare o rifiutare la sfida \n\n" +
+                "Questa email è stata inviata da SpinupTennis"
+
+        } else {
+            message = "Ciao " + names + ", \n\n" +
+                "Il giocatore " + fullname + " ha non accetato la sfida \n" +
+                "Controlla Le tue Sfide cliccando sul link https://tennissapp.vercel.app/Mychallenge \n per accettare o rifiutare la sfida \n\n" +
+                "Questa email è stata inviata da SpinupTennis"
+        }
+
+        let data = {
+            name: names,
+            email: emails,
+            message: message
+        }
+        // console.log(data);
+        fetch(window.$servEmail + "/send", {
+            method: "POST",
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify(data)
+        }).then((res) => {
+
+            toast.success("Message Sent.");
+
+        }).catch((err) => {
+            toast.error(err + " Message failed to send.")
+        });
+
     }
 
     return (
