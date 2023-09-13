@@ -17,7 +17,7 @@ import Mychallenge from './Mychallenge'
 import Post from './Post';
 import Regolamento from './Regolamento';
 import AdminChallenge from './AdminChallenge';
-import EditChallenge from './editchallenge';
+import EditChallenge from './EditChallenge';
 
 function App() {  
 
