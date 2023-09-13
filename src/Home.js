@@ -87,7 +87,7 @@ const Home = () => {
                                                 </div>
                                             </div>
                                             <div className="item-row margin-top">
-                                                <div style={{textAlign:'center', background:'#e7e7e7', opacity:'0.7', marginRight:'20px'}} className="item-cell">
+                                                <div style={{textAlign:'center', background:'#e7e7e7', opacity:'0.7'}} className="item-cell">
                                                     <div className="font-size-14 multi-line-text lines-3 text-color-gray">
                                                     <a className='link' href={'/Challenge-single/' + item.players[0].idp1+'/'+item.players[0].p1}>
                                                         <span style={{ fontSize: "14px" }}> <i>{item.players[0].p1}</i></span>
@@ -100,7 +100,7 @@ const Home = () => {
                                                 </div>
                                             </div>
                                             <div className="card-contet">
-                                            <div className="block block-strong medium-hide no-hairlines no-margin-vertical sticky sticky-top">
+                                            <div style={{paddingRight:'0'}}className="block block-strong medium-hide no-hairlines no-margin-vertical sticky sticky-top">
                                                 <div style={{ padding: '5px 8px' }} className={item.status === 'pending' || item.status === 'processing' ? 'list no-chevron no-hairlines no-hairlines-between no-safe-areas segmented-strong-pending' : 'list no-chevron no-hairlines no-hairlines-between no-safe-areas segmented-strong'}>
 
                                                     <ul>
