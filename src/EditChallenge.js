@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useParams } from "react-router-dom";
 
-const EditChallenge = () => {
+const editchallenge = () => {
 
     //const [id, idchange] = useState(0);
     const id = useParams()
@@ -173,4 +173,4 @@ const EditChallenge = () => {
     );
 }
 
-export default EditChallenge;
+export default editchallenge;
