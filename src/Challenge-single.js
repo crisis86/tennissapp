@@ -232,7 +232,7 @@ const ChallengeSingle = () => {
             console.log('challenge creato')
             sessionStorage.setItem('stoinsfida', true);
 
-           //  sendemail(nomedasfidare, emailperinvio, 'add')
+             sendemail(nomedasfidare, emailperinvio, 'add')
 
             // console.log('sto in sfida: ' +stoinsfida)
         }).catch((err) => {
@@ -249,16 +249,19 @@ const ChallengeSingle = () => {
     function sendemail(names, emails, status) {
 
         let message = "";
+        let subject ="";
         if (status === 'add') {
             message = "Ciao " + names + ", \n\n" +
                 "Sei stato Sfidato ad " + fullname + " \n" +
                 "Controlla Le tue Sfide cliccando sul link https://tennissapp.vercel.app/Mychallenge \n per accettare o rifiutare la sfida \n\n" +
                 "Questa email è stata inviata da SpinupTennis"
-
+                subject="Nuova Sfida da "+ fullname 
         } 
+        
 
         let data = {
-            name: names,
+            //metto volutamente  il subject nella voce name
+            name: subject,
             email: emails,
             message: message
         }

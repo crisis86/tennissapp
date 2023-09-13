@@ -146,20 +146,20 @@
       "address": "sdsd",
       "gender": "male",
       "posizione": 10,
-      "insfida": false,
+      "insfida": true,
       "id": 11
     },
     {
-      "email": "davide.aprea@gmail.com",
-      "password": "123123",
-      "name": "sdfsdf",
+      "email": "davide.aprea86@gmail.com",
+      "password": "123456",
+      "name": "Cucciolone",
       "phone": "fdfsdf",
       "country": "Italia",
       "role": "player",
       "address": "dffsdf",
       "gender": "male",
       "posizione": 11,
-      "insfida": false,
+      "insfida": true,
       "id": 12
     }
   ],
@@ -368,6 +368,25 @@
       "set2": "",
       "set3": "",
       "id": 7
+    },
+    {
+      "datacreate": "13/9/2023",
+      "datasfida": "",
+      "players": [
+        {
+          "idp1": 12,
+          "p1": "Cucciolone"
+        },
+        {
+          "idp2": 11,
+          "p2": "webmaster"
+        }
+      ],
+      "status": "pending",
+      "set1": "",
+      "set2": "",
+      "set3": "",
+      "id": 8
     }
   ]
 }

@@ -268,22 +268,22 @@ const Mychallenge = () => {
                     'Sfida Confermata!',
                     'con su successo!'
                 )
-                 
-                
-                 let player = 0;
-                 let datiemail = "";
+
+
+                let player = 0;
+                let datiemail = "";
 
                 const found = challengepending.filter(obj => {
                     if (obj.id === idrecord) {
                         obj.status = 'processing';
-                      
+
                         player = obj.players[0].idp1
                     }
                     return obj.id === idrecord
                 });
 
-                 datiemail=loademailsend(player);
-                 let datisplit = datiemail.split('#')
+                datiemail = loademailsend(player);
+                let datisplit = datiemail.split('#')
 
                 //    console.log(challengepending)
                 //   console.log(found[0])
@@ -298,8 +298,8 @@ const Mychallenge = () => {
                 }).then((result) => {
                     //  console.log(result)
                     result.json().then((resp) => {
-                       
-                    //   sendemail(datisplit[0], datisplit[1], 'add')
+
+                        sendemail(datisplit[0], datisplit[1], 'add')
                         fetchdata();
                         checksfidapending();
 
@@ -340,9 +340,9 @@ const Mychallenge = () => {
                     'Confermato!',
                     'con su successo!'
                 )
-                 
-                let emailsfindate =""
-                let nomesfidate= ""
+
+                let emailsfindate = ""
+                let nomesfidate = ""
 
                 const found = player.filter(obj => {
                     return obj.id === idp1;
@@ -352,14 +352,14 @@ const Mychallenge = () => {
 
                     if (obj.id === idp1 && status === "update") {
                         obj.insfida = true;
-                        emailsfindate=obj.email
-                        nomesfidate=obj.name
+                        emailsfindate = obj.email
+                        nomesfidate = obj.name
                     } else {
                         obj.insfida = false;
-                        emailsfindate=obj.email
-                        nomesfidate=obj.name
+                        emailsfindate = obj.email
+                        nomesfidate = obj.name
                     }
-          
+
                     return obj.id === idp1;
                 });
 
@@ -374,7 +374,7 @@ const Mychallenge = () => {
                     //   console.log(result)
                     result.json().then((resp) => {
 
-                     //   sendemail(nomesfidate,emailsfindate,'remove')
+                        sendemail(nomesfidate, emailsfindate, 'remove')
 
                         flagmesfida(status);
 
@@ -547,11 +547,11 @@ const Mychallenge = () => {
 
                     if (player1 === iduser) {
                         SwitchCase('Annulla_sfida', player1, player2)
-                       
+
                     } else {
                         SwitchCase('Annulla_sfida', player2, player1)
                     }
-                    
+
 
 
                     sessionStorage.setItem('stoinsfida', false);
@@ -604,7 +604,7 @@ const Mychallenge = () => {
         })
 
 
-        return nomesend+"#"+emailsend
+        return nomesend + "#" + emailsend
     }
 
     function SwitchCase(props, idp1, idp2) {
@@ -729,29 +729,29 @@ const Mychallenge = () => {
                         obj.insfida = false;
                         if (Object.keys(classicica).length > index + 1) { //controllo la fine della classifica
                             obj.posizione = obj.posizione + 1 // scendo di 1 perchè ho annullato
-                          
+
                             console.log("id chi anulla:" + obj.id)
                             console.log("posizione iniz:" + posp1)
                             console.log("pod do chi anulla:" + obj.posizione)
                         }
-                        
+
                         updateUserPosition(obj)
 
                     }
 
                     if (index + 1 === posp1 + 1) {
 
-                        if(obj.id!==idp2) {
+                        if (obj.id !== idp2) {
 
-                        obj.posizione = obj.posizione - 1 // sale di uno quello sotto
-                       
-                        if (obj.posizione <= 0) { obj.posizione = 1 }  //check primo classifica 
+                            obj.posizione = obj.posizione - 1 // sale di uno quello sotto
 
-                        console.log("sale di uno quello sotto", obj.posizione)
-                        updateUserPosition(obj)
+                            if (obj.posizione <= 0) { obj.posizione = 1 }  //check primo classifica 
+
+                            console.log("sale di uno quello sotto", obj.posizione)
+                            updateUserPosition(obj)
+                        }
                     }
-                    }
-                    
+
                     if (obj.id === idp2) {
 
                         obj.insfida = false;
@@ -767,14 +767,14 @@ const Mychallenge = () => {
 
                     if (index + 1 === posp2 - 1) {
 
-                        if(obj.id!==idp1) {
+                        if (obj.id !== idp1) {
 
-                        obj.posizione = obj.posizione + 1 // scende di uno quello sopra
-                        console.log("scendi uno quello sopra", obj.posizione)
-                        updateUserPosition(obj)
+                            obj.posizione = obj.posizione + 1 // scende di uno quello sopra
+                            console.log("scendi uno quello sopra", obj.posizione)
+                            updateUserPosition(obj)
                         }
                     }
-                   
+
                     return obj.id
 
                 })
@@ -794,11 +794,11 @@ const Mychallenge = () => {
                         updateUserPosition(obj)
 
                     } if (index + 1 === posp1 + 1) {
-                        if(obj.id!==idp2) {
-                        obj.posizione = obj.posizione - 1 // sale di uno quello sotto
-                        if (obj.posizione <= 0) { obj.posizione = 1 }  //check primo classifica 
-                        console.log("sale di uno quello sotto", obj.posizione)
-                        updateUserPosition(obj)
+                        if (obj.id !== idp2) {
+                            obj.posizione = obj.posizione - 1 // sale di uno quello sotto
+                            if (obj.posizione <= 0) { obj.posizione = 1 }  //check primo classifica 
+                            console.log("sale di uno quello sotto", obj.posizione)
+                            updateUserPosition(obj)
                         }
 
                     } if (obj.id === idp2) {
@@ -811,12 +811,12 @@ const Mychallenge = () => {
                         updateUserPosition(obj)
                     }
                     if (index + 1 === posp2 + 1) {
-                        
-                        if(obj.id!==idp1) {
-                        obj.posizione = obj.posizione - 1 // sale di uno quello sotto
-                        if (obj.posizione <= 0) { obj.posizione = 1 }  //check primo classifica 
-                        console.log("scendi uno quello sopra", obj.posizione)
-                        updateUserPosition(obj)
+
+                        if (obj.id !== idp1) {
+                            obj.posizione = obj.posizione - 1 // sale di uno quello sotto
+                            if (obj.posizione <= 0) { obj.posizione = 1 }  //check primo classifica 
+                            console.log("scendi uno quello sopra", obj.posizione)
+                            updateUserPosition(obj)
                         }
                     }
 
@@ -853,21 +853,25 @@ const Mychallenge = () => {
     function sendemail(names, emails, status) {
 
         let message = "";
+        let subject = "";
         if (status === 'add') {
             message = "Ciao " + names + ", \n\n" +
                 "Sfida accettata da " + fullname + " \n" +
                 "Controlla Le tue Sfide cliccando sul link https://tennissapp.vercel.app/Mychallenge \n per accettare o rifiutare la sfida \n\n" +
                 "Questa email è stata inviata da SpinupTennis"
+            subject = "Sfida accettata da " + fullname
 
         } else {
             message = "Ciao " + names + ", \n\n" +
                 "Il giocatore " + fullname + " ha non accetato la sfida \n" +
-                "Controlla Le tue Sfide cliccando sul link https://tennissapp.vercel.app/Mychallenge \n per accettare o rifiutare la sfida \n\n" +
+                "Controlla Le tue Sfide cliccando sul link https://tennissapp.vercel.app/Mychallenge \n\n" +
                 "Questa email è stata inviata da SpinupTennis"
+            subject = "Sfida annullata " + fullname
         }
 
         let data = {
-            name: names,
+             //metto volutamente  il subject nella voce name
+            name: subject,
             email: emails,
             message: message
         }

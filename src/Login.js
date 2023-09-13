@@ -105,8 +105,7 @@ const Login = () => {
     }
 
 
-
-
+ 
     const validate = () => {
         let result = true;
         if (email === '' || email === null) {
@@ -139,8 +138,8 @@ const Login = () => {
                             </div>
                             <div className="form-group">
                                 <label>Password <span className="errmsg">*</span></label>
-                                <input type="password" value={password} onChange={e => passwordupdate(e.target.value)} className="form-control"></input>
-                            </div>
+                                <input id="password" type="password" value={password} onChange={e => passwordupdate(e.target.value)} className="form-control"></input>
+                             </div>
                         </div>
                         <div className="card-footer">
                             <button disabled={loading} type="submit" className="btn btn-primary">{loading && <FontAwesomeIcon icon="fa-solid fa-spinner" spinPulse size="lg" style={{color: "#fcfcfc",}} />}Login</button> |
