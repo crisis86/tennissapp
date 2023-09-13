@@ -1023,7 +1023,7 @@ const Mychallenge = () => {
 
 
 
-                                                              
+
                                                             </div>
                                                         )}
                                                     </>
@@ -1065,7 +1065,7 @@ const Mychallenge = () => {
                                                             <>
 
                                                             </>
-                                                            {dayjs(today).format('DD/MM/YYYY') >= dayjs(item.datasfida).format('MM/DD/YYYY') &&
+                                                       {/*      {dayjs(today).format('DD/MM/YYYY') >= dayjs(item.datasfida).format('MM/DD/YYYY') && */}
 
                                                                 <div>
                                                                     <span><i>Inserisci Il risultati</i></span>
@@ -1115,7 +1115,10 @@ const Mychallenge = () => {
                                                                     <button style={{ display: 'inerith' }} onClick={(e) => aggiornapunteggio(e, item.id, item.players[0].idp1, item.players[1].idp2)} type="button" className="button button-fill button-small">Aggiorna Risultati</button>
 
                                                                 </div>
-                                                            }
+                                                          
+
+
+
                                                         </div>
                                                     )}
                                                 </>
