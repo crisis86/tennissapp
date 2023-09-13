@@ -36,7 +36,7 @@ const AdminChallenge = () => {
             }
             return res.json();
         }).then(res => {
-            custupdate(res)
+            challengelist(res)
         });
     } 
 
@@ -88,8 +88,8 @@ const AdminChallenge = () => {
         }
 
         if (window.confirm("Sei sicuro? l'operazione porterà alla cancellazione dei dati")) {
-            removeplayer(param);
-            loadcustomer();
+            removechallenge(param);
+            loacdchallenger();
         }
        
         
