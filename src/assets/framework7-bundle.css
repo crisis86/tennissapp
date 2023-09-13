@@ -153,7 +153,7 @@
     --f7-color-red-rgb: 255, 59, 48;
     --f7-color-red-shade: #ff1407;
     --f7-color-red-tint: #ff6259;
-    --f7-color-green: #4cd964;
+    --f7-color-green: #71b852 ;
     --f7-color-green-rgb: 76, 217, 100;
     --f7-color-green-shade: #2cd048;
     --f7-color-green-tint: #6ee081;
@@ -217,7 +217,7 @@
     --f7-theme-color-tint: #ff6259;
   }
   .color-theme-green {
-    --f7-theme-color: #4cd964;
+    --f7-theme-color: #71b852 ;
     --f7-theme-color-rgb: 76, 217, 100;
     --f7-theme-color-shade: #2cd048;
     --f7-theme-color-tint: #6ee081;
@@ -320,19 +320,19 @@
     --f7-theme-color-ripple-color: rgba(255, 59, 48, 0.3);
   }
   .color-green {
-    --f7-theme-color: #4cd964;
+    --f7-theme-color: #71b852 ;
     --f7-theme-color-rgb: 76, 217, 100;
     --f7-theme-color-shade: #2cd048;
     --f7-theme-color-tint: #6ee081;
   }
   .text-color-green {
-    --f7-theme-color-text-color: #4cd964;
+    --f7-theme-color-text-color: #71b852 ;
   }
   .bg-color-green {
-    --f7-theme-color-bg-color: #4cd964;
+    --f7-theme-color-bg-color: #71b852 ;
   }
   .border-color-green {
-    --f7-theme-color-border-color: #4cd964;
+    --f7-theme-color-border-color: #71b852 ;
   }
   .ripple-color-green,
   .ripple-green {
@@ -8391,7 +8391,7 @@
       background-color: #ff3b30;
     }
     50% {
-      background-color: #4cd964;
+      background-color: #71b852 ;
     }
     75% {
       background-color: #ff9500;
@@ -8525,7 +8525,7 @@
       border-top-color: transparent;
     }
     50% {
-      border-color: #4cd964;
+      border-color: #71b852;
       border-top-color: transparent;
     }
     75% {
@@ -8663,7 +8663,7 @@
   }
   .ios .progressbar-infinite.color-multi:before {
     width: 400%;
-    background-image: linear-gradient(to right, #4cd964, #5ac8fa, #007aff, #34aadc, #5856d6, #ff2d55, #5856d6, #34aadc, #007aff, #5ac8fa, #4cd964);
+    background-image: linear-gradient(to right, #71b852 , #5ac8fa, #007aff, #34aadc, #5856d6, #ff2d55, #5856d6, #34aadc, #007aff, #5ac8fa, #71b852 );
     background-size: 25% 100%;
     background-repeat: repeat-x;
     animation: ios-progressbar-infinite-multicolor 3s linear infinite;
@@ -8792,7 +8792,7 @@
   }
   .aurora .progressbar-infinite.color-multi:before {
     width: 400%;
-    background-image: linear-gradient(to right, #4cd964, #5ac8fa, #007aff, #34aadc, #5856d6, #ff2d55, #5856d6, #34aadc, #007aff, #5ac8fa, #4cd964);
+    background-image: linear-gradient(to right, #71b852 , #5ac8fa, #007aff, #34aadc, #5856d6, #ff2d55, #5856d6, #34aadc, #007aff, #5ac8fa, #71b852 );
     background-size: 25% 100%;
     background-repeat: repeat-x;
     animation: aurora-progressbar-infinite-multicolor 3s linear infinite;
@@ -19270,7 +19270,7 @@
     --swiper-theme-color: #ff3b30;
   }
   .color-theme-green {
-    --swiper-theme-color: #4cd964;
+    --swiper-theme-color: #71b852 ;
   }
   .color-theme-blue {
     --swiper-theme-color: #2196f3;
@@ -19315,7 +19315,7 @@
     --swiper-theme-color: #ff3b30;
   }
   .color-green {
-    --swiper-theme-color: #4cd964;
+    --swiper-theme-color: #71b852 ;
   }
   .color-blue {
     --swiper-theme-color: #2196f3;

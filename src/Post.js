@@ -6,7 +6,7 @@ import avatar from './assets/avatar.png';
 
 const Post = () => {
 
-    const [title, setitle] = useState('');
+    const [title, setitle] = useState('Nuovo Post');
     const [descrizione, setdescr] = useState('');
     const [datapost, setdate] = useState(new Date().toLocaleString())
     const [visible, setvisible] = useState(true);
@@ -145,17 +145,18 @@ const Post = () => {
 
             
         </div>
+        <div  className="">
         <form className="container" onSubmit={handlesubmit}>
                     <div className="card">
                         <div className="card-header">
-                            <h5>Nuovo Post Pubblico</h5>
+                            <h6>Nuovo Post Pubblico</h6>
                         </div>
                         <div className="card-body">
 
                             <div className="row">
 
 
-                                <div className="col-lg-6">
+                                <div style={{display:'none'}}  className="col-lg-6">
                                     <div className="form-group">
                                         <label>Titolo <span className="errmsg">*</span></label>
                                         <input maxLength={50} value={title} onChange={e => setitle(e.target.value)} className="form-control"></input>
@@ -163,8 +164,7 @@ const Post = () => {
                                 </div>
                                 <div className="col-lg-12">
                                     <div className="form-group">
-                                        <label>Post</label>
-                                        <textarea style={{height:'30px'}} maxLength={250} value={descrizione} onChange={e => setdescr(e.target.value)} className="form-control"></textarea>
+                                            <textarea style={{height:'45', display:'block', width:'100%'}} maxLength={250} value={descrizione} onChange={e => setdescr(e.target.value)} className="form-control"></textarea>
                                     </div>
                                 </div>
 
@@ -173,11 +173,11 @@ const Post = () => {
 
                         </div>
                         <div className="card-footer">
-                            <button type="submit" className="btn btn-primary">Invia</button> |
+                            <button type="submit" className="btn btn-primary">Invia</button> 
                         </div>
                     </div>
                 </form>
-
+                </div>
     </div>
 
     );

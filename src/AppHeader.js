@@ -9,7 +9,7 @@ const Appheader = () => {
     const location = useLocation();
 
     const [badge, setbadge] = useState(false)
-    const fullname = sessionStorage.getItem('fullname');
+    const datiuserloging = JSON.parse(localStorage.getItem('datiuserlogin'))
 
     useEffect(() => {
         if (location.pathname === '/login' || location.pathname === '/register' || location.pathname === '/Regolamento.html') {
@@ -56,7 +56,7 @@ const Appheader = () => {
                 <div className="header">
 
 
-                    <span style={{ float: 'left' }}>Ciao <i>{sessionStorage.getItem('fullname')}</i>  </span>
+                    <span style={{ float: 'left' }}>Ciao <i>{sessionStorage.getItem('fullname')} </i> ({datiuserloging['posizione']}) </span>
                     {badge === true && <span className="badge">News</span>}
                     <span>  <Link className="logout" style={{ float: 'right', color: '#ffffff !important' }} to={'/logout'}>
                     <FaIcons.FaSignOutAlt style={{color: '#ffffff' }} /></Link> </span>

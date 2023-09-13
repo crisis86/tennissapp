@@ -61,8 +61,8 @@ const Home = () => {
                                         <div className="item-row flex-direction-column height-100">
                                             <div className="item-row">
                                                 <div className="item-cell flex-shrink-0 width-auto align-self-flex-start">
+                                                <b>Sfida:</b> {item.status}
 
-                                                    <img className="shape-auto" src={avatar} loading="lazy" height="48" width="48" alt="" />
 
                                                 </div>
                                                 <div className="item-cell">
@@ -71,15 +71,15 @@ const Home = () => {
                                                             {item.title}
                                                         </div>
                                                         <div className="item-cell flex-shrink-0 width-auto line-height-1">
-                                                            <i className="postnews">News</i>
+                                                        <span style={{ fontSize: "14px", textAlign:'left' }}><b>Creata:</b> &nbsp; <i>{item.datacreate}</i></span>
+                                                        <br></br>
+                                                        <span style={{ fontSize: "14px", textAlign:'left' }}><b>Prevista:</b> <i>{item.datasfida}</i></span>
+
                                                         </div>
                                                     </div>
                                                     <div className="item-row">
-                                                        <div className="item-cell">
-                                                       STATUS: {item.status}
-                                                            <span style={{ fontSize: "14px" }}>Creata: <i>{item.datacreate}</i></span>
-                                                            <br></br>
-                                                            <span style={{ fontSize: "14px" }}>Programmata: <i>{item.datasfida}</i></span>
+                                                        <div className="item-cell flex-shrink-0 width-auto line-height-1">
+                                                         
 
                                                         </div>
 
@@ -90,7 +90,7 @@ const Home = () => {
                                                 <div style={{textAlign:'center', background:'#e7e7e7', opacity:'0.7'}} className="item-cell">
                                                     <div className="font-size-14 multi-line-text lines-3 text-color-gray">
                                                     <a className='link' href={'/Challenge-single/' + item.players[0].idp1+'/'+item.players[0].p1}>
-                                                        <span style={{ fontSize: "14px" }}> <i>{item.players[0].p1}</i></span>
+                                                        <span style={{ fontSize: "14px" }}> <i>{item.players[0].p1} </i></span>
                                                         </a>
                                                         <span>vs</span>
                                                         <a className='link' href={'/Challenge-single/' + item.players[1].idp2+'/'+item.players[1].p2}>
