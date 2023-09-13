@@ -17,7 +17,6 @@ import Mychallenge from './Mychallenge'
 import Post from './Post';
 import Regolamento from './Regolamento';
 import AdminChallenge from './AdminChallenge';
-import EditChallenge from './EditChallenge';
 
 function App() {  
 
@@ -248,8 +247,8 @@ function App() {
           <Route path="/Post" element={<Post />}> </Route>
           <Route path="/Edit/:id" element={<Edit />}> </Route>
           <Route path="/AdminChallenge" element={<AdminChallenge />}> </Route>
-          <Route path="/EditChallenge/:id" element={<EditChallenge />}> </Route>
-          <Route path="/Challenge-single/:id/:name" element={<ChallengeSingle />}> </Route>
+{/*           <Route path="/EditChallenge/:id" element={<EditChallenge />}> </Route>
+ */}          <Route path="/Challenge-single/:id/:name" element={<ChallengeSingle />}> </Route>
 
 
         </Routes>
