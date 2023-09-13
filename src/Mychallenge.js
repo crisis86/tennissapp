@@ -923,7 +923,7 @@ const Mychallenge = () => {
                                                 <li>Creata il: {item.datacreate}</li>
                                                 <li>Programmata il: {item.datasfida}</li>
                                                 {item.players[0].idp1 === iduser ? (
-                                                    <li> <b>  {loadnumberphone(item.players[1].idp2)}</b></li>
+                                                    <li> <b> {loadnumberphone(item.players[1].idp2)}</b></li>
                                                 ) : (
                                                     <li> <b>{loadnumberphone(item.players[0].idp1)}</b></li>
                                                 )}

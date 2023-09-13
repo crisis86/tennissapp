@@ -33,5 +33,11 @@ export const SidebarData = [
     path: '/Mychallenge',
     icon: <FaIcons.FaCartPlus />,
     cName: 'nav-text'
+  },
+  {
+    title: 'AdmiChallenge',
+    path: '/AdminChallenge',
+    icon: <FaIcons.FaCartPlus />,
+    cName: 'nav-text'
   }
 ];

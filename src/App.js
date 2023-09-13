@@ -16,6 +16,8 @@ import ChallengeSingle from './Challenge-single';
 import Mychallenge from './Mychallenge'
 import Post from './Post';
 import Regolamento from './Regolamento';
+import AdminChallenge from './AdminChallenge';
+import EditChallenge from './editchallenge';
 
 function App() {  
 
@@ -245,6 +247,8 @@ function App() {
           <Route path="/Mychallenge" element={<Mychallenge />}> </Route>
           <Route path="/Post" element={<Post />}> </Route>
           <Route path="/Edit/:id" element={<Edit />}> </Route>
+          <Route path="/AdminChallenge" element={<AdminChallenge />}> </Route>
+          <Route path="/EditChallenge/:id" element={<EditChallenge />}> </Route>
           <Route path="/Challenge-single/:id/:name" element={<ChallengeSingle />}> </Route>
 
 
