@@ -431,7 +431,7 @@
       "role": "player",
       "address": "",
       "gender": "male",
-      "posizione": 33,
+      "posizione": 34,
       "insfida": false,
       "id": 34
     },
@@ -444,7 +444,7 @@
       "role": "player",
       "address": "",
       "gender": "male",
-      "posizione": 35,
+      "posizione": 36,
       "insfida": false,
       "id": 35
     },
@@ -457,8 +457,8 @@
       "role": "player",
       "address": "",
       "gender": "male",
-      "posizione": 36,
-      "insfida": true,
+      "posizione": 32,
+      "insfida": false,
       "id": 36
     },
     {
@@ -471,7 +471,7 @@
       "address": "",
       "gender": "male",
       "posizione": 37,
-      "insfida": true,
+      "insfida": false,
       "id": 37
     },
     {
@@ -483,7 +483,7 @@
       "role": "player",
       "address": "via madonna delle grazie 120",
       "gender": "male",
-      "posizione": 32,
+      "posizione": 33,
       "insfida": false,
       "id": 38
     },
@@ -496,7 +496,7 @@
       "role": "player",
       "address": "via madonna delle grazie 120",
       "gender": "male",
-      "posizione": 34,
+      "posizione": 35,
       "insfida": false,
       "id": 39
     }
@@ -758,11 +758,30 @@
           "p2": "Roberto Tramontano "
         }
       ],
-      "status": "processing",
-      "set1": "",
-      "set2": "",
-      "set3": "",
+      "status": "complete",
+      "set1": "6-3",
+      "set2": "0-0",
+      "set3": "0-0",
       "id": 10
+    },
+    {
+      "datacreate": "14/9/2023",
+      "datasfida": "14/09/2023",
+      "players": [
+        {
+          "idp1": 36,
+          "p1": "Roberto Tramontano "
+        },
+        {
+          "idp2": 38,
+          "p2": "vincenzo della pietra"
+        }
+      ],
+      "status": "complete",
+      "set1": "6-2",
+      "set2": "2-6",
+      "set3": "2-6",
+      "id": 11
     }
   ]
 }

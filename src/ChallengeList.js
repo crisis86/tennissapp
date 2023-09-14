@@ -2,8 +2,8 @@ import './assets/framework7-bundle.css';
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import logo from './assets/pallina.png';
-
+import iconchallengeblu from './assets/icone/chhallenge-blu.svg';
+import iconchallenge from './assets/icone/chhallenge.svg';
 
 const ChallengeList = () => {
     const navigate = useNavigate();
@@ -64,12 +64,12 @@ const iduser = parseInt(sessionStorage.getItem('iduser'))
                                                         <div className="item-inner item-cell">
                                                             <div className="item-row">
                                                               <div className="item-cell width-auto">
-                                                                    <img src={logo} height="20" width="20" alt="Pallina" />
+                                                                    <img src={item.id===iduser ? iconchallengeblu: iconchallenge} height="30" width="30" alt="Challenge" />
                                                                 </div>
-                                                                <a className='link' style={{ width: '150px' }} href={'/Challenge-single/' + item.id+'/'+item.name}>
+                                                                <a className='link' style={{ width: '170px' }} href={'/Challenge-single/' + item.id+'/'+item.name}>
 
-                                                                    <div className="item-cell">
-                                                                            <div className="font-size-20 font-weight-bold text-color-primary">
+                                                                    <div style={{ fontSize:'15px'}} className="item-cell">
+                                                                            <div  className="font-size-20 font-weight-bold text-color-primary">
 
                                                                                 {item.name}
 
