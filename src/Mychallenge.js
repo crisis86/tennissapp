@@ -636,26 +636,32 @@ const Mychallenge = () => {
         switch (props) {
             case 'Sfida':
 
-                let indice = posp1 - posp2
+                //let indice = posp1 - posp2
 
                 const found = classicica.sort((a, b) => a.posizione > b.posizione ? 1 : -1).filter((obj, index) => {
 
                     if (index + 1 >= posp2 && index + 1 <= posp1 - 1) {
 
+                        if (Object.keys(classicica).length > index + 1) {
+                            
                         obj.posizione = obj.posizione + 1
-                        if (obj.id === idp1) { obj.insfida = false } // ulteriore controllo dello sfidato 
-                        console.log(obj.posizione)
+                        if (obj.id === idp1) { obj.insfida = false;    updateUserPosition(obj) } // ulteriore controllo dello sfidato 
+                        console.log("Posizioni nel mezzo: " +obj.posizione)
                         updateUserPosition(obj)
+                         }
+                       
                     }
                     if (obj.id === idp2) {
                         obj.insfida = false
+                        if (Object.keys(classicica).length > index + 1) {
                         obj.posizione = posp2 + 1 // scendo di una posizione 
-                        //        console.log("posizione pedente:" +obj.posizione) 
+                               console.log("posizione pedente:" +obj.posizione) 
+                        }
                         updateUserPosition(obj)
                     } if (obj.id === idp1) {
 
                         obj.insfida = false
-                        obj.posizione = posp1 - indice // prendo la posizione di chi o sfidato salgo in classifica
+                        obj.posizione = posp2 // prendo la posizione di chi o sfidato salgo in classifica
                         console.log("pos vincente", obj.posizione)
                         updateUserPosition(obj)
                     }
@@ -670,15 +676,19 @@ const Mychallenge = () => {
 
 
                 const found2 = classicica.sort((a, b) => a.posizione > b.posizione ? 1 : -1).filter((obj, index) => {
-
-                    //   if (index + 1 === posp2 - 1 || index + 1 === posp2 - 2) {
-                    if (index + 1 >= posp2 - 2 && index + 1 <= posp2) {
-
+ 
+                    let vecchiapos=""
+                    if (index + 1 === posp2 - 1|| index + 1 === posp2 - 2) {
+                  
                         if (posp2 === 2) { return } // esco perchè rimango al secondo posto
                         if (posp2 === 3 && obj.posizione === 1) { return } // esco per non cambiare la posizione al numero1
 
+                        if(obj.id !== idp1 || obj.id !== idp2)
+                          vecchiapos = obj.posizione
                         obj.posizione = obj.posizione + 1
-                        console.log(obj.posizione)
+                    
+                        console.log("ho spostato id  " +obj.name + " vecchia pos:" + vecchiapos)
+                        console.log("Posizioni nel mezzo:"+ obj.posizione)
                         updateUserPosition(obj)
                     }
                     if (obj.id === idp2) {
@@ -691,24 +701,31 @@ const Mychallenge = () => {
                         console.log("posizione vincente:" + obj.posizione)
                         updateUserPosition(obj)
 
-                    } if (obj.id === idp1) {
+                    } 
+
+                    if (obj.id === idp1) {
 
                         obj.insfida = false
 
                         if (Object.keys(classicica).length > index + 1) { //controllo la fine della classifica
-                            obj.posizione = posp1 + 1 // scendo di una
+                            vecchiapos = obj.posizione
+                            obj.posizione = obj.posizione + 1 // scendo di una
+                            console.log("Pedendte " +obj.name + " vecchia pos:" + vecchiapos)
+                            console.log("pos perdente", obj.posizione)
                         }
-                        console.log("lunghezza array ", Object.keys(classicica).length)
-                        console.log("lunghezza ", index)
-                        console.log("pos perdente", obj.posizione)
+                        console.log("lunghezza array perd ", Object.keys(classicica).length)
+                        console.log("lunghezza perd", index)
+                      
                         updateUserPosition(obj)
 
-                    } if (index + 1 === posp1 + 1) {
+                    } 
+
+                    if (index + 1 === posp1) {
                         obj.posizione = obj.posizione - 1  // sale di uno quello sotto a me
 
                         if (obj.posizione <= 0) { obj.posizione = 1 }  //check primo classifica 
-
-                        console.log("pos sotto al perdente", obj.posizione + " " + obj.name)
+                        console.log("lunghezza indice poss che deve salire ", index)
+                        console.log("pos che sale sotto al perdente", obj.posizione + " " + obj.name)
                         updateUserPosition(obj)
                     }
 
@@ -716,7 +733,7 @@ const Mychallenge = () => {
 
                 })
 
-                console.log(JSON.stringify(found2));
+            //    console.log(JSON.stringify(found2));
 
                 return found2
 
@@ -870,7 +887,7 @@ const Mychallenge = () => {
         }
 
         let data = {
-             //metto volutamente  il subject nella voce name
+            //metto volutamente  il subject nella voce name
             name: subject,
             email: emails,
             message: message
@@ -968,7 +985,8 @@ const Mychallenge = () => {
                                                             </div>
                                                         ) : (
                                                             <div className="row">
-                                                              {/*   {dayjs(today).format('DD/MM/YYYY') >= dayjs(item.datasfida).format('MM/DD/YYYY') && */}
+                                                                
+                                                                {Date(today) >= Date(item.datasfida) &&
                                                                     <div>
 
                                                                         <span><i>Inserisci Il risultati </i></span>
@@ -1019,8 +1037,8 @@ const Mychallenge = () => {
 
 
                                                                     </div>
-                                                              
 
+                                                                }
 
 
 
@@ -1063,11 +1081,11 @@ const Mychallenge = () => {
                                                     ) : (
                                                         <div className="row">
                                                             <>
-
                                                             </>
-                                                       {/*      {dayjs(today).format('DD/MM/YYYY') >= dayjs(item.datasfida).format('MM/DD/YYYY') && */}
+                                                            {Date(today) >= Date(item.datasfida) &&
 
                                                                 <div>
+
                                                                     <span><i>Inserisci Il risultati</i></span>
 
                                                                     <table className="data-table">
@@ -1115,8 +1133,8 @@ const Mychallenge = () => {
                                                                     <button style={{ display: 'inerith' }} onClick={(e) => aggiornapunteggio(e, item.id, item.players[0].idp1, item.players[1].idp2)} type="button" className="button button-fill button-small">Aggiorna Risultati</button>
 
                                                                 </div>
-                                                          
 
+                                                            }
 
 
                                                         </div>
