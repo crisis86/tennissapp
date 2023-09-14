@@ -582,12 +582,9 @@
           "idp1": 0,
           "p1": "Admin Admin"
         },
-        {
-          "idp1": 0,
-          "p2": "Admin Admin"
-        }
+        {}
       ],
-      "status": "canel",
+      "status": "cancel",
       "set1": "0-0",
       "set2": "0-0",
       "set3": "0-0",

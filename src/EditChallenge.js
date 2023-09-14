@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useParams } from "react-router-dom";
 
-const editchallenge = () => {
+const EditChallenge = () => {
 
     //const [id, idchange] = useState(0);
     const id = useParams()
@@ -73,10 +73,6 @@ const editchallenge = () => {
         });
     }
 
-
-
- 
-
     const handlesubmit = (e) => {
         e.preventDefault();
 
@@ -133,26 +129,33 @@ const editchallenge = () => {
                                 <div className="col-lg-6">
                                     <div className="form-group">
                                         <label>Set1 <span className="errmsg">*</span></label>
-                                        <input value={set1} onChange={e => setset1(e.target.value)} type="password" className="form-control"></input>
+                                        <input value={set1} onChange={e => setset1(e.target.value)} type="text" className="form-control"></input>
                                     </div>
                                 </div>
                                 <div className="col-lg-6">
                                     <div className="form-group">
                                         <label>Set2 <span className="errmsg">*</span></label>
-                                        <input value={set2} onChange={e => setset2(e.target.value)} type="password" className="form-control"></input>
+                                        <input value={set2} onChange={e => setset2(e.target.value)} type="text" className="form-control"></input>
                                     </div>
                                 </div>
                                 <div className="col-lg-6">
                                     <div className="form-group">
                                         <label>Set3 <span className="errmsg">*</span></label>
-                                        <input value={set3} onChange={e => setset3(e.target.value)} type="password" className="form-control"></input>
+                                        <input value={set3} onChange={e => setset3(e.target.value)} type="text" className="form-control"></input>
                                     </div>
                                 </div>
                          
                                 <div className="col-lg-6">
                                     <div className="form-group">
                                         <label>Status <span className="errmsg">*</span></label>
-                                        <input value={status} onChange={e => setstatus(e.target.value)} className="form-control"></input>
+                                        <select value={status} onChange={e => setstatus(e.target.value)} className="form-control">
+                                         
+                                           <option value="processing">processing</option>
+                                            <option value="cancel">cancel</option>
+                                            <option value="pending">pending</option>
+                                            <option value="complete">complete</option>
+                                        </select>
+                                 
                                     </div>
                                 </div>
                                
@@ -173,4 +176,4 @@ const editchallenge = () => {
     );
 }
 
-export default editchallenge;
+export default EditChallenge;

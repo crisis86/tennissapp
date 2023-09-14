@@ -29,7 +29,7 @@ const AdminChallenge = () => {
     const loacdchallenger = () => {
         
 
-        fetch(window.$produrl+"/challege").then(res => {
+        fetch(window.$produrl+"/challenge").then(res => {
             if (!res.ok) {
                
                 return false
@@ -138,8 +138,8 @@ const AdminChallenge = () => {
                                 challenge.sort((a, b) => a.id > b.id ? 1 : -1).map((item, index) => (
                                     <tr key={index+1}>
                                        <td>{item.id}</td>
-                                       <td>{item.players[0].idp1}</td>
-                                        <td>{item.players[1].idp2}</td>
+                                       <td>{item.players[0].p1}</td>
+                                        <td>{item.players[1].p2}</td>
                                         <td>{item.status}</td>
                                         <td>
                                             <button onClick={(e) => handleedit(e, item.id)} className="btn btn-primary">Edit</button> &nbsp;
