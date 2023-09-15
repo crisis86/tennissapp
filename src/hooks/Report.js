@@ -38,6 +38,7 @@ const Report = () => {
             let sommavittorie = 0
             let sommasconfitte = 0
             let lunghezza=0;
+            let percentuale=0;
             const idscheda = parseInt(param['id'])
 
             const found = challengelist.filter(obj => {
@@ -95,8 +96,15 @@ const Report = () => {
                 return obj.id;
 
             });
-  console.log(sommavittorie)
-            setpercentage(parseInt(sommavittorie) / lunghezza * 100)
+
+            percentuale = sommavittorie / lunghezza * 100
+            
+               if(isNaN(percentuale)) {
+                percentuale=0;
+            }
+
+            setpercentage(percentuale)
+                      
 
         });
     }
@@ -110,7 +118,7 @@ const Report = () => {
                         textColor: "#0054b4",
 
                     })}
-                    minValue={0} maxValue={100} value={percentage} text={`${percentage}%`} />;
+                    minValue={0} maxValue={100} value={10} text={`${percentage}%`} />
 
             </div>
             <span style={{ color: '#0054b4', fontSize: '14px', paddingLeft: '5px' }}>WIN</span>
