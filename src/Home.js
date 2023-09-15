@@ -61,12 +61,27 @@ const Home = () => {
                                         <div className="item-row flex-direction-column height-100">
                                             <div className="item-row">
                                                 <div className="item-cell flex-shrink-0 width-auto align-self-flex-start">
-                                                <b>Sfida:</b> {item.status}
+                                                {item.status==='pending' &&
+                                                  <b  style={{background:'#e7e7e7', padding:'3px'}} >Attesa Avversario</b> 
+
+                                                }
+                                                {item.status==='processing' && 
+                                                  <b style={{background:'#e7e7e7', padding:'3px'}}>In Corso</b> 
+
+                                                }
+                                                 {item.status==='cancel' && 
+                                                  <b style={{background:'#e7e7e7',padding:'3px'}}>Annullata</b> 
+
+                                                }
+                                                    {item.status==='complete' && 
+                                                  <b style={{background:'#e7e7e7', padding:'3px'}} >Completata </b> 
+
+                                                }
 
 
                                                 </div>
                                                 <div className="item-cell">
-                                                    <div className="item-row">
+                                                    <div style={{position:'relative', left:'-10px'}}  className="item-row">
                                                         <div className="item-cell">
                                                             {item.title}
                                                         </div>
@@ -89,13 +104,16 @@ const Home = () => {
                                             <div className="item-row margin-top">
                                                 <div style={{textAlign:'center', background:'#e7e7e7', opacity:'0.7'}} className="item-cell">
                                                     <div className="font-size-14 multi-line-text lines-3 text-color-gray">
-                                                    <a className='link' href={'/Challenge-single/' + item.players[0].idp1+'/'+item.players[0].p1}>
+                                                      
+                                                       <li> <a className='link' href={'/Challenge-single/' + item.players[0].idp1+'/'+item.players[0].p1}>
                                                         <span style={{ fontSize: "14px" }}> <i>{item.players[0].p1} </i></span>
-                                                        </a>
-                                                        <span>vs</span>
-                                                        <a className='link' href={'/Challenge-single/' + item.players[1].idp2+'/'+item.players[1].p2}>
+                                                        </a></li>
+                                                        <li>     <span>vs</span></li>
+                                                       
+                                                        <li>      <a className='link' href={'/Challenge-single/' + item.players[1].idp2+'/'+item.players[1].p2}>
                                                         <span style={{ fontSize: "14px" }}> <i>{item.players[1].p2}</i></span>
-                                                        </a>
+                                                        </a></li>
+
                                                     </div>
                                                 </div>
                                             </div>

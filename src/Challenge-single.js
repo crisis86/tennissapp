@@ -4,6 +4,7 @@ import { Link, useParams, useNavigate } from "react-router-dom";
 import Swal from 'sweetalert2';
 import { toast } from "react-toastify";
 import avatar from './assets/avatar.png';
+import Report from './hooks/Report';
 
 
 const ChallengeSingle = () => {
@@ -25,7 +26,7 @@ const ChallengeSingle = () => {
     const [challengepending, setchallengepending] = useState([]);
     const [datadioggi, setdatadioggi] = useState(new Date());
     const [giornisfida, setgiornisfida] = useState(0);
-   
+
 
 
     // flag SFIDA user collegato
@@ -118,14 +119,14 @@ const ChallengeSingle = () => {
                     'con su successo!'
                 )
 
-                let mailforsend="";
+                let mailforsend = "";
                 const found = player.filter(obj => {
                     if (obj.id === idp1 && status === "update") {
                         obj.insfida = true;
-                        mailforsend= obj.email
+                        mailforsend = obj.email
                     } else {
                         obj.insfida = false;
-                        mailforsend= obj.email
+                        mailforsend = obj.email
                     }
                     return obj.id === idp1;
                 });
@@ -232,7 +233,7 @@ const ChallengeSingle = () => {
             console.log('challenge creato')
             sessionStorage.setItem('stoinsfida', true);
 
-             sendemail(nomedasfidare, emailperinvio, 'add')
+            sendemail(nomedasfidare, emailperinvio, 'add')
 
             // console.log('sto in sfida: ' +stoinsfida)
         }).catch((err) => {
@@ -249,15 +250,15 @@ const ChallengeSingle = () => {
     function sendemail(names, emails, status) {
 
         let message = "";
-        let subject ="";
+        let subject = "";
         if (status === 'add') {
             message = "Ciao " + names + ", \n\n" +
                 "Sei stato Sfidato ad " + fullname + " \n" +
                 "Controlla Le tue Sfide cliccando sul link https://tennissapp.vercel.app/Mychallenge \n per accettare o rifiutare la sfida \n\n" +
                 "Questa email è stata inviata da SpinupTennis"
-                subject="Nuova Sfida da "+ fullname 
-        } 
-        
+            subject = "Nuova Sfida da " + fullname
+        }
+
 
         let data = {
             //metto volutamente  il subject nella voce name
@@ -311,7 +312,7 @@ const ChallengeSingle = () => {
                 result.json().then((resp) => {
                     //  console.log(resp)
                     sessionStorage.setItem('stoinsfida', false);
-                 
+
                 })
             }).catch((err) => {
                 toast.error(err.message);
@@ -417,7 +418,7 @@ const ChallengeSingle = () => {
 
     }
 
- 
+
     return (
         <>
             <div className="page-content">
@@ -429,8 +430,17 @@ const ChallengeSingle = () => {
                         player.map((plr, index) => (
                             <div key={index + 1} className="row">
                                 <div className="col flex-shrink-0 width-auto">
+
                                     <img className="shape-rounded-square" src={avatar} loading="lazy" height="48" width="48" alt="" />
+
+                                    <div style={{ float: 'right' }}>
+
+                                        <Report></Report>
+
+                                    </div>
+
                                 </div>
+
 
                                 <div className="col flex-grow-1 margin-right-half">
                                     <div className="multi-line-text lines-2">
@@ -441,13 +451,16 @@ const ChallengeSingle = () => {
                                     </div>
 
                                     <div className="font-size-14 single-line-text text-color-gray">{plr.name}</div>
+
                                 </div>
+
 
                                 <div className="left">
                                     <a href="/ChallengeList" className="link back">
                                         <i className="icon icon-back"></i>
                                         <span className="if-not-md">Back</span>
                                     </a>
+
                                 </div>
 
                                 <div className="col flex-grow-1 margin-right-half">
@@ -500,7 +513,22 @@ const ChallengeSingle = () => {
                                                         <li>Sfida: {partite.players[0].p1} VS {partite.players[1].p2}</li>
                                                         <li>Creata il: {partite.datacreate}</li>
                                                         <li>Programmata il: {partite.datasfida}</li>
-                                                        <li>Stato: {partite.status} </li>
+                                                        {partite.status === 'pending' &&
+                                                            <b>Attesa Avversario</b>
+
+                                                        }
+                                                        {partite.status === 'processing' &&
+                                                            <b>In Corso</b>
+
+                                                        }
+                                                        {partite.status === 'cancel' &&
+                                                            <b>Annullata</b>
+
+                                                        }
+                                                        {partite.status === 'complete' &&
+                                                            <b>Completata </b>
+
+                                                        }
                                                         <li ><b>Score</b></li>
                                                         <li >Set1: <b>{partite.set1} </b></li>
                                                         <li >Set2: <b>{partite.set2} </b></li>

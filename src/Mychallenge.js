@@ -645,7 +645,7 @@ const Mychallenge = () => {
                         if (Object.keys(classicica).length > index + 1) {
                             
                         obj.posizione = obj.posizione + 1
-                        if (obj.id === idp1) { obj.insfida = false;    updateUserPosition(obj) } // ulteriore controllo dello sfidato 
+                        if (obj.id === idp1) { obj.insfida = false;} // ulteriore controllo dello sfidato 
                         console.log("Posizioni nel mezzo: " +obj.posizione)
                         updateUserPosition(obj)
                          }
@@ -936,7 +936,22 @@ const Mychallenge = () => {
                                             <ul>
 
                                                 <li key={index + 1}>Sfida: {item.players[0].p1} VS {item.players[1].p2}</li>
-                                                <li> Stato {item.status}</li>
+                                                {item.status === 'pending' &&
+                                                            <b>Attesa Avversario</b>
+
+                                                        }
+                                                        {item.status === 'processing' &&
+                                                            <b>In Corso</b>
+
+                                                        }
+                                                        {item.status === 'cancel' &&
+                                                            <b>Annullata</b>
+
+                                                        }
+                                                        {item.status === 'complete' &&
+                                                            <b>Completata </b>
+
+                                                        }
                                                 <li>Creata il: {item.datacreate}</li>
                                                 <li>Programmata il: {item.datasfida}</li>
                                                 {item.players[0].idp1 === iduser ? (
