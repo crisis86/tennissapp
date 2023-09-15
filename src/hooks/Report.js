@@ -37,16 +37,14 @@ const Report = () => {
             let vincitore = ""
             let sommavittorie = 0
             let sommasconfitte = 0
+            let lunghezza=0;
             const idscheda = parseInt(param['id'])
 
             const found = challengelist.filter(obj => {
-
-
+                lunghezza =  Object.keys(challengelist).length
                 let splitresult1 = obj.set1.split('-')
                 let splitresult2 = obj.set2.split('-')
                 let splitresult3 = obj.set3.split('-')
-
-
 
                 if (splitresult1[0] > splitresult1[1]) {
                     vitcasa += 1
@@ -65,15 +63,12 @@ const Report = () => {
                     vitospite += 1
                 }
 
-
                 if (vitcasa > vitospite) {
                     vincitore = "Player1"
                 } else {
                     vincitore = "Player2"
 
                 }
-
-
 
 
                 if (vincitore === 'Player1') {
@@ -97,19 +92,14 @@ const Report = () => {
                     }
                 }
 
-
-
                 return obj.id;
 
-
             });
-
-            setpercentage(parseInt(sommavittorie) + parseInt(sommasconfitte) / 2)
+  console.log(sommavittorie)
+            setpercentage(parseInt(sommavittorie) / lunghezza * 100)
 
         });
     }
-
-
 
     return (
         <>
