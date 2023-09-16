@@ -124,7 +124,7 @@ const Player = () => {
     }
 
     return (
-        <div className="page-content">
+        <div className="page-content" style={{overflowX:'scroll'}}>
 
             <div className="card">
                 <div className="card-header">
