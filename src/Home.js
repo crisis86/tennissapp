@@ -105,12 +105,12 @@ const Home = () => {
                                                 <div style={{ textAlign: 'center', background: '#e7e7e7', opacity: '0.7' }} className="item-cell">
                                                     <div className="font-size-14 multi-line-text lines-3 text-color-gray">
                                                         <ul>
-                                                            <li> <a className='link' href={'/Challenge-single/' + item.players[0].idp1 + '/' + item.players[0].p1}>
+                                                            <li> <a style={{textTransform:'capitalize'}} className='link' href={'/Challenge-single/' + item.players[0].idp1 + '/' + item.players[0].p1}>
                                                                 <span style={{ fontSize: "14px" }}> <i>{item.players[0].p1} </i></span>
                                                             </a></li>
-                                                            <li>     <span>vs</span></li>
+                                                            <li style={{ fontWeight: "bold" }}>      <span>vs</span></li>
 
-                                                            <li>      <a className='link' href={'/Challenge-single/' + item.players[1].idp2 + '/' + item.players[1].p2}>
+                                                            <li>      <a style={{textTransform:'capitalize'}} className='link' href={'/Challenge-single/' + item.players[1].idp2 + '/' + item.players[1].p2}>
                                                                 <span style={{ fontSize: "14px" }}> <i>{item.players[1].p2}</i></span>
                                                             </a></li>
                                                         </ul>
@@ -124,9 +124,9 @@ const Home = () => {
                                                         <ul>
 
                                                             <li style={{ textAlign: 'center' }} ><b>Score</b></li>
-                                                            <li style={{ textAlign: 'center' }} >Set1: <b>{item.set1} </b></li>
-                                                            <li style={{ textAlign: 'center' }}>Set2: <b>{item.set2} </b></li>
-                                                            <li style={{ textAlign: 'center' }} >Set3: <b>{item.set3} </b> </li>
+                                                            <li style={{textDecoration: item.set1==='0-0' ? 'line-through':'none', textAlign: 'center' }} >Set1: <b>{item.set1} </b></li>
+                                                            <li style={{textDecoration: item.set2==='0-0' ? 'line-through':'none', textAlign: 'center' }}>Set2: <b>{item.set2} </b></li>
+                                                            <li style={{textDecoration: item.set3==='0-0' ? 'line-through':'none', textAlign: 'center' }} >Set3: <b>{item.set3} </b> </li>
                                                         </ul>
 
                                                     </div>

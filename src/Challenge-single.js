@@ -435,7 +435,7 @@ const ChallengeSingle = () => {
 
                                     <div style={{ float: 'right' }}>
 
-                                        <Report></Report>
+                                        <Report />
 
                                     </div>
 
@@ -510,7 +510,7 @@ const ChallengeSingle = () => {
 
                                                     <ul>
 
-                                                        <li>Sfida: {partite.players[0].p1} VS {partite.players[1].p2}</li>
+                                                        <li style={{textTransform:'capitalize'}}>Sfida: {partite.players[0].p1} VS {partite.players[1].p2}</li>
                                                         <li>Creata il: {partite.datacreate}</li>
                                                         <li>Programmata il: {partite.datasfida}</li>
                                                         {partite.status === 'pending' &&
@@ -530,9 +530,9 @@ const ChallengeSingle = () => {
 
                                                         }
                                                         <li ><b>Score</b></li>
-                                                        <li >Set1: <b>{partite.set1} </b></li>
-                                                        <li >Set2: <b>{partite.set2} </b></li>
-                                                        <li >Set3: <b>{partite.set3} </b> </li>
+                                                        <li style={{textDecoration: partite.set1==='0-0' ? 'line-through':'none'}}>Set1: <b>{partite.set1} </b></li>
+                                                        <li style={{textDecoration: partite.set2==='0-0' ? 'line-through':'none'}}>Set2: <b>{partite.set2} </b></li>
+                                                        <li style={{textDecoration: partite.set3=='0-0' ? 'line-through':'none'}}>Set3: <b>{partite.set3} </b> </li>
                                                     </ul>
 
                                                 </div>

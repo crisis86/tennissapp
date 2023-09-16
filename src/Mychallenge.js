@@ -935,7 +935,7 @@ const Mychallenge = () => {
 
                                             <ul>
 
-                                                <li key={index + 1}>Sfida: {item.players[0].p1} VS {item.players[1].p2}</li>
+                                                <li style={{textTransform:'capitalize'}} key={index + 1}>Sfida: {item.players[0].p1} VS {item.players[1].p2}</li>
                                                 {item.status === 'pending' &&
                                                             <b>Attesa Avversario</b>
 
@@ -960,9 +960,9 @@ const Mychallenge = () => {
                                                     <li> <b>{loadnumberphone(item.players[0].idp1)}</b></li>
                                                 )}
                                                 <li ><b>Score</b></li>
-                                                <li >Set1: <b>{item.set1} </b></li>
-                                                <li >Set2: <b>{item.set2} </b></li>
-                                                <li >Set3: <b>{item.set3} </b> </li>
+                                                <li style={{textDecoration: item.set1=='0-0' ? 'line-through':'none'}} >Set1: <b>{item.set1} </b></li>
+                                                <li style={{textDecoration: item.set2=='0-0' ? 'line-through':'none'}} >Set2: <b>{item.set2} </b></li>
+                                                <li style={{textDecoration: item.set3=='0-0' ? 'line-through':'none'}} >Set3: <b>{item.set3} </b> </li>
 
                                             </ul>
 
