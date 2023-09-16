@@ -118,7 +118,7 @@ const Report = () => {
                         textColor: "#0054b4",
 
                     })}
-                    minValue={0} maxValue={100} value={10} text={`${percentage}%`} />
+                    minValue={0} maxValue={100} value={percentage} text={`${percentage}%`} />
 
             </div>
             <span style={{ color: '#0054b4', fontSize: '14px', paddingLeft: '5px' }}>WIN</span>
