@@ -517,10 +517,17 @@ const ChallengeSingle = () => {
                                                             <b>Attesa Avversario</b>
 
                                                         }
-                                                        {partite.status === 'processing' &&
-                                                            <b>In Corso</b>
+                                                           {partite.status === 'processing' &&
+                                                        <>
+                                                            {partite.datasfida === '' ? (
+                                                                <b style={{ background: '#e7e7e7', padding: '3px' }}>Da Porgrammare</b>
 
-                                                        }
+                                                            ) : (
+                                                               <b style={{ background: '#e7e7e7', padding: '3px' }}>In Corso</b>
+
+                                                            )}
+                                                        </>
+                                                    }
                                                         {partite.status === 'cancel' &&
                                                             <b>Annullata</b>
 

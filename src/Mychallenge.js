@@ -940,10 +940,17 @@ const Mychallenge = () => {
                                                             <b>Attesa Avversario</b>
 
                                                         }
-                                                        {item.status === 'processing' &&
-                                                            <b>In Corso</b>
+                                                            {item.status === 'processing' &&
+                                                        <>
+                                                            {item.datasfida === '' ? (
+                                                                <b style={{ background: '#e7e7e7', padding: '3px' }}>Da Porgrammare</b>
 
-                                                        }
+                                                            ) : (
+                                                               <b style={{ background: '#e7e7e7', padding: '3px' }}>In Corso</b>
+
+                                                            )}
+                                                        </>
+                                                    }
                                                         {item.status === 'cancel' &&
                                                             <b>Annullata</b>
 
