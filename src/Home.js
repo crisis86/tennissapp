@@ -110,7 +110,7 @@ const Home = () => {
                                             </div>
                                             <div className="item-row margin-top">
                                                 <div style={{ textAlign: 'center', background: '#e7e7e7', opacity: '0.7' }} className="item-cell">
-                                                    <div className="font-size-14 multi-line-text lines-3 text-color-gray">
+                                                    <div style={{borderRadius: '10px' }} className="font-size-14 multi-line-text lines-3 text-color-gray">
                                                         <ul>
                                                             <li> <a style={{ textTransform: 'capitalize' }} className='link' href={'/Challenge-single/' + item.players[0].idp1 + '/' + item.players[0].p1}>
                                                                 <span style={{ fontSize: "14px" }}> <i>{item.players[0].p1} </i></span>

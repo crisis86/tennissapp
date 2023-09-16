@@ -935,7 +935,7 @@ const Mychallenge = () => {
 
                                             <ul>
 
-                                                <li style={{textTransform:'capitalize'}} key={index + 1}>Sfida: {item.players[0].p1} VS {item.players[1].p2}</li>
+                                                <li style={{textTransform:'capitalize'}} key={index + 1}>{item.players[0].p1} VS {item.players[1].p2}</li>
                                                 {item.status === 'pending' &&
                                                             <b>Attesa Avversario</b>
 
@@ -959,8 +959,7 @@ const Mychallenge = () => {
                                                             <b>Completata </b>
 
                                                         }
-                                                <li>Creata il: {item.datacreate}</li>
-                                                <li>Programmata il: {item.datasfida}</li>
+                                                <li><b> Creata:</b> {item.datacreate} <b>Prevista:</b> {item.datasfida} </li>
                                                 {item.players[0].idp1 === iduser ? (
                                                     <li> <b> {loadnumberphone(item.players[1].idp2)}</b></li>
                                                 ) : (

@@ -510,10 +510,8 @@ const ChallengeSingle = () => {
 
                                                     <ul>
 
-                                                        <li style={{textTransform:'capitalize'}}>Sfida: {partite.players[0].p1} VS {partite.players[1].p2}</li>
-                                                        <li>Creata il: {partite.datacreate}</li>
-                                                        <li>Programmata il: {partite.datasfida}</li>
-                                                        {partite.status === 'pending' &&
+                                                        <li style={{textTransform:'capitalize'}}>{partite.players[0].p1} VS {partite.players[1].p2}</li>
+                                                       {partite.status === 'pending' &&
                                                             <b>Attesa Avversario</b>
 
                                                         }
@@ -536,6 +534,7 @@ const ChallengeSingle = () => {
                                                             <b>Completata </b>
 
                                                         }
+                                                         <li><b> Creata: </b>{partite.datacreate} <b>Prevista:</b> {partite.datasfida} </li>
                                                         <li ><b>Score</b></li>
                                                         <li style={{textDecoration: partite.set1==='0-0' ? 'line-through':'none'}}>Set1: <b>{partite.set1} </b></li>
                                                         <li style={{textDecoration: partite.set2==='0-0' ? 'line-through':'none'}}>Set2: <b>{partite.set2} </b></li>
