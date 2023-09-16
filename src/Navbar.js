@@ -4,7 +4,7 @@ import * as AiIcons from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import { SidebarData } from './SidebarData';
 import { IconContext } from 'react-icons';
-import logotennis from './assets/Super-tennis.png';
+import logotennis from './assets/logo.svg';
 
 
 
@@ -30,7 +30,7 @@ function Navbar() {
           <Link style={{display: myrole==='admin' ? '' : 'none' }} to='#' className='menu-bars'>
             <FaIcons.FaBars onClick={showSidebar} />
           </Link>
-          <div className='logo'><img width="150px" src={logotennis} alt='logo'></img></div>
+          <div className='logo'><img width="100px" src={logotennis} alt='logo'></img></div>
         </div>
         
         <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
