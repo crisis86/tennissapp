@@ -462,7 +462,7 @@ const ChallengeSingle = () => {
                                     </a>
 
                                 </div>
-
+                                
                                 <div className="col flex-grow-1 margin-right-half">
                                     {plr.id !== iduser &&
                                         <div className="row">
@@ -479,7 +479,7 @@ const ChallengeSingle = () => {
 
                                                     {sfidabutton ? (
                                                         <>
-                                                            {plr.posizione > miaposizione || miaposizione <= plr.posizione + 8 &&  // fino a 8 posizione sopra
+                                                            {plr.posizione > flagmeplayer[0].posizione || flagmeplayer[0].posizione <= plr.posizione + 8 &&  // fino a 8 posizione sopra
 
                                                                 <button disabled={plr.insfida === 'true'} onClick={(e) => sfidahandle(e, plr.id, plr.name, 'update')} type="button" className={plr.insfida === 'true' ? 'disabled button button-fill button-small' : 'button button-fill button-small'}>Sfida</button>
 

@@ -18,7 +18,6 @@ import Post from './Post';
 import Regolamento from './Regolamento';
 import AdminChallenge from './AdminChallenge';
 import EditChallenge from './EditChallenge';
-import Report from './hooks/Report';
 
 
 function App() {  

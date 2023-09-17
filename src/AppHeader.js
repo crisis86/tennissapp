@@ -56,7 +56,7 @@ const Appheader = () => {
                 <div className="header">
 
 
-                    <span style={{ float: 'left' }}>Ciao <i>{sessionStorage.getItem('fullname')} </i> ({datiuserloging['posizione']}) </span>
+                    <span style={{ float: 'left' }}>Ciao <i>{sessionStorage.getItem('fullname')} </i> </span>
                     {badge === true && <span className="badge">News</span>}
                     <span>  <Link className="logout" style={{ float: 'right', color: '#ffffff !important' }} to={'/logout'}>
                     <FaIcons.FaSignOutAlt style={{color: '#ffffff' }} /></Link> </span>

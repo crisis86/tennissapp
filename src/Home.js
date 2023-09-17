@@ -1,15 +1,11 @@
 import { useEffect, useState } from "react";
-import { Link, useNavigate, useLocation } from "react-router-dom";
-import avatar from './assets/avatar.png';
+import { useNavigate, useLocation } from "react-router-dom";
 import iconafiltro from './assets/icone/filter.png';
 
 const Home = () => {
 
 
     const usenavigate = useNavigate();
-    const uname = sessionStorage.getItem('email')
-    const datiuserloging = JSON.parse(localStorage.getItem('datiuserlogin'))
-    const [post, setposts] = useState([]);
     const [challenge, setchallenge] = useState([]);
     const location = useLocation();
     const [filter, setfilterchange] = useState('vuoto');

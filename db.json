@@ -262,7 +262,7 @@
       "role": "player",
       "address": "",
       "gender": "male",
-      "posizione": 20,
+      "posizione": 21,
       "insfida": false,
       "id": 20
     },
@@ -275,7 +275,7 @@
       "role": "player",
       "address": "",
       "gender": "male",
-      "posizione": 21,
+      "posizione": 22,
       "insfida": false,
       "id": 21
     },
@@ -288,8 +288,8 @@
       "role": "player",
       "address": "",
       "gender": "male",
-      "posizione": 19,
-      "insfida": true,
+      "posizione": 20,
+      "insfida": false,
       "id": 22
     },
     {
@@ -301,7 +301,7 @@
       "role": "player",
       "address": "",
       "gender": "male",
-      "posizione": 22,
+      "posizione": 23,
       "insfida": false,
       "id": 23
     },
@@ -314,8 +314,8 @@
       "role": "player",
       "address": "",
       "gender": "male",
-      "posizione": 23,
-      "insfida": true,
+      "posizione": 19,
+      "insfida": false,
       "id": 24
     },
     {
@@ -688,10 +688,10 @@
           "p2": "Giuseppe Russo "
         }
       ],
-      "status": "processing",
-      "set1": "",
-      "set2": "",
-      "set3": "",
+      "status": "complete",
+      "set1": "4-6",
+      "set2": "3-2",
+      "set3": "0-0",
       "id": 7
     }
   ]
