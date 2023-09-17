@@ -41,7 +41,7 @@
       "role": "player",
       "address": "",
       "gender": "male",
-      "posizione": 2,
+      "posizione": 3,
       "insfida": false,
       "id": 3
     },
@@ -54,7 +54,7 @@
       "role": "player",
       "address": "",
       "gender": "male",
-      "posizione": 3,
+      "posizione": 4,
       "insfida": false,
       "id": 4
     },
@@ -67,7 +67,7 @@
       "role": "player",
       "address": "",
       "gender": "male",
-      "posizione": 4,
+      "posizione": 2,
       "insfida": false,
       "id": 5
     },
@@ -80,7 +80,7 @@
       "role": "player",
       "address": "",
       "gender": "male",
-      "posizione": 5,
+      "posizione": 6,
       "insfida": false,
       "id": 6
     },
@@ -93,8 +93,8 @@
       "role": "player",
       "address": "",
       "gender": "male",
-      "posizione": 6,
-      "insfida": false,
+      "posizione": 5,
+      "insfida": true,
       "id": 7
     },
     {
@@ -120,7 +120,7 @@
       "address": "",
       "gender": "male",
       "posizione": 8,
-      "insfida": false,
+      "insfida": true,
       "id": 9
     },
     {
@@ -172,7 +172,7 @@
       "address": "",
       "gender": "male",
       "posizione": 12,
-      "insfida": false,
+      "insfida": true,
       "id": 13
     },
     {
@@ -224,7 +224,7 @@
       "address": "",
       "gender": "male",
       "posizione": 16,
-      "insfida": false,
+      "insfida": true,
       "id": 17
     },
     {
@@ -262,7 +262,7 @@
       "role": "player",
       "address": "",
       "gender": "male",
-      "posizione": 19,
+      "posizione": 20,
       "insfida": false,
       "id": 20
     },
@@ -275,7 +275,7 @@
       "role": "player",
       "address": "",
       "gender": "male",
-      "posizione": 20,
+      "posizione": 21,
       "insfida": false,
       "id": 21
     },
@@ -288,8 +288,8 @@
       "role": "player",
       "address": "",
       "gender": "male",
-      "posizione": 21,
-      "insfida": false,
+      "posizione": 19,
+      "insfida": true,
       "id": 22
     },
     {
@@ -315,7 +315,7 @@
       "address": "",
       "gender": "male",
       "posizione": 23,
-      "insfida": false,
+      "insfida": true,
       "id": 24
     },
     {
@@ -379,7 +379,7 @@
       "role": "player",
       "address": "",
       "gender": "male",
-      "posizione": 29,
+      "posizione": 28,
       "insfida": false,
       "id": 29
     },
@@ -392,7 +392,7 @@
       "role": "player",
       "address": "",
       "gender": "male",
-      "posizione": 30,
+      "posizione": 29,
       "insfida": false,
       "id": 30
     },
@@ -405,7 +405,7 @@
       "role": "player",
       "address": "",
       "gender": "male",
-      "posizione": 28,
+      "posizione": 30,
       "insfida": false,
       "id": 31
     },
@@ -431,7 +431,7 @@
       "role": "player",
       "address": "",
       "gender": "male",
-      "posizione": 34,
+      "posizione": 32,
       "insfida": false,
       "id": 34
     },
@@ -444,7 +444,7 @@
       "role": "player",
       "address": "",
       "gender": "male",
-      "posizione": 36,
+      "posizione": 33,
       "insfida": false,
       "id": 35
     },
@@ -457,7 +457,7 @@
       "role": "player",
       "address": "",
       "gender": "male",
-      "posizione": 32,
+      "posizione": 34,
       "insfida": false,
       "id": 36
     },
@@ -470,7 +470,7 @@
       "role": "player",
       "address": "",
       "gender": "male",
-      "posizione": 37,
+      "posizione": 36,
       "insfida": false,
       "id": 37
     },
@@ -483,22 +483,9 @@
       "role": "player",
       "address": "via madonna delle grazie 120",
       "gender": "male",
-      "posizione": 33,
-      "insfida": false,
-      "id": 38
-    },
-    {
-      "email": "infilato@gmail.com",
-      "password": "infilato",
-      "name": "infilato",
-      "phone": "3896669711",
-      "country": "Italia",
-      "role": "player",
-      "address": "via madonna delle grazie 120",
-      "gender": "male",
       "posizione": 35,
       "insfida": false,
-      "id": 39
+      "id": 38
     }
   ],
   "post": [
@@ -582,203 +569,130 @@
           "idp1": 0,
           "p1": "Admin Admin"
         },
-        {}
+        {
+          "idp1": 0,
+          "p2": "Admin Admin"
+        }
       ],
-      "status": "cancel",
+      "status": "canel",
       "set1": "0-0",
       "set2": "0-0",
       "set3": "0-0",
       "id": 1
     },
     {
-      "datacreate": "11/9/2023",
-      "datasfida": "11/09/2023",
+      "datacreate": "13/9/2023",
+      "datasfida": "13/09/2023",
       "players": [
         {
-          "idp1": 9,
-          "p1": "Davide Aprea"
+          "idp1": 38,
+          "p1": "vincenzo della pietra"
         },
         {
-          "idp2": 7,
-          "p2": "Daniele Ippolito"
+          "idp2": 37,
+          "p2": "Michele Buonaguro"
         }
       ],
       "status": "complete",
-      "set1": "9-3",
-      "set2": "0-0",
+      "set1": "3-6",
+      "set2": "3-6",
       "set3": "0-0",
       "id": 2
     },
     {
-      "datacreate": "11/9/2023",
-      "datasfida": "",
+      "datacreate": "15/9/2023",
+      "datasfida": "17/09/2023",
       "players": [
         {
-          "idp1": 3,
-          "p1": "Lorenzo Musetti"
-        },
-        {
-          "idp2": 2,
-          "p2": "Jannik Sinner"
-        }
-      ],
-      "status": "cancel",
-      "set1": "",
-      "set2": "",
-      "set3": "",
-      "id": 3
-    },
-    {
-      "datacreate": "11/9/2023",
-      "datasfida": "12/09/2023",
-      "players": [
-        {
-          "idp1": 8,
-          "p1": "Romolo Manfredi"
-        },
-        {
-          "idp2": 7,
-          "p2": "Daniele Ippolito"
-        }
-      ],
-      "status": "complete",
-      "set1": "2-6",
-      "set2": "0-0",
-      "set3": "0-0",
-      "id": 4
-    },
-    {
-      "datacreate": "12/9/2023",
-      "datasfida": "",
-      "players": [
-        {
-          "idp1": 7,
-          "p1": "Daniele Ippolito"
+          "idp1": 6,
+          "p1": "felice Buonaguro"
         },
         {
           "idp2": 5,
-          "p2": "Giovanni di Lorenzo"
-        }
-      ],
-      "status": "cancel",
-      "set1": "",
-      "set2": "",
-      "set3": "",
-      "id": 5
-    },
-    {
-      "datacreate": "12/9/2023",
-      "datasfida": "",
-      "players": [
-        {
-          "idp1": 10,
-          "p1": "Luca Leiva"
-        },
-        {
-          "idp2": 5,
-          "p2": "Giovanni di Lorenzo"
-        }
-      ],
-      "status": "cancel",
-      "set1": "",
-      "set2": "",
-      "set3": "",
-      "id": 6
-    },
-    {
-      "datacreate": "13/9/2023",
-      "datasfida": "",
-      "players": [
-        {
-          "idp1": 11,
-          "p1": "webmaster"
-        },
-        {
-          "idp2": 9,
-          "p2": "Davide Aprea"
-        }
-      ],
-      "status": "cancel",
-      "set1": "",
-      "set2": "",
-      "set3": "",
-      "id": 7
-    },
-    {
-      "datacreate": "13/9/2023",
-      "datasfida": "",
-      "players": [
-        {
-          "idp1": 12,
-          "p1": "Cucciolone"
-        },
-        {
-          "idp2": 11,
-          "p2": "webmaster"
-        }
-      ],
-      "status": "cancel",
-      "set1": "",
-      "set2": "",
-      "set3": "",
-      "id": 8
-    },
-    {
-      "datacreate": "07/9/2023",
-      "datasfida": "09/09/2023",
-      "players": [
-        {
-          "idp1": 37,
-          "p1": "Michele Buonaguro"
-        },
-        {
-          "idp2": 38,
-          "p2": "vincenzo della pietra"
+          "p2": "Felice Biancardi"
         }
       ],
       "status": "complete",
       "set1": "2-9",
       "set2": "0-0",
       "set3": "0-0",
-      "id": 9
+      "id": 3
     },
     {
-      "datacreate": "14/9/2023",
-      "datasfida": "14/09/2023",
+      "datacreate": "15/9/2023",
+      "datasfida": "15/09/2023",
       "players": [
         {
-          "idp1": 37,
-          "p1": "Michele Buonaguro"
+          "idp1": 26,
+          "p1": "Antonio Silvestri "
         },
         {
-          "idp2": 36,
-          "p2": "Roberto Tramontano "
+          "idp2": 22,
+          "p2": "Giuseppe Russo "
         }
       ],
       "status": "complete",
-      "set1": "6-3",
-      "set2": "0-0",
+      "set1": "3-6",
+      "set2": "0-6",
       "set3": "0-0",
-      "id": 10
+      "id": 4
     },
     {
-      "datacreate": "14/9/2023",
-      "datasfida": "14/09/2023",
+      "datacreate": "16/9/2023",
+      "datasfida": "",
       "players": [
         {
-          "idp1": 36,
-          "p1": "Roberto Tramontano "
+          "idp1": 9,
+          "p1": "Antonio Casciello "
         },
         {
-          "idp2": 38,
-          "p2": "vincenzo della pietra"
+          "idp2": 7,
+          "p2": "ruggiero Campanella"
         }
       ],
-      "status": "complete",
-      "set1": "6-2",
-      "set2": "2-6",
-      "set3": "2-6",
-      "id": 11
+      "status": "processing",
+      "set1": "",
+      "set2": "",
+      "set3": "",
+      "id": 5
+    },
+    {
+      "datacreate": "16/9/2023",
+      "datasfida": "",
+      "players": [
+        {
+          "idp1": 17,
+          "p1": "Salvatore Minieri "
+        },
+        {
+          "idp2": 13,
+          "p2": "Francesco galasso "
+        }
+      ],
+      "status": "pending",
+      "set1": "",
+      "set2": "",
+      "set3": "",
+      "id": 6
+    },
+    {
+      "datacreate": "16/9/2023",
+      "datasfida": "17/09/2023",
+      "players": [
+        {
+          "idp1": 24,
+          "p1": "Andrea Russo "
+        },
+        {
+          "idp2": 22,
+          "p2": "Giuseppe Russo "
+        }
+      ],
+      "status": "processing",
+      "set1": "",
+      "set2": "",
+      "set3": "",
+      "id": 7
     }
   ]
 }

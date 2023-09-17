@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import avatar from './assets/avatar.png';
-
+import iconafiltro from './assets/icone/filter.png';
 
 const Home = () => {
 
@@ -12,6 +12,7 @@ const Home = () => {
     const [post, setposts] = useState([]);
     const [challenge, setchallenge] = useState([]);
     const location = useLocation();
+    const [filter, setfilterchange] = useState('vuoto');
 
 
     useEffect(() => {
@@ -25,12 +26,42 @@ const Home = () => {
             //toast.error('Not Authenticate session');
             usenavigate('/login');
         } else {
-
+    
+            if(filter==='all') {
             loadcgallenge();
+        }else {
+            loadcgallengeByFilter(filter);
+
+        }
         }
     }, []);
 
 
+
+    useEffect(() => {
+        if(filter==='all' || filter==='vuoto') {
+            loadcgallenge();
+        }else {
+            loadcgallengeByFilter(filter);
+        }
+
+ }, [filter]);
+
+
+
+   const loadcgallengeByFilter = (filro) => {
+
+        fetch(window.$produrl + "/challenge?status="+filro).then(res => {
+            if (!res.ok) {
+                console.log(res)
+                // navigate('/');
+                return false;
+            }
+            return res.json();
+        }).then(res => {
+            setchallenge(res);
+        })
+    }
 
     const loadcgallenge = () => {
 
@@ -48,12 +79,27 @@ const Home = () => {
 
     }
 
-
     return (
         <div className="page-content">
             <div className="list cards-list inset margin-vertical-half no-chevron no-hairlines no-hairlines-between">
+
+            <div className="filter">
+            <img style={{float:'left'}} src={iconafiltro} alt="filter" width={23} ></img>
+
+                    <select style={{margin:'0 40px',width:'90%', padding:'2px 0', background:'#f9f9f9'}} className="form-control select input-outline" selected="selected" value={filter} onChange={e => setfilterchange(e.target.value)} >
+                            <option disabled className="md item-input-invalid select" style={{color:'grey'}}  value='vuoto'>Seleziona Stato Evento</option>
+                            <option value='all'>Tutti Gli Stati</option>
+                            <option value='processing'>In Corso</option>    
+                            <option value='cancel'>Annullate</option>
+                            <option value='processing?datastfida=""'>Da Programmare</option>
+                            <option value='pending'>Attesa Avversario</option>
+                            <option value='complete'>Completate</option>
+                            
+                        </select>
+ 
+                    </div>
                 <div className="row align-items-stretch">
-                    {challenge &&
+                     {challenge &&
                         challenge.sort((a, b) => a.id < b.id ? 1 : -1).map((item, index) => (
                             <div style={{ border: '1px solid #cbc4c4', borderRadius: '10px' }} key={index + 1} className="col-100 small-50 xlarge-100">
                                 <div className="item-content height-100">
@@ -109,8 +155,8 @@ const Home = () => {
                                                 </div>
                                             </div>
                                             <div className="item-row margin-top">
-                                                <div style={{ textAlign: 'center', background: '#e7e7e7', opacity: '0.7' }} className="item-cell">
-                                                    <div style={{borderRadius: '10px' }} className="font-size-14 multi-line-text lines-3 text-color-gray">
+                                                <div style={{borderRadius: '10px', textAlign: 'center', background: '#e7e7e7', opacity: '0.7' }} className="item-cell">
+                                                    <div   className="font-size-14 multi-line-text lines-3 text-color-gray">
                                                         <ul>
                                                             <li> <a style={{ textTransform: 'capitalize' }} className='link' href={'/Challenge-single/' + item.players[0].idp1 + '/' + item.players[0].p1}>
                                                                 <span style={{ fontSize: "14px" }}> <i>{item.players[0].p1} </i></span>

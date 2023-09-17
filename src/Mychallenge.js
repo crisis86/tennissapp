@@ -720,7 +720,7 @@ const Mychallenge = () => {
 
                     } 
 
-                    if (index + 1 === posp1) {
+                    if (index + 1 === posp1+1) {
                         obj.posizione = obj.posizione - 1  // sale di uno quello sotto a me
 
                         if (obj.posizione <= 0) { obj.posizione = 1 }  //check primo classifica 
