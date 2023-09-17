@@ -91,7 +91,7 @@ const Home = () => {
                             <option value='all'>Tutti Gli Stati</option>
                             <option value='processing'>In Corso</option>    
                             <option value='cancel'>Annullate</option>
-                            <option value='processing?datastfida=""'>Da Programmare</option>
+                            <option value='processing&datasfida='>Da Programmare</option>
                             <option value='pending'>Attesa Avversario</option>
                             <option value='complete'>Completate</option>
                             
