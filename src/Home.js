@@ -27,7 +27,7 @@ const Home = () => {
             usenavigate('/login');
         } else {
     
-            if(filter==='all') {
+            if(filter==='all' || filter==='vuoto') {
             loadcgallenge();
         }else {
             loadcgallengeByFilter(filter);
