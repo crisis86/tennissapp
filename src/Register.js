@@ -8,7 +8,7 @@ import { faCoffee } from '@fortawesome/fontawesome-free-solid'
 const Register = () => {
 
     //const [id, idchange] = useState(0);
-   
+
     const [name, namechange] = useState("");
     const [password, passwordchange] = useState("");
     const [confirmpassword, confirmpassworchange] = useState("");
@@ -19,60 +19,68 @@ const Register = () => {
     const [address, addresschange] = useState("");
     const [gender, genderchange] = useState("male");
     const [posizione, posizionechange] = useState(0);
-    const [insfida, insfidachange]=useState(false);
+    const [insfida, insfidachange] = useState(false);
     const [chek, setcheck] = useState(false);
+    const [chekname, setcheckname] = useState(false);
     const navigate = useNavigate();
     const [loading, setloading] = useState(false);
 
-    
 
-     useEffect(() => {
+
+    useEffect(() => {
         lastidjson();
     }, []);
 
 
-    function  lastidjson() {
+    function lastidjson() {
 
-        let pos ={};
-  
-    fetch(window.$produrl+"/user", {
-        method:'GET'
+        let pos = {};
+
+        fetch(window.$produrl + "/user", {
+            method: 'GET'
         }).then(res => {
             if (!res.ok) {
-           // console.log('nulla')
-                return false 
+                // console.log('nulla')
+                return false
             }
             return res.json();
         }).then(res => {
-           
-            pos = res;
- 
-          let maxValue = Math.max(...pos.map(o => o.posizione))
 
-          posizionechange(maxValue+1)
-            
+            pos = res;
+
+            let maxValue = Math.max(...pos.map(o => o.posizione))
+
+            posizionechange(maxValue + 1)
+
         });
     }
 
     const IsValidate = () => {
         let isproceed = true;
         let errormessage = 'Please enter the value in ';
-       /*  if (id === null || id === '') {
-            isproceed = false;
-            errormessage += ' Username';
-        } */
+        /*  if (id === null || id === '') {
+             isproceed = false;
+             errormessage += ' Username';
+         } */
         checkemail(email);
-  
-        if(chek) {
+
+        if (chek) {
             setloading(false);
             isproceed = false;
-            errormessage = email+' già registatrata';
-            
-           }
-              
+            errormessage = email + ' già registatrata';
+        }
+
+        checkfullname(name)
+
+        if (chekname) {
+            setloading(false);
+            isproceed = false;
+            errormessage = name + ' già esistente';
+        }
+
         if (name === null || name === '') {
             isproceed = false;
-            errormessage += ' Nome e Cognome';
+            errormessage += 'Giocatore';
         }
         if (phone === null || phone === '') {
             isproceed = false;
@@ -89,26 +97,26 @@ const Register = () => {
         if (email === null || email === '') {
             isproceed = false;
             errormessage += ' Email';
-        } 
-        
-       
-          
+        }
 
-        if(!isproceed){
+
+
+
+        if (!isproceed) {
             toast.warning(errormessage)
-        }else{
-            if(/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(email)){
+        } else {
+            if (/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(email)) {
 
-            }else if (/^[a-zA-Z0-9]+\.[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(email)){
-             
-            }else if (/^[a-zA-Z0-9]+\-[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(email)){
-             
-            }else if (/^[a-zA-Z0-9]+\_[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(email)){
-             
-            } else if (/^[a-zA-Z0-9]+\_[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+\.[A-Za-z]+$/.test(email)){
-             
-            }else if (/\S+@\S+\.\S+/.test(email)){
-             
+            } else if (/^[a-zA-Z0-9]+\.[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(email)) {
+
+            } else if (/^[a-zA-Z0-9]+\-[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(email)) {
+
+            } else if (/^[a-zA-Z0-9]+\_[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(email)) {
+
+            } else if (/^[a-zA-Z0-9]+\_[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+\.[A-Za-z]+$/.test(email)) {
+
+            } else if (/\S+@\S+\.\S+/.test(email)) {
+
             } else {
                 isproceed = false;
                 toast.warning('Please enter the valid email')
@@ -120,56 +128,71 @@ const Register = () => {
 
     function checkemail(email) {
 
-        console.log(email)
-        
-        fetch(window.$produrl+"/user?role=player&email="+email).then(res => {
+
+        fetch(window.$produrl + "/user?role=player&email=" + email).then(res => {
             if (!res.ok) {
                 return false
             }
             return res.json();
         }).then(resp => {
             if (Object.keys(resp).length === 0) {
-         
+
                 setcheck(false)
             } else {
-                
+
                 setcheck(true);
-                
-            
             }
         });
     }
 
+    function checkfullname(nome) {
+
+        fetch(window.$produrl + "/user?role=player&name=" + nome).then(res => {
+            if (!res.ok) {
+                return false
+            }
+            return res.json();
+        }).then(resp => {
+            if (Object.keys(resp).length === 0) {
+
+                setcheckname(false)
+            } else {
+                setcheckname(true);
+            }
+        });
+    }
 
     const handlesubmit = (e) => {
         setloading(true)
-            e.preventDefault();
-            setTimeout(() => {
-                          
-     
-            let regobj = {email, password, name, phone, country, role, address, gender, posizione,insfida};
+        e.preventDefault();
+        setTimeout(() => {
+
+            let trimtext = name.trim()
+            namechange(trimtext)
+        
+            let regobj = {email, password, name, phone, country, role, address, gender, posizione, insfida};
             if (IsValidate()) {
-          //  console.log(regobj);
-            fetch(window.$produrl+"/user", {
-                method: "POST",
-                headers: { 'content-type': 'application/json' },
-                body: JSON.stringify(regobj)
-            }).then((res) => {
+                //  console.log(regobj);
+                fetch(window.$produrl + "/user", {
+                    method: "POST",
+                    headers: { 'content-type': 'application/json' },
+                    body: JSON.stringify(regobj)
+                }).then((res) => {
+                    setloading(false)
+
+                    toast.success('Registered successfully.')
+                    navigate('/login');
+                }).catch((err) => {
+                    setloading(false)
+                    toast.error('Failed :' + err.message);
+                });
+            } else {
                 setloading(false)
-              
-                toast.success('Registered successfully.') 
-                navigate('/login');
-            }).catch((err) => {
-                setloading(false)
-                toast.error('Failed :' + err.message);
-            });
-        }else {
-            setloading(false)
-        }
-    }, 3000);
+            }
+        }, 2500);
 
     }
-    
+
     return (
         <div className="page-content">
             <div className="offset-lg-3 col-lg-6">
@@ -184,21 +207,21 @@ const Register = () => {
                                 <div className="col-lg-6">
                                     <div className="form-group">
                                         {/* <label>User Name <span className="errmsg">*</span></label> */}
-                                        <input type="hidden" value={posizione} onChange={e => posizione(e.target.value)}  className="form-control"></input>
-                                      {/* <input disabled value={id} onChange={e => idchange(e.target.value)} className="form-control"></input>  */}
+                                        <input type="hidden" value={posizione} onChange={e => posizione(e.target.value)} className="form-control"></input>
+                                        {/* <input disabled value={id} onChange={e => idchange(e.target.value)} className="form-control"></input>  */}
                                     </div>
                                 </div>
-                              
+
                                 <div className="col-lg-6">
                                     <div className="form-group">
                                         <label>Nome e Cognome <span className="errmsg">*</span></label>
-                                        <input style={{textTransform:'capitalize'}} value={name} onChange={e => namechange(e.target.value)} className="form-control"></input>
+                                        <input style={{ textTransform: 'capitalize' }} value={name} onChange={e => namechange(e.target.value)} className="form-control"></input>
                                     </div>
                                 </div>
                                 <div className="col-lg-6">
                                     <div className="form-group">
                                         <label>Email <span className="errmsg">*</span></label>
-                                        <input style={{textTransform:'lowercase'}} value={email.trim()}   onBlur={e => IsValidate()} onChange={e => emailchange(e.target.value.toLowerCase())} className="form-control"></input>
+                                        <input style={{ textTransform: 'lowercase' }} value={email.trim()} onBlur={e => IsValidate()} onChange={e => emailchange(e.target.value.toLowerCase())} className="form-control"></input>
                                     </div>
                                 </div>  <div className="col-lg-6">
                                     <div className="form-group">
@@ -222,7 +245,7 @@ const Register = () => {
                                     <div className="form-group">
                                         <label>Città <span className="errmsg">*</span></label>
                                         <select value={country} onChange={e => countrychange(e.target.value)} className="form-control">
-                                        <option value="Italia">Italia</option>
+                                            <option value="Italia">Italia</option>
                                             <option value="india">India</option>
                                             <option value="usa">USA</option>
                                             <option value="singapore">Singapore</option>
@@ -249,11 +272,11 @@ const Register = () => {
                             </div>
 
                         </div>
-                       
-                      
+
+
                         <div className="card-footer">
-                            <button disabled={loading} type="submit" className="btn btn-primary">{loading && <FontAwesomeIcon icon="fa-solid fa-spinner" spinPulse size="lg" style={{color: "#fcfcfc",}} />}Sing Up</button> |
-                            
+                            <button disabled={loading} type="submit" className="btn btn-primary">{loading && <FontAwesomeIcon icon="fa-solid fa-spinner" spinPulse size="lg" style={{ color: "#fcfcfc", }} />}Sing Up</button> |
+
 
                             <Link to={'/login'} className="btn btn-danger">Close</Link>
                         </div>
@@ -265,7 +288,7 @@ const Register = () => {
 
         </div>
     );
-    
+
 }
 
 export default Register;

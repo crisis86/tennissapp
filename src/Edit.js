@@ -130,8 +130,10 @@ const Edit = () => {
     const handlesubmit = (e) => {
         e.preventDefault();
 
-     
-        let regobj = { email, password, name, phone, country, role, address, gender, posizione, insfida};
+        let trimtext = name.trim()
+        namechange(trimtext)
+
+        let regobj = {email, password, name, phone, country, role, address, gender, posizione, insfida};
         if (IsValidate()) {
             //  console.log(regobj);
             fetch(window.$produrl + "/user/" + id['id'], {

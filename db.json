@@ -486,6 +486,19 @@
       "posizione": 35,
       "insfida": false,
       "id": 38
+    },
+    {
+      "email": "daviwwde@soccertime.it",
+      "password": "123",
+      "name": "Pasquale Castaldo3",
+      "phone": "wewewe",
+      "country": "Italia",
+      "role": "player",
+      "address": "via anfiteatro laterizio\n25",
+      "gender": "male",
+      "posizione": 37,
+      "insfida": false,
+      "id": 39
     }
   ],
   "post": [
