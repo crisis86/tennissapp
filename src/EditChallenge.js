@@ -11,7 +11,6 @@ const EditChallenge = () => {
     const id = useParams()
 
 
-     const myrole = sessionStorage.getItem('userrole')
 
     const [datacreate, setdatacreate] = useState("");
     const [datasfida, setdatasfida] = useState("");
@@ -89,7 +88,7 @@ const EditChallenge = () => {
                 },
                 {
                     "idp2": idp2,
-                    "p2": idp2,
+                    "p2": p2,
                 }
             ],
             "status": status,
@@ -146,7 +145,12 @@ const EditChallenge = () => {
                                         <input value={set3} onChange={e => setset3(e.target.value)} type="text" className="form-control"></input>
                                     </div>
                                 </div>
-                         
+                                <div className="col-lg-6">
+                                    <div className="form-group">
+                                        <label>Data Sfida <i>DD/MM/YYYY</i> <span className="errmsg">*</span></label>
+                                        <input value={datasfida} onChange={e => setdatasfida(e.target.value)} type="text" className="form-control"></input>
+                                    </div>
+                                </div>
                                 <div className="col-lg-6">
                                     <div className="form-group">
                                         <label>Status <span className="errmsg">*</span></label>
