@@ -22,7 +22,7 @@
     {
       "email": "sabatodavidealfieri@gmail.com",
       "password": "123456",
-      "name": "Davide Alfieri ",
+      "name": "Davide Alfieri",
       "phone": "3473953155",
       "country": "Italia",
       "role": "player",
@@ -41,8 +41,8 @@
       "role": "player",
       "address": "",
       "gender": "male",
-      "posizione": 3,
-      "insfida": false,
+      "posizione": 2,
+      "insfida": true,
       "id": 3
     },
     {
@@ -67,7 +67,7 @@
       "role": "player",
       "address": "",
       "gender": "male",
-      "posizione": 2,
+      "posizione": 3,
       "insfida": false,
       "id": 5
     },
@@ -80,7 +80,7 @@
       "role": "player",
       "address": "",
       "gender": "male",
-      "posizione": 6,
+      "posizione": 7,
       "insfida": false,
       "id": 6
     },
@@ -93,7 +93,7 @@
       "role": "player",
       "address": "",
       "gender": "male",
-      "posizione": 5,
+      "posizione": 6,
       "insfida": true,
       "id": 7
     },
@@ -106,27 +106,27 @@
       "role": "player",
       "address": "",
       "gender": "male",
-      "posizione": 7,
+      "posizione": 8,
       "insfida": false,
       "id": 8
     },
     {
       "email": "antonio.casciello@tim.it",
       "password": "123456",
-      "name": "Antonio Casciello ",
+      "name": "Antonio Casciello",
       "phone": "3395902354",
       "country": "Italia",
       "role": "player",
       "address": "",
       "gender": "male",
-      "posizione": 8,
-      "insfida": true,
+      "posizione": 5,
+      "insfida": false,
       "id": 9
     },
     {
       "email": "pasqualecastaldo91@libero.it",
       "password": "123456",
-      "name": "Pasquale castaldo ",
+      "name": "Pasquale castaldo",
       "phone": "3343848009",
       "country": "Italia",
       "role": "player",
@@ -165,7 +165,7 @@
     {
       "email": "galassogianfrancesco@gmail.com",
       "password": "123456",
-      "name": "Francesco galasso ",
+      "name": "Francesco galasso",
       "phone": "3384664390",
       "country": "Italia",
       "role": "player",
@@ -178,7 +178,7 @@
     {
       "email": "lilianagomiero95@gmail.com",
       "password": "123456",
-      "name": "Liliana Gomiero ",
+      "name": "Liliana Gomiero",
       "phone": "3479527655",
       "country": "Italia",
       "role": "player",
@@ -191,7 +191,7 @@
     {
       "email": "mirko.menna@hotmail.it",
       "password": "123456",
-      "name": "Mirko Menna ",
+      "name": "Mirko Menna",
       "phone": "3319395544",
       "country": "Italia",
       "role": "player",
@@ -204,7 +204,7 @@
     {
       "email": "carmine.meo@hotmail.it",
       "password": "123456",
-      "name": "Carmine meo ",
+      "name": "Carmine meo",
       "phone": "3207877110",
       "country": "Italia",
       "role": "player",
@@ -217,7 +217,7 @@
     {
       "email": "salvatoreminieri60@gmail.com",
       "password": "123456",
-      "name": "Salvatore Minieri ",
+      "name": "Salvatore Minieri",
       "phone": "3478012752",
       "country": "Italia",
       "role": "player",
@@ -236,105 +236,105 @@
       "role": "player",
       "address": "",
       "gender": "male",
-      "posizione": 17,
+      "posizione": 18,
       "insfida": false,
       "id": 18
     },
     {
       "email": "sabatino276@gmail.com",
       "password": "123456",
-      "name": "Sabatino Napolitano ",
+      "name": "Sabatino Napolitano",
       "phone": "3803756668",
-      "country": "Italia",
-      "role": "player",
-      "address": "",
-      "gender": "male",
-      "posizione": 18,
-      "insfida": false,
-      "id": 19
-    },
-    {
-      "email": "francescoedu.nuzzo@gmail.com",
-      "password": "ciccio98",
-      "name": "Francesco Nuzzo ",
-      "phone": "3315046145",
-      "country": "Italia",
-      "role": "player",
-      "address": "",
-      "gender": "male",
-      "posizione": 21,
-      "insfida": false,
-      "id": 20
-    },
-    {
-      "email": "giuseppe.palazzolo1987@gmail.com",
-      "password": "123456",
-      "name": "Giuseppe palazzolo ",
-      "phone": "3333879695",
-      "country": "Italia",
-      "role": "player",
-      "address": "",
-      "gender": "male",
-      "posizione": 22,
-      "insfida": false,
-      "id": 21
-    },
-    {
-      "email": "giuseppe.russo.19.94@gmail.com",
-      "password": "29194",
-      "name": "Giuseppe Russo ",
-      "phone": "3880763913",
-      "country": "Italia",
-      "role": "player",
-      "address": "",
-      "gender": "male",
-      "posizione": 20,
-      "insfida": false,
-      "id": 22
-    },
-    {
-      "email": "rumassimo94@gmail.com",
-      "password": "123456",
-      "name": "Massimo Russo ",
-      "phone": "3279403318",
-      "country": "Italia",
-      "role": "player",
-      "address": "",
-      "gender": "male",
-      "posizione": 23,
-      "insfida": false,
-      "id": 23
-    },
-    {
-      "email": "andrearusso964@icloud.com",
-      "password": "123456",
-      "name": "Andrea Russo ",
-      "phone": "3884210794",
       "country": "Italia",
       "role": "player",
       "address": "",
       "gender": "male",
       "posizione": 19,
       "insfida": false,
-      "id": 24
+      "id": 19
     },
     {
-      "email": "nellolucio.santella@gmail.com",
+      "email": "francescoedu.nuzzo@gmail.com",
+      "password": "Ciccio98",
+      "name": "Francesco Nuzzo",
+      "phone": "3315046145",
+      "country": "Italia",
+      "role": "player",
+      "address": "",
+      "gender": "male",
+      "posizione": 20,
+      "insfida": false,
+      "id": 20
+    },
+    {
+      "email": "giuseppe.palazzolo1987@gmail.com",
       "password": "123456",
-      "name": "Nello Lucio Santella ",
-      "phone": "3274942943",
+      "name": "Giuseppe palazzolo",
+      "phone": "3333879695",
+      "country": "Italia",
+      "role": "player",
+      "address": "",
+      "gender": "male",
+      "posizione": 21,
+      "insfida": false,
+      "id": 21
+    },
+    {
+      "email": "giuseppe.russo.19.94@gmail.com",
+      "password": "29194",
+      "name": "Giuseppe Russo",
+      "phone": "3880763913",
+      "country": "Italia",
+      "role": "player",
+      "address": "",
+      "gender": "male",
+      "posizione": 17,
+      "insfida": false,
+      "id": 22
+    },
+    {
+      "email": "rumassimo94@gmail.com",
+      "password": "123456",
+      "name": "Massimo Russo",
+      "phone": "3279403318",
+      "country": "Italia",
+      "role": "player",
+      "address": "",
+      "gender": "male",
+      "posizione": 22,
+      "insfida": false,
+      "id": 23
+    },
+    {
+      "email": "andrearusso964@icloud.com",
+      "password": "123456",
+      "name": "Andrea Russo",
+      "phone": "3884210794",
       "country": "Italia",
       "role": "player",
       "address": "",
       "gender": "male",
       "posizione": 24,
+      "insfida": true,
+      "id": 24
+    },
+    {
+      "email": "nellolucio.santella@gmail.com",
+      "password": "123456",
+      "name": "Nello Lucio Santella",
+      "phone": "3274942943",
+      "country": "Italia",
+      "role": "player",
+      "address": "",
+      "gender": "male",
+      "posizione": 23,
       "insfida": false,
       "id": 25
     },
     {
       "email": "silvestrini.antonio97@gmail.com",
       "password": "123456",
-      "name": "Antonio Silvestri ",
+      "name": "Antonio Silvestri",
       "phone": "3339526462",
       "country": "Italia",
       "role": "player",
@@ -347,7 +347,7 @@
     {
       "email": "tarantinosergio6@gmail.com",
       "password": "123456",
-      "name": "Sergio tarantino ",
+      "name": "Sergio tarantino",
       "phone": "3343201154",
       "country": "Italia",
       "role": "player",
@@ -360,7 +360,7 @@
     {
       "email": "ataurisano@hotmail.it",
       "password": "123456",
-      "name": "Antonio Taurisano ",
+      "name": "Antonio Taurisano",
       "phone": "3286565725",
       "country": "Italia",
       "role": "player",
@@ -373,20 +373,20 @@
     {
       "email": "amedeo.tortora92@gmail.com",
       "password": "123456",
-      "name": "Amedeo Tortora ",
+      "name": "Amedeo Tortora",
       "phone": "3401236959",
       "country": "Italia",
       "role": "player",
       "address": "",
       "gender": "male",
       "posizione": 28,
-      "insfida": false,
+      "insfida": true,
       "id": 29
     },
     {
       "email": "paolinotrinchese@outlook.com",
       "password": "123456",
-      "name": "Paolino trinchese ",
+      "name": "Paolino trinchese",
       "phone": "3317167875",
       "country": "Italia",
       "role": "player",
@@ -399,7 +399,7 @@
     {
       "email": "ra.varchetta@gmail.com",
       "password": "123456",
-      "name": "Raffaele Varchetta ",
+      "name": "Raffaele Varchetta",
       "phone": "3282484296",
       "country": "Italia",
       "role": "player",
@@ -412,7 +412,7 @@
     {
       "email": "martinaveneruso33@gmail.com",
       "password": "123456",
-      "name": "Martina Veneruso ",
+      "name": "Martina Veneruso",
       "phone": "3922897917",
       "country": "Italia",
       "role": "player",
@@ -425,7 +425,7 @@
     {
       "email": "antonio-siano@libero.it",
       "password": "123456",
-      "name": "Antonio Siano ",
+      "name": "Antonio Siano",
       "phone": "3206152485",
       "country": "Italia",
       "role": "player",
@@ -438,7 +438,7 @@
     {
       "email": "mannese88@libero.it",
       "password": "123456",
-      "name": "Antonio Sirignano ",
+      "name": "Antonio Sirignano",
       "phone": "3334354645",
       "country": "Italia",
       "role": "player",
@@ -451,7 +451,7 @@
     {
       "email": "roberto.rtramontano@gmail.com",
       "password": "123456",
-      "name": "Roberto Tramontano ",
+      "name": "Roberto Tramontano",
       "phone": "3313400383",
       "country": "Italia",
       "role": "player",
@@ -486,19 +486,6 @@
       "posizione": 35,
       "insfida": false,
       "id": 38
-    },
-    {
-      "email": "daviwwde@soccertime.it",
-      "password": "123",
-      "name": "Pasquale Castaldo3",
-      "phone": "wewewe",
-      "country": "Italia",
-      "role": "player",
-      "address": "via anfiteatro laterizio\n25",
-      "gender": "male",
-      "posizione": 37,
-      "insfida": false,
-      "id": 39
     }
   ],
   "post": [
@@ -626,7 +613,7 @@
         }
       ],
       "status": "complete",
-      "set1": "2-9",
+      "set1": "3-9",
       "set2": "0-0",
       "set3": "0-0",
       "id": 3
@@ -652,7 +639,7 @@
     },
     {
       "datacreate": "16/9/2023",
-      "datasfida": "",
+      "datasfida": "19/09/2023",
       "players": [
         {
           "idp1": 9,
@@ -663,15 +650,15 @@
           "p2": "ruggiero Campanella"
         }
       ],
-      "status": "processing",
-      "set1": "",
-      "set2": "",
-      "set3": "",
+      "status": "complete",
+      "set1": "8-5",
+      "set2": "0-0",
+      "set3": "0-0",
       "id": 5
     },
     {
       "datacreate": "16/9/2023",
-      "datasfida": "",
+      "datasfida": "21/09/2023",
       "players": [
         {
           "idp1": 17,
@@ -682,7 +669,7 @@
           "p2": "Francesco galasso "
         }
       ],
-      "status": "pending",
+      "status": "processing",
       "set1": "",
       "set2": "",
       "set3": "",
@@ -703,9 +690,66 @@
       ],
       "status": "complete",
       "set1": "4-6",
-      "set2": "3-2",
+      "set2": "2-3",
       "set3": "0-0",
       "id": 7
+    },
+    {
+      "datacreate": "18/9/2023",
+      "datasfida": "23/09/2023",
+      "players": [
+        {
+          "idp1": 29,
+          "p1": "Amedeo Tortora "
+        },
+        {
+          "idp2": 24,
+          "p2": "Andrea Russo "
+        }
+      ],
+      "status": "processing",
+      "set1": "",
+      "set2": "",
+      "set3": "",
+      "id": 8
+    },
+    {
+      "datacreate": "19/9/2023",
+      "datasfida": "20/09/2023",
+      "players": [
+        {
+          "idp1": 5,
+          "p1": "Felice Biancardi"
+        },
+        {
+          "idp2": 2,
+          "p2": "Davide Alfieri"
+        }
+      ],
+      "status": "complete",
+      "set1": "5-8",
+      "set2": "0-0",
+      "set3": "0-0",
+      "id": 9
+    },
+    {
+      "datacreate": "19/9/2023",
+      "datasfida": "25/09/2023",
+      "players": [
+        {
+          "idp1": 7,
+          "p1": "ruggiero Campanella"
+        },
+        {
+          "idp2": 3,
+          "p2": "Vittorio Ambrosio"
+        }
+      ],
+      "status": "processing",
+      "set1": "",
+      "set2": "",
+      "set3": "",
+      "id": 10
     }
   ]
 }

@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import iconafiltro from './assets/icone/filter.png';
+import pallina from './assets/pallina.png';
+
 
 const Home = () => {
 
@@ -9,7 +11,7 @@ const Home = () => {
     const [challenge, setchallenge] = useState([]);
     const location = useLocation();
     const [filter, setfilterchange] = useState('vuoto');
-
+    const [today, setday] = useState(new Date())
 
     useEffect(() => {
 
@@ -162,6 +164,7 @@ const Home = () => {
                                                             <li>      <a style={{ textTransform: 'capitalize' }} className='link' href={'/Challenge-single/' + item.players[1].idp2 + '/' + item.players[1].p2}>
                                                                 <span style={{ fontSize: "14px" }}> <i>{item.players[1].p2}</i></span>
                                                             </a></li>
+                                                          
                                                         </ul>
                                                     </div>
                                                 </div>

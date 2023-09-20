@@ -697,6 +697,7 @@ const Mychallenge = () => {
 
                         //  if (obj.posizione <= 0) { obj.posizione = 2; indicep=0 }  //check sedondo classifica divento >1 
                         if (obj.posizione <= 1) { obj.posizione = 2; }  //check primo classifica se ero 3 divento 1
+                        if (posp2 === 1) { obj.posizione = 1; } // check se sono primo resto primo
 
                         console.log("posizione vincente:" + obj.posizione)
                         updateUserPosition(obj)
