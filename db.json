@@ -29,7 +29,7 @@
       "address": "",
       "gender": "male",
       "posizione": 1,
-      "insfida": false,
+      "insfida": true,
       "id": 2
     },
     {
@@ -41,7 +41,7 @@
       "role": "player",
       "address": "",
       "gender": "male",
-      "posizione": 2,
+      "posizione": 3,
       "insfida": true,
       "id": 3
     },
@@ -67,8 +67,8 @@
       "role": "player",
       "address": "",
       "gender": "male",
-      "posizione": 3,
-      "insfida": false,
+      "posizione": 2,
+      "insfida": true,
       "id": 5
     },
     {
@@ -726,10 +726,10 @@
           "p2": "Davide Alfieri"
         }
       ],
-      "status": "complete",
-      "set1": "5-8",
-      "set2": "0-0",
-      "set3": "0-0",
+      "status": "processing",
+      "set1": "",
+      "set2": "",
+      "set3": "",
       "id": 9
     },
     {

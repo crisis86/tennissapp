@@ -6,11 +6,14 @@ import React from "react";
 import { toast } from "react-toastify";
 import Swal from 'sweetalert2';
 import dayjs from 'dayjs';
-import pallina from './assets/pallina.png';
+import 'dayjs/locale/it' // load on demand
 
 const Mychallenge = () => {
 
     const navigate = useNavigate();
+    const customParseFormat = require('dayjs/plugin/customParseFormat')
+    dayjs.locale('it')
+    dayjs.extend(customParseFormat)
 
     const iduser = parseInt(sessionStorage.getItem('iduser'))
     const fullname = sessionStorage.getItem('fullname')
@@ -643,19 +646,19 @@ const Mychallenge = () => {
                     if (index + 1 >= posp2 && index + 1 <= posp1 - 1) {
 
                         if (Object.keys(classicica).length > index + 1) {
-                            
-                        obj.posizione = obj.posizione + 1
-                        if (obj.id === idp1) { obj.insfida = false;} // ulteriore controllo dello sfidato 
-                        console.log("Posizioni nel mezzo: " +obj.posizione)
-                        updateUserPosition(obj)
-                         }
-                       
+
+                            obj.posizione = obj.posizione + 1
+                            if (obj.id === idp1) { obj.insfida = false; } // ulteriore controllo dello sfidato 
+                            console.log("Posizioni nel mezzo: " + obj.posizione)
+                            updateUserPosition(obj)
+                        }
+
                     }
                     if (obj.id === idp2) {
                         obj.insfida = false
                         if (Object.keys(classicica).length > index + 1) {
-                        obj.posizione = posp2 + 1 // scendo di una posizione 
-                               console.log("posizione pedente:" +obj.posizione) 
+                            obj.posizione = posp2 + 1 // scendo di una posizione 
+                            console.log("posizione pedente:" + obj.posizione)
                         }
                         updateUserPosition(obj)
                     } if (obj.id === idp1) {
@@ -676,19 +679,19 @@ const Mychallenge = () => {
 
 
                 const found2 = classicica.sort((a, b) => a.posizione > b.posizione ? 1 : -1).filter((obj, index) => {
- 
-                    let vecchiapos=""
-                    if (index + 1 === posp2 - 1|| index + 1 === posp2 - 2) {
-                  
+
+                    let vecchiapos = ""
+                    if (index + 1 === posp2 - 1 || index + 1 === posp2 - 2) {
+
                         if (posp2 === 2) { return } // esco perchè rimango al secondo posto
                         if (posp2 === 3 && obj.posizione === 1) { return } // esco per non cambiare la posizione al numero1
 
-                        if(obj.id !== idp1 || obj.id !== idp2)
-                          vecchiapos = obj.posizione
+                        if (obj.id !== idp1 || obj.id !== idp2)
+                            vecchiapos = obj.posizione
                         obj.posizione = obj.posizione + 1
-                    
-                        console.log("ho spostato id  " +obj.name + " vecchia pos:" + vecchiapos)
-                        console.log("Posizioni nel mezzo:"+ obj.posizione)
+
+                        console.log("ho spostato id  " + obj.name + " vecchia pos:" + vecchiapos)
+                        console.log("Posizioni nel mezzo:" + obj.posizione)
                         updateUserPosition(obj)
                     }
                     if (obj.id === idp2) {
@@ -702,7 +705,7 @@ const Mychallenge = () => {
                         console.log("posizione vincente:" + obj.posizione)
                         updateUserPosition(obj)
 
-                    } 
+                    }
 
                     if (obj.id === idp1) {
 
@@ -711,17 +714,17 @@ const Mychallenge = () => {
                         if (Object.keys(classicica).length > index + 1) { //controllo la fine della classifica
                             vecchiapos = obj.posizione
                             obj.posizione = obj.posizione + 1 // scendo di una
-                            console.log("Pedendte " +obj.name + " vecchia pos:" + vecchiapos)
+                            console.log("Pedendte " + obj.name + " vecchia pos:" + vecchiapos)
                             console.log("pos perdente", obj.posizione)
                         }
                         console.log("lunghezza array perd ", Object.keys(classicica).length)
                         console.log("lunghezza perd", index)
-                      
+
                         updateUserPosition(obj)
 
-                    } 
+                    }
 
-                    if (index + 1 === posp1+1) {
+                    if (index + 1 === posp1 + 1) {
                         obj.posizione = obj.posizione - 1  // sale di uno quello sotto a me
 
                         if (obj.posizione <= 0) { obj.posizione = 1 }  //check primo classifica 
@@ -734,7 +737,7 @@ const Mychallenge = () => {
 
                 })
 
-            //    console.log(JSON.stringify(found2));
+                //    console.log(JSON.stringify(found2));
 
                 return found2
 
@@ -908,6 +911,11 @@ const Mychallenge = () => {
 
     }
 
+    function formatdate(data) {
+        let formattedDate = dayjs().format(data) // 2023-03-01
+        //   console.log(formattedDate)
+        return formattedDate
+    }
     return (
         <>
             <div className="page-content">
@@ -936,30 +944,30 @@ const Mychallenge = () => {
 
                                             <ul>
 
-                                                <li style={{textTransform:'capitalize'}} key={index + 1}>{item.players[0].p1} VS {item.players[1].p2}</li>
+                                                <li style={{ textTransform: 'capitalize' }} key={index + 1}>{item.players[0].p1} VS {item.players[1].p2}</li>
                                                 {item.status === 'pending' &&
-                                                            <b>Attesa Avversario</b>
+                                                    <b>Attesa Avversario</b>
 
-                                                        }
-                                                            {item.status === 'processing' &&
-                                                        <>
-                                                            {item.datasfida === '' ? (
-                                                                <b>Da Porgrammare</b>
+                                                }
+                                                {item.status === 'processing' &&
+                                                    <>
+                                                        {item.datasfida === '' ? (
+                                                            <b>Da Porgrammare</b>
 
-                                                            ) : (
-                                                               <b>In Corso</b>
+                                                        ) : (
+                                                            <b>In Corso</b>
 
-                                                            )}
-                                                        </>
-                                                    }
-                                                        {item.status === 'cancel' &&
-                                                            <b>Annullata</b>
+                                                        )}
+                                                    </>
+                                                }
+                                                {item.status === 'cancel' &&
+                                                    <b>Annullata</b>
 
-                                                        }
-                                                        {item.status === 'complete' &&
-                                                            <b>Completata </b>
+                                                }
+                                                {item.status === 'complete' &&
+                                                    <b>Completata </b>
 
-                                                        }
+                                                }
                                                 <li><b> Creata:</b> {item.datacreate} <b>Prevista:</b> {item.datasfida} </li>
                                                 {item.players[0].idp1 === iduser ? (
                                                     <li> <b> {loadnumberphone(item.players[1].idp2)}</b></li>
@@ -967,9 +975,9 @@ const Mychallenge = () => {
                                                     <li> <b>{loadnumberphone(item.players[0].idp1)}</b></li>
                                                 )}
                                                 <li ><b>Score</b></li>
-                                                <li style={{textDecoration: item.set1=='0-0' ? 'line-through':'none'}} >Set1: <b>{item.set1} </b></li>
-                                                <li style={{textDecoration: item.set2=='0-0' ? 'line-through':'none'}} >Set2: <b>{item.set2} </b></li>
-                                                <li style={{textDecoration: item.set3=='0-0' ? 'line-through':'none'}} >Set3: <b>{item.set3} </b> </li>
+                                                <li style={{ textDecoration: item.set1 == '0-0' ? 'line-through' : 'none' }} >Set1: <b>{item.set1} </b></li>
+                                                <li style={{ textDecoration: item.set2 == '0-0' ? 'line-through' : 'none' }} >Set2: <b>{item.set2} </b></li>
+                                                <li style={{ textDecoration: item.set3 == '0-0' ? 'line-through' : 'none' }} >Set3: <b>{item.set3} </b> </li>
 
                                             </ul>
 
@@ -1007,52 +1015,55 @@ const Mychallenge = () => {
                                                             </div>
                                                         ) : (
                                                             <div className="row">
-                                                                
-                                                                {Date(today) >= Date(item.datasfida) &&
+
+                                                                {/*  {Date(today) >= Date(item.datasfida) && */}
+
+                                                                {dayjs(today).format('DD/MM/YYYY') >= formatdate(item.datasfida) &&
+
                                                                     <div>
 
                                                                         <span><i>Inserisci Il risultati </i></span>
 
                                                                         <table className="data-table">
-                                                                            <tbody> 
-                                                                            <tr index={index + 1}>
-                                                                                <td>Set 1</td>
-                                                                                <td>
-                                                                                    <input type="number" min="1" max="100" value={set1casa} onChange={e => setset1casa(e.target.value)} className="form-control"></input>
-                                                                                </td>
-                                                                                <td>-</td>
-                                                                                <td>
-                                                                                    <input type="number" min="1" max="100" value={set1ospite} onChange={e => setset1ospite(e.target.value)} className="form-control"></input>
-                                                                                </td>
+                                                                            <tbody>
+                                                                                <tr index={index + 1}>
+                                                                                    <td>Set 1</td>
+                                                                                    <td>
+                                                                                        <input type="number" min="1" max="100" value={set1casa} onChange={e => setset1casa(e.target.value)} className="form-control"></input>
+                                                                                    </td>
+                                                                                    <td>-</td>
+                                                                                    <td>
+                                                                                        <input type="number" min="1" max="100" value={set1ospite} onChange={e => setset1ospite(e.target.value)} className="form-control"></input>
+                                                                                    </td>
 
 
-                                                                            </tr>
+                                                                                </tr>
 
-                                                                            <tr>
-                                                                                <td>Set 2</td>
-                                                                                <td>
-                                                                                    <input type="number" min="1" max="100" value={set2casa} onChange={e => setset2casa(e.target.value)} className="form-control"></input>
-                                                                                </td>
-                                                                                <td>-</td>
-                                                                                <td>
-                                                                                    <input type="number" min="1" max="100" value={set2ospite} onChange={e => setset2ospite(e.target.value)} className="form-control"></input>
-                                                                                </td>
-
-
-                                                                            </tr>
-
-                                                                            <tr>
-                                                                                <td>Set 3</td>
-                                                                                <td>
-                                                                                    <input type="number" min="1" max="100" value={set3casa} onChange={e => setset3casa(e.target.value)} className="form-control"></input>
-                                                                                </td>
-                                                                                <td>-</td>
-                                                                                <td>
-                                                                                    <input type="number" min="1" max="100" value={set3ospite} onChange={e => setset3ospite(e.target.value)} className="form-control"></input>
-                                                                                </td>
+                                                                                <tr>
+                                                                                    <td>Set 2</td>
+                                                                                    <td>
+                                                                                        <input type="number" min="1" max="100" value={set2casa} onChange={e => setset2casa(e.target.value)} className="form-control"></input>
+                                                                                    </td>
+                                                                                    <td>-</td>
+                                                                                    <td>
+                                                                                        <input type="number" min="1" max="100" value={set2ospite} onChange={e => setset2ospite(e.target.value)} className="form-control"></input>
+                                                                                    </td>
 
 
-                                                                            </tr>
+                                                                                </tr>
+
+                                                                                <tr>
+                                                                                    <td>Set 3</td>
+                                                                                    <td>
+                                                                                        <input type="number" min="1" max="100" value={set3casa} onChange={e => setset3casa(e.target.value)} className="form-control"></input>
+                                                                                    </td>
+                                                                                    <td>-</td>
+                                                                                    <td>
+                                                                                        <input type="number" min="1" max="100" value={set3ospite} onChange={e => setset3ospite(e.target.value)} className="form-control"></input>
+                                                                                    </td>
+
+
+                                                                                </tr>
                                                                             </tbody>
                                                                         </table>
 
@@ -1105,52 +1116,54 @@ const Mychallenge = () => {
                                                         <div className="row">
                                                             <>
                                                             </>
-                                                            {Date(today) >= Date(item.datasfida) &&
+                                                            {dayjs(today).format('DD/MM/YYYY') >= formatdate(item.datasfida) &&
 
+                                                                /*   {Date(today) >= Date(item.datasfida) &&
+       */
                                                                 <div>
 
                                                                     <span><i>Inserisci Il risultati</i></span>
 
                                                                     <table className="data-table">
-                                                                    <tbody>
-                                                                        <tr index={index + 1}>
-                                                                            <td>Set 1</td>
-                                                                            <td>
-                                                                                <input type="number" min="1" max="100" value={set1casa} onChange={e => setset1casa(e.target.value)} className="form-control"></input>
-                                                                            </td>
-                                                                            <td>-</td>
-                                                                            <td>
-                                                                                <input type="number" min="1" max="100" value={set1ospite} onChange={e => setset1ospite(e.target.value)} className="form-control"></input>
-                                                                            </td>
+                                                                        <tbody>
+                                                                            <tr index={index + 1}>
+                                                                                <td>Set 1</td>
+                                                                                <td>
+                                                                                    <input type="number" min="1" max="100" value={set1casa} onChange={e => setset1casa(e.target.value)} className="form-control"></input>
+                                                                                </td>
+                                                                                <td>-</td>
+                                                                                <td>
+                                                                                    <input type="number" min="1" max="100" value={set1ospite} onChange={e => setset1ospite(e.target.value)} className="form-control"></input>
+                                                                                </td>
 
 
-                                                                        </tr>
+                                                                            </tr>
 
-                                                                        <tr>
-                                                                            <td>Set 2</td>
-                                                                            <td>
-                                                                                <input type="number" min="1" max="100" value={set2casa} onChange={e => setset2casa(e.target.value)} className="form-control"></input>
-                                                                            </td>
-                                                                            <td>-</td>
-                                                                            <td>
-                                                                                <input type="number" min="1" max="100" value={set2ospite} onChange={e => setset2ospite(e.target.value)} className="form-control"></input>
-                                                                            </td>
-
-
-                                                                        </tr>
-
-                                                                        <tr>
-                                                                            <td>Set 3</td>
-                                                                            <td>
-                                                                                <input type="number" min="1" max="100" value={set3casa} onChange={e => setset3casa(e.target.value)} className="form-control"></input>
-                                                                            </td>
-                                                                            <td>-</td>
-                                                                            <td>
-                                                                                <input type="number" min="1" max="100" value={set3ospite} onChange={e => setset3ospite(e.target.value)} className="form-control"></input>
-                                                                            </td>
+                                                                            <tr>
+                                                                                <td>Set 2</td>
+                                                                                <td>
+                                                                                    <input type="number" min="1" max="100" value={set2casa} onChange={e => setset2casa(e.target.value)} className="form-control"></input>
+                                                                                </td>
+                                                                                <td>-</td>
+                                                                                <td>
+                                                                                    <input type="number" min="1" max="100" value={set2ospite} onChange={e => setset2ospite(e.target.value)} className="form-control"></input>
+                                                                                </td>
 
 
-                                                                        </tr>
+                                                                            </tr>
+
+                                                                            <tr>
+                                                                                <td>Set 3</td>
+                                                                                <td>
+                                                                                    <input type="number" min="1" max="100" value={set3casa} onChange={e => setset3casa(e.target.value)} className="form-control"></input>
+                                                                                </td>
+                                                                                <td>-</td>
+                                                                                <td>
+                                                                                    <input type="number" min="1" max="100" value={set3ospite} onChange={e => setset3ospite(e.target.value)} className="form-control"></input>
+                                                                                </td>
+
+
+                                                                            </tr>
                                                                         </tbody>
                                                                     </table>
 

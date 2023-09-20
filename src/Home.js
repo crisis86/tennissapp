@@ -2,10 +2,14 @@ import { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import iconafiltro from './assets/icone/filter.png';
 import pallina from './assets/pallina.png';
+import dayjs from 'dayjs';
+import 'dayjs/locale/it' // load on demand
 
 
 const Home = () => {
-
+    const customParseFormat = require('dayjs/plugin/customParseFormat')
+    dayjs.locale('it')
+    dayjs.extend(customParseFormat)
 
     const usenavigate = useNavigate();
     const [challenge, setchallenge] = useState([]);
@@ -24,32 +28,32 @@ const Home = () => {
             //toast.error('Not Authenticate session');
             usenavigate('/login');
         } else {
-    
-            if(filter==='all' || filter==='vuoto') {
-            loadcgallenge();
-        }else {
-            loadcgallengeByFilter(filter);
 
-        }
+            if (filter === 'all' || filter === 'vuoto') {
+                loadcgallenge();
+            } else {
+                loadcgallengeByFilter(filter);
+
+            }
         }
     }, []);
 
 
 
     useEffect(() => {
-        if(filter==='all' || filter==='vuoto') {
+        if (filter === 'all' || filter === 'vuoto') {
             loadcgallenge();
-        }else {
+        } else {
             loadcgallengeByFilter(filter);
         }
 
- }, [filter]);
+    }, [filter]);
 
 
 
-   const loadcgallengeByFilter = (filro) => {
+    const loadcgallengeByFilter = (filro) => {
 
-        fetch(window.$produrl + "/challenge?status="+filro).then(res => {
+        fetch(window.$produrl + "/challenge?status=" + filro).then(res => {
             if (!res.ok) {
                 console.log(res)
                 // navigate('/');
@@ -77,27 +81,33 @@ const Home = () => {
 
     }
 
+    function formatdate(data) {
+        let formattedDate = dayjs().format(data) // 2023-03-01
+        //   console.log(formattedDate)
+        return formattedDate
+    }
+
     return (
         <div className="page-content">
             <div className="list cards-list inset margin-vertical-half no-chevron no-hairlines no-hairlines-between">
 
-            <div className="filter">
-            <img style={{float:'left'}} src={iconafiltro} alt="filter" width={23} ></img>
+                <div className="filter">
+                    <img style={{ float: 'left' }} src={iconafiltro} alt="filter" width={23} ></img>
 
-                    <select style={{margin:'0 40px',width:'90%', padding:'2px 0', background:'#f9f9f9'}} className="form-control select input-outline" selected="selected" value={filter} onChange={e => setfilterchange(e.target.value)} >
-                            <option disabled className="md item-input-invalid select" style={{color:'grey'}}  value='vuoto'>Seleziona Stato Evento</option>
-                            <option value='all'>Tutti Gli Stati</option>
-                            <option value='processing'>In Corso</option>    
-                            <option value='cancel'>Annullate</option>
-                            <option value='processing&datasfida='>Da Programmare</option>
-                            <option value='pending'>Attesa Avversario</option>
-                            <option value='complete'>Completate</option>
-                            
-                        </select>
- 
-                    </div>
+                    <select style={{ margin: '0 40px', width: '90%', padding: '2px 0', background: '#f9f9f9' }} className="form-control select input-outline" selected="selected" value={filter} onChange={e => setfilterchange(e.target.value)} >
+                        <option disabled className="md item-input-invalid select" style={{ color: 'grey' }} value='vuoto'>Seleziona Stato Evento</option>
+                        <option value='all'>Tutti Gli Stati</option>
+                        <option value='processing'>In Corso</option>
+                        <option value='cancel'>Annullate</option>
+                        <option value='processing&datasfida='>Da Programmare</option>
+                        <option value='pending'>Attesa Avversario</option>
+                        <option value='complete'>Completate</option>
+
+                    </select>
+
+                </div>
                 <div className="row align-items-stretch">
-                     {challenge &&
+                    {challenge &&
                         challenge.sort((a, b) => a.id < b.id ? 1 : -1).map((item, index) => (
                             <div style={{ border: '1px solid #cbc4c4', borderRadius: '10px' }} key={index + 1} className="col-100 small-50 xlarge-100">
                                 <div className="item-content height-100">
@@ -115,7 +125,7 @@ const Home = () => {
                                                                 <b style={{ background: '#e7e7e7', padding: '3px' }}>Da Porgrammare</b>
 
                                                             ) : (
-                                                               <b style={{ background: '#e7e7e7', padding: '3px' }}>In Corso</b>
+                                                                <b style={{ background: '#e7e7e7', padding: '3px' }}>In Corso</b>
 
                                                             )}
                                                         </>
@@ -153,18 +163,23 @@ const Home = () => {
                                                 </div>
                                             </div>
                                             <div className="item-row margin-top">
-                                                <div style={{borderRadius: '10px', textAlign: 'center', background: '#e7e7e7', opacity: '0.7' }} className="item-cell">
-                                                    <div   className="font-size-14 multi-line-text lines-3 text-color-gray">
+                                                <div style={{ borderRadius: '10px', textAlign: 'center', background: '#e7e7e7', opacity: '0.7' }} className="item-cell">
+                                                    <div className="font-size-14 multi-line-text lines-3 text-color-gray">
                                                         <ul>
                                                             <li> <a style={{ textTransform: 'capitalize' }} className='link' href={'/Challenge-single/' + item.players[0].idp1 + '/' + item.players[0].p1}>
                                                                 <span style={{ fontSize: "14px" }}> <i>{item.players[0].p1} </i></span>
                                                             </a></li>
-                                                            <li style={{ fontWeight: "bold" }}>      <span>vs</span></li>
+                                                            <li style={{ fontWeight: "bold" }}>      <span>vs</span>
+                                                                {dayjs(today).format('DD/MM/YYYY') === formatdate(item.datasfida) &&
+                                                                    <img width={16} src={pallina} alt="pallina"></img>
+                                                                }
+                                                                {/*  {dayjs(today).format('DD/MM/YYYY')} - {formatdate(item.datasfida)} */}
+                                                            </li>
 
                                                             <li>      <a style={{ textTransform: 'capitalize' }} className='link' href={'/Challenge-single/' + item.players[1].idp2 + '/' + item.players[1].p2}>
                                                                 <span style={{ fontSize: "14px" }}> <i>{item.players[1].p2}</i></span>
                                                             </a></li>
-                                                          
+
                                                         </ul>
                                                     </div>
                                                 </div>
