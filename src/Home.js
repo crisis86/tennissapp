@@ -149,7 +149,7 @@ const Home = () => {
                                                         <div className="item-cell flex-shrink-0 width-auto line-height-1">
                                                             <span style={{ fontSize: "14px", textAlign: 'left' }}><b>Creata:</b> &nbsp; <i>{item.datacreate}</i></span>
                                                             <br></br>
-                                                            <span style={{ fontSize: "14px", textAlign: 'left' }}><b>Prevista:</b> <i>{item.datasfida}</i></span>
+                                                            <span style={{ color: dayjs(today).format('DD/MM/YYYY') === formatdate(item.datasfida) ? '#f47f35':'none', fontSize: "14px", textAlign: 'left' }}><b>Prevista:</b> <i>{item.datasfida}</i></span>
 
                                                         </div>
                                                     </div>
@@ -167,17 +167,23 @@ const Home = () => {
                                                     <div className="font-size-14 multi-line-text lines-3 text-color-gray">
                                                         <ul>
                                                             <li> <a style={{ textTransform: 'capitalize' }} className='link' href={'/Challenge-single/' + item.players[0].idp1 + '/' + item.players[0].p1}>
-                                                                <span style={{ fontSize: "14px" }}> <i>{item.players[0].p1} </i></span>
+                                                                <span style={{ fontSize: "14px" }}> <i>{item.players[0].p1}</i>
+                                                                {dayjs(today).format('DD/MM/YYYY') === formatdate(item.datasfida) &&
+                                                                <i><img width={16} src={pallina} alt="pallina"></img></i>
+                                                                }
+                                                                </span>
                                                             </a></li>
                                                             <li style={{ fontWeight: "bold" }}>      <span>vs</span>
-                                                                {dayjs(today).format('DD/MM/YYYY') === formatdate(item.datasfida) &&
-                                                                    <img width={16} src={pallina} alt="pallina"></img>
-                                                                }
+                                                               
                                                                 {/*  {dayjs(today).format('DD/MM/YYYY')} - {formatdate(item.datasfida)} */}
                                                             </li>
 
-                                                            <li>      <a style={{ textTransform: 'capitalize' }} className='link' href={'/Challenge-single/' + item.players[1].idp2 + '/' + item.players[1].p2}>
-                                                                <span style={{ fontSize: "14px" }}> <i>{item.players[1].p2}</i></span>
+                                                            <li>  <a style={{ textTransform: 'capitalize' }} className='link' href={'/Challenge-single/' + item.players[1].idp2 + '/' + item.players[1].p2}>
+                                                                <span style={{ fontSize: "14px" }}> <i>{item.players[1].p2}</i>
+                                                                {dayjs(today).format('DD/MM/YYYY') === formatdate(item.datasfida) &&
+                                                                <i><img width={16} src={pallina} alt="pallina"></img></i>
+                                                                }
+                                                                </span>
                                                             </a></li>
 
                                                         </ul>
