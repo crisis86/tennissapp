@@ -7,7 +7,6 @@ import './assets/App.css';
 import './assets/Navbar.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import 'react-toastify/dist/ReactToastify.css';
-//import reportWebVitals from './reportWebVitals';
 
 window.$servEmail ="https://servermail-fhuv.onrender.com"
 

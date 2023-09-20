@@ -181,7 +181,8 @@ const Register = () => {
                     setloading(false)
 
                     toast.success('Registered successfully.')
-                    navigate('/login');
+                   // navigate('/login');
+                    navigate('/register');
                 }).catch((err) => {
                     setloading(false)
                     toast.error('Failed :' + err.message);
@@ -237,13 +238,13 @@ const Register = () => {
                                 </div>
                                 <div className="col-lg-6">
                                     <div className="form-group">
-                                        <label>Tel. <span className="errmsg"></span></label>
-                                        <input value={phone} onChange={e => phonechange(e.target.value)} className="form-control"></input>
+                                        <label>Cell <span className="errmsg"></span></label>
+                                        <input value={phone} type="number" onChange={e => phonechange(e.target.value)} className="form-control"></input>
                                     </div>
                                 </div>
                                 <div className="col-lg-6">
                                     <div className="form-group">
-                                        <label>Città <span className="errmsg">*</span></label>
+                                        <label>Paese <span className="errmsg">*</span></label>
                                         <select value={country} onChange={e => countrychange(e.target.value)} className="form-control">
                                             <option value="Italia">Italia</option>
                                             <option value="india">India</option>

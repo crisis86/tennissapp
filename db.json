@@ -120,7 +120,7 @@
       "address": "",
       "gender": "male",
       "posizione": 5,
-      "insfida": false,
+      "insfida": true,
       "id": 9
     },
     {
@@ -133,13 +133,13 @@
       "address": "",
       "gender": "male",
       "posizione": 9,
-      "insfida": false,
+      "insfida": true,
       "id": 10
     },
     {
       "email": "pasqualecastaldo1994@libero.it",
-      "password": "123456",
-      "name": "Pasquale Castaldo2",
+      "password": "Imma270311!",
+      "name": "P. Castaldo 1994",
       "phone": "3342272761",
       "country": "Italia",
       "role": "player",
@@ -159,7 +159,7 @@
       "address": "sdsdsd",
       "gender": "male",
       "posizione": 11,
-      "insfida": false,
+      "insfida": true,
       "id": 12
     },
     {
@@ -289,7 +289,7 @@
       "address": "",
       "gender": "male",
       "posizione": 17,
-      "insfida": false,
+      "insfida": true,
       "id": 22
     },
     {
@@ -405,7 +405,7 @@
       "role": "player",
       "address": "",
       "gender": "male",
-      "posizione": 31,
+      "posizione": 30,
       "insfida": false,
       "id": 31
     },
@@ -418,7 +418,7 @@
       "role": "player",
       "address": "",
       "gender": "female",
-      "posizione": 30,
+      "posizione": 31,
       "insfida": false,
       "id": 32
     },
@@ -444,7 +444,7 @@
       "role": "player",
       "address": "",
       "gender": "male",
-      "posizione": 34,
+      "posizione": 33,
       "insfida": false,
       "id": 35
     },
@@ -457,7 +457,7 @@
       "role": "player",
       "address": "",
       "gender": "male",
-      "posizione": 33,
+      "posizione": 34,
       "insfida": false,
       "id": 36
     },
@@ -563,18 +563,17 @@
   "challenge": [
     {
       "datacreate": "10-2-2022",
-      "datasfida": "15/2/2022",
+      "datasfida": "15/02/2022",
       "players": [
         {
           "idp1": 0,
           "p1": "Admin Admin"
         },
         {
-          "idp1": 0,
           "p2": "Admin Admin"
         }
       ],
-      "status": "canel",
+      "status": "cancel",
       "set1": "0-0",
       "set2": "0-0",
       "set3": "0-0",
@@ -715,7 +714,7 @@
     },
     {
       "datacreate": "19/9/2023",
-      "datasfida": "20/09/2023",
+      "datasfida": "28/09/2023",
       "players": [
         {
           "idp1": 5,
@@ -756,19 +755,38 @@
       "datasfida": "",
       "players": [
         {
-          "idp1": 35,
-          "p1": "Antonio Sirignano"
+          "idp1": 12,
+          "p1": "Domenico Serino"
         },
         {
-          "idp2": 32,
-          "p2": "Martina Veneruso"
+          "idp2": 9,
+          "p2": "Antonio Casciello"
         }
       ],
-      "status": "cancel",
+      "status": "processing",
       "set1": "",
       "set2": "",
       "set3": "",
       "id": 11
+    },
+    {
+      "datacreate": "20/09/2023",
+      "datasfida": "",
+      "players": [
+        {
+          "idp1": 22,
+          "p1": "Giuseppe Russo "
+        },
+        {
+          "idp2": 10,
+          "p2": "Pasquale castaldo"
+        }
+      ],
+      "status": "pending",
+      "set1": "",
+      "set2": "",
+      "set3": "",
+      "id": 12
     }
   ]
 }
