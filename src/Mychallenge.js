@@ -93,7 +93,7 @@ const Mychallenge = () => {
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
+            cancelButtonColor: '#f47f35',
             confirmButtonText: 'Si sono sicuro!'
         }).then((result) => {
             if (result.isConfirmed) {
@@ -177,8 +177,8 @@ const Mychallenge = () => {
             text: 'Vuoi aggiornare il risultato?',
             icon: 'warning',
             showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
+            confirmButtonColor: '#71b852',
+            cancelButtonColor: '#f47f35',
             confirmButtonText: 'Operazione irreversibile!'
         }).then((result) => {
             if (result.isConfirmed) {

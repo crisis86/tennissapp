@@ -143,7 +143,7 @@ const Login = () => {
                         </div>
                         <div className="card-footer">
                             <button disabled={loading} type="submit" className="btn btn-primary">{loading && <FontAwesomeIcon icon="fa-solid fa-spinner" spinPulse size="lg" style={{color: "#fcfcfc",}} />}Login</button> |
-                            <Link className="btn btn-success" to={'/register'}>Sing </Link>
+                            {/* <Link className="btn btn-success" to={'/register'}>Sing </Link> */}
                         </div>
                         <span><a href="/Regolamento.html">Regolamento</a></span>
                     </div>

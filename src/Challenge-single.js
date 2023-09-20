@@ -114,8 +114,8 @@ const ChallengeSingle = () => {
             text: mtext,
             icon: 'warning',
             showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
+            confirmButtonColor: '#71b852',
+            cancelButtonColor: '#f47f35',
             confirmButtonText: mconfirmtext
         }).then((result) => {
             if (result.isConfirmed) {
