@@ -405,7 +405,7 @@
       "role": "player",
       "address": "",
       "gender": "male",
-      "posizione": 30,
+      "posizione": 31,
       "insfida": false,
       "id": 31
     },
@@ -418,7 +418,7 @@
       "role": "player",
       "address": "",
       "gender": "female",
-      "posizione": 31,
+      "posizione": 30,
       "insfida": false,
       "id": 32
     },
@@ -444,7 +444,7 @@
       "role": "player",
       "address": "",
       "gender": "male",
-      "posizione": 33,
+      "posizione": 34,
       "insfida": false,
       "id": 35
     },
@@ -457,7 +457,7 @@
       "role": "player",
       "address": "",
       "gender": "male",
-      "posizione": 34,
+      "posizione": 33,
       "insfida": false,
       "id": 36
     },
@@ -715,7 +715,7 @@
     },
     {
       "datacreate": "19/9/2023",
-      "datasfida": "28/09/2023",
+      "datasfida": "20/09/2023",
       "players": [
         {
           "idp1": 5,
@@ -750,6 +750,25 @@
       "set2": "",
       "set3": "",
       "id": 10
+    },
+    {
+      "datacreate": "20/09/2023",
+      "datasfida": "",
+      "players": [
+        {
+          "idp1": 35,
+          "p1": "Antonio Sirignano"
+        },
+        {
+          "idp2": 32,
+          "p2": "Martina Veneruso"
+        }
+      ],
+      "status": "cancel",
+      "set1": "",
+      "set2": "",
+      "set3": "",
+      "id": 11
     }
   ]
 }

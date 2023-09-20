@@ -5,10 +5,15 @@ import Swal from 'sweetalert2';
 import { toast } from "react-toastify";
 import avatar from './assets/avatar.png';
 import Report from './hooks/Report';
+import dayjs from 'dayjs';
+import 'dayjs/locale/it' // load on demand
 
 
 const ChallengeSingle = () => {
-
+    const customParseFormat = require('dayjs/plugin/customParseFormat')
+    dayjs.locale('it')
+    dayjs.extend(customParseFormat)
+    
     //id user collegato
     const iduser = parseInt(sessionStorage.getItem('iduser'));
     //nome user collegato
@@ -203,7 +208,9 @@ const ChallengeSingle = () => {
     function addchallenge(iddasfidare, nomedasfidare, emailperinvio) {
 
         const current = new Date();
-        const date = `${current.getDate()}/${current.getMonth() + 1}/${current.getFullYear()}`;
+
+        const date = dayjs(current).format('DD/MM/YYYY')
+        //const date = `${current.getDate()}/${current.getMonth() + 1}/${current.getFullYear()}`;
         // console.log(date);
         const obj = {
             "datacreate": date,
@@ -233,7 +240,7 @@ const ChallengeSingle = () => {
             console.log('challenge creato')
             sessionStorage.setItem('stoinsfida', true);
 
-            sendemail(nomedasfidare, emailperinvio, 'add')
+              sendemail(nomedasfidare, emailperinvio, 'add')
 
             // console.log('sto in sfida: ' +stoinsfida)
         }).catch((err) => {
