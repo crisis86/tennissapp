@@ -37,12 +37,12 @@ const Report = () => {
             let vincitore = ""
             let sommavittorie = 0
             let sommasconfitte = 0
-            let lunghezza=0;
-            let percentuale=0;
+            let lunghezza = 0;
+            let percentuale = 0;
             const idscheda = parseInt(param['id'])
 
             const found = challengelist.filter(obj => {
-                lunghezza =  Object.keys(challengelist).length
+                lunghezza = Object.keys(challengelist).length
                 let splitresult1 = obj.set1.split('-')
                 let splitresult2 = obj.set2.split('-')
                 let splitresult3 = obj.set3.split('-')
@@ -52,16 +52,20 @@ const Report = () => {
                 } else {
                     vitospite += 1
                 }
-                if (splitresult2[0] > splitresult2[1]) {
-                    vitcasa += 1
-                } else {
-                    vitospite += 1
-                }
 
-                if (splitresult3[0] > splitresult3[1]) {
-                    vitcasa += 1
-                } else {
-                    vitospite += 1
+                if (obj.set2 !== '0-0') {
+                    if (splitresult2[0] > splitresult2[1]) {
+                        vitcasa += 1
+                    } else {
+                        vitospite += 1
+                    }
+                }
+                if (obj.set3 !== '0-0') {
+                    if (splitresult3[0] > splitresult3[1]) {
+                        vitcasa += 1
+                    } else {
+                        vitospite += 1
+                    }
                 }
 
                 if (vitcasa > vitospite) {
@@ -98,13 +102,13 @@ const Report = () => {
             });
 
             percentuale = sommavittorie / lunghezza * 100
-            
-               if(isNaN(percentuale)) {
-                percentuale=0;
-            }
 
+            if (isNaN(percentuale)) {
+                percentuale = 0;
+            }
+              console.log(vitcasa)
             setpercentage(percentuale)
-                      
+
 
         });
     }
