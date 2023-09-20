@@ -169,7 +169,7 @@ const Home = () => {
                                                             <li> <a style={{ textTransform: 'capitalize' }} className='link' href={'/Challenge-single/' + item.players[0].idp1 + '/' + item.players[0].p1}>
                                                                 <span style={{ fontSize: "14px" }}> <i>{item.players[0].p1}</i>
                                                                 {dayjs(today).format('DD/MM/YYYY') === formatdate(item.datasfida) &&
-                                                                <i><img width={16} src={pallina} alt="pallina"></img></i>
+                                                                <i><img width={15} src={pallina} alt="Challenge1"></img></i>
                                                                 }
                                                                 </span>
                                                             </a></li>
@@ -181,7 +181,7 @@ const Home = () => {
                                                             <li>  <a style={{ textTransform: 'capitalize' }} className='link' href={'/Challenge-single/' + item.players[1].idp2 + '/' + item.players[1].p2}>
                                                                 <span style={{ fontSize: "14px" }}> <i>{item.players[1].p2}</i>
                                                                 {dayjs(today).format('DD/MM/YYYY') === formatdate(item.datasfida) &&
-                                                                <i><img width={16} src={pallina} alt="pallina"></img></i>
+                                                                <i><img width={15} src={pallina} alt="Challenge2"></img></i>
                                                                 }
                                                                 </span>
                                                             </a></li>
