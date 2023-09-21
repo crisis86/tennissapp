@@ -975,9 +975,9 @@ const Mychallenge = () => {
                                                     <li> <b>{loadnumberphone(item.players[0].idp1)}</b></li>
                                                 )}
                                                 <li ><b>Score</b></li>
-                                                <li style={{ textDecoration: item.set1 == '0-0' ? 'line-through' : 'none' }} >Set1: <b>{item.set1} </b></li>
-                                                <li style={{ textDecoration: item.set2 == '0-0' ? 'line-through' : 'none' }} >Set2: <b>{item.set2} </b></li>
-                                                <li style={{ textDecoration: item.set3 == '0-0' ? 'line-through' : 'none' }} >Set3: <b>{item.set3} </b> </li>
+                                                <li style={{ textDecoration: item.set1 === '0-0' ? 'line-through' : 'none' }} >Set1: <b>{item.set1} </b></li>
+                                                <li style={{ textDecoration: item.set2 === '0-0' ? 'line-through' : 'none' }} >Set2: <b>{item.set2} </b></li>
+                                                <li style={{ textDecoration: item.set3 === '0-0' ? 'line-through' : 'none' }} >Set3: <b>{item.set3} </b> </li>
 
                                             </ul>
 

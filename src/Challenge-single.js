@@ -14,6 +14,7 @@ const ChallengeSingle = () => {
     dayjs.locale('it')
     dayjs.extend(customParseFormat)
     
+    const season = true
     //id user collegato
     const iduser = parseInt(sessionStorage.getItem('iduser'));
     //nome user collegato
@@ -545,7 +546,7 @@ const ChallengeSingle = () => {
                                                         <li ><b>Score</b></li>
                                                         <li style={{textDecoration: partite.set1==='0-0' ? 'line-through':'none'}}>Set1: <b>{partite.set1} </b></li>
                                                         <li style={{textDecoration: partite.set2==='0-0' ? 'line-through':'none'}}>Set2: <b>{partite.set2} </b></li>
-                                                        <li style={{textDecoration: partite.set3=='0-0' ? 'line-through':'none'}}>Set3: <b>{partite.set3} </b> </li>
+                                                        <li style={{textDecoration: partite.set3==='0-0' ? 'line-through':'none'}}>Set3: <b>{partite.set3} </b> </li>
                                                     </ul>
 
                                                 </div>
