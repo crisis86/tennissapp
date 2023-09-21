@@ -113,7 +113,7 @@ const Home = () => {
 
                     <img style={{ float: 'left' }} src={iconafiltro} alt="filter" width={23} ></img>
 
-                    <select style={{ margin: '0 10px', width: '70%', padding: '2px 0', background: '#f9f9f9' }} className="form-control select input-outline" selected="selected" value={filter} onChange={e => setfilterchange(e.target.value)} >
+                    <select style={{ margin: '0 10px', width: '65%', padding: '2px 0', background: '#f9f9f9' }} className="form-control select input-outline" selected="selected" value={filter} onChange={e => setfilterchange(e.target.value)} >
                         <option disabled className="md item-input-invalid select" style={{ color: 'grey' }} value='vuoto'>Seleziona Stato Evento</option>
                         <option value='all'>Tutti Gli Stati</option>
                         <option value='processing'>In Corso</option>
