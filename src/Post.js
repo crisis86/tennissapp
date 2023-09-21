@@ -13,7 +13,7 @@ const Post = () => {
     const [datapost, setdate] = useState(new Date().toLocaleString())
     const [visible, setvisible] = useState(true);
     const nameuser = sessionStorage.getItem('email')
-    const iduser = sessionStorage.getItem('id')
+    const iduser = parseInt(sessionStorage.getItem('iduser'))
     const [post, setposts] = useState([]);
 
     const usenavigate = useNavigate();
@@ -172,7 +172,10 @@ const Post = () => {
                                                     <div className="item-cell">
                                                         <div className="item-row">
                                                             <div className="item-cell">
-                                                                {item.title}
+                                                                {/* {item.title} */}
+                                                                <a className='link' href={'/Challenge-single/' + item.iduser + '/' + item.nameuser}>
+                                                                    <span style={{ fontSize: "14px" }}> <i>{item.nameuser}</i></span>
+                                                                </a>
                                                             </div>
                                                             <div className="item-cell flex-shrink-0 width-auto line-height-1">
                                                                 {myrole ==='admin' && 
@@ -183,9 +186,7 @@ const Post = () => {
                                                         </div>
                                                         <div className="item-row">
                                                             <div className="item-cell">
-                                                                <a className='link' href={'/Challenge-single/' + item.iduser + '/' + item.nameuser}>
-                                                                    <span style={{ fontSize: "14px" }}> <i>{item.nameuser}</i></span>
-                                                                </a>
+                                                              
                                                                 <span style={{ fontSize: "14px" }}> <i>{item.datapost}</i></span>
                                                             </div>
                                                         </div>
