@@ -3,9 +3,11 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import avatar from './assets/avatar.png';
+    const myrole = sessionStorage.getItem('userrole')
 
 const Post = () => {
 
+    const myrole = sessionStorage.getItem('userrole')
     const [title, setitle] = useState('Nuovo Post');
     const [descrizione, setdescr] = useState('');
     const [datapost, setdate] = useState(new Date().toLocaleString())
@@ -94,6 +96,28 @@ const Post = () => {
         console.log(descrizione)
         return isproceed;
     }
+
+
+    const handleremove =(e ,param) => {
+        if (window.confirm("Sei sicuro? l'operazione porterà alla cancellazione dei dati")) {
+            deletpost(param);
+          
+        }
+    }
+    function deletpost(idpost) {
+
+        fetch(window.$produrl+"/post/" + idpost, {
+            method: 'DELETE',
+        }).then((result) => {
+            //  console.log(result)
+            result.json().then((resp) => {
+                toast.success("Post Eliminato!");
+                loadpost();
+            })
+        }).catch((err) => {
+            toast.error(err.message);
+        });
+    }
     return (
 
         <div>
@@ -151,6 +175,9 @@ const Post = () => {
                                                                 {item.title}
                                                             </div>
                                                             <div className="item-cell flex-shrink-0 width-auto line-height-1">
+                                                                {myrole ==='admin' && 
+                                                            <button className="button" onClick={(e) => handleremove(e, item.id)}>X </button>
+                                                                }
                                                                 <i className="postnews">News</i>
                                                             </div>
                                                         </div>

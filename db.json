@@ -488,62 +488,7 @@
       "id": 38
     }
   ],
-  "post": [
-    {
-      "title": "Problea Pioggia",
-      "descrizione": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi laoreet, felis ut blandit auctor, metus magna semper enim, in faucibus erat lorem a nibh. Sed vestibulum eros vulputate massa pretium, at eleifend dui laoreet.",
-      "datapost": "31-8-2023",
-      "iduser": 2,
-      "nameuser": "Lino Bordelli",
-      "Visible": true,
-      "id": 1
-    },
-    {
-      "title": "Pronti per la sifda?",
-      "descrizione": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi laoreet, felis ut blandit auctor, metus magna semper enim, in faucibus erat lorem a nibh. Sed vestibulum eros vulputate massa pretium, at eleifend dui laoreet.",
-      "datapost": "31-8-2023",
-      "iduser": 17,
-      "nameuser": "Michele marotta",
-      "Visible": true,
-      "id": 2
-    },
-    {
-      "title": "Proposta Reinvio",
-      "descrizione": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi laoreet, felis ut blandit auctor, metus magna semper enim, in faucibus erat lorem a nibh. Sed vestibulum eros vulputate massa pretium, at eleifend dui laoreet.",
-      "datapost": "31-8-2023",
-      "iduser": 18,
-      "nameuser": "Driss Mertens",
-      "Visible": true,
-      "id": 3
-    },
-    {
-      "title": "Chi peer me?",
-      "descrizione": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi laoreet, felis ut blandit auctor, metus magna semper enim, in faucibus erat lorem a nibh. Sed vestibulum eros vulputate massa pretium, at eleifend dui laoreet.",
-      "datapost": "31-8-2023",
-      "iduser": 2,
-      "nameuser": "Lino Bordelli",
-      "Visible": true,
-      "id": 4
-    },
-    {
-      "title": "Sono pronto",
-      "descrizione": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi laoreet, felis ut blandit auctor, metus magna semper enim, in faucibus erat lorem a nibh. Sed vestibulum eros vulputate massa pretium, at eleifend dui laoreet.",
-      "datapost": "31-8-2023",
-      "iduser": 17,
-      "nameuser": "Michele marotta",
-      "Visible": true,
-      "id": 5
-    },
-    {
-      "title": "Proposta Reinvio",
-      "descrizione": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi laoreet, felis ut blandit auctor, metus magna semper enim, in faucibus erat lorem a nibh. Sed vestibulum eros vulputate massa pretium, at eleifend dui laoreet.",
-      "datapost": "31-8-2023",
-      "iduser": 18,
-      "nameuser": "Driss Mertens",
-      "Visible": true,
-      "id": 6
-    }
-  ],
+  "post": [],
   "roleaccess": [
     {
       "role": "admin",
