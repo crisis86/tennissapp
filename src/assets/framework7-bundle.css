@@ -859,6 +859,27 @@
     padding-top: calc(var(--f7-page-navbar-offset, 0px) + var(--f7-page-toolbar-top-offset, 0px) + var(--f7-page-subnavbar-offset, 0px) + var(--f7-page-searchbar-offset, 0px) + var(--f7-page-content-extra-padding-top, 0px));
     padding-bottom: calc(var(--f7-page-toolbar-bottom-offset, 0px) + var(--f7-safe-area-bottom) + var(--f7-page-content-extra-padding-bottom, 0px));
   }
+  .page-content-post {
+    overflow: auto;
+   /*  min-height: 550px;
+    max-height: 550px ;  */
+
+    /* min-height: calc(100vh - 240px);
+
+    max-height: calc(100vh - 240px);  */
+
+    height: 100vh; /* Fallback for browsers that do not support Custom Properties */
+    height: calc(var(--vh, 1vh) * 62.5);
+       
+    -webkit-overflow-scrolling: touch;
+    box-sizing: border-box;
+    /* height: 100%; */
+    position: relative;
+    z-index: 1;
+    overflow-x: hidden;
+    padding-top: calc(var(--f7-page-navbar-offset, 0px) + var(--f7-page-toolbar-top-offset, 0px) + var(--f7-page-subnavbar-offset, 0px) + var(--f7-page-searchbar-offset, 0px) + var(--f7-page-content-extra-padding-top, 0px));
+    padding-bottom: calc(var(--f7-page-toolbar-bottom-offset, 0px) + var(--f7-safe-area-bottom) + var(--f7-page-content-extra-padding-bottom, 0px));
+  }
   .page-transitioning,
   .page-transitioning .page-shadow-effect,
   .page-transitioning .page-opacity-effect {

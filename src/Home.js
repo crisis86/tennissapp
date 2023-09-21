@@ -4,7 +4,7 @@ import iconafiltro from './assets/icone/filter.png';
 import pallina from './assets/pallina.png';
 import dayjs from 'dayjs';
 import 'dayjs/locale/it' // load on demand
-
+import iconpost from './assets/icone/post.svg';
 
 const Home = () => {
     const customParseFormat = require('dayjs/plugin/customParseFormat')
@@ -16,6 +16,7 @@ const Home = () => {
     const location = useLocation();
     const [filter, setfilterchange] = useState('vuoto');
     const [today, setday] = useState(new Date())
+    const [numberpost, setnumberpost] = useState(0);
 
     useEffect(() => {
 
@@ -36,6 +37,8 @@ const Home = () => {
 
             }
         }
+        countpost();
+
     }, []);
 
 
@@ -49,7 +52,21 @@ const Home = () => {
 
     }, [filter]);
 
+    const countpost = () => {
 
+        fetch(window.$produrl + "/post").then(res => {
+            if (!res.ok) {
+                console.log(res)
+                // navigate('/');
+                return false;
+            }
+            return res.json();
+        }).then(resp => {
+            let  lunghezza = Object.keys(resp).length
+
+            setnumberpost(lunghezza);
+        })
+    }
 
     const loadcgallengeByFilter = (filro) => {
 
@@ -74,8 +91,9 @@ const Home = () => {
                 return false;
             }
             return res.json();
-        }).then(res => {
-            setchallenge(res);
+        }).then(resp => {
+
+            setchallenge(resp);
         })
 
 
@@ -91,10 +109,11 @@ const Home = () => {
         <div className="page-content">
             <div className="list cards-list inset margin-vertical-half no-chevron no-hairlines no-hairlines-between">
 
-                <div className="filter">
+                <div style={{display:'flex'}} className="filter">
+
                     <img style={{ float: 'left' }} src={iconafiltro} alt="filter" width={23} ></img>
 
-                    <select style={{ margin: '0 40px', width: '90%', padding: '2px 0', background: '#f9f9f9' }} className="form-control select input-outline" selected="selected" value={filter} onChange={e => setfilterchange(e.target.value)} >
+                    <select style={{ margin: '0 10px', width: '70%', padding: '2px 0', background: '#f9f9f9' }} className="form-control select input-outline" selected="selected" value={filter} onChange={e => setfilterchange(e.target.value)} >
                         <option disabled className="md item-input-invalid select" style={{ color: 'grey' }} value='vuoto'>Seleziona Stato Evento</option>
                         <option value='all'>Tutti Gli Stati</option>
                         <option value='processing'>In Corso</option>
@@ -104,11 +123,12 @@ const Home = () => {
                         <option value='complete'>Completate</option>
 
                     </select>
-
+                    <span style={{float:'right', color:'#71b852'}} ><a style={{color:'#71b852'}} href="/post"><img width={22} alt="post" src={iconpost}></img> <b>({numberpost})</b> </a></span>
+                   
                 </div>
                 <div className="row align-items-stretch">
                     {challenge &&
-                        challenge.sort((a, b) => a.status < b.status ? 1 : -1).map((item, index) => (
+                        challenge.sort((a, b) => a.status <= b.status ? 1 : -1).map((item, index) => (
                             <div style={{ border: '1px solid #cbc4c4', borderRadius: '10px' }} key={index + 1} className="col-100 small-50 xlarge-100">
                                 <div className="item-content height-100">
                                     <div className="item-inner item-cell height-100 padding-vertical">

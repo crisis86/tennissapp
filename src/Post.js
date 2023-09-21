@@ -13,12 +13,12 @@ const Post = () => {
     const nameuser = sessionStorage.getItem('email')
     const iduser = sessionStorage.getItem('id')
     const [post, setposts] = useState([]);
-    
+
     const usenavigate = useNavigate();
 
     useEffect(() => {
         let email = sessionStorage.getItem('email')
- 
+
         if (email === '' || email === null) {
             //toast.error('Not Authenticate session');
             usenavigate('/login');
@@ -26,7 +26,7 @@ const Post = () => {
             loadpost();
         }
 
-        
+
 
     }, [])
 
@@ -52,10 +52,10 @@ const Post = () => {
         e.preventDefault();
 
         if (window.confirm("Sei sicuro?")) {
-           
+
             let regobj = { title, descrizione, datapost, iduser, nameuser, visible };
             if (IsValidate()) {
-                
+
                 fetch(window.$produrl + "/post", {
                     method: "POST",
                     headers: { 'content-type': 'application/json' },
@@ -94,77 +94,27 @@ const Post = () => {
         return isproceed;
     }
     return (
-        <div className="page-content">
-        <div className="list cards-list inset margin-vertical-half no-chevron no-hairlines no-hairlines-between">
-            <ul className="row align-items-stretch">
-                {post &&
-                    post.sort((a, b) => a.id < b.id ? 1 : -1).map((item, index) => (
-                        <li  key={index + 1} className="col-100 small-50 xlarge-100">
-                            <div className="item-content height-100">
-                                <div className="item-inner item-cell height-100 padding-vertical">
-                                    <div className="item-row flex-direction-column height-100">
-                                        <div className="item-row">
-                                            <div className="item-cell flex-shrink-0 width-auto align-self-flex-start">
 
-                                                <img className="shape-auto" src={avatar} loading="lazy" height="48" width="48" alt="" />
+        <div>
 
-                                            </div>
-                                            <div className="item-cell">
-                                                <div className="item-row">
-                                                    <div className="item-cell">
-                                                        {item.title}
-                                                    </div>
-                                                    <div className="item-cell flex-shrink-0 width-auto line-height-1">
-                                                        <i className="postnews">News</i>
-                                                    </div>
-                                                </div>
-                                                <div className="item-row">
-                                                    <div className="item-cell">
-                                                    <a className='link' href={'/Challenge-single/' + item.iduser+'/'+item.nameuser}>
-                                                    <span style={{ fontSize: "14px" }}> <i>{item.nameuser}</i></span>
-                                                    </a>
-                                                        <span style={{ fontSize: "14px" }}> <i>{item.datapost}</i></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="item-row margin-top">
-                                            <div className="item-cell">
-                                                <div className="font-size-14 multi-line-text lines-3 text-color-gray">{item.descrizione}</div>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                    ))
-                }
-
-            </ul>
-
-            
-        </div>
-        <div  className="">
-        <form className="container" onSubmit={handlesubmit}>
+            <div  className="">
+                <form style={{padding:'0',borderBottom:'1px solid #e7e7e7'}}className="container" onSubmit={handlesubmit}>
                     <div className="card">
-                        <div className="card-header">
-                            <h6>Nuovo Post Pubblico</h6>
-                        </div>
-                        <div className="card-body">
+
+                        <div style={{padding:'0'}} className="card-body">
 
                             <div className="row">
 
 
-                                <div style={{display:'none'}}  className="col-lg-6">
+                                <div style={{ display: 'none' }} className="col-lg-6">
                                     <div className="form-group">
                                         <label>Titolo <span className="errmsg">*</span></label>
-                                        <input maxLength={50} value={title} onChange={e => setitle(e.target.value)} className="form-control"></input>
+                                        <input  maxLength={50} value={title} onChange={e => setitle(e.target.value)} className="form-control"></input>
                                     </div>
                                 </div>
                                 <div className="col-lg-12">
                                     <div className="form-group">
-                                            <textarea style={{height:'45', display:'block', width:'100%'}} maxLength={250} value={descrizione} onChange={e => setdescr(e.target.value)} className="form-control"></textarea>
+                                        <textarea placeholder="Scrivi un nuovo post pubblico" style={{ height: '45', display: 'block', width: '100%' }} maxLength={250} value={descrizione} onChange={e => setdescr(e.target.value)} className="form-control"></textarea>
                                     </div>
                                 </div>
 
@@ -172,13 +122,66 @@ const Post = () => {
                             </div>
 
                         </div>
-                        <div className="card-footer">
-                            <button type="submit" className="btn btn-primary">Invia</button> 
+                        <div style={{padding:'0'}} className="card-footer">
+                            <button type="submit" className="btn btn-primary">Invia</button>
                         </div>
                     </div>
                 </form>
+            </div>
+
+            <div className="page-content-post">
+                <div className="list cards-list inset margin-vertical-half no-chevron no-hairlines no-hairlines-between">
+                    <ul className="row align-items-stretch">
+                        {post &&
+                            post.sort((a, b) => a.id < b.id ? 1 : -1).map((item, index) => (
+                                <li key={index + 1} className="col-100 small-50 xlarge-100">
+                                    <div className="item-content height-100">
+                                        <div className="item-inner item-cell height-100 padding-vertical">
+                                            <div className="item-row flex-direction-column height-100">
+                                                <div className="item-row">
+                                                    <div className="item-cell flex-shrink-0 width-auto align-self-flex-start">
+
+                                                        <img className="shape-auto" src={avatar} loading="lazy" height="48" width="48" alt="" />
+
+                                                    </div>
+                                                    <div className="item-cell">
+                                                        <div className="item-row">
+                                                            <div className="item-cell">
+                                                                {item.title}
+                                                            </div>
+                                                            <div className="item-cell flex-shrink-0 width-auto line-height-1">
+                                                                <i className="postnews">News</i>
+                                                            </div>
+                                                        </div>
+                                                        <div className="item-row">
+                                                            <div className="item-cell">
+                                                                <a className='link' href={'/Challenge-single/' + item.iduser + '/' + item.nameuser}>
+                                                                    <span style={{ fontSize: "14px" }}> <i>{item.nameuser}</i></span>
+                                                                </a>
+                                                                <span style={{ fontSize: "14px" }}> <i>{item.datapost}</i></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div className="item-row margin-top">
+                                                    <div className="item-cell">
+                                                        <div className="font-size-14 multi-line-text lines-3 text-color-gray">{item.descrizione}</div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            ))
+                        }
+
+                    </ul>
+
+
                 </div>
-    </div>
+            </div>
+        </div>
 
     );
 }

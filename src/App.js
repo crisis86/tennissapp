@@ -19,7 +19,6 @@ import Regolamento from './Regolamento';
 import AdminChallenge from './AdminChallenge';
 import EditChallenge from './EditChallenge';
 
-
 function App() {  
 
   useEffect(() => {
