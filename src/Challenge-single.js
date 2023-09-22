@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import React from "react";
-import { Link, useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import Swal from 'sweetalert2';
 import { toast } from "react-toastify";
 import avatar from './assets/avatar.png';
@@ -13,7 +13,7 @@ const ChallengeSingle = () => {
     const customParseFormat = require('dayjs/plugin/customParseFormat')
     dayjs.locale('it')
     dayjs.extend(customParseFormat)
-    
+
     const season = true
     //id user collegato
     const iduser = parseInt(sessionStorage.getItem('iduser'));
@@ -32,8 +32,6 @@ const ChallengeSingle = () => {
     const [challengepending, setchallengepending] = useState([]);
     const [datadioggi, setdatadioggi] = useState(new Date());
     const [giornisfida, setgiornisfida] = useState(0);
-
-
 
     // flag SFIDA user collegato
     // const [stoinsfida, setstoinsifa] = useState(sessionStorage.getItem('stoinsfida'));
@@ -89,7 +87,6 @@ const ChallengeSingle = () => {
         }
     }
 
-
     function SfidaAbilitata() {
 
         const pos = player.map(obj => obj.posizione)
@@ -97,7 +94,6 @@ const ChallengeSingle = () => {
         console.log(player.map(obj => obj.posizione));
         console.log(pos);
     }
-
 
     const sfidahandle = (e, idp1, idname1, status) => {
 
@@ -177,7 +173,7 @@ const ChallengeSingle = () => {
 
             } else if (obj.id === iduser && status === "cancel") {
                 obj.insfida = false;
-                obj.posizione = obj.posizione - 2;
+                //  obj.posizione = obj.posizione - 2;
             }
             return obj.id === iduser;
         });
@@ -216,6 +212,7 @@ const ChallengeSingle = () => {
         const obj = {
             "datacreate": date,
             "datasfida": "",
+            "orasfida":"",
             "players": [
                 {
                     "idp1": iduser,
@@ -241,7 +238,7 @@ const ChallengeSingle = () => {
             console.log('challenge creato')
             sessionStorage.setItem('stoinsfida', true);
 
-              sendemail(nomedasfidare, emailperinvio, 'add')
+            sendemail(nomedasfidare, emailperinvio, 'add')
 
             // console.log('sto in sfida: ' +stoinsfida)
         }).catch((err) => {
@@ -256,7 +253,7 @@ const ChallengeSingle = () => {
     }
 
     function sendemail(names, emails, status) {
-
+        return
         let message = "";
         let subject = "";
         if (status === 'add') {
@@ -294,9 +291,6 @@ const ChallengeSingle = () => {
 
         let idriga = 0;
 
-        const current = new Date();
-        const date = `${current.getDate()}-${current.getMonth() + 1}-${current.getFullYear()}`;
-
         const found = challengepending.filter(obj => {
 
             obj.status = "cancel";
@@ -325,7 +319,6 @@ const ChallengeSingle = () => {
             }).catch((err) => {
                 toast.error(err.message);
             });
-
 
             checksfidapending();
             fetchdata();
@@ -359,18 +352,12 @@ const ChallengeSingle = () => {
                 let splidate = recorddatalastfida.datasfida.split("/")
                 let dataconvert = new Date(splidate[2] + "/" + splidate[1] + "/" + splidate[0])
 
-                // To calculate the time difference of two dates
-                //  let Difference_In_Time = datadioggi.getTime() - dataconvert.getTime();
-                // To calculate the no. of days between two dates
-                // let Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24);
+                //   console.log(datadioggi.getDate())
+                //  console.log(dataconvert.getDate())
 
-                console.log(datadioggi.getDate())
-                console.log(dataconvert.getDate())
-
-                //   const Daysfida = datalastfida.getDate();
                 const time = Math.abs(dataconvert - datadioggi);
                 const days = Math.ceil(time / (1000 * 60 * 60 * 24));
-                console.log(days);
+                // console.log(days);
 
 
                 if (days > 2) {
@@ -470,7 +457,7 @@ const ChallengeSingle = () => {
                                     </a>
 
                                 </div>
-                                
+
                                 <div className="col flex-grow-1 margin-right-half">
                                     {plr.id !== iduser &&
                                         <div className="row">
@@ -488,9 +475,11 @@ const ChallengeSingle = () => {
                                                     {sfidabutton ? (
                                                         <>
                                                             {plr.posizione > flagmeplayer[0].posizione || flagmeplayer[0].posizione <= plr.posizione + 8 &&  // fino a 8 posizione sopra
-
-                                                                <button disabled={plr.insfida === 'true'} onClick={(e) => sfidahandle(e, plr.id, plr.name, 'update')} type="button" className={plr.insfida === 'true' ? 'disabled button button-fill button-small' : 'button button-fill button-small'}>Sfida</button>
-
+                                                                <>
+                                                                    {plr.fuorigioco === false &&
+                                                                        <button disabled={plr.insfida === 'true'} onClick={(e) => sfidahandle(e, plr.id, plr.name, 'update')} type="button" className={plr.insfida === 'true' ? 'disabled button button-fill button-small' : 'button button-fill button-small'}>Sfida</button>
+                                                                    }
+                                                                </>
                                                             }
                                                         </>
                                                     ) : (
@@ -518,22 +507,22 @@ const ChallengeSingle = () => {
 
                                                     <ul>
 
-                                                        <li style={{textTransform:'capitalize'}}>{partite.players[0].p1} VS {partite.players[1].p2}</li>
-                                                       {partite.status === 'pending' &&
+                                                        <li style={{ textTransform: 'capitalize' }}>{partite.players[0].p1} VS {partite.players[1].p2}</li>
+                                                        {partite.status === 'pending' &&
                                                             <b>Attesa Avversario</b>
 
                                                         }
-                                                           {partite.status === 'processing' &&
-                                                        <>
-                                                            {partite.datasfida === '' ? (
-                                                                <b>Da Porgrammare</b>
+                                                        {partite.status === 'processing' &&
+                                                            <>
+                                                                {partite.datasfida === '' ? (
+                                                                    <b>Da Porgrammare</b>
 
-                                                            ) : (
-                                                               <b>In Corso</b>
+                                                                ) : (
+                                                                    <b>In Corso</b>
 
-                                                            )}
-                                                        </>
-                                                    }
+                                                                )}
+                                                            </>
+                                                        }
                                                         {partite.status === 'cancel' &&
                                                             <b>Annullata</b>
 
@@ -542,11 +531,11 @@ const ChallengeSingle = () => {
                                                             <b>Completata </b>
 
                                                         }
-                                                         <li><b> Creata: </b>{partite.datacreate} <b>Prevista:</b> {partite.datasfida} </li>
+                                                        <li><b> Creata: </b>{partite.datacreate} <b>Prevista:</b> {partite.datasfida} {partite.orasfida}</li>
                                                         <li ><b>Score</b></li>
-                                                        <li style={{textDecoration: partite.set1==='0-0' ? 'line-through':'none'}}>Set1: <b>{partite.set1} </b></li>
-                                                        <li style={{textDecoration: partite.set2==='0-0' ? 'line-through':'none'}}>Set2: <b>{partite.set2} </b></li>
-                                                        <li style={{textDecoration: partite.set3==='0-0' ? 'line-through':'none'}}>Set3: <b>{partite.set3} </b> </li>
+                                                        <li style={{ textDecoration: partite.set1 === '0-0' ? 'line-through' : 'none' }}>Set1: <b>{partite.set1} </b></li>
+                                                        <li style={{ textDecoration: partite.set2 === '0-0' ? 'line-through' : 'none' }}>Set2: <b>{partite.set2} </b></li>
+                                                        <li style={{ textDecoration: partite.set3 === '0-0' ? 'line-through' : 'none' }}>Set3: <b>{partite.set3} </b> </li>
                                                     </ul>
 
                                                 </div>

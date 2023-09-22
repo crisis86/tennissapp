@@ -20,6 +20,7 @@ const Register = () => {
     const [gender, genderchange] = useState("male");
     const [posizione, posizionechange] = useState(0);
     const [insfida, insfidachange] = useState(false);
+    const [fuorigioco, fuorigiocochange] = useState(false);
     const [chek, setcheck] = useState(false);
     const [chekname, setcheckname] = useState(false);
     const navigate = useNavigate();
@@ -170,7 +171,7 @@ const Register = () => {
             let trimtext = name.trim()
             namechange(trimtext)
         
-            let regobj = {email, password, name, phone, country, role, address, gender, posizione, insfida};
+            let regobj = {email, password, name, phone, country, role, address, gender, posizione, insfida, fuorigioco};
             if (IsValidate()) {
                 //  console.log(regobj);
                 fetch(window.$produrl + "/user", {
@@ -182,7 +183,7 @@ const Register = () => {
 
                     toast.success('Registered successfully.')
                    // navigate('/login');
-                    navigate('/register');
+                    navigate('/player');
                 }).catch((err) => {
                     setloading(false)
                     toast.error('Failed :' + err.message);
@@ -269,6 +270,16 @@ const Register = () => {
                                         <label>Female</label>
                                     </div>
                                 </div>
+                                <div className="col-lg-6">
+                                        <div className="form-group">
+                                            <label>Fuorigioco</label>
+ 
+                                            <select value={fuorigioco} onChange={e => fuorigiocochange((JSON.parse(e.target.value)))} className="form-control">
+                                            <option value="true">Si</option>
+                                            <option value="false">No</option>
+                                        </select>
+                                        </div>
+                                    </div>
 
                             </div>
 

@@ -17,12 +17,12 @@ const Mychallenge = () => {
 
     const iduser = parseInt(sessionStorage.getItem('iduser'))
     const fullname = sessionStorage.getItem('fullname')
-    let emailnotif = sessionStorage.getItem('email')
     const [challengepending, setchallengepending] = useState([]);
     const [flagmeplayer, setflagmeplayer] = useState([]);
     const [player, setplayer] = useState([]);
     const [classicica, setclassifica] = useState([]);
     const [datadellasfida, setdatadellasfida] = useState(new Date())
+    const [orasfida, setordasfida] = useState(new Date())
     const [today, setday] = useState(new Date())
     const locale = 'it';
 
@@ -105,6 +105,7 @@ const Mychallenge = () => {
                 const found = challengepending.filter(obj => {
 
                     obj.datasfida = formatted;
+                    obj.orasfida = orasfida;
 
                     return obj.id === idrecord
                 });
@@ -166,12 +167,52 @@ const Mychallenge = () => {
         }
 
     }
+    function IsValidate(s1c,s1o,s2c,s2o,s3c,s3o) {
+        let isproceed = true;
+        let errormessage = 'errore ';
+       
+        if (s1c === null || s1c === '') {
+            isproceed = false;
+            errormessage += 'inserire un risultato valido';
+            
+        }
+        if (s2c === null || s2c === '') {
+            isproceed = false;
+            errormessage += 'inserire un risultato valido';
+           
+        }
+        if (s3c === null || s3c === '') {
+            isproceed = false;
+            errormessage += 'inserire un risultato valido';
+            
+        }
+
+        if (s1o === null || s1o === '') {
+            isproceed = false;
+            errormessage += 'inserire un risultato valido';
+           
+        }
+        if (s2o === null || s2o === '') {
+            isproceed = false;
+            errormessage += 'inserire un risultato valido';
+            
+        }
+        if (s3o === null || s3o === '') {
+            isproceed = false;
+            errormessage += 'inserire un risultato valido';
+          
+        }
+        if (!isproceed) {
+            toast.warning(errormessage)
+        }
+        console.log(isproceed)
+        return isproceed;
+    }
 
     const aggiornapunteggio = (e, idrecord, p1, p2) => {
         e.preventDefault();
-
-
-
+            
+      
         Swal.fire({
             title: 'Sei sicuro?',
             text: 'Vuoi aggiornare il risultato?',
@@ -181,6 +222,8 @@ const Mychallenge = () => {
             cancelButtonColor: '#f47f35',
             confirmButtonText: 'Operazione irreversibile!'
         }).then((result) => {
+ 
+          if(IsValidate(set1casa,set1ospite,set2casa,set2ospite,set3casa,set3ospite)) { 
             if (result.isConfirmed) {
                 Swal.fire(
                     'Sfida Completata!',
@@ -240,8 +283,9 @@ const Mychallenge = () => {
                 });
 
             }
+        }
         })
-
+ 
     }
 
     const accettasfidahandle = (e, idrecord, status) => {
@@ -872,7 +916,7 @@ const Mychallenge = () => {
     }
 
     function sendemail(names, emails, status) {
-
+return
         let message = "";
         let subject = "";
         if (status === 'add') {
@@ -932,7 +976,6 @@ const Mychallenge = () => {
                     </div>
                     {challengepending &&
 
-
                         challengepending.sort((a, b) => a.id < b.id ? 1 : -1).map((item, index) => (
                             <div key={index + 1} style={{ paddingLeft: '5px' }} className="card no-shadow no-safe-area-left">
 
@@ -968,7 +1011,7 @@ const Mychallenge = () => {
                                                     <b>Completata </b>
 
                                                 }
-                                                <li><b> Creata:</b> {item.datacreate} <b>Prevista:</b> {item.datasfida} </li>
+                                                <li><b> Creata:</b> {item.datacreate} <b>Prevista:</b> {item.datasfida} {item.orasfida} </li>
                                                 {item.players[0].idp1 === iduser ? (
                                                     <li> <b> {loadnumberphone(item.players[1].idp2)}</b></li>
                                                 ) : (
@@ -1003,12 +1046,47 @@ const Mychallenge = () => {
                                                     <>
                                                         {item.datasfida === '' ? (
                                                             <div className="row">
-                                                                <span><i>Programma La sfida</i></span>
+                                                                <b>Programma La sfida</b>
 
                                                                 <div>
                                                                     <Calendar minDate={new Date()}
-                                                                        formatday={(locale, date) => dayjs(date).format('dd-m-yyyy')}
+                                                                        formatday={(locale, date) => dayjs(date).format('DD/MM/YYYY')}
                                                                         onChange={date => setdatadellasfida(date)} value={datadellasfida} />
+
+                                                                    <b>Orario</b><select value={orasfida} onChange={e => setordasfida((e.target.value))} className="form-control">
+                                                                        <option value="09.00">09.00</option>
+                                                                        <option value="09.30">09.30</option>
+                                                                        <option value="10.30">10.00</option>
+                                                                        <option value="10.30">10.30</option>
+                                                                        <option value="11.00">11.00</option>
+                                                                        <option value="11.30">11.30</option>
+                                                                        <option value="12.00">12.00</option>
+                                                                        <option value="12.30">12.30</option>
+                                                                        <option value="13.00">13.00</option>
+                                                                        <option value="13.30">13.30</option>
+                                                                        <option value="14.00">14.00</option>
+                                                                        <option value="14.30">14.30</option>
+                                                                        <option value="15.00">15.00</option>
+                                                                        <option value="15.30">15.30</option>
+                                                                        <option value="16.00">16.00</option>
+                                                                        <option value="16.30">16.30</option>
+                                                                        <option value="17.00">17.00</option>
+                                                                        <option value="17.30">17.30</option>
+                                                                        <option value="18.00">18.00</option>
+                                                                        <option value="18.30">18.30</option>
+                                                                        <option value="19.00">19.00</option>
+                                                                        <option value="19.30">19.30</option>
+                                                                        <option value="20.00">20.00</option>
+                                                                        <option value="20.30">20.30</option>
+                                                                        <option value="21.00">21.00</option>
+                                                                        <option value="21.30">21.30</option>
+                                                                        <option value="22.00">22.00</option>
+                                                                        <option value="22.30">22.30</option>
+                                                                        <option value="23.00">23.00</option>
+                                                                        <option value="23.30">20.30</option>
+
+                                                                    </select>
+
                                                                     <button onClick={(e) => progmatchandle(e, item.id)} type="button" className="button button-fill button-small">Conferma data</button>
 
                                                                 </div>
@@ -1029,16 +1107,13 @@ const Mychallenge = () => {
                                                                                 <tr index={index + 1}>
                                                                                     <td>Set 1</td>
                                                                                     <td>
-                                                                                        <input type="number" min="1" max="100" value={set1casa} onChange={e => setset1casa(e.target.value)} className="form-control"></input>
+                                                                                        <input  type="number" min="1" max="100" value={set1casa} onChange={e => setset1casa(e.target.value)} className="form-control"></input>
                                                                                     </td>
                                                                                     <td>-</td>
                                                                                     <td>
                                                                                         <input type="number" min="1" max="100" value={set1ospite} onChange={e => setset1ospite(e.target.value)} className="form-control"></input>
                                                                                     </td>
-
-
                                                                                 </tr>
-
                                                                                 <tr>
                                                                                     <td>Set 2</td>
                                                                                     <td>
@@ -1048,10 +1123,7 @@ const Mychallenge = () => {
                                                                                     <td>
                                                                                         <input type="number" min="1" max="100" value={set2ospite} onChange={e => setset2ospite(e.target.value)} className="form-control"></input>
                                                                                     </td>
-
-
                                                                                 </tr>
-
                                                                                 <tr>
                                                                                     <td>Set 3</td>
                                                                                     <td>
@@ -1061,28 +1133,20 @@ const Mychallenge = () => {
                                                                                     <td>
                                                                                         <input type="number" min="1" max="100" value={set3ospite} onChange={e => setset3ospite(e.target.value)} className="form-control"></input>
                                                                                     </td>
-
-
                                                                                 </tr>
                                                                             </tbody>
                                                                         </table>
 
                                                                         <button style={{ display: 'inerith' }} onClick={(e) => aggiornapunteggio(e, item.id, item.players[0].idp1, item.players[1].idp2)} type="button" className="button button-fill button-small">Aggiorna Risultati</button>
 
-
                                                                     </div>
-
                                                                 }
-
-
-
                                                             </div>
                                                         )}
                                                     </>
                                                 }
                                             </div>
                                         </div>
-
                                     ) : (
                                         <div className="col flex-shrink-0">
 
@@ -1102,12 +1166,47 @@ const Mychallenge = () => {
                                                 <>
                                                     {item.datasfida === '' ? (
                                                         <div className="row">
-                                                            <span><i>Programma La sfida</i></span>
+                                                            <b> Programma La sfida</b>
 
                                                             <div>
                                                                 <Calendar minDate={new Date()}
                                                                     formatday={(locale, date) => dayjs(date).format('DD/MM/YYYY')}
                                                                     onChange={date => setdatadellasfida(date)} value={datadellasfida} />
+
+                                                                <b>Orario</b>:<select style={{maxWidth:'36%'}} value={orasfida} onChange={e => setordasfida((e.target.value))} className="list form-control">
+                                                                    <option value="09.00">09.00</option>
+                                                                    <option value="09.30">09.30</option>
+                                                                    <option value="10.30">10.00</option>
+                                                                    <option value="10.30">10.30</option>
+                                                                    <option value="11.00">11.00</option>
+                                                                    <option value="11.30">11.30</option>
+                                                                    <option value="12.00">12.00</option>
+                                                                    <option value="12.30">12.30</option>
+                                                                    <option value="13.00">13.00</option>
+                                                                    <option value="13.30">13.30</option>
+                                                                    <option value="14.00">14.00</option>
+                                                                    <option value="14.30">14.30</option>
+                                                                    <option value="15.00">15.00</option>
+                                                                    <option value="15.30">15.30</option>
+                                                                    <option value="16.00">16.00</option>
+                                                                    <option value="16.30">16.30</option>
+                                                                    <option value="17.00">17.00</option>
+                                                                    <option value="17.30">17.30</option>
+                                                                    <option value="18.00">18.00</option>
+                                                                    <option value="18.30">18.30</option>
+                                                                    <option value="19.00">19.00</option>
+                                                                    <option value="19.30">19.30</option>
+                                                                    <option value="20.00">20.00</option>
+                                                                    <option value="20.30">20.30</option>
+                                                                    <option value="21.00">21.00</option>
+                                                                    <option value="21.30">21.30</option>
+                                                                    <option value="22.00">22.00</option>
+                                                                    <option value="22.30">22.30</option>
+                                                                    <option value="23.00">23.00</option>
+                                                                    <option value="23.30">20.30</option>
+
+                                                                </select>
+
                                                                 <button onClick={(e) => progmatchandle(e, item.id)} type="button" className="button button-fill button-small">Conferma data</button>
 
                                                             </div>

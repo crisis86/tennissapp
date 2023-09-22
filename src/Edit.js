@@ -7,8 +7,6 @@ const Edit = () => {
 
     //const [id, idchange] = useState(0);
     const id = useParams()
-
-
     const myrole = sessionStorage.getItem('userrole')
     const [name, namechange] = useState("");
     const [password, passwordchange] = useState("");
@@ -21,6 +19,8 @@ const Edit = () => {
     const [gender, genderchange] = useState("");
     const [posizione, posizionechange] = useState(0);
     const [insfida, insfidachange] = useState(false)
+    const [fuorigioco, fuorigiocochange] = useState(false)
+
 
 
     const navigate = useNavigate();
@@ -66,6 +66,7 @@ const Edit = () => {
             genderchange(resp.gender)
             posizionechange(resp.posizione)
             insfidachange(resp.insfida)
+            fuorigiocochange(resp.fuorigioco)
 
         });
     }
@@ -133,7 +134,11 @@ const Edit = () => {
         let trimtext = name.trim()
         namechange(trimtext)
 
-        let regobj = {email, password, name, phone, country, role, address, gender, posizione, insfida};
+        if(insfida){
+            fuorigiocochange(false)
+        }
+
+        let regobj = {email, password, name, phone, country, role, address, gender, posizione, insfida, fuorigioco};
         if (IsValidate()) {
             //  console.log(regobj);
             fetch(window.$produrl + "/user/" + id['id'], {
@@ -158,9 +163,6 @@ const Edit = () => {
                             <h1>Dati Utente</h1>
                         </div>
                         <div className="card-body">
-
-
-
                             <div className="row">
                                 <div className="col-lg-6">
                                     {myrole==='admin' &&
@@ -240,12 +242,22 @@ const Edit = () => {
                                         </div>
                                     </div>
                                 }
+                                  <div className="col-lg-6">
+                                        <div className="form-group">
+                                            <label>Fuorigioco</label>
+ 
+                                            <select disabled={insfida} value={fuorigioco} onChange={e => fuorigiocochange((JSON.parse(e.target.value)))} className="form-control">
+                                            <option value="true">Si</option>
+                                            <option value="false">No</option>
+                                        </select>
+                                        </div>
+                                    </div>
                             </div>
 
 
                         </div>
                         <div className="card-footer">
-                            <button type="submit" className="btn btn-primary">Modifica</button> |
+                            <button type="submit" className="btn btn-primary">Modifica</button>
 
                         </div>
                         <span><a href="/Regolamento.html">Regolamento</a></span> 

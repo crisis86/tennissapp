@@ -7,7 +7,7 @@ import iconchallenge from './assets/icone/chhallenge.svg';
 
 const ChallengeList = () => {
     const navigate = useNavigate();
-const iduser = parseInt(sessionStorage.getItem('iduser'))
+    const iduser = parseInt(sessionStorage.getItem('iduser'))
 
     const [playerlist, playerupdt] = useState([]);
 
@@ -19,15 +19,15 @@ const iduser = parseInt(sessionStorage.getItem('iduser'))
         if (email === '' || email === null) {
             //toast.error('Not Authenticate session');
             navigate('/login');
-        } else{
+        } else {
             loadlistplayer();
         }
-     
+
 
     }, []);
 
     const loadlistplayer = () => {
-        fetch(window.$produrl+"/user?role=player").then(res => {
+        fetch(window.$produrl + "/user?role=player").then(res => {
             if (!res.ok) {
                 return false
             }
@@ -54,38 +54,44 @@ const iduser = parseInt(sessionStorage.getItem('iduser'))
                 <div className="tabs">
                     <div className="page-content tab tab-active">
                         <div className="row justify-content-center">
-                            <div style={{paddingLeft:'0', paddingRight:'0'}} className="col-100 medium-75 large-60 xlarge-50">
+                            <div style={{ paddingLeft: '0', paddingRight: '0' }} className="col-100 medium-75 large-60 xlarge-50">
                                 <div className="list inset margin-vertical">
                                     <ul>
                                         {playerlist &&
                                             playerlist.sort((a, b) => a.posizione > b.posizione ? 1 : -1).map((item, index) => (
-                                               <li style={{borderRadius:'30px'}} key={index + 1} className= {item.id === iduser ? 'my-rank me' : 'my-rank' }>
-                                                    <div style={{borderRadius: '30px', background: item.insfida ? '#fb8438':'', fontWeight: item.insfida ? 'bold' : '500'}} className="item-content">
+                                                <li style={{ borderRadius: '30px' }} key={index + 1} className={item.id === iduser ? 'my-rank me' : 'my-rank'}>
+                                                    <div style={{ borderRadius: '30px', background: item.insfida ? '#fb8438' : '', fontWeight: item.insfida ? 'bold' : '500' }} className="item-content">
                                                         <div className="item-inner item-cell">
                                                             <div className="item-row">
-                                                              <div className="item-cell width-auto">
-                                                                    <img src={item.id===iduser ? iconchallengeblu: iconchallenge} height="30" width="30" alt="Challenge" />
+                                                                <div className="item-cell width-auto">
+                                                                    <img src={item.id === iduser ? iconchallengeblu : iconchallenge} height="30" width="30" alt="Challenge" />
                                                                 </div>
-                                                                <a className='link' style={{ width: '170px' }} href={'/Challenge-single/' + item.id+'/'+item.name}>
+                                                                <a className='link' style={{ width: '170px' }} href={'/Challenge-single/' + item.id + '/' + item.name}>
 
-                                                                    <div style={{ fontSize:'15px'}} className="item-cell">
-                                                                            <div  className="font-size-20 font-weight-bold text-color-primary">
+                                                                    <div style={{ fontSize: '15px' }} className="item-cell">
+                                                                        <div className="font-size-20 font-weight-bold text-color-primary">
 
-                                                                                {item.name}
+                                                                            {item.name}
 
-                                                                            </div>
-                                                                    
-                                                                       {item.id === iduser ? (
-                                                                        <div className="country font-size-14 text-color-gray">{item.country}</div>
+                                                                        </div>
 
-                                                                       ):(
-                                                                        <div  className="country font-size-14 text-color-gray">{item.insfida  ? 'Non Sfidabile' : 'Sfidabile'}</div>
+                                                                        {item.id === iduser ? (
+                                                                            <div className="country font-size-14 text-color-gray">{item.country}</div>
 
-                                                                       )} 
+                                                                        ) : (
+                                                                            <>
+                                                                                {item.fuorigioco === false ? (
+                                                                                    <div className="country font-size-14 text-color-gray">{item.insfida ? 'Non Sfidabile' : 'Sfidabile'}</div>
+                                                                                ) : (
+                                                                                    <div className="country font-size-14 text-color-red"><b>FUORIGIOCO</b></div>
+
+                                                                                )}
+                                                                            </>
+                                                                        )}
 
                                                                     </div>
                                                                 </a>
-                                                                
+
                                                                 <div className="item-cell flex-shrink-0 width-auto">
                                                                     <div className="classifica font-size-18 font-weight-bold text-color-bluegray">{item.posizione}</div>
                                                                 </div>
