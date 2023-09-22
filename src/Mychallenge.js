@@ -170,8 +170,16 @@ const Mychallenge = () => {
     function IsValidate(s1c, s1o, s2c, s2o, s3c, s3o) {
         let isproceed = true;
         let errormessage = 'errore ';
+        
+        if (s1c === 0 && s1o === 0) {
+            isproceed = false;
+            errormessage += ' Set1 0-0 Non valido';
+        }else if (s1c === '0' && s1o === '0') {
+            isproceed = false;
+            errormessage += ' Set1 0-0 Non valido';
+        }
 
-        if (s1c === null || s1c === '') {
+        if (s1c === null || s1c === ''  || s1c === '0') {
             isproceed = false;
             errormessage += 'inserire un risultato valido';
 
@@ -224,6 +232,7 @@ const Mychallenge = () => {
         }).then((result) => {
 
             if (IsValidate(set1casa, set1ospite, set2casa, set2ospite, set3casa, set3ospite)) {
+
                 if (result.isConfirmed) {
                     Swal.fire(
                         'Sfida Completata!',
