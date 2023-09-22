@@ -22,7 +22,7 @@ const Mychallenge = () => {
     const [player, setplayer] = useState([]);
     const [classicica, setclassifica] = useState([]);
     const [datadellasfida, setdatadellasfida] = useState(new Date())
-    const [orasfida, setordasfida] = useState(new Date())
+    const [orasfida, setordasfida] = useState("")
     const [today, setday] = useState(new Date())
     const locale = 'it';
 
