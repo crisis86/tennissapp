@@ -37,7 +37,6 @@ const ChallengeSingle = () => {
     // const [stoinsfida, setstoinsifa] = useState(sessionStorage.getItem('stoinsfida'));
     //flag annulla bottone
     const [annullabotton, setannullabotton] = useState(false);
-    const [sfidabottone, setsfidabottone] = useState(true);
     // flag per sfidare se è possibile
     const [sfidabutton, setsfidabutton] = useState(false);
 
@@ -87,13 +86,7 @@ const ChallengeSingle = () => {
         }
     }
 
-    function SfidaAbilitata() {
-
-        const pos = player.map(obj => obj.posizione)
-
-        console.log(player.map(obj => obj.posizione));
-        console.log(pos);
-    }
+    
 
     const sfidahandle = (e, idp1, idname1, status) => {
 
@@ -170,7 +163,7 @@ const ChallengeSingle = () => {
         const found = flagmeplayer.filter(obj => {
             if (obj.id === iduser && status === "update") {
                 obj.insfida = true;
-                obj.fuorigioco = false;
+                obj.fuorigioco = false; 
 
             } else if (obj.id === iduser && status === "cancel") {
                 obj.insfida = false;
@@ -444,7 +437,9 @@ const ChallengeSingle = () => {
                                     </div>
 
                                     <div className="font-size-14 single-line-text text-color-gray">{plr.name}</div>
-
+                                          {plr.fuorigioco  &&
+                                        <div className="font-size-14 single-line-text text-color-red"><b>FUORIGIOCO</b></div>
+                                         }
                                 </div>
 
 
