@@ -170,6 +170,7 @@ const ChallengeSingle = () => {
         const found = flagmeplayer.filter(obj => {
             if (obj.id === iduser && status === "update") {
                 obj.insfida = true;
+                obj.fuorigioco = false;
 
             } else if (obj.id === iduser && status === "cancel") {
                 obj.insfida = false;
@@ -245,15 +246,13 @@ const ChallengeSingle = () => {
             toast.error('addchallenge :' + err.message);
         });
 
-        //usenavigate('/Mychallenge')
-
         fetchdata();
         checksfidapending();
 
     }
 
     function sendemail(names, emails, status) {
-        return
+      
         let message = "";
         let subject = "";
         if (status === 'add') {
@@ -263,7 +262,6 @@ const ChallengeSingle = () => {
                 "Questa email è stata inviata da SpinupTennis"
             subject = "Nuova Sfida da " + fullname
         }
-
 
         let data = {
             //metto volutamente  il subject nella voce name

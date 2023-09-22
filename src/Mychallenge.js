@@ -474,69 +474,7 @@ const Mychallenge = () => {
 
     }
 
-    function resetstatusfida(idp1) {
-
-        const found2 = player.filter(obj => {
-
-            if (obj.id === idp1) {
-                obj.insfida = false;
-
-            }
-
-            return obj.id === idp1;
-        });
-
-        console.log(found2);
-
-        fetch(window.$produrl + "/user/" + idp1, {
-            method: 'PUT',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(found2[0]),
-        }).then((result) => {
-            //   console.log(result)
-            result.json().then((resp) => {
-
-                toast.error("sfida resettata");
-
-            })
-        }).catch((err) => {
-            toast.error(err.message);
-        });
-
-    }
-
-    function ResetesetMysfida(idp1) {
-
-        const found = flagmeplayer.filter(obj => {
-            if (obj.id === idp1) {
-                obj.insfida = false;
-
-            }
-            return obj.id === idp1;
-        });
-
-        //  console.log(found);
-
-        fetch(window.$produrl + "/user/" + idp1, {
-            method: 'PUT',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(found[0]),
-        }).then((result) => {
-            //   console.log(result)
-            result.json().then((resp) => {
-                toast.error("sfida MIa resettata");
-            })
-        }).catch((err) => {
-            toast.error(err.message);
-        });
-    }
-
+     
     const checksfidapending = () => {
 
 
@@ -893,8 +831,6 @@ const Mychallenge = () => {
         }
     }
 
-
-
     function updateUserPosition(ogettogioc) {
 
         fetch(window.$produrl + "/user/" + ogettogioc.id, {
@@ -916,7 +852,7 @@ const Mychallenge = () => {
     }
 
     function sendemail(names, emails, status) {
-        return
+        
         let message = "";
         let subject = "";
         if (status === 'add') {
