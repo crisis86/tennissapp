@@ -171,6 +171,39 @@ const Mychallenge = () => {
         let isproceed = true;
         let errormessage = 'errore ';
         
+      
+        if (s1c === null || s1c === '' || parseInt(s1c) < 0) {
+            isproceed = false;
+            errormessage += 'inserire un risultato valido';
+
+        }
+        if (s2c === null || s2c === '' || parseInt(s2c) < 0) {
+            isproceed = false;
+            errormessage += 'inserire un risultato valido';
+
+        }
+        if (s3c === null || s3c === '' || parseInt(s3c) < 0) {
+            isproceed = false;
+            errormessage += 'inserire un risultato valido';
+
+        }
+
+        if (s1o === null || s1o === '' || parseInt(s1o) < 0) {
+            isproceed = false;
+            errormessage += 'inserire un risultato valido';
+
+        }
+        if (s2o === null || s2o === '' || parseInt(s2o) < 0) {
+            isproceed = false;
+            errormessage += 'inserire un risultato valido';
+
+        }
+        if (s3o === null || s3o === '' || parseInt(s3o) < 0) {
+            isproceed = false;
+            errormessage += 'inserire un risultato valido';
+
+        }
+
         if (s1c === 0 && s1o === 0) {
             isproceed = false;
             errormessage += ' Set1 0-0 Non valido';
@@ -178,38 +211,7 @@ const Mychallenge = () => {
             isproceed = false;
             errormessage += ' Set1 0-0 Non valido';
         }
-
-        if (s1c === null || s1c === ''  || s1c === '0') {
-            isproceed = false;
-            errormessage += 'inserire un risultato valido';
-
-        }
-        if (s2c === null || s2c === '') {
-            isproceed = false;
-            errormessage += 'inserire un risultato valido';
-
-        }
-        if (s3c === null || s3c === '') {
-            isproceed = false;
-            errormessage += 'inserire un risultato valido';
-
-        }
-
-        if (s1o === null || s1o === '') {
-            isproceed = false;
-            errormessage += 'inserire un risultato valido';
-
-        }
-        if (s2o === null || s2o === '') {
-            isproceed = false;
-            errormessage += 'inserire un risultato valido';
-
-        }
-        if (s3o === null || s3o === '') {
-            isproceed = false;
-            errormessage += 'inserire un risultato valido';
-
-        }
+        
         if (!isproceed) {
             toast.warning(errormessage)
         }
