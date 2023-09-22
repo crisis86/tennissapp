@@ -64,6 +64,7 @@ const Post = () => {
                     body: JSON.stringify(regobj)
                 }).then((res) => {
                     toast.success('Post Inerito.')
+                    setdescr("");
                     loadpost();
 
                 }).catch((err) => {

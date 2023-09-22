@@ -167,40 +167,40 @@ const Mychallenge = () => {
         }
 
     }
-    function IsValidate(s1c,s1o,s2c,s2o,s3c,s3o) {
+    function IsValidate(s1c, s1o, s2c, s2o, s3c, s3o) {
         let isproceed = true;
         let errormessage = 'errore ';
-       
+
         if (s1c === null || s1c === '') {
             isproceed = false;
             errormessage += 'inserire un risultato valido';
-            
+
         }
         if (s2c === null || s2c === '') {
             isproceed = false;
             errormessage += 'inserire un risultato valido';
-           
+
         }
         if (s3c === null || s3c === '') {
             isproceed = false;
             errormessage += 'inserire un risultato valido';
-            
+
         }
 
         if (s1o === null || s1o === '') {
             isproceed = false;
             errormessage += 'inserire un risultato valido';
-           
+
         }
         if (s2o === null || s2o === '') {
             isproceed = false;
             errormessage += 'inserire un risultato valido';
-            
+
         }
         if (s3o === null || s3o === '') {
             isproceed = false;
             errormessage += 'inserire un risultato valido';
-          
+
         }
         if (!isproceed) {
             toast.warning(errormessage)
@@ -211,8 +211,8 @@ const Mychallenge = () => {
 
     const aggiornapunteggio = (e, idrecord, p1, p2) => {
         e.preventDefault();
-            
-      
+
+
         Swal.fire({
             title: 'Sei sicuro?',
             text: 'Vuoi aggiornare il risultato?',
@@ -222,70 +222,70 @@ const Mychallenge = () => {
             cancelButtonColor: '#f47f35',
             confirmButtonText: 'Operazione irreversibile!'
         }).then((result) => {
- 
-          if(IsValidate(set1casa,set1ospite,set2casa,set2ospite,set3casa,set3ospite)) { 
-            if (result.isConfirmed) {
-                Swal.fire(
-                    'Sfida Completata!',
-                    'il risultato è stato aggiornato!'
-                )
-                let player1 = 0;
-                let player2 = 0;
-                //  const play = player.map(obj => obj.posizione) 
 
-                const found = challengepending.filter(obj => {
-                    if (obj.id === idrecord) {
+            if (IsValidate(set1casa, set1ospite, set2casa, set2ospite, set3casa, set3ospite)) {
+                if (result.isConfirmed) {
+                    Swal.fire(
+                        'Sfida Completata!',
+                        'il risultato è stato aggiornato!'
+                    )
+                    let player1 = 0;
+                    let player2 = 0;
+                    //  const play = player.map(obj => obj.posizione) 
 
-                        obj.set1 = set1casa + '-' + set1ospite
-                        obj.set2 = set2casa + '-' + set2ospite
-                        obj.set3 = set3casa + '-' + set3ospite
-                        obj.status = "complete"
+                    const found = challengepending.filter(obj => {
+                        if (obj.id === idrecord) {
 
-                        player1 = obj.players[0].idp1
-                        player2 = obj.players[1].idp2
+                            obj.set1 = set1casa + '-' + set1ospite
+                            obj.set2 = set2casa + '-' + set2ospite
+                            obj.set3 = set3casa + '-' + set3ospite
+                            obj.status = "complete"
 
-                    }
-                    return obj.id === idrecord
-                });
+                            player1 = obj.players[0].idp1
+                            player2 = obj.players[1].idp2
 
-                //    console.log(challengepending)
-                //   console.log(found[0])
-
-                fetch(window.$produrl + "/challenge/" + idrecord, {
-                    method: 'PUT',
-                    headers: {
-                        'Accept': 'application/json',
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(found[0])
-                }).then((result) => {
-                    //  console.log(result)
-                    result.json().then((resp) => {
-
-
-                        let vincitore = calcolavincitore()
-                        // console.log('sono il vincitore:' +vincitore)
-
-                        // rettifico classifica
-                        if (vincitore === "Player1") {
-
-                            SwitchCase('Sfida', player1, player2)
-                        } else {
-                            SwitchCase('Sfidato', player1, player2)
                         }
+                        return obj.id === idrecord
+                    });
 
-                        sessionStorage.setItem('stoinsfida', false); // pulisco la session flag sfida
-                        checksfidapending();
+                    //    console.log(challengepending)
+                    //   console.log(found[0])
 
-                    })
-                }).catch((err) => {
-                    toast.error(err.message);
-                });
+                    fetch(window.$produrl + "/challenge/" + idrecord, {
+                        method: 'PUT',
+                        headers: {
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(found[0])
+                    }).then((result) => {
+                        //  console.log(result)
+                        result.json().then((resp) => {
 
+
+                            let vincitore = calcolavincitore()
+                            // console.log('sono il vincitore:' +vincitore)
+
+                            // rettifico classifica
+                            if (vincitore === "Player1") {
+
+                                SwitchCase('Sfida', player1, player2)
+                            } else {
+                                SwitchCase('Sfidato', player1, player2)
+                            }
+
+                            sessionStorage.setItem('stoinsfida', false); // pulisco la session flag sfida
+                            checksfidapending();
+
+                        })
+                    }).catch((err) => {
+                        toast.error(err.message);
+                    });
+
+                }
             }
-        }
         })
- 
+
     }
 
     const accettasfidahandle = (e, idrecord, status) => {
@@ -916,7 +916,7 @@ const Mychallenge = () => {
     }
 
     function sendemail(names, emails, status) {
-return
+        return
         let message = "";
         let subject = "";
         if (status === 'add') {
@@ -1053,7 +1053,7 @@ return
                                                                         formatday={(locale, date) => dayjs(date).format('DD/MM/YYYY')}
                                                                         onChange={date => setdatadellasfida(date)} value={datadellasfida} />
 
-                                                                    <b>Orario</b><select value={orasfida} onChange={e => setordasfida((e.target.value))} className="form-control">
+                                                                       <b>Orario</b>:<select style={{ maxWidth: '36%' }} value={orasfida} onChange={e => setordasfida((e.target.value))} className="list form-control">
                                                                         <option value="09.00">09.00</option>
                                                                         <option value="09.30">09.30</option>
                                                                         <option value="10.30">10.00</option>
@@ -1107,7 +1107,7 @@ return
                                                                                 <tr index={index + 1}>
                                                                                     <td>Set 1</td>
                                                                                     <td>
-                                                                                        <input  type="number" min="1" max="100" value={set1casa} onChange={e => setset1casa(e.target.value)} className="form-control"></input>
+                                                                                        <input type="number" min="1" max="100" value={set1casa} onChange={e => setset1casa(e.target.value)} className="form-control"></input>
                                                                                     </td>
                                                                                     <td>-</td>
                                                                                     <td>
@@ -1173,7 +1173,7 @@ return
                                                                     formatday={(locale, date) => dayjs(date).format('DD/MM/YYYY')}
                                                                     onChange={date => setdatadellasfida(date)} value={datadellasfida} />
 
-                                                                <b>Orario</b>:<select style={{maxWidth:'36%'}} value={orasfida} onChange={e => setordasfida((e.target.value))} className="list form-control">
+                                                                <b>Orario</b>:<select style={{ maxWidth: '36%' }} value={orasfida} onChange={e => setordasfida((e.target.value))} className="list form-control">
                                                                     <option value="09.00">09.00</option>
                                                                     <option value="09.30">09.30</option>
                                                                     <option value="10.30">10.00</option>
