@@ -83,8 +83,6 @@ const Mychallenge = () => {
     const progmatchandle = (e, idrecord) => {
         e.preventDefault();
         //   console.log(datadellasfida)
-
-
         //  const formatted = Intl.DateTimeFormat(locale).format(datadellasfida); // 3/19/2023
         const formatted = dayjs(datadellasfida).format('DD/MM/YYYY')
         Swal.fire({
@@ -157,7 +155,6 @@ const Mychallenge = () => {
         } else if (player1 < player2) {
             player2 += 1
         }
-
         if (player1 > player2) {
             return "Player1"
         } else if (player1 < player2) {
@@ -221,8 +218,7 @@ const Mychallenge = () => {
 
     const aggiornapunteggio = (e, idrecord, p1, p2) => {
         e.preventDefault();
-
-
+        
         Swal.fire({
             title: 'Sei sicuro?',
             text: 'Vuoi aggiornare il risultato?',

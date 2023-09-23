@@ -41,8 +41,6 @@ const Home = () => {
 
     }, []);
 
-
-
     useEffect(() => {
         if (filter === 'all' || filter === 'vuoto') {
             loadcgallenge();
@@ -137,7 +135,6 @@ const Home = () => {
                                                 <div className="item-cell flex-shrink-0 width-auto align-self-flex-start">
                                                     {item.status === 'pending' &&
                                                         <b style={{ background: '#e7e7e7', padding: '3px' }} >Attesa Avversario</b>
-
                                                     }
                                                     {item.status === 'processing' &&
                                                         <>
@@ -159,7 +156,6 @@ const Home = () => {
 
                                                     }
 
-
                                                 </div>
                                                 <div className="item-cell">
                                                     <div style={{ position: 'relative', left: '-10px' }} className="item-row">
@@ -169,7 +165,7 @@ const Home = () => {
                                                         <div className="item-cell flex-shrink-0 width-auto line-height-1">
                                                             <span style={{ fontSize: "14px", textAlign: 'left' }}><b>Creata:</b> &nbsp; <i>{item.datacreate}</i></span>
                                                             <br></br>
-                                                            <span style={{ color: dayjs(today).format('DD/MM/YYYY') === formatdate(item.datasfida) ? '#f47f35':'none', fontSize: "14px", textAlign: 'left' }}><b>Prevista:</b> <i>{item.datasfida} {item.orasfida}</i></span>
+                                                            <span style={{ color: dayjs(today).format('DD/MM/YYYY') === formatdate(item.datasfida) ? '#f47f35' : 'none', fontSize: "14px", textAlign: 'left' }}><b>Prevista:</b> <i>{item.datasfida} {item.orasfida}</i></span>
 
                                                         </div>
                                                     </div>
@@ -193,8 +189,10 @@ const Home = () => {
                                                                 }
                                                                 </span>
                                                             </a></li>
-                                                            <li style={{ fontWeight: "bold" }}>      <span>vs</span>
-                                                               
+                                                            <li style={{ fontWeight: "bold" }}>      <span>vs</span> 
+                                                            {dayjs(today).format('DD/MM/YYYY') === formatdate(item.datasfida) &&
+                                                                <span> {item.orasfida} </span>
+                                                                }
                                                                 {/*  {dayjs(today).format('DD/MM/YYYY')} - {formatdate(item.datasfida)} */}
                                                             </li>
 
