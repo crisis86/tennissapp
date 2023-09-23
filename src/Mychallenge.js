@@ -167,8 +167,8 @@ const Mychallenge = () => {
     function IsValidate(s1c, s1o, s2c, s2o, s3c, s3o) {
         let isproceed = true;
         let errormessage = 'errore ';
-        
-      
+
+
         if (s1c === null || s1c === '' || parseInt(s1c) < 0) {
             isproceed = false;
             errormessage += 'inserire un risultato valido';
@@ -204,11 +204,11 @@ const Mychallenge = () => {
         if (s1c === 0 && s1o === 0) {
             isproceed = false;
             errormessage += ' Set1 0-0 Non valido';
-        }else if (s1c === '0' && s1o === '0') {
+        } else if (s1c === '0' && s1o === '0') {
             isproceed = false;
             errormessage += ' Set1 0-0 Non valido';
         }
-        
+
         if (!isproceed) {
             toast.warning(errormessage)
         }
@@ -218,7 +218,7 @@ const Mychallenge = () => {
 
     const aggiornapunteggio = (e, idrecord, p1, p2) => {
         e.preventDefault();
-        
+
         Swal.fire({
             title: 'Sei sicuro?',
             text: 'Vuoi aggiornare il risultato?',
@@ -481,7 +481,7 @@ const Mychallenge = () => {
 
     }
 
-     
+
     const checksfidapending = () => {
 
 
@@ -857,7 +857,7 @@ const Mychallenge = () => {
     }
 
     function sendemail(names, emails, status) {
-        
+
         let message = "";
         let subject = "";
         if (status === 'add') {
@@ -897,6 +897,7 @@ const Mychallenge = () => {
     }
 
     function formatdate(data) {
+
         let formattedDate = dayjs().format(data) // 2023-03-01
         //   console.log(formattedDate)
         return formattedDate
@@ -994,7 +995,7 @@ const Mychallenge = () => {
                                                                         formatday={(locale, date) => dayjs(date).format('DD/MM/YYYY')}
                                                                         onChange={date => setdatadellasfida(date)} value={datadellasfida} />
 
-                                                                       <b>Orario</b>:<select style={{ maxWidth: '36%' }} value={orasfida} onChange={e => setordasfida((e.target.value))} className="list form-control">
+                                                                    <b>Orario</b>:<select style={{ maxWidth: '36%', marginBottom:'5px' }} value={orasfida} onChange={e => setordasfida((e.target.value))} className="list form-control">
                                                                         <option value="09.00">09.00</option>
                                                                         <option value="09.30">09.30</option>
                                                                         <option value="10.30">10.00</option>
@@ -1029,10 +1030,19 @@ const Mychallenge = () => {
                                                                     </select>
 
                                                                     <button onClick={(e) => progmatchandle(e, item.id)} type="button" className="button button-fill button-small">Conferma data</button>
-                                                                     &nbsp;
-                                                                    {item.datasfida=== '' || dayjs(today).format('DD/MM/YYYY') < formatdate(item.datasfida) &&
-                                                                   <button onClick={(e) => sfidahandle(e, item.players[0].idp1, 'cancel', item.id)} type="button" className="button button-fill color-red">Annulla</button>
-                                                                    }   
+                                                                    &nbsp;
+                                                                    {item.datasfida === '' ? (
+                                                                        <button onClick={(e) => sfidahandle(e, item.players[1].idp2, 'cancel', item.id)} type="button" className="button button-fill color-red">Annulla </button>
+                                                                    ) : (
+                                                                        <>
+                                                                            {dayjs(today).format('DD/MM/YYYY') < formatdate(item.datasfida) &&
+
+                                                                                <button onClick={(e) => sfidahandle(e, item.players[1].idp2, 'cancel', item.id)} type="button" className="button button-fill color-red">Annulla </button>
+                                                                            }
+                                                                        </>
+                                                                    )}
+
+
                                                                 </div>
                                                             </div>
                                                         ) : (
@@ -1117,7 +1127,7 @@ const Mychallenge = () => {
                                                                     formatday={(locale, date) => dayjs(date).format('DD/MM/YYYY')}
                                                                     onChange={date => setdatadellasfida(date)} value={datadellasfida} />
 
-                                                                <b>Orario</b>:<select style={{ maxWidth: '36%' }} value={orasfida} onChange={e => setordasfida((e.target.value))} className="list form-control">
+                                                                <b>Orario</b>:<select style={{ maxWidth: '36%', marginBottom:'5px' }} value={orasfida} onChange={e => setordasfida((e.target.value))} className="list form-control">
                                                                     <option value="09.00">09.00</option>
                                                                     <option value="09.30">09.30</option>
                                                                     <option value="10.30">10.00</option>
@@ -1152,10 +1162,17 @@ const Mychallenge = () => {
                                                                 </select>
 
                                                                 <button onClick={(e) => progmatchandle(e, item.id)} type="button" className="button button-fill button-small">Conferma data</button>
-                                                               &nbsp;
-                                                               {item.datasfida === '' || dayjs(today).format('DD/MM/YYYY') < formatdate(item.datasfida) &&
-                                                                   <button onClick={(e) => sfidahandle(e, item.players[0].idp1, 'cancel', item.id)} type="button" className="button button-fill color-red">Annulla</button>
-                                                                }   
+                                                                &nbsp;
+                                                                {item.datasfida === '' ? (
+                                                                    <button onClick={(e) => sfidahandle(e, item.players[0].idp1, 'cancel', item.id)} type="button" className="button button-fill color-red">Annulla</button>
+                                                                ) : (
+                                                                    <>
+                                                                        {dayjs(today).format('DD/MM/YYYY') < formatdate(item.datasfida) &&
+
+                                                                            <button onClick={(e) => sfidahandle(e, item.players[0].idp1, 'cancel', item.id)} type="button" className="button button-fill color-red">Annulla</button>
+                                                                        }
+                                                                    </>
+                                                                )}
                                                             </div>
                                                         </div>
                                                     ) : (
