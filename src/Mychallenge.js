@@ -37,7 +37,7 @@ const Mychallenge = () => {
 
 
     useEffect(() => {
-
+   
         let email = sessionStorage.getItem('email')
 
         if (email === '' || email === null) {
@@ -433,6 +433,8 @@ const Mychallenge = () => {
                         flagmesfida(status);
 
                         removechallenge(idchallange);
+
+                        checksfidapending();
 
                     })
                 }).catch((err) => {

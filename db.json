@@ -31,7 +31,7 @@
       "gender": "male",
       "posizione": 1,
       "insfida": true,
-      "fuorigioco":false,
+      "fuorigioco": false,
       "id": 2
     },
     {
@@ -45,7 +45,7 @@
       "gender": "male",
       "posizione": 3,
       "insfida": true,
-      "fuorigioco":false,
+      "fuorigioco": false,
       "id": 3
     },
     {
@@ -59,7 +59,7 @@
       "gender": "male",
       "posizione": 4,
       "insfida": false,
-      "fuorigioco":true,
+      "fuorigioco": true,
       "id": 4
     },
     {
@@ -73,7 +73,7 @@
       "gender": "male",
       "posizione": 2,
       "insfida": true,
-      "fuorigioco":false,
+      "fuorigioco": false,
       "id": 5
     },
     {
@@ -87,7 +87,7 @@
       "gender": "male",
       "posizione": 7,
       "insfida": false,
-      "fuorigioco":false,
+      "fuorigioco": false,
       "id": 6
     },
     {
@@ -101,7 +101,7 @@
       "gender": "male",
       "posizione": 6,
       "insfida": true,
-      "fuorigioco":false,
+      "fuorigioco": false,
       "id": 7
     },
     {
@@ -115,7 +115,7 @@
       "gender": "male",
       "posizione": 8,
       "insfida": false,
-      "fuorigioco":false,
+      "fuorigioco": false,
       "id": 8
     },
     {
@@ -129,7 +129,7 @@
       "gender": "male",
       "posizione": 5,
       "insfida": true,
-      "fuorigioco":false,
+      "fuorigioco": false,
       "id": 9
     },
     {
@@ -143,7 +143,7 @@
       "gender": "male",
       "posizione": 9,
       "insfida": true,
-      "fuorigioco":false,
+      "fuorigioco": false,
       "id": 10
     },
     {
@@ -157,7 +157,7 @@
       "gender": "male",
       "posizione": 11,
       "insfida": false,
-      "fuorigioco":false,
+      "fuorigioco": false,
       "id": 11
     },
     {
@@ -171,7 +171,7 @@
       "gender": "male",
       "posizione": 12,
       "insfida": true,
-      "fuorigioco":false,
+      "fuorigioco": false,
       "id": 12
     },
     {
@@ -185,7 +185,7 @@
       "gender": "male",
       "posizione": 10,
       "insfida": false,
-      "fuorigioco":false,
+      "fuorigioco": false,
       "id": 13
     },
     {
@@ -199,7 +199,7 @@
       "gender": "female",
       "posizione": 13,
       "insfida": false,
-      "fuorigioco":false,
+      "fuorigioco": false,
       "id": 14
     },
     {
@@ -213,7 +213,7 @@
       "gender": "male",
       "posizione": 14,
       "insfida": false,
-      "fuorigioco":false,
+      "fuorigioco": false,
       "id": 15
     },
     {
@@ -227,7 +227,7 @@
       "gender": "male",
       "posizione": 15,
       "insfida": false,
-      "fuorigioco":false,
+      "fuorigioco": false,
       "id": 16
     },
     {
@@ -241,7 +241,7 @@
       "gender": "male",
       "posizione": 17,
       "insfida": false,
-      "fuorigioco":false,
+      "fuorigioco": false,
       "id": 17
     },
     {
@@ -255,7 +255,7 @@
       "gender": "male",
       "posizione": 18,
       "insfida": false,
-      "fuorigioco":false,
+      "fuorigioco": false,
       "id": 18
     },
     {
@@ -269,7 +269,7 @@
       "gender": "male",
       "posizione": 19,
       "insfida": false,
-      "fuorigioco":false,
+      "fuorigioco": false,
       "id": 19
     },
     {
@@ -283,7 +283,7 @@
       "gender": "male",
       "posizione": 20,
       "insfida": false,
-      "fuorigioco":false,
+      "fuorigioco": false,
       "id": 20
     },
     {
@@ -297,7 +297,7 @@
       "gender": "male",
       "posizione": 21,
       "insfida": false,
-      "fuorigioco":false,
+      "fuorigioco": false,
       "id": 21
     },
     {
@@ -311,7 +311,7 @@
       "gender": "male",
       "posizione": 16,
       "insfida": true,
-      "fuorigioco":false,
+      "fuorigioco": false,
       "id": 22
     },
     {
@@ -325,7 +325,7 @@
       "gender": "male",
       "posizione": 22,
       "insfida": false,
-      "fuorigioco":false,
+      "fuorigioco": false,
       "id": 23
     },
     {
@@ -339,7 +339,7 @@
       "gender": "male",
       "posizione": 24,
       "insfida": true,
-      "fuorigioco":false,
+      "fuorigioco": false,
       "id": 24
     },
     {
@@ -353,7 +353,7 @@
       "gender": "male",
       "posizione": 23,
       "insfida": false,
-      "fuorigioco":false,
+      "fuorigioco": false,
       "id": 25
     },
     {
@@ -367,7 +367,7 @@
       "gender": "male",
       "posizione": 25,
       "insfida": false,
-      "fuorigioco":false,
+      "fuorigioco": false,
       "id": 26
     },
     {
@@ -381,7 +381,7 @@
       "gender": "male",
       "posizione": 26,
       "insfida": false,
-      "fuorigioco":false,
+      "fuorigioco": false,
       "id": 27
     },
     {
@@ -395,7 +395,7 @@
       "gender": "male",
       "posizione": 27,
       "insfida": false,
-      "fuorigioco":false,
+      "fuorigioco": false,
       "id": 28
     },
     {
@@ -409,7 +409,7 @@
       "gender": "male",
       "posizione": 28,
       "insfida": true,
-      "fuorigioco":false,
+      "fuorigioco": false,
       "id": 29
     },
     {
@@ -423,7 +423,7 @@
       "gender": "male",
       "posizione": 29,
       "insfida": false,
-      "fuorigioco":false,
+      "fuorigioco": false,
       "id": 30
     },
     {
@@ -437,7 +437,7 @@
       "gender": "male",
       "posizione": 30,
       "insfida": false,
-      "fuorigioco":false,
+      "fuorigioco": false,
       "id": 31
     },
     {
@@ -451,7 +451,7 @@
       "gender": "female",
       "posizione": 31,
       "insfida": false,
-      "fuorigioco":false,
+      "fuorigioco": false,
       "id": 32
     },
     {
@@ -465,7 +465,7 @@
       "gender": "male",
       "posizione": 32,
       "insfida": false,
-      "fuorigioco":false,
+      "fuorigioco": false,
       "id": 34
     },
     {
@@ -479,7 +479,7 @@
       "gender": "male",
       "posizione": 33,
       "insfida": false,
-      "fuorigioco":false,
+      "fuorigioco": false,
       "id": 35
     },
     {
@@ -493,7 +493,7 @@
       "gender": "male",
       "posizione": 34,
       "insfida": false,
-      "fuorigioco":false,
+      "fuorigioco": false,
       "id": 36
     },
     {
@@ -507,7 +507,7 @@
       "gender": "male",
       "posizione": 36,
       "insfida": false,
-      "fuorigioco":false,
+      "fuorigioco": false,
       "id": 37
     },
     {
@@ -521,8 +521,36 @@
       "gender": "male",
       "posizione": 35,
       "insfida": false,
-      "fuorigioco":false,
+      "fuorigioco": false,
       "id": 38
+    },
+    {
+      "email": "crisisart86@gmail.com",
+      "password": "123",
+      "name": "davide a",
+      "phone": "34234234234",
+      "country": "Italia",
+      "role": "player",
+      "address": "sdsdsd",
+      "gender": "male",
+      "posizione": 37,
+      "insfida": true,
+      "fuorigioco": false,
+      "id": 39
+    },
+    {
+      "email": "webmaster@franzyonline.it",
+      "password": "123",
+      "name": "Wbmastaer",
+      "phone": "4234234",
+      "country": "Italia",
+      "role": "player",
+      "address": "erererere",
+      "gender": "male",
+      "posizione": 38,
+      "insfida": true,
+      "fuorigioco": false,
+      "id": 40
     }
   ],
   "post": [
@@ -565,7 +593,7 @@
     {
       "datacreate": "10-2-2022",
       "datasfida": "15/02/2022",
-      "orasfida":"",
+      "orasfida": "",
       "players": [
         {
           "idp1": 0,
@@ -584,7 +612,7 @@
     {
       "datacreate": "13/9/2023",
       "datasfida": "13/09/2023",
-      "orasfida":"",
+      "orasfida": "",
       "players": [
         {
           "idp1": 38,
@@ -604,7 +632,7 @@
     {
       "datacreate": "15/9/2023",
       "datasfida": "17/09/2023",
-      "orasfida":"",
+      "orasfida": "",
       "players": [
         {
           "idp1": 6,
@@ -624,7 +652,7 @@
     {
       "datacreate": "15/9/2023",
       "datasfida": "15/09/2023",
-      "orasfida":"",
+      "orasfida": "",
       "players": [
         {
           "idp1": 26,
@@ -644,7 +672,7 @@
     {
       "datacreate": "16/9/2023",
       "datasfida": "19/09/2023",
-      "orasfida":"",
+      "orasfida": "",
       "players": [
         {
           "idp1": 9,
@@ -664,7 +692,7 @@
     {
       "datacreate": "16/9/2023",
       "datasfida": "21/09/2023",
-      "orasfida":"",
+      "orasfida": "",
       "players": [
         {
           "idp1": 17,
@@ -684,7 +712,7 @@
     {
       "datacreate": "16/9/2023",
       "datasfida": "17/09/2023",
-      "orasfida":"",
+      "orasfida": "",
       "players": [
         {
           "idp1": 24,
@@ -704,7 +732,7 @@
     {
       "datacreate": "18/9/2023",
       "datasfida": "23/09/2023",
-      "orasfida":"",
+      "orasfida": "",
       "players": [
         {
           "idp1": 29,
@@ -724,7 +752,7 @@
     {
       "datacreate": "19/9/2023",
       "datasfida": "28/09/2023",
-      "orasfida":"",
+      "orasfida": "",
       "players": [
         {
           "idp1": 5,
@@ -744,7 +772,7 @@
     {
       "datacreate": "19/9/2023",
       "datasfida": "25/09/2023",
-      "orasfida":"",
+      "orasfida": "",
       "players": [
         {
           "idp1": 7,
@@ -764,7 +792,7 @@
     {
       "datacreate": "20/09/2023",
       "datasfida": "25/09/2023",
-      "orasfida":"",
+      "orasfida": "",
       "players": [
         {
           "idp1": 12,
@@ -784,7 +812,7 @@
     {
       "datacreate": "20/09/2023",
       "datasfida": "",
-      "orasfida":"",
+      "orasfida": "",
       "players": [
         {
           "idp1": 22,
@@ -800,6 +828,26 @@
       "set2": "",
       "set3": "",
       "id": 12
+    },
+    {
+      "datacreate": "23/09/2023",
+      "datasfida": "",
+      "orasfida": "",
+      "players": [
+        {
+          "idp1": 40,
+          "p1": "Wbmastaer"
+        },
+        {
+          "idp2": 39,
+          "p2": "davide a"
+        }
+      ],
+      "status": "pending",
+      "set1": "",
+      "set2": "",
+      "set3": "",
+      "id": 13
     }
   ]
 }
