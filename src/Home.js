@@ -126,7 +126,7 @@ const Home = () => {
                 </div>
                 <div className="row align-items-stretch">
                     {challenge &&
-                        challenge.sort((a, b) => a.status <= b.status ? 1 : -1).map((item, index) => (
+                        challenge.sort((a, b) => a.status <= b.datasfida ? 1 : -1).map((item, index) => (
                             <div style={{ border: '1px solid #cbc4c4', borderRadius: '10px' }} key={index + 1} className="col-100 small-50 xlarge-100">
                                 <div className="item-content height-100">
                                     <div className="item-inner item-cell height-100 padding-vertical">
