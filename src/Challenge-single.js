@@ -55,6 +55,7 @@ const ChallengeSingle = () => {
             fetchdata();
             //   SfidaAbilitata();
             getlastsfidacomplete();
+            getlastsfidaCancel();
             checksfidapending();
             //   sendemail('test', 'crisisart86@gmail.com','test test test');
 
@@ -325,6 +326,63 @@ const ChallengeSingle = () => {
         // let datalastfida = new Date();
 
         fetch(window.$produrl + "/challenge?status=complete&q=" + fullname, {
+            method: 'GET'
+        }).then(res => {
+            if (!res.ok) {
+                // console.log('nulla')
+                return false
+            }
+            return res.json();
+        }).then(res => {
+            if (Object.keys(res).length > 0) {
+                sfidecoolete = res;
+
+                // datalastfida = Math.max(...sfidecoolete.map(o => o.datasfida))
+
+                let recorddatalastfida = sfidecoolete.sort((a, b) => a.datasfida > b.datasfida ? 1 : -1)[0]
+
+                let splidate = recorddatalastfida.datasfida.split("/")
+                let dataconvert = new Date(splidate[2] + "/" + splidate[1] + "/" + splidate[0])
+
+                //   console.log(datadioggi.getDate())
+                //  console.log(dataconvert.getDate())
+
+                const time = Math.abs(dataconvert - datadioggi);
+                const days = Math.ceil(time / (1000 * 60 * 60 * 24));
+                // console.log(days);
+
+
+                if (days > 2) {
+                    console.log("> = di 2 days")
+
+                    setsfidabutton(true)
+                } else {
+                    console.log("minore di 2 days " + recorddatalastfida.players[0].idp1)
+                    if (recorddatalastfida.players[0].idp1 === iduser) {
+                        console.log("sono io blocca")
+                        setsfidabutton(false)
+                        setgiornisfida(parseInt(days - 1));
+                    } else {
+                        setsfidabutton(true)
+                        console.log("non sono io")
+                    }
+
+
+                }
+            } else {
+                setsfidabutton(true)
+                console.log("vuoto")
+            }
+        });
+    }
+
+
+    const getlastsfidaCancel = () => {
+
+        let sfidecoolete = {};
+        // let datalastfida = new Date();
+
+        fetch(window.$produrl + "/challenge?status=cancel&q=" + fullname, {
             method: 'GET'
         }).then(res => {
             if (!res.ok) {
