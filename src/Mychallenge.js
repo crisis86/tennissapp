@@ -544,10 +544,8 @@ const Mychallenge = () => {
                         SwitchCase('Annulla_sfida', player2, player1)
                     }
 
-
-
                     sessionStorage.setItem('stoinsfida', false);
-                    //      setstoinsifa(false);
+                    //  setstoinsifa(false);
                 })
             }).catch((err) => {
                 toast.error(err.message);
@@ -1031,7 +1029,10 @@ const Mychallenge = () => {
                                                                     </select>
 
                                                                     <button onClick={(e) => progmatchandle(e, item.id)} type="button" className="button button-fill button-small">Conferma data</button>
-
+                                                                     &nbsp;
+                                                                    {dayjs(today).format('DD/MM/YYYY') < formatdate(item.datasfida) &&
+                                                                   <button onClick={(e) => sfidahandle(e, item.players[0].idp1, 'cancel', item.id)} type="button" className="button button-fill color-red">Annulla</button>
+                                                                    }   
                                                                 </div>
                                                             </div>
                                                         ) : (
@@ -1151,7 +1152,10 @@ const Mychallenge = () => {
                                                                 </select>
 
                                                                 <button onClick={(e) => progmatchandle(e, item.id)} type="button" className="button button-fill button-small">Conferma data</button>
-
+                                                               &nbsp;
+                                                                {dayjs(today).format('DD/MM/YYYY') < formatdate(item.datasfida) &&
+                                                                   <button onClick={(e) => sfidahandle(e, item.players[0].idp1, 'cancel', item.id)} type="button" className="button button-fill color-red">Annulla</button>
+                                                                }   
                                                             </div>
                                                         </div>
                                                     ) : (
