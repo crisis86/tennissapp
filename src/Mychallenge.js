@@ -1030,7 +1030,7 @@ const Mychallenge = () => {
 
                                                                     <button onClick={(e) => progmatchandle(e, item.id)} type="button" className="button button-fill button-small">Conferma data</button>
                                                                      &nbsp;
-                                                                    {dayjs(today).format('DD/MM/YYYY') < formatdate(item.datasfida) &&
+                                                                    {item.datasfida=== '' || dayjs(today).format('DD/MM/YYYY') < formatdate(item.datasfida) &&
                                                                    <button onClick={(e) => sfidahandle(e, item.players[0].idp1, 'cancel', item.id)} type="button" className="button button-fill color-red">Annulla</button>
                                                                     }   
                                                                 </div>
@@ -1153,7 +1153,7 @@ const Mychallenge = () => {
 
                                                                 <button onClick={(e) => progmatchandle(e, item.id)} type="button" className="button button-fill button-small">Conferma data</button>
                                                                &nbsp;
-                                                                {dayjs(today).format('DD/MM/YYYY') < formatdate(item.datasfida) &&
+                                                               {item.datasfida === '' || dayjs(today).format('DD/MM/YYYY') < formatdate(item.datasfida) &&
                                                                    <button onClick={(e) => sfidahandle(e, item.players[0].idp1, 'cancel', item.id)} type="button" className="button button-fill color-red">Annulla</button>
                                                                 }   
                                                             </div>

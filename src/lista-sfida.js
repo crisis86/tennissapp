@@ -2,7 +2,6 @@ import './assets/framework7-bundle.css';
 import React, { Component, useState, useEffect, useMemo } from "react";
 import { toast } from "react-toastify";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import logo from './assets/logo.svg';
 import Swal from 'sweetalert2';
 
 
