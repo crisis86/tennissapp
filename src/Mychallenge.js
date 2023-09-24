@@ -959,11 +959,11 @@ const Mychallenge = () => {
                                                     <b>Completata </b>
 
                                                 }
-                                                <li><b> Creata:</b> {item.datacreate} <b>Prevista:</b> {item.datasfida} {item.orasfida} </li>
+                                                <li><b> Creata:</b> {item.datacreate} <b>{item.status==='cancel' ? 'Annullata: ' : 'Prevista: '}</b> {item.datasfida} {item.orasfida} </li>
                                                 {item.players[0].idp1 === iduser ? (
                                                     <li> <b> {loadnumberphone(item.players[1].idp2)}</b></li>
                                                 ) : (
-                                                    <li> <b>{loadnumberphone(item.players[0].idp1)}</b></li>
+                                                    <li> <b>{loadnumberphone(item.players[0].idp1)}</b></li>    
                                                 )}
                                                 <li ><b>Score</b></li>
                                                 <li style={{ textDecoration: item.set1 === '0-0' ? 'line-through' : 'none' }} >Set1: <b>{item.set1} </b></li>

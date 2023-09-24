@@ -589,7 +589,7 @@ const ChallengeSingle = () => {
                                                             <b>Completata </b>
 
                                                         }
-                                                        <li><b> Creata: </b>{partite.datacreate} <b>Prevista:</b> {partite.datasfida} {partite.orasfida}</li>
+                                                        <li><b> Creata: </b>{partite.datacreate} <b>{partite.status==='cancel' ? 'Annullata: ' : 'Prevista: '}</b> {partite.datasfida} {partite.orasfida}</li>
                                                         <li ><b>Score</b></li>
                                                         <li style={{ textDecoration: partite.set1 === '0-0' ? 'line-through' : 'none' }}>Set1: <b>{partite.set1} </b></li>
                                                         <li style={{ textDecoration: partite.set2 === '0-0' ? 'line-through' : 'none' }}>Set2: <b>{partite.set2} </b></li>
