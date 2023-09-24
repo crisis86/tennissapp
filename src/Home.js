@@ -17,6 +17,8 @@ const Home = () => {
     const [filter, setfilterchange] = useState('vuoto');
     const [today, setday] = useState(new Date())
     const [numberpost, setnumberpost] = useState(0);
+    const [pagination, setpagination] = useState(30);
+    
 
     useEffect(() => {
 
@@ -48,7 +50,7 @@ const Home = () => {
             loadcgallengeByFilter(filter);
         }
 
-    }, [filter]);
+    }, [filter,pagination]);
 
     const countpost = () => {
 
@@ -68,7 +70,7 @@ const Home = () => {
 
     const loadcgallengeByFilter = (filro) => {
 
-        fetch(window.$produrl + "/challenge?status=" + filro).then(res => {
+        fetch(window.$produrl + "/challenge?status=" + filro+"&_limit="+parseInt(pagination)).then(res => {
             if (!res.ok) {
                 console.log(res)
                 // navigate('/');
@@ -82,7 +84,9 @@ const Home = () => {
 
     const loadcgallenge = () => {
 
-        fetch(window.$produrl + "/challenge").then(res => {
+        console.log(pagination)
+
+        fetch(window.$produrl + "/challenge?_limit="+parseInt(pagination)).then(res => {
             if (!res.ok) {
                 console.log(res)
                 // navigate('/');
@@ -111,8 +115,8 @@ const Home = () => {
 
                     <img style={{ float: 'left' }} src={iconafiltro} alt="filter" width={23} ></img>
 
-                    <select style={{ margin: '0 10px', width: '65%', padding: '2px 0', background: '#f9f9f9' }} className="form-control select input-outline" selected="selected" value={filter} onChange={e => setfilterchange(e.target.value)} >
-                        <option disabled className="md item-input-invalid select" style={{ color: 'grey' }} value='vuoto'>Seleziona Stato Evento</option>
+                    <select style={{ margin: '0 10px', width: '45%', padding: '2px 0', background: '#f9f9f9' }} className="form-control select input-outline" selected="selected" value={filter} onChange={e => setfilterchange(e.target.value)} >
+                        <option disabled className="md item-input-invalid select" style={{ color: 'grey' }} value='vuoto'>Stato Evento</option>
                         <option value='all'>Tutti Gli Stati</option>
                         <option value='processing'>In Corso</option>
                         <option value='cancel'>Annullate</option>
@@ -121,7 +125,17 @@ const Home = () => {
                         <option value='complete'>Completate</option>
 
                     </select>
-                    <span style={{float:'right', color:'#71b852'}} ><a style={{color:'#71b852'}} href="/post"><img width={22} alt="post" src={iconpost}></img> <b>({numberpost})</b> </a></span>
+                    <select style={{ textAlign:'center', margin: '0 10px', width: '10%', padding: '2px 0', background: '#f9f9f9' }} className="form-control select input-outline" selected="selected" value={pagination} onChange={e => setpagination(e.target.value)} >
+                        <option value='5'>5</option>
+                        <option value='10'>10</option>
+                        <option value='20'>20</option>
+                        <option value='30'>30</option>
+                        <option value='50'>50</option>  
+                        <option value='70'>70</option>
+                        <option value='10000'>Tutti</option>
+
+                    </select>
+                    <span style={{float:'right', color:'#71b852'}} ><a style={{color:'#71b852'}} href="/post"><img width={23} alt="post" src={iconpost}></img> <b>({numberpost})</b> </a></span>
                    
                 </div>
                 <div className="row align-items-stretch">
