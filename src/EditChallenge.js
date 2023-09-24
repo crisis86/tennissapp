@@ -28,6 +28,7 @@ const EditChallenge = () => {
     const [set1, setset1] = useState(0)
     const [set2, setset2] = useState(0)
     const [set3, setset3] = useState(0)
+    const [finalplayer, setfinalplayer] = useState(0)
 
     const navigate = useNavigate();
 
@@ -72,6 +73,7 @@ const EditChallenge = () => {
             setset1(resp.set1)
             setset2(resp.set2)
             setset3(resp.set3)
+            setfinalplayer(resp.finalplayer)
 
         });
     }
@@ -97,7 +99,8 @@ const EditChallenge = () => {
             "status": status,
             "set1": set1,
             "set2": set2,
-            "set3": set3
+            "set3": set3,
+            "finalplayer":finalplayer
         }
 
         //  console.log(regobj);
@@ -197,10 +200,10 @@ const EditChallenge = () => {
                                         <label>Status <span className="errmsg">*</span></label>
                                         <select value={status} onChange={e => setstatus(e.target.value)} className="form-control">
 
-                                            <option value="processing">processing</option>
-                                            <option value="cancel">cancel</option>
-                                            <option value="pending">pending</option>
-                                            <option value="complete">complete</option>
+                                            <option value="processing">In Corso</option>
+                                            <option value="cancel">Annullata</option>
+                                            <option value="pending">Attesa Avversario</option>
+                                            <option value="complete">Completata</option>
                                         </select>
 
                                     </div>
