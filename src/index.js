@@ -7,8 +7,8 @@ import './assets/Navbar.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import 'react-toastify/dist/ReactToastify.css';
 
-window.$servEmail ="https://servermail-fhuv.onrender.com"
-
+window.$servEmail ="https://servermail-fhuv.onrender.com";
+window.$mainteneance = "on";
 
 window.$produrl = "https://tennissapp.onrender.com";
 window.$devurl = "http://localhost:10000";

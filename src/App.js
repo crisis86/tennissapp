@@ -1,5 +1,5 @@
 import Navbar from './Navbar';
-import { React, useEffect } from 'react';
+import { React, useEffect,useMemo } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import Home from './Home';
@@ -18,13 +18,25 @@ import Post from './Post';
 import Regolamento from './Regolamento';
 import AdminChallenge from './AdminChallenge';
 import EditChallenge from './EditChallenge';
+import Mainteneance from './mainteneance';
+
+
 
 function App() {  
+ 
+  
+  useEffect(() => {
+    if (window.$mainteneance==='on'){
+       window.location.href ="https://www.spinuptennis.it/mainteneance"
+     }
+  }, [])
 
   useEffect(() => {
     let vh = window.innerHeight * 0.01;
     // Then we set the value in the --vh custom property to the root of the document
     document.documentElement.style.setProperty('--vh', `${vh}px`);
+
+    
   
   //  const cron = require('node-schedule')
   //  cron.scheduleJob('*/1 * * * *', () => {    
@@ -246,6 +258,7 @@ function App() {
           <Route path="/lista-sfida" element={<Listasfida />}> </Route>
           <Route path="/Mychallenge" element={<Mychallenge />}> </Route>
           <Route path="/Post" element={<Post />}> </Route>
+          <Route path="/mainteneance" element={<Mainteneance />}> </Route>
           <Route path="/Edit/:id" element={<Edit />}> </Route>
           <Route path="/AdminChallenge" element={<AdminChallenge />}> </Route>
            <Route path="/EditChallenge/:id" element={<EditChallenge />}> </Route>

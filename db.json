@@ -563,8 +563,8 @@
   ],
   "challenge": [
     {
-      "datacreate": "10-2-2022",
-      "datasfida": "15/02/2022",
+      "datacreate": "10/02/2002",
+      "datasfida": "15/02/2002",
       "orasfida": "",
       "players": [
         {
@@ -572,6 +572,7 @@
           "p1": "Admin Admin"
         },
         {
+          "idp2": 0,
           "p2": "Admin Admin"
         }
       ],
@@ -579,6 +580,7 @@
       "set1": "0-0",
       "set2": "0-0",
       "set3": "0-0",
+      "finalplayer":null,
       "id": 1
     },
     {
@@ -599,6 +601,7 @@
       "set1": "3-6",
       "set2": "3-6",
       "set3": "0-0",
+      "finalplayer":37,
       "id": 2
     },
     {
@@ -619,6 +622,7 @@
       "set1": "3-9",
       "set2": "0-0",
       "set3": "0-0",
+      "finalplayer":5,
       "id": 3
     },
     {
@@ -639,6 +643,7 @@
       "set1": "3-6",
       "set2": "0-6",
       "set3": "0-0",
+      "finalplayer":22,
       "id": 4
     },
     {
@@ -659,6 +664,7 @@
       "set1": "8-5",
       "set2": "0-0",
       "set3": "0-0",
+      "finalplayer":9,
       "id": 5
     },
     {
@@ -679,6 +685,7 @@
       "set1": "9-2",
       "set2": "0-0",
       "set3": "0-0",
+      "finalplayer":17,
       "id": 6
     },
     {
@@ -699,6 +706,7 @@
       "set1": "4-6",
       "set2": "2-3",
       "set3": "0-0",
+      "finalplayer":22,
       "id": 7
     },
     {
@@ -719,6 +727,7 @@
       "set1": "5-9",
       "set2": "0-0",
       "set3": "0-0",
+      "finalplayer":24,
       "id": 8
     },
     {
@@ -739,6 +748,7 @@
       "set1": "",
       "set2": "",
       "set3": "",
+      "finalplayer":null,
       "id": 9
     },
     {
@@ -759,6 +769,7 @@
       "set1": "",
       "set2": "",
       "set3": "",
+      "finalplayer":null,
       "id": 10
     },
     {
@@ -779,6 +790,7 @@
       "set1": "",
       "set2": "",
       "set3": "",
+      "finalplayer":null,
       "id": 11
     },
     {
@@ -799,6 +811,7 @@
       "set1": "",
       "set2": "",
       "set3": "",
+      "finalplayer":null,
       "id": 12
     },
     {
@@ -819,6 +832,7 @@
       "set1": "",
       "set2": "",
       "set3": "",
+      "finalplayer":37,
       "id": 13
     },
     {
@@ -839,6 +853,7 @@
       "set1": "",
       "set2": "",
       "set3": "",
+      "finalplayer":null,
       "id": 14
     },
     {
@@ -859,6 +874,7 @@
       "set1": "",
       "set2": "",
       "set3": "",
+      "finalplayer":null,
       "id": 15
     }
   ]
