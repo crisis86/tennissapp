@@ -55,7 +55,7 @@ const ChallengeSingle = () => {
             fetchdata();
             //   SfidaAbilitata();
             getlastsfidacomplete();
-            getlastsfidaCancel();
+   
             checksfidapending();
             //   sendemail('test', 'crisisart86@gmail.com','test test test');
 
@@ -322,8 +322,12 @@ const ChallengeSingle = () => {
 
     const getlastsfidacomplete = () => {
 
-        let sfidecoolete = {};
-        // let datalastfida = new Date();
+         let sfidecoolete = {};
+       /*  let giornisfida = datadioggi.getDate() - 2;
+        let datadacercare = giornisfida+"/"+datadioggi.getMonth()+"/"+datadioggi.getFullYear()
+        
+        console.log(datadacercare)  */
+
 
         fetch(window.$produrl + "/challenge?status=complete&q=" + fullname, {
             method: 'GET'
@@ -349,7 +353,7 @@ const ChallengeSingle = () => {
 
                 const time = Math.abs(dataconvert - datadioggi);
                 const days = Math.ceil(time / (1000 * 60 * 60 * 24));
-                // console.log(days);
+                 console.log(days);
 
 
                 if (days > 2) {

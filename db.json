@@ -114,7 +114,7 @@
       "address": "",
       "gender": "male",
       "posizione": 8,
-      "insfida": false,
+      "insfida": true,
       "fuorigioco": false,
       "id": 8
     },
@@ -212,7 +212,7 @@
       "address": "",
       "gender": "male",
       "posizione": 14,
-      "insfida": false,
+      "insfida": true,
       "fuorigioco": false,
       "id": 15
     },
@@ -226,7 +226,7 @@
       "address": "",
       "gender": "male",
       "posizione": 15,
-      "insfida": false,
+      "insfida": true,
       "fuorigioco": false,
       "id": 16
     },
@@ -240,7 +240,7 @@
       "address": "",
       "gender": "male",
       "posizione": 17,
-      "insfida": false,
+      "insfida": true,
       "fuorigioco": false,
       "id": 17
     },
@@ -323,7 +323,7 @@
       "role": "player",
       "address": "",
       "gender": "male",
-      "posizione": 22,
+      "posizione": 23,
       "insfida": false,
       "fuorigioco": false,
       "id": 23
@@ -337,8 +337,8 @@
       "role": "player",
       "address": "",
       "gender": "male",
-      "posizione": 24,
-      "insfida": true,
+      "posizione": 22,
+      "insfida": false,
       "fuorigioco": false,
       "id": 24
     },
@@ -351,7 +351,7 @@
       "role": "player",
       "address": "",
       "gender": "male",
-      "posizione": 23,
+      "posizione": 24,
       "insfida": false,
       "fuorigioco": false,
       "id": 25
@@ -407,8 +407,8 @@
       "role": "player",
       "address": "",
       "gender": "male",
-      "posizione": 28,
-      "insfida": true,
+      "posizione": 29,
+      "insfida": false,
       "fuorigioco": false,
       "id": 29
     },
@@ -421,7 +421,7 @@
       "role": "player",
       "address": "",
       "gender": "male",
-      "posizione": 29,
+      "posizione": 28,
       "insfida": false,
       "fuorigioco": false,
       "id": 30
@@ -435,7 +435,7 @@
       "role": "player",
       "address": "",
       "gender": "male",
-      "posizione": 30,
+      "posizione": 31,
       "insfida": false,
       "fuorigioco": false,
       "id": 31
@@ -449,7 +449,7 @@
       "role": "player",
       "address": "",
       "gender": "female",
-      "posizione": 31,
+      "posizione": 30,
       "insfida": false,
       "fuorigioco": false,
       "id": 32
@@ -521,36 +521,8 @@
       "gender": "male",
       "posizione": 35,
       "insfida": false,
-      "fuorigioco": false,
+      "fuorigioco": true,
       "id": 38
-    },
-    {
-      "email": "crisisart86@gmail.com",
-      "password": "123",
-      "name": "davide a",
-      "phone": "34234234234",
-      "country": "Italia",
-      "role": "player",
-      "address": "sdsdsd",
-      "gender": "male",
-      "posizione": 37,
-      "insfida": true,
-      "fuorigioco": false,
-      "id": 39
-    },
-    {
-      "email": "webmaster@franzyonline.it",
-      "password": "123",
-      "name": "Wbmastaer",
-      "phone": "4234234",
-      "country": "Italia",
-      "role": "player",
-      "address": "erererere",
-      "gender": "male",
-      "posizione": 38,
-      "insfida": true,
-      "fuorigioco": false,
-      "id": 40
     }
   ],
   "post": [
@@ -652,7 +624,7 @@
     {
       "datacreate": "15/9/2023",
       "datasfida": "15/09/2023",
-      "orasfida": "",
+      "orasfida": "17.30",
       "players": [
         {
           "idp1": 26,
@@ -692,7 +664,7 @@
     {
       "datacreate": "16/9/2023",
       "datasfida": "21/09/2023",
-      "orasfida": "",
+      "orasfida": "16.30",
       "players": [
         {
           "idp1": 17,
@@ -704,7 +676,7 @@
         }
       ],
       "status": "complete",
-      "set1": "9-0",
+      "set1": "9-2",
       "set2": "0-0",
       "set3": "0-0",
       "id": 6
@@ -732,7 +704,7 @@
     {
       "datacreate": "18/9/2023",
       "datasfida": "23/09/2023",
-      "orasfida": "",
+      "orasfida": "17.30",
       "players": [
         {
           "idp1": 29,
@@ -743,16 +715,16 @@
           "p2": "Andrea Russo "
         }
       ],
-      "status": "processing",
-      "set1": "",
-      "set2": "",
-      "set3": "",
+      "status": "complete",
+      "set1": "5-9",
+      "set2": "0-0",
+      "set3": "0-0",
       "id": 8
     },
     {
       "datacreate": "19/9/2023",
       "datasfida": "28/09/2023",
-      "orasfida": "",
+      "orasfida": "18.00",
       "players": [
         {
           "idp1": 5,
@@ -772,7 +744,7 @@
     {
       "datacreate": "19/9/2023",
       "datasfida": "25/09/2023",
-      "orasfida": "",
+      "orasfida": "20.30",
       "players": [
         {
           "idp1": 7,
@@ -792,7 +764,7 @@
     {
       "datacreate": "20/09/2023",
       "datasfida": "25/09/2023",
-      "orasfida": "",
+      "orasfida": "22.30",
       "players": [
         {
           "idp1": 12,
@@ -811,8 +783,8 @@
     },
     {
       "datacreate": "20/09/2023",
-      "datasfida": "",
-      "orasfida": "",
+      "datasfida": "26/09/2023",
+      "orasfida": "16.00",
       "players": [
         {
           "idp1": 22,
@@ -830,24 +802,64 @@
       "id": 12
     },
     {
+      "datacreate": "22/09/2023",
+      "datasfida": "",
+      "orasfida": "",
+      "players": [
+        {
+          "idp1": 37,
+          "p1": "Michele Buonaguro"
+        },
+        {
+          "idp2": 32,
+          "p2": "Martina Veneruso"
+        }
+      ],
+      "status": "cancel",
+      "set1": "",
+      "set2": "",
+      "set3": "",
+      "id": 13
+    },
+    {
       "datacreate": "23/09/2023",
       "datasfida": "",
       "orasfida": "",
       "players": [
         {
-          "idp1": 40,
-          "p1": "Wbmastaer"
+          "idp1": 16,
+          "p1": "Carmine meo "
         },
         {
-          "idp2": 39,
-          "p2": "davide a"
+          "idp2": 8,
+          "p2": "Lerio carbone"
         }
       ],
       "status": "pending",
       "set1": "",
       "set2": "",
       "set3": "",
-      "id": 13
+      "id": 14
+    },
+    {
+      "datacreate": "23/09/2023",
+      "datasfida": "",
+      "orasfida": "",
+      "players": [
+        {
+          "idp1": 17,
+          "p1": "Salvatore Minieri"
+        },
+        {
+          "idp2": 15,
+          "p2": "Mirko Menna"
+        }
+      ],
+      "status": "pending",
+      "set1": "",
+      "set2": "",
+      "set3": "",
+      "id": 15
     }
   ]
 }
