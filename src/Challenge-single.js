@@ -55,7 +55,7 @@ const ChallengeSingle = () => {
             fetchdata();
             //   SfidaAbilitata();
             getlastsfidacomplete();
-   
+
             checksfidapending();
             //   sendemail('test', 'crisisart86@gmail.com','test test test');
 
@@ -87,7 +87,7 @@ const ChallengeSingle = () => {
         }
     }
 
-    
+
 
     const sfidahandle = (e, idp1, idname1, status) => {
 
@@ -164,7 +164,7 @@ const ChallengeSingle = () => {
         const found = flagmeplayer.filter(obj => {
             if (obj.id === iduser && status === "update") {
                 obj.insfida = true;
-                obj.fuorigioco = false; 
+                obj.fuorigioco = false;
 
             } else if (obj.id === iduser && status === "cancel") {
                 obj.insfida = false;
@@ -207,7 +207,7 @@ const ChallengeSingle = () => {
         const obj = {
             "datacreate": date,
             "datasfida": "",
-            "orasfida":"",
+            "orasfida": "",
             "players": [
                 {
                     "idp1": iduser,
@@ -246,7 +246,7 @@ const ChallengeSingle = () => {
     }
 
     function sendemail(names, emails, status) {
-      
+
         let message = "";
         let subject = "";
         if (status === 'add') {
@@ -322,13 +322,8 @@ const ChallengeSingle = () => {
 
     const getlastsfidacomplete = () => {
 
-         let sfidecoolete = {};
-       /*  let giornisfida = datadioggi.getDate() - 2;
-        let datadacercare = giornisfida+"/"+datadioggi.getMonth()+"/"+datadioggi.getFullYear()
-        
-        console.log(datadacercare)  */
-
-
+        let sfidecoolete = {};
+     
         fetch(window.$produrl + "/challenge?status=complete&q=" + fullname, {
             method: 'GET'
         }).then(res => {
@@ -353,13 +348,14 @@ const ChallengeSingle = () => {
 
                 const time = Math.abs(dataconvert - datadioggi);
                 const days = Math.ceil(time / (1000 * 60 * 60 * 24));
-                 console.log(days);
+                console.log(days);
 
 
                 if (days > 2) {
                     console.log("> = di 2 days")
 
                     setsfidabutton(true)
+                    getlastsfidaCancel()
                 } else {
                     console.log("minore di 2 days " + recorddatalastfida.players[0].idp1)
                     if (recorddatalastfida.players[0].idp1 === iduser) {
@@ -368,6 +364,7 @@ const ChallengeSingle = () => {
                         setgiornisfida(parseInt(days - 1));
                     } else {
                         setsfidabutton(true)
+                        getlastsfidaCancel()
                         console.log("non sono io")
                     }
 
@@ -375,7 +372,9 @@ const ChallengeSingle = () => {
                 }
             } else {
                 setsfidabutton(true)
-                console.log("vuoto")
+                getlastsfidaCancel()
+             
+                console.log("vuoto nessuna sfida complete")
             }
         });
     }
@@ -417,6 +416,7 @@ const ChallengeSingle = () => {
                     console.log("> = di 2 days")
 
                     setsfidabutton(true)
+
                 } else {
                     console.log("minore di 2 days " + recorddatalastfida.players[0].idp1)
                     if (recorddatalastfida.players[0].idp1 === iduser) {
@@ -432,7 +432,7 @@ const ChallengeSingle = () => {
                 }
             } else {
                 setsfidabutton(true)
-                console.log("vuoto")
+                console.log("vuoto nessuna sfida cancel")
             }
         });
     }
@@ -499,9 +499,9 @@ const ChallengeSingle = () => {
                                     </div>
 
                                     <div className="font-size-14 single-line-text text-color-gray">{plr.name}</div>
-                                          {plr.fuorigioco  &&
+                                    {plr.fuorigioco &&
                                         <div className="font-size-14 single-line-text text-color-red"><b>FUORIGIOCO</b></div>
-                                         }
+                                    }
                                 </div>
 
 

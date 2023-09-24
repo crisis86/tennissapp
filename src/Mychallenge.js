@@ -516,6 +516,7 @@ const Mychallenge = () => {
 
             if (obj.id === idrecord) {
                 obj.status = "cancel";
+                obj.datasfida = new Date();
                 idriga = obj.id;
 
                 player1 = obj.players[0].idp1
