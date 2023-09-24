@@ -221,7 +221,8 @@ const ChallengeSingle = () => {
             "status": 'pending',
             "set1": "",
             "set2": "",
-            "set3": ""
+            "set3": "",
+            "finalplayer":null
         }
         //  console.log(obj);
 
@@ -388,7 +389,7 @@ const ChallengeSingle = () => {
         let sfidecoolete = {};
         // let datalastfida = new Date();
 
-        fetch(window.$produrl + "/challenge?status=cancel&q=" + fullname, {
+        fetch(window.$produrl + "/challenge?status=cancel&finalplayer=" + iduser, {
             method: 'GET'
         }).then(res => {
             if (!res.ok) {

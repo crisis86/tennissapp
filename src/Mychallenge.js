@@ -239,7 +239,8 @@ const Mychallenge = () => {
                     let player1 = 0;
                     let player2 = 0;
                     //  const play = player.map(obj => obj.posizione) 
-
+                    let vincitore = calcolavincitore()
+                    
                     const found = challengepending.filter(obj => {
                         if (obj.id === idrecord) {
 
@@ -250,7 +251,13 @@ const Mychallenge = () => {
 
                             player1 = obj.players[0].idp1
                             player2 = obj.players[1].idp2
+                            if (vincitore === "Player1") {
+                                
+                                obj.finalplayer = obj.players[0].idp1;
+                            } else {
+                                obj.finalplayer = obj.players[1].idp2;
 
+                            }
                         }
                         return obj.id === idrecord
                     });
@@ -270,7 +277,7 @@ const Mychallenge = () => {
                         result.json().then((resp) => {
 
 
-                            let vincitore = calcolavincitore()
+                          //  let vincitore = calcolavincitore()
                             // console.log('sono il vincitore:' +vincitore)
 
                             // rettifico classifica

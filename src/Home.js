@@ -165,7 +165,7 @@ const Home = () => {
                                                         <div className="item-cell flex-shrink-0 width-auto line-height-1">
                                                             <span style={{ fontSize: "14px", textAlign: 'left' }}><b>Creata:</b> &nbsp; <i>{item.datacreate}</i></span>
                                                             <br></br>
-                                                            <span style={{ color: dayjs(today).format('DD/MM/YYYY') === formatdate(item.datasfida) ? '#f47f35' : 'none', fontSize: "14px", textAlign: 'left' }}><b>Prevista:</b> <i>{item.datasfida} {item.orasfida}</i></span>
+                                                            <span style={{ color: dayjs(today).format('DD/MM/YYYY') === formatdate(item.datasfida) ? '#f47f35' : 'none', fontSize: "14px", textAlign: 'left' }}> <b>{item.status==='cancel' ? 'Annullata: ' : 'Prevista: '} </b><i> {item.datasfida} {item.orasfida}</i> </span>
 
                                                         </div>
                                                     </div>
