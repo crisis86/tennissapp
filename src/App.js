@@ -26,7 +26,7 @@ function App() {
  
   
   useMemo(() => {
-    if (window.$mainteneance==='on'){
+    if (window.$mainteneance==='off'){
        window.location.href ="https://www.spinuptennis.it/mainteneance"
      }
   }, [])
