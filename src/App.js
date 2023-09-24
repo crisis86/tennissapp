@@ -25,12 +25,6 @@ import Mainteneance from './mainteneance';
 function App() {  
  
   
-  useMemo(() => {
-    if (window.$mainteneance==='off'){
-       window.location.href ="https://www.spinuptennis.it/mainteneance"
-     }
-  }, [])
-
   useEffect(() => {
     let vh = window.innerHeight * 0.01;
     // Then we set the value in the --vh custom property to the root of the document
