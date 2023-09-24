@@ -25,7 +25,7 @@ import Mainteneance from './mainteneance';
 function App() {  
  
   
-  useEffect(() => {
+  useMemo(() => {
     if (window.$mainteneance==='on'){
        window.location.href ="https://www.spinuptennis.it/mainteneance"
      }
