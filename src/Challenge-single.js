@@ -281,11 +281,14 @@ const ChallengeSingle = () => {
 
     function removechallenge(nomegiocatore1) {
 
+        const current = new Date();
+        const datecancel = dayjs(current).format('DD/MM/YYYY')
         let idriga = 0;
 
         const found = challengepending.filter(obj => {
 
             obj.status = "cancel";
+            obj.datasfida=datecancel;
             idriga = obj.id;
 
             return obj.id;

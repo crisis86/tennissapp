@@ -512,11 +512,14 @@ const Mychallenge = () => {
         let player2 = 0
         let idriga = 0;
 
+        const current = new Date();
+        const datecancel = dayjs(current).format('DD/MM/YYYY')
+
         const found = challengepending.filter(obj => {
 
             if (obj.id === idrecord) {
                 obj.status = "cancel";
-                obj.datasfida = new Date();
+                obj.datasfida = datecancel;
                 idriga = obj.id;
 
                 player1 = obj.players[0].idp1
