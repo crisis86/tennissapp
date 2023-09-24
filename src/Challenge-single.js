@@ -506,6 +506,9 @@ const ChallengeSingle = () => {
                                     {plr.fuorigioco &&
                                         <div className="font-size-14 single-line-text text-color-red"><b>FUORIGIOCO</b></div>
                                     }
+                                    {plr.insfida &&
+                                        <div className="font-size-14 single-line-text text-color-red"><b>NON SFIDABILE</b></div>
+                                    }
                                 </div>
 
 
