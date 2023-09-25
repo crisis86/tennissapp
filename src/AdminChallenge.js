@@ -135,7 +135,7 @@ const AdminChallenge = () => {
                         </thead>
                         <tbody>
                             {challenge &&
-                                challenge.sort((a, b) => a.id > b.id ? 1 : -1).map((item, index) => (
+                                challenge.sort((a, b) => a.id < b.id ? 1 : -1).map((item, index) => (
                                     <tr key={index+1}>
                                        <td>{item.id}</td>
                                        <td>{item.players[0].p1}</td>

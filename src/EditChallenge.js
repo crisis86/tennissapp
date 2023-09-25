@@ -135,6 +135,12 @@ const EditChallenge = () => {
                                 </div>
                                 <div className="col-lg-6">
                                     <div className="form-group">
+                                        <label>Data Creazione <span className="errmsg">*</span></label>
+                                        <input value={datacreate} onChange={e => setdatacreate(e.target.value)} type="text" className="form-control"></input>
+                                    </div>
+                                </div>
+                                <div className="col-lg-6">
+                                    <div className="form-group">
                                         <label>Set1 <span className="errmsg">*</span></label>
                                         <input value={set1} onChange={e => setset1(e.target.value)} type="text" className="form-control"></input>
                                     </div>
@@ -161,6 +167,7 @@ const EditChallenge = () => {
                                     <div className="form-group">
                                         <label>Ora Sfida <span className="errmsg">*</span></label>
                                         <select value={orasfida} onChange={e => setordasfida((e.target.value))} className="form-control">
+                                            <option value="">null</option>
                                             <option value="09.00">09.00</option>
                                             <option value="09.30">09.30</option>
                                             <option value="10.30">10.00</option>
