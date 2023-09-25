@@ -222,7 +222,7 @@ const ChallengeSingle = () => {
             "set1": "",
             "set2": "",
             "set3": "",
-            "finalplayer": null
+            "finalplayer":null
         }
         //  console.log(obj);
 
@@ -289,7 +289,7 @@ const ChallengeSingle = () => {
         const found = challengepending.filter(obj => {
 
             obj.status = "cancel";
-            obj.datasfida = datecancel;
+            obj.datasfida=datecancel;
             idriga = obj.id;
 
             return obj.id;
@@ -327,7 +327,7 @@ const ChallengeSingle = () => {
     const getlastsfidacomplete = () => {
 
         let sfidecoolete = {};
-
+     
         fetch(window.$produrl + "/challenge?status=complete&q=" + fullname, {
             method: 'GET'
         }).then(res => {
@@ -377,7 +377,7 @@ const ChallengeSingle = () => {
             } else {
                 setsfidabutton(true)
                 getlastsfidaCancel()
-
+             
                 console.log("vuoto nessuna sfida complete")
             }
         });
@@ -539,15 +539,7 @@ const ChallengeSingle = () => {
                                                             {plr.posizione > flagmeplayer[0].posizione || flagmeplayer[0].posizione <= plr.posizione + 8 &&  // fino a 8 posizione sopra
                                                                 <>
                                                                     {plr.fuorigioco === false &&
-                                                                        <>
-                                                                            {plr.insfida || flagmeplayer[0].insfida ? (
-                                                                                <button disabled onClick={(e) => sfidahandle(e, plr.id, plr.name, 'update')} type="button" className="disabled button button-fill button-small">Sfida</button>
-
-                                                                            ) : (
-                                                                                <button onClick={(e) => sfidahandle(e, plr.id, plr.name, 'update')} type="button" className='button button-fill button-small'>Sfida</button>
-
-                                                                            )}
-                                                                        </>
+                                                                        <button disabled={plr.insfida || flagmeplayer[0].insfida } onClick={(e) => sfidahandle(e, plr.id, plr.name, 'update')} type="button" className={plr.insfida  ||  flagmeplayer[0].insfida  ? 'disabled button button-fill button-small' : 'button button-fill button-small'}>Sfida</button>
                                                                     }
                                                                 </>
                                                             }
@@ -601,7 +593,7 @@ const ChallengeSingle = () => {
                                                             <b>Completata </b>
 
                                                         }
-                                                        <li><b> Creata: </b>{partite.datacreate} <b>{partite.status === 'cancel' ? 'Annullata: ' : 'Prevista: '}</b> {partite.datasfida} {partite.orasfida}</li>
+                                                        <li><b> Creata: </b>{partite.datacreate} <b>{partite.status==='cancel' ? 'Annullata: ' : 'Prevista: '}</b> {partite.datasfida} {partite.orasfida}</li>
                                                         <li ><b>Score</b></li>
                                                         <li style={{ textDecoration: partite.set1 === '0-0' ? 'line-through' : 'none' }}>Set1: <b>{partite.set1} </b></li>
                                                         <li style={{ textDecoration: partite.set2 === '0-0' ? 'line-through' : 'none' }}>Set2: <b>{partite.set2} </b></li>

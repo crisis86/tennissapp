@@ -837,7 +837,7 @@
     },
     {
       "datacreate": "23/09/2023",
-      "datasfida": "",
+      "datasfida": "23/09/2023",
       "orasfida": "",
       "players": [
         {
@@ -849,7 +849,7 @@
           "p2": "Lerio carbone"
         }
       ],
-      "status": "pending",
+      "status": "cancel",
       "set1": "",
       "set2": "",
       "set3": "",
