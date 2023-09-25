@@ -85,8 +85,8 @@
       "role": "player",
       "address": "",
       "gender": "male",
-      "posizione": 7,
-      "insfida": true,
+      "posizione": 8,
+      "insfida": false,
       "fuorigioco": false,
       "id": 6
     },
@@ -113,7 +113,7 @@
       "role": "player",
       "address": "",
       "gender": "male",
-      "posizione": 8,
+      "posizione": 9,
       "insfida": true,
       "fuorigioco": false,
       "id": 8
@@ -141,7 +141,7 @@
       "role": "player",
       "address": "",
       "gender": "male",
-      "posizione": 9,
+      "posizione": 10,
       "insfida": true,
       "fuorigioco": false,
       "id": 10
@@ -155,7 +155,7 @@
       "role": "player",
       "address": "",
       "gender": "male",
-      "posizione": 11,
+      "posizione": 12,
       "insfida": false,
       "fuorigioco": false,
       "id": 11
@@ -169,7 +169,7 @@
       "role": "player",
       "address": "sdsdsd",
       "gender": "male",
-      "posizione": 12,
+      "posizione": 13,
       "insfida": true,
       "fuorigioco": false,
       "id": 12
@@ -183,7 +183,7 @@
       "role": "player",
       "address": "",
       "gender": "male",
-      "posizione": 10,
+      "posizione": 11,
       "insfida": false,
       "fuorigioco": false,
       "id": 13
@@ -197,7 +197,7 @@
       "role": "player",
       "address": "",
       "gender": "female",
-      "posizione": 13,
+      "posizione": 14,
       "insfida": false,
       "fuorigioco": false,
       "id": 14
@@ -225,8 +225,8 @@
       "role": "player",
       "address": "",
       "gender": "male",
-      "posizione": 14,
-      "insfida": true,
+      "posizione": 7,
+      "insfida": false,
       "fuorigioco": false,
       "id": 16
     },
@@ -912,11 +912,11 @@
           "p2": "felice Buonaguro"
         }
       ],
-      "status": "processing",
-      "set1": "",
-      "set2": "",
-      "set3": "",
-      "finalplayer": null,
+      "status": "complete",
+      "set1": "9-2",
+      "set2": "0-0",
+      "set3": "0-0",
+      "finalplayer": 16,
       "id": 17
     }
   ]

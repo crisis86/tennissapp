@@ -18,7 +18,7 @@ const Home = () => {
     const [today, setday] = useState(new Date())
     const [numberpost, setnumberpost] = useState(0);
     const [pagination, setpagination] = useState(30);
-    
+ 
 
     useEffect(() => {
 
@@ -31,7 +31,8 @@ const Home = () => {
             //toast.error('Not Authenticate session');
             usenavigate('/login');
         } else {
-
+            
+          
             if (filter === 'all' || filter === 'vuoto') {
                 loadcgallenge();
             } else {
@@ -43,7 +44,11 @@ const Home = () => {
 
     }, []);
 
+
+
     useEffect(() => {
+         
+     
         if (filter === 'all' || filter === 'vuoto') {
             loadcgallenge();
         } else {
@@ -69,7 +74,8 @@ const Home = () => {
     }
 
     const loadcgallengeByFilter = (filro) => {
-
+     /*    e.preventDefault(); */
+    
         fetch(window.$produrl + "/challenge?status=" + filro+"&_limit="+parseInt(pagination)).then(res => {
             if (!res.ok) {
                 console.log(res)
@@ -82,9 +88,25 @@ const Home = () => {
         })
     }
 
-    const loadcgallenge = () => {
+    const loadcgallengeToday = (filro) => {
+ 
 
-        console.log(pagination)
+        fetch(window.$produrl + "/challenge?datasfida=" + filro).then(res => {
+            if (!res.ok) {
+                console.log(res)
+                // navigate('/');
+                return false;
+            }
+            return res.json();
+        }).then(res => {
+            setchallenge(res);
+        })
+    }
+
+    const loadcgallenge = () => {
+     
+      
+       // console.log(pagination)
 
         fetch(window.$produrl + "/challenge?_limit="+parseInt(pagination)).then(res => {
             if (!res.ok) {
@@ -115,7 +137,7 @@ const Home = () => {
 
                     <img style={{ float: 'left' }} src={iconafiltro} alt="filter" width={23} ></img>
 
-                    <select style={{ margin: '0 10px', width: '45%', padding: '2px 0', background: '#f9f9f9' }} className="form-control select input-outline" selected="selected" value={filter} onChange={e => setfilterchange(e.target.value)} >
+                    <select style={{ margin: '0 10px', width: '45%', padding: '2px 0', background: '#f9f9f9' }} className="form-control select input-outline" selected="selected" value={filter} onChange={(e) => setfilterchange(e.target.value)} >
                         <option disabled className="md item-input-invalid select" style={{ color: 'grey' }} value='vuoto'>Stato Evento</option>
                         <option value='all'>Tutti Gli Stati</option>
                         <option value='processing'>In Corso</option>
@@ -125,7 +147,7 @@ const Home = () => {
                         <option value='complete'>Completate</option>
 
                     </select>
-                    <select style={{ textAlign:'center', margin: '0 10px', width: '10%', padding: '2px 0', background: '#f9f9f9' }} className="form-control select input-outline" selected="selected" value={pagination} onChange={e => setpagination(e.target.value)} >
+                    <select style={{ textAlign:'center', margin: '0 10px', width: '10%', padding: '2px 0', background: '#f9f9f9' }} className="form-control select input-outline" selected="selected" value={pagination} onChange={(e) => setpagination(e.target.value)} >
                         <option value='5'>5</option>
                         <option value='10'>10</option>
                         <option value='20'>20</option>

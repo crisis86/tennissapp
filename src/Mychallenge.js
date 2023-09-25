@@ -240,7 +240,7 @@ const Mychallenge = () => {
                     let player2 = 0;
                     //  const play = player.map(obj => obj.posizione) 
                     let vincitore = calcolavincitore()
-                    
+
                     const found = challengepending.filter(obj => {
                         if (obj.id === idrecord) {
 
@@ -527,6 +527,7 @@ const Mychallenge = () => {
             if (obj.id === idrecord) {
                 obj.status = "cancel";
                 obj.datasfida = datecancel;
+                obj.finalplayer= iduser
                 idriga = obj.id;
 
                 player1 = obj.players[0].idp1
@@ -649,6 +650,7 @@ const Mychallenge = () => {
 
                             obj.posizione = obj.posizione + 1
                             if (obj.id === idp1) { obj.insfida = false; } // ulteriore controllo dello sfidato 
+                            if (obj.id === idp2) { obj.insfida = false; } // ulteriore controllo dello sfidato 
                             console.log("Posizioni nel mezzo: " + obj.posizione)
                             updateUserPosition(obj)
                         }
@@ -657,6 +659,7 @@ const Mychallenge = () => {
                     if (obj.id === idp2) {
                         obj.insfida = false
                         if (Object.keys(classicica).length > index + 1) {
+                            obj.insfida = false
                             obj.posizione = posp2 + 1 // scendo di una posizione 
                             console.log("posizione pedente:" + obj.posizione)
                         }

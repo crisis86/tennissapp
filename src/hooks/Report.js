@@ -32,70 +32,17 @@ const Report = () => {
         }).then(resp => {
 
             let challengelist = resp
-            let vitcasa = 0
-            let vitospite = 0
-            let vincitore = ""
+       
             let sommavittorie = 0
-            let sommasconfitte = 0
             let lunghezza = 0;
             let percentuale = 0;
             const idscheda = parseInt(param['id'])
 
             const found = challengelist.filter(obj => {
-                lunghezza = Object.keys(challengelist).length
-                let splitresult1 = obj.set1.split('-')
-                let splitresult2 = obj.set2.split('-')
-                let splitresult3 = obj.set3.split('-')
-
-                if (splitresult1[0] > splitresult1[1]) {
-                    vitcasa += 1
-                } else {
-                    vitospite += 1
+                if(obj.finalplayer === parseInt(param['id'])) {
+                    sommavittorie+=1
                 }
-
-                if (obj.set2 !== '0-0') {
-                    if (splitresult2[0] > splitresult2[1]) {
-                        vitcasa += 1
-                    } else {
-                        vitospite += 1
-                    }
-                }
-                if (obj.set3 !== '0-0') {
-                    if (splitresult3[0] > splitresult3[1]) {
-                        vitcasa += 1
-                    } else {
-                        vitospite += 1
-                    }
-                }
-
-                if (vitcasa > vitospite) {
-                    vincitore = "Player1"
-                } else {
-                    vincitore = "Player2"
-
-                }
-
-
-                if (vincitore === 'Player1') {
-                    if (obj.players[0].idp1 === idscheda) {
-
-                        sommavittorie += 1
-                    } else {
-
-                        sommasconfitte += 1
-
-                    }
-                }
-
-                if (vincitore === 'Player2') {
-                    if (obj.players[1].idp2 === idscheda) {
-
-                        sommavittorie += 1
-                    } else {
-                        sommasconfitte += 1
-
-                    }
-                }
+                lunghezza = Object.keys(challengelist).length           
 
                 return obj.id;
 
@@ -106,7 +53,7 @@ const Report = () => {
             if (isNaN(percentuale)) {
                 percentuale = 0;
             }
-              console.log(vitcasa)
+          
             setpercentage(percentuale)
 
 
