@@ -352,9 +352,11 @@ const ChallengeSingle = () => {
 
                 const time = Math.abs(dataconvert - datadioggi);
                 const days = Math.ceil(time / (1000 * 60 * 60 * 24));
+                let notificagioni=0;
                 console.log(days);
-
-
+                
+                if(days===1) {notificagioni=2}else if(days===2) {notificagioni=1}
+                
                 if (days > 2) {
                     console.log("> = di 2 days")
 
@@ -365,7 +367,7 @@ const ChallengeSingle = () => {
                     if (recorddatalastfida.players[0].idp1 === iduser) {
                         console.log("sono io blocca")
                         setsfidabutton(false)
-                        setgiornisfida(parseInt(days - 1));
+                        setgiornisfida(parseInt(notificagioni));
                     } else {
                         setsfidabutton(true)
                         getlastsfidaCancel()
@@ -545,7 +547,7 @@ const ChallengeSingle = () => {
                                                             }
                                                         </>
                                                     ) : (
-                                                        <div style={{ textAlign: 'center', margin: '0 auto' }}>Giorni restanti per sfidare: {giornisfida}</div>
+                                                        <div style={{ textAlign: 'center', margin: '0 auto' }}><span style={{background:'#e7e7e7', padding:'5px', color:'#ff3b30'}}> Giorni di Attesa per la prossima sfida: <b>{giornisfida}</b></span></div>
                                                     )}
 
                                                 </div>
