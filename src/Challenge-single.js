@@ -539,7 +539,7 @@ const ChallengeSingle = () => {
                                                             {plr.posizione > flagmeplayer[0].posizione || flagmeplayer[0].posizione <= plr.posizione + 8 &&  // fino a 8 posizione sopra
                                                                 <>
                                                                     {plr.fuorigioco === false &&
-                                                                        <button disabled={plr.insfida === 'true' || flagmeplayer.insfida === 'true'} onClick={(e) => sfidahandle(e, plr.id, plr.name, 'update')} type="button" className={plr.insfida === 'true' ||  flagmeplayer.insfida === 'true' ? 'disabled button button-fill button-small' : 'button button-fill button-small'}>Sfida</button>
+                                                                        <button disabled={plr.insfida || flagmeplayer[0].insfida } onClick={(e) => sfidahandle(e, plr.id, plr.name, 'update')} type="button" className={plr.insfida  ||  flagmeplayer[0].insfida  ? 'disabled button button-fill button-small' : 'button button-fill button-small'}>Sfida</button>
                                                                     }
                                                                 </>
                                                             }
