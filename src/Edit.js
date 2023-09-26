@@ -174,7 +174,11 @@ const Edit = () => {
                 body: JSON.stringify(regobj)
             }).then((res) => {
                 toast.success('Modified successfully.')
+                if(myrole==='admin') {
                  navigate('/Player');
+                } else {
+                    navigate('/');
+                }
                 
             }).catch((err) => {
                 toast.error('Failed :' + err.message);
