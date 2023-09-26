@@ -87,8 +87,6 @@ const ChallengeSingle = () => {
         }
     }
 
-
-
     const sfidahandle = (e, idp1, idname1, status) => {
 
         e.preventDefault();
@@ -116,6 +114,7 @@ const ChallengeSingle = () => {
                 )
 
                 let mailforsend = "";
+
                 const found = player.filter(obj => {
                     if (obj.id === idp1 && status === "update") {
                         obj.insfida = true;
@@ -126,7 +125,6 @@ const ChallengeSingle = () => {
                     }
                     return obj.id === idp1;
                 });
-
 
                 fetch(window.$produrl + "/user/" + idp1, {
                     method: 'PUT',
@@ -144,11 +142,9 @@ const ChallengeSingle = () => {
                         if (status === 'update') {
                             addchallenge(idp1, idname1, mailforsend);
 
-
                         } else {
                             removechallenge(idname1);
                         }
-
 
                     })
                 }).catch((err) => {
@@ -506,7 +502,10 @@ const ChallengeSingle = () => {
 
                                     <div className="font-size-14 single-line-text text-color-gray">{plr.name}</div>
                                     {plr.fuorigioco &&
-                                        <div className="font-size-14 single-line-text text-color-red"><b>FUORIGIOCO</b></div>
+                                        <div className="font-size-14 single-line-text text-color-red"><b>FUORIGIOCO</b>
+                                         <br></br>
+                                        Dal: <i> {plr.datafuorigioco} </i> 
+                                        </div>
                                     }
                                     {plr.insfida &&
                                         <div className="font-size-14 single-line-text text-color-red"><b>NON SFIDABILE</b></div>
