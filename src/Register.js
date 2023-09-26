@@ -21,6 +21,7 @@ const Register = () => {
     const [posizione, posizionechange] = useState(0);
     const [insfida, insfidachange] = useState(false);
     const [fuorigioco, fuorigiocochange] = useState(false);
+    const [datafuorigioco, setdatafuorigioco] = useState("");
     const [chek, setcheck] = useState(false);
     const [chekname, setcheckname] = useState(false);
     const navigate = useNavigate();
@@ -171,7 +172,7 @@ const Register = () => {
             let trimtext = name.trim()
             namechange(trimtext)
         
-            let regobj = {email, password, name, phone, country, role, address, gender, posizione, insfida, fuorigioco};
+            let regobj = {email, password, name, phone, country, role, address, gender, posizione, insfida, fuorigioco, datafuorigioco};
             if (IsValidate()) {
                 //  console.log(regobj);
                 fetch(window.$produrl + "/user", {
@@ -273,7 +274,6 @@ const Register = () => {
                                 <div className="col-lg-6">
                                         <div className="form-group">
                                             <label>Fuorigioco</label>
- 
                                             <select value={fuorigioco} onChange={e => fuorigiocochange((JSON.parse(e.target.value)))} className="form-control">
                                             <option value="true">Si</option>
                                             <option value="false">No</option>
@@ -288,7 +288,6 @@ const Register = () => {
 
                         <div className="card-footer">
                             <button disabled={loading} type="submit" className="btn btn-primary">{loading && <FontAwesomeIcon icon="fa-solid fa-spinner" spinPulse size="lg" style={{ color: "#fcfcfc", }} />}Sing Up</button> |
-
 
                             <Link to={'/login'} className="btn btn-danger">Close</Link>
                         </div>

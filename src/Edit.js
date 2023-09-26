@@ -20,12 +20,15 @@ const Edit = () => {
     const [posizione, posizionechange] = useState(0);
     const [insfida, insfidachange] = useState(false)
     const [fuorigioco, fuorigiocochange] = useState(false)
-
+    const [fuorigiocochek, setfuorigiocochek] = useState(false)
+    const [datafuorigioco, setdatafuorigioco] = useState("")
+    
 
 
     const navigate = useNavigate();
 
 
+   
     useEffect(() => {
         let email = sessionStorage.getItem('email')
 
@@ -38,6 +41,24 @@ const Edit = () => {
         }
     }, []);
 
+
+    
+    useEffect(() => {
+      
+      if(fuorigioco !== fuorigiocochek) {
+       
+       if(fuorigioco) { 
+        let nuovadata = new Date().toLocaleDateString()
+       console.log(nuovadata)
+        setdatafuorigioco(nuovadata)
+      } else {
+        console.log('nessuna data')
+
+        setdatafuorigioco("")
+
+      }
+    }
+    }, [fuorigioco]);
 
     function lastidjson() {
 
@@ -67,6 +88,9 @@ const Edit = () => {
             posizionechange(resp.posizione)
             insfidachange(resp.insfida)
             fuorigiocochange(resp.fuorigioco)
+            setdatafuorigioco(resp.datafuorigioco)
+            setfuorigiocochek(resp.fuorigioco)
+
 
         });
     }
@@ -132,13 +156,16 @@ const Edit = () => {
         e.preventDefault();
 
         let trimtext = name.trim()
+     
         namechange(trimtext)
 
         if(insfida){
             fuorigiocochange(false)
         }
 
-        let regobj = {email, password, name, phone, country, role, address, gender, posizione, insfida, fuorigioco};
+
+      
+        let regobj = {email, password, name, phone, country, role, address, gender, posizione, insfida, fuorigioco, datafuorigioco};
         if (IsValidate()) {
             //  console.log(regobj);
             fetch(window.$produrl + "/user/" + id['id'], {
@@ -250,10 +277,10 @@ const Edit = () => {
                                             <option value="true">Si</option>
                                             <option value="false">No</option>
                                         </select>
+                                        <input type="hidden" value={fuorigiocochek} className="form-control"></input>
                                         </div>
                                     </div>
                             </div>
-
 
                         </div>
                         <div className="card-footer">
