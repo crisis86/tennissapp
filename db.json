@@ -43,8 +43,8 @@
       "role": "player",
       "address": "",
       "gender": "male",
-      "posizione": 3,
-      "insfida": true,
+      "posizione": 5,
+      "insfida": false,
       "fuorigioco": false,
       "id": 3
     },
@@ -57,7 +57,7 @@
       "role": "player",
       "address": "",
       "gender": "male",
-      "posizione": 4,
+      "posizione": 6,
       "insfida": false,
       "fuorigioco": true,
       "id": 4
@@ -86,7 +86,7 @@
       "address": "",
       "gender": "male",
       "posizione": 8,
-      "insfida": false,
+      "insfida": true,
       "fuorigioco": false,
       "id": 6
     },
@@ -99,8 +99,8 @@
       "role": "player",
       "address": "",
       "gender": "male",
-      "posizione": 6,
-      "insfida": true,
+      "posizione": 4,
+      "insfida": false,
       "fuorigioco": false,
       "id": 7
     },
@@ -127,7 +127,7 @@
       "role": "player",
       "address": "",
       "gender": "male",
-      "posizione": 5,
+      "posizione": 3,
       "insfida": true,
       "fuorigioco": false,
       "id": 9
@@ -141,8 +141,8 @@
       "role": "player",
       "address": "",
       "gender": "male",
-      "posizione": 10,
-      "insfida": true,
+      "posizione": 11,
+      "insfida": false,
       "fuorigioco": false,
       "id": 10
     },
@@ -155,7 +155,7 @@
       "role": "player",
       "address": "",
       "gender": "male",
-      "posizione": 12,
+      "posizione": 13,
       "insfida": false,
       "fuorigioco": false,
       "id": 11
@@ -169,8 +169,8 @@
       "role": "player",
       "address": "sdsdsd",
       "gender": "male",
-      "posizione": 13,
-      "insfida": true,
+      "posizione": 15,
+      "insfida": false,
       "fuorigioco": false,
       "id": 12
     },
@@ -183,7 +183,7 @@
       "role": "player",
       "address": "",
       "gender": "male",
-      "posizione": 11,
+      "posizione": 12,
       "insfida": false,
       "fuorigioco": false,
       "id": 13
@@ -211,7 +211,7 @@
       "role": "player",
       "address": "",
       "gender": "male",
-      "posizione": 15,
+      "posizione": 16,
       "insfida": false,
       "fuorigioco": true,
       "id": 15
@@ -239,7 +239,7 @@
       "role": "player",
       "address": "",
       "gender": "male",
-      "posizione": 16,
+      "posizione": 17,
       "insfida": false,
       "fuorigioco": false,
       "id": 17
@@ -309,8 +309,8 @@
       "role": "player",
       "address": "",
       "gender": "male",
-      "posizione": 17,
-      "insfida": true,
+      "posizione": 10,
+      "insfida": false,
       "fuorigioco": false,
       "id": 22
     },
@@ -379,7 +379,7 @@
       "role": "player",
       "address": "",
       "gender": "male",
-      "posizione": 26,
+      "posizione": 27,
       "insfida": false,
       "fuorigioco": false,
       "id": 27
@@ -393,7 +393,7 @@
       "role": "player",
       "address": "",
       "gender": "male",
-      "posizione": 27,
+      "posizione": 28,
       "insfida": false,
       "fuorigioco": false,
       "id": 28
@@ -407,8 +407,8 @@
       "role": "player",
       "address": "",
       "gender": "male",
-      "posizione": 29,
-      "insfida": true,
+      "posizione": 30,
+      "insfida": false,
       "fuorigioco": false,
       "id": 29
     },
@@ -421,8 +421,8 @@
       "role": "player",
       "address": "",
       "gender": "male",
-      "posizione": 28,
-      "insfida": true,
+      "posizione": 26,
+      "insfida": false,
       "fuorigioco": false,
       "id": 30
     },
@@ -449,7 +449,7 @@
       "role": "player",
       "address": "",
       "gender": "female",
-      "posizione": 30,
+      "posizione": 29,
       "insfida": false,
       "fuorigioco": false,
       "id": 32
@@ -765,11 +765,11 @@
           "p2": "Vittorio Ambrosio"
         }
       ],
-      "status": "processing",
-      "set1": "",
-      "set2": "",
-      "set3": "",
-      "finalplayer": null,
+      "status": "complete",
+      "set1": "6-2",
+      "set2": "0-0",
+      "set3": "0-0",
+      "finalplayer": 7,
       "id": 10
     },
     {
@@ -786,11 +786,11 @@
           "p2": "Antonio Casciello"
         }
       ],
-      "status": "processing",
-      "set1": "",
-      "set2": "",
-      "set3": "",
-      "finalplayer": null,
+      "status": "complete",
+      "set1": "5-9",
+      "set2": "0-0",
+      "set3": "0-0",
+      "finalplayer": 9,
       "id": 11
     },
     {
@@ -807,11 +807,11 @@
           "p2": "Pasquale castaldo"
         }
       ],
-      "status": "processing",
-      "set1": "",
-      "set2": "",
-      "set3": "",
-      "finalplayer": null,
+      "status": "complete",
+      "set1": "6-0",
+      "set2": "6-0",
+      "set3": "6-0",
+      "finalplayer": 22,
       "id": 12
     },
     {
@@ -891,11 +891,11 @@
           "p2": "Paolino trinchese"
         }
       ],
-      "status": "processing",
-      "set1": "",
-      "set2": "",
-      "set3": "",
-      "finalplayer": null,
+      "status": "complete",
+      "set1": "2-9",
+      "set2": "0-0",
+      "set3": "0-0",
+      "finalplayer": 30,
       "id": 16
     },
     {
@@ -918,6 +918,27 @@
       "set3": "0-0",
       "finalplayer": 16,
       "id": 17
+    },
+    {
+      "datacreate": "26/09/2023",
+      "datasfida": "29/09/2023",
+      "orasfida": "18.00",
+      "players": [
+        {
+          "idp1": 6,
+          "p1": "felice Buonaguro"
+        },
+        {
+          "idp2": 9,
+          "p2": "Antonio Casciello"
+        }
+      ],
+      "status": "processing",
+      "set1": "",
+      "set2": "",
+      "set3": "",
+      "finalplayer": null,
+      "id": 18
     }
   ]
 }

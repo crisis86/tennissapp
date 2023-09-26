@@ -51,7 +51,9 @@ const Home = () => {
      
         if (filter === 'all' || filter === 'vuoto') {
             loadcgallenge();
-        } else {
+        } else if(filter==='oggi') {
+            loadcgallengeToday(dayjs(today).format('DD/MM/YYYY'))
+         } else {
             loadcgallengeByFilter(filter);
         }
 
@@ -139,12 +141,13 @@ const Home = () => {
 
                     <select style={{ margin: '0 10px', width: '45%', padding: '2px 0', background: '#f9f9f9' }} className="form-control select input-outline" selected="selected" value={filter} onChange={(e) => setfilterchange(e.target.value)} >
                         <option disabled className="md item-input-invalid select" style={{ color: 'grey' }} value='vuoto'>Stato Evento</option>
-                        <option value='all'>Tutti Gli Stati</option>
+                        <option value='all'>Tutti Gli Eventi</option>
+                        <option value='oggi'>Oggi</option>
                         <option value='processing'>In Corso</option>
-                        <option value='cancel'>Annullate</option>
-                        <option value='processing&datasfida='>Da Programmare</option>
                         <option value='pending'>Attesa Avversario</option>
+                        <option value='processing&datasfida='>Da Programmare</option>
                         <option value='complete'>Completate</option>
+                        <option value='cancel'>Annullate</option>
 
                     </select>
                     <select style={{ textAlign:'center', margin: '0 10px', width: '10%', padding: '2px 0', background: '#f9f9f9' }} className="form-control select input-outline" selected="selected" value={pagination} onChange={(e) => setpagination(e.target.value)} >
