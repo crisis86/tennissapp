@@ -276,7 +276,8 @@ const Edit = () => {
                                             <select disabled={insfida} value={fuorigioco} onChange={e => fuorigiocochange((JSON.parse(e.target.value)))} className="form-control">
                                             <option value="true">Si</option>
                                             <option value="false">No</option>
-                                        </select>
+                                        </select> 
+                                        Data:{datafuorigioco !=='' && datafuorigioco}
                                         <input type="hidden" value={fuorigiocochek} className="form-control"></input>
                                         </div>
                                     </div>
