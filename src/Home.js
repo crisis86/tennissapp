@@ -18,12 +18,12 @@ const Home = () => {
     const [today, setday] = useState(new Date())
     const [numberpost, setnumberpost] = useState(0);
     const [pagination, setpagination] = useState(30);
- 
+
 
     useEffect(() => {
 
 
-       
+
         if (location.pathname === '/Regolamento') {
             usenavigate('/Regolamento');
         }
@@ -33,8 +33,8 @@ const Home = () => {
             //toast.error('Not Authenticate session');
             usenavigate('/login');
         } else {
-            
-          
+
+
             if (filter === 'all' || filter === 'vuoto') {
                 loadcgallenge();
             } else {
@@ -49,18 +49,18 @@ const Home = () => {
 
 
     useEffect(() => {
-      
-       
-     
+
+
+
         if (filter === 'all' || filter === 'vuoto') {
             loadcgallenge();
-        } else if(filter==='oggi') {
+        } else if (filter === 'oggi') {
             loadcgallengeToday(dayjs(today).format('DD/MM/YYYY'))
-         } else {
+        } else {
             loadcgallengeByFilter(filter);
         }
 
-    }, [filter,pagination]);
+    }, [filter, pagination]);
 
     const countpost = () => {
 
@@ -72,16 +72,16 @@ const Home = () => {
             }
             return res.json();
         }).then(resp => {
-            let  lunghezza = Object.keys(resp).length
+            let lunghezza = Object.keys(resp).length
 
             setnumberpost(lunghezza);
         })
     }
 
     const loadcgallengeByFilter = (filro) => {
-     /*    e.preventDefault(); */
-    
-        fetch(window.$produrl + "/challenge?status=" + filro+"&_limit="+parseInt(pagination)).then(res => {
+        /*    e.preventDefault(); */
+
+        fetch(window.$produrl + "/challenge?status=" + filro + "&_limit=" + parseInt(pagination)).then(res => {
             if (!res.ok) {
                 console.log(res)
                 // navigate('/');
@@ -94,7 +94,7 @@ const Home = () => {
     }
 
     const loadcgallengeToday = (filro) => {
- 
+
 
         fetch(window.$produrl + "/challenge?datasfida=" + filro).then(res => {
             if (!res.ok) {
@@ -109,11 +109,11 @@ const Home = () => {
     }
 
     const loadcgallenge = () => {
-     
-      
-       // console.log(pagination)
 
-        fetch(window.$produrl + "/challenge?_limit="+parseInt(pagination)).then(res => {
+
+        // console.log(pagination)
+
+        fetch(window.$produrl + "/challenge?_limit=" + parseInt(pagination)).then(res => {
             if (!res.ok) {
                 console.log(res)
                 // navigate('/');
@@ -130,15 +130,24 @@ const Home = () => {
 
     function formatdate(data) {
         let formattedDate = dayjs().format(data) // 2023-03-01
-        //   console.log(formattedDate)
+         //  console.log(formattedDate)
+       //    console.log( dayjs(today).format('DD/MM/YYYY'));
         return formattedDate
     }
 
+    
+    function comparedate(data) {
+        const oggi = dayjs(new Date());
+        const futuredata = dayjs(data);
+         
+        console.log(futuredata.isAfter(oggi));
+        return futuredata.isAfter(oggi)
+    }
     return (
         <div className="page-content">
             <div className="list cards-list inset margin-vertical-half no-chevron no-hairlines no-hairlines-between">
 
-                <div style={{display:'flex'}} className="filter">
+                <div style={{ display: 'flex' }} className="filter">
 
                     <img style={{ float: 'left' }} src={iconafiltro} alt="filter" width={23} ></img>
 
@@ -153,18 +162,18 @@ const Home = () => {
                         <option value='cancel'>Annullate</option>
 
                     </select>
-                    <select style={{ textAlign:'center', margin: '0 10px', width: '10%', padding: '2px 0', background: '#f9f9f9' }} className="form-control select input-outline" selected="selected" value={pagination} onChange={(e) => setpagination(e.target.value)} >
+                    <select style={{ textAlign: 'center', margin: '0 10px', width: '10%', padding: '2px 0', background: '#f9f9f9' }} className="form-control select input-outline" selected="selected" value={pagination} onChange={(e) => setpagination(e.target.value)} >
                         <option value='5'>5</option>
                         <option value='10'>10</option>
                         <option value='20'>20</option>
                         <option value='30'>30</option>
-                        <option value='50'>50</option>  
+                        <option value='50'>50</option>
                         <option value='70'>70</option>
                         <option value='10000'>Tutti</option>
 
                     </select>
-                    <span style={{float:'right', color:'#71b852'}} ><a style={{color:'#71b852'}} href="/post"><img width={23} alt="post" src={iconpost}></img> <b>({numberpost})</b> </a></span>
-                   
+                    <span style={{ float: 'right', color: '#71b852' }} ><a style={{ color: '#71b852' }} href="/post"><img width={23} alt="post" src={iconpost}></img> <b>({numberpost})</b> </a></span>
+
                 </div>
                 <div className="row align-items-stretch">
                     {challenge &&
@@ -181,10 +190,10 @@ const Home = () => {
                                                     {item.status === 'processing' &&
                                                         <>
                                                             {item.datasfida === '' ? (
-                                                                <b style={{ background: '#e7e7e7', color:'#f47f35', padding: '3px' }}>Da Porgrammare</b>
+                                                                <b style={{ background: '#e7e7e7', color: '#f47f35', padding: '3px' }}>Da Porgrammare</b>
 
                                                             ) : (
-                                                                <b style={{ background: '#e7e7e7', color:'#f47f35', padding: '3px' }}>In Corso</b>
+                                                                <b style={{ background: '#e7e7e7', color: '#f47f35', padding: '3px' }}>In Corso</b>
 
                                                             )}
                                                         </>
@@ -207,7 +216,7 @@ const Home = () => {
                                                         <div className="item-cell flex-shrink-0 width-auto line-height-1">
                                                             <span style={{ fontSize: "14px", textAlign: 'left' }}><b>Creata:</b> &nbsp; <i>{item.datacreate}</i></span>
                                                             <br></br>
-                                                            <span style={{ color: dayjs(today).format('DD/MM/YYYY') === formatdate(item.datasfida) ? '#f47f35' : 'none', fontSize: "14px", textAlign: 'left' }}> <b>{item.status==='cancel' ? 'Annullata: ' : 'Prevista: '} </b><i> {item.datasfida} {item.orasfida}</i> </span>
+                                                            <span style={{ color: dayjs(today).format('DD/MM/YYYY') === formatdate(item.datasfida) ? '#f47f35' : 'none', fontSize: "14px", textAlign: 'left' }}> <b>{item.status === 'cancel' ? 'Annullata: ' : 'Prevista: '} </b><i> {item.datasfida} {item.orasfida}</i> </span>
 
                                                         </div>
                                                     </div>
@@ -226,23 +235,23 @@ const Home = () => {
                                                         <ul>
                                                             <li> <a style={{ textTransform: 'capitalize' }} className='link' href={'/Challenge-single/' + item.players[0].idp1 + '/' + item.players[0].p1}>
                                                                 <span style={{ fontSize: "14px" }}> <i>{item.players[0].p1}</i>
-                                                                {dayjs(today).format('DD/MM/YYYY') === formatdate(item.datasfida) &&
-                                                                <i><img width={15} src={pallina} alt="Challenge1"></img></i>
-                                                                }
+                                                                    {dayjs(today).format('DD/MM/YYYY') === formatdate(item.datasfida) &&
+                                                                        <i><img width={15} src={pallina} alt="Challenge1"></img></i>
+                                                                    }
                                                                 </span>
                                                             </a></li>
-                                                            <li style={{ fontWeight: "bold" }}>      <span>vs</span> 
-                                                            {dayjs(today).format('DD/MM/YYYY') === formatdate(item.datasfida) &&
-                                                                <span> {item.orasfida} </span>
+                                                            <li style={{ fontWeight: "bold" }}>      <span>vs</span>
+                                                                {dayjs(today).format('DD/MM/YYYY') === formatdate(item.datasfida) &&
+                                                                    <span> {item.orasfida} </span>
                                                                 }
                                                                 {/*  {dayjs(today).format('DD/MM/YYYY')} - {formatdate(item.datasfida)} */}
                                                             </li>
 
                                                             <li>  <a style={{ textTransform: 'capitalize' }} className='link' href={'/Challenge-single/' + item.players[1].idp2 + '/' + item.players[1].p2}>
                                                                 <span style={{ fontSize: "14px" }}> <i>{item.players[1].p2}</i>
-                                                                {dayjs(today).format('DD/MM/YYYY') === formatdate(item.datasfida) &&
-                                                                <i><img width={15} src={pallina} alt="Challenge2"></img></i>
-                                                                }
+                                                                    {dayjs(today).format('DD/MM/YYYY') === formatdate(item.datasfida) &&
+                                                                        <i><img width={15} src={pallina} alt="Challenge2"></img></i>
+                                                                    }
                                                                 </span>
                                                             </a></li>
 
@@ -255,8 +264,8 @@ const Home = () => {
                                                     <div style={{ padding: '5px 8px' }} className={item.status === 'pending' || item.status === 'processing' ? 'list no-chevron no-hairlines no-hairlines-between no-safe-areas segmented-strong-pending' : 'list no-chevron no-hairlines no-hairlines-between no-safe-areas segmented-strong'}>
 
                                                         <ul>
-
-                                                            <li style={{ textAlign: 'center' }} ><b>Score</b>{item.datasfida !=='' && dayjs(today).format('DD/MM/YYYY') > formatdate(item.datasfida) && item.status==='processing' && <span style={{color:'red'}}><b>IN RITARDO</b></span>}</li>
+ 
+                                                            <li style={{ textAlign: 'center' }} ><b>Score</b>{item.datasfida !== '' && comparedate(item.datasfida) && item.status === 'processing' && <span style={{ color: 'red' }}><b>IN RITARDO</b></span>}</li>
                                                             <li style={{ textDecoration: item.set1 === '0-0' ? 'line-through' : 'none', textAlign: 'center' }} >Set1: <b>{item.set1} </b></li>
                                                             <li style={{ textDecoration: item.set2 === '0-0' ? 'line-through' : 'none', textAlign: 'center' }}>Set2: <b>{item.set2} </b></li>
                                                             <li style={{ textDecoration: item.set3 === '0-0' ? 'line-through' : 'none', textAlign: 'center' }} >Set3: <b>{item.set3} </b> </li>
