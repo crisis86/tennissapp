@@ -130,18 +130,35 @@ const Home = () => {
 
     function formatdate(data) {
         let formattedDate = dayjs().format(data) // 2023-03-01
-         //  console.log(formattedDate)
-       //    console.log( dayjs(today).format('DD/MM/YYYY'));
+          // console.log(formattedDate)
+    
         return formattedDate
     }
 
     
-    function comparedate(data) {
-        const oggi = dayjs(new Date());
-        const futuredata = dayjs(data);
-         
-        console.log(futuredata.isAfter(oggi));
-        return futuredata.isAfter(oggi)
+    function converttimedate(data) {
+        
+        let datasfida = data.split('/')
+        let convertdata = datasfida[2]+"/"+datasfida[1]+"/"+datasfida[0]
+        let nuovadata = new Date(convertdata).getTime();
+
+        let giorno = today.getDate()
+        let mese = today.getMonth() +1
+        let anno = today.getFullYear()
+
+        let convertiogg= new Date(anno+'/'+mese+'/'+giorno).getTime()
+        
+      //  console.log(convertdata)
+      //  console.log(nuovadata)
+      //  console.log(convertiogg)
+
+        if( convertiogg > nuovadata) {
+            return true
+        }else {
+            return false
+        }
+      
+   
     }
     return (
         <div className="page-content">
@@ -264,8 +281,7 @@ const Home = () => {
                                                     <div style={{ padding: '5px 8px' }} className={item.status === 'pending' || item.status === 'processing' ? 'list no-chevron no-hairlines no-hairlines-between no-safe-areas segmented-strong-pending' : 'list no-chevron no-hairlines no-hairlines-between no-safe-areas segmented-strong'}>
 
                                                         <ul>
- 
-                                                            <li style={{ textAlign: 'center' }} ><b>Score</b>{item.datasfida !== '' && comparedate(item.datasfida) && item.status === 'processing' && <span style={{ color: 'red' }}><b>IN RITARDO</b></span>}</li>
+                                                            <li style={{ textAlign: 'center' }} ><b>Score</b>{item.datasfida !== '' &&  converttimedate(item.datasfida) && item.status === 'processing' && <span style={{ color: 'red' }}><b>IN RITARDO</b></span>}</li>
                                                             <li style={{ textDecoration: item.set1 === '0-0' ? 'line-through' : 'none', textAlign: 'center' }} >Set1: <b>{item.set1} </b></li>
                                                             <li style={{ textDecoration: item.set2 === '0-0' ? 'line-through' : 'none', textAlign: 'center' }}>Set2: <b>{item.set2} </b></li>
                                                             <li style={{ textDecoration: item.set3 === '0-0' ? 'line-through' : 'none', textAlign: 'center' }} >Set3: <b>{item.set3} </b> </li>
