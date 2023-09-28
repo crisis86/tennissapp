@@ -4596,6 +4596,7 @@
     margin-left: var(--f7-list-item-cell-margin);
     flex-shrink: 1;
   }
+ 
   .list .item-cell:first-child {
     margin-left: 0;
   }

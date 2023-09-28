@@ -5,6 +5,8 @@ import pallina from './assets/pallina.png';
 import dayjs from 'dayjs';
 import 'dayjs/locale/it' // load on demand
 import iconpost from './assets/icone/post.svg';
+import sfondo from './assets/background-home.png';
+import sfondo2 from './assets/background-home2.png';
 
 const Home = () => {
     const customParseFormat = require('dayjs/plugin/customParseFormat')
@@ -203,26 +205,26 @@ const Home = () => {
                                                 <div className="item-cell flex-shrink-0 width-auto align-self-flex-start">
                                                     {item.status === 'pending' &&
                                                         <>
-                                                            <i> <b> EV. {item.id} </b> </i> <b style={{ background: '#e7e7e7', padding: '3px' }} >Attesa Avversario</b>
+                                                            <i style={{ fontSize: '14px' }}> <b> EV. {item.id} </b> </i> <b style={{ fontSize: '14px', background: '#e7e7e7', padding: '3px' }} >Attesa Avversario</b>
                                                         </>
                                                     }
                                                     {item.status === 'processing' &&
                                                         <>
                                                             {item.datasfida === '' ? (
-                                                                <>    <i> <b> EV. {item.id} </b> </i> <br></br>   <b style={{ background: '#e7e7e7', color: '#f47f35', padding: '3px' }}>Da Porgrammare</b>
+                                                                <>    <i style={{ fontSize: '14px' }}> <b> EV. {item.id} </b> </i> <br></br>   <b style={{ fontSize: '14px', background: '#e7e7e7', color: '#f47f35', padding: '3px' }}>Da Porgrammare</b>
                                                                 </>
                                                             ) : (
-                                                                <>     <i> <b> EV. {item.id} </b> </i>  <br></br>  <b style={{ background: '#e7e7e7', color: '#f47f35', padding: '3px' }}>In Corso</b>
+                                                                <>     <i style={{ fontSize: '14px' }}> <b> EV. {item.id} </b> </i>  <br></br>  <b style={{ fontSize: '14px', background: '#e7e7e7', color: '#f47f35', padding: '3px' }}>In Corso</b>
                                                                 </>
                                                             )}
                                                         </>
                                                     }
                                                     {item.status === 'cancel' &&
-                                                        <>  <i> <b> EV. {item.id} </b> </i>  <br></br> <b style={{ background: '#e7e7e7', padding: '3px' }}>Annullata</b> </>
+                                                        <>  <i style={{ fontSize: '14px' }}> <b> EV. {item.id} </b> </i>  <br></br> <b style={{ fontSize: '14px', background: '#e7e7e7', padding: '3px' }}>Annullata</b> </>
 
                                                     }
                                                     {item.status === 'complete' &&
-                                                        <>  <i> <b> EV. {item.id} </b> </i> <br></br>  <b style={{ background: '#e7e7e7', padding: '3px' }} >Completata </b> </>
+                                                        <>  <i style={{ fontSize: '14px' }}> <b> EV. {item.id} </b> </i> <br></br>  <b style={{ fontSize: '14px', background: '#e7e7e7', padding: '3px' }} >Completata </b> </>
 
                                                     }
 
@@ -249,7 +251,16 @@ const Home = () => {
                                                 </div>
                                             </div>
                                             <div className="item-row margin-top">
-                                                <div style={{ borderRadius: '10px', textAlign: 'center', background: '#e7e7e7', opacity: '0.7' }} className="item-cell">
+                                                <div style={{
+                                                    borderRadius: '10px',
+                                                    textAlign: 'center',
+                                                    backgroundColor: '#e7e7e7',
+                                                    backgroundPosition: 'center',
+                                                    backgroundSize: 'cover',
+                                                    backgroundImage: `url(${sfondo})`,
+                                                    opacity: '0.7'
+                                                }}
+                                                    className="item-cell item-background">
                                                     <div className="font-size-14 multi-line-text lines-3 text-color-gray">
                                                         <ul>
                                                             <li> <a style={{ textTransform: 'capitalize' }} className='link' href={'/Challenge-single/' + item.players[0].idp1 + '/' + item.players[0].p1}>
@@ -261,7 +272,7 @@ const Home = () => {
                                                             </a></li>
                                                             <li style={{ fontWeight: "bold" }}>      <span>vs</span>
                                                                 {dayjs(today).format('DD/MM/YYYY') === formatdate(item.datasfida) &&
-                                                                    <span> {item.orasfida} </span>
+                                                                    <span style={{ fontSize: '14px', marginLeft: '0px' }}> {item.orasfida} </span>
                                                                 }
                                                                 {/*  {dayjs(today).format('DD/MM/YYYY')} - {formatdate(item.datasfida)} */}
                                                             </li>
@@ -278,9 +289,17 @@ const Home = () => {
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div className="card-contet">
+                                            <div  className="card-contet">
                                                 <div style={{ paddingRight: '0' }} className="block block-strong medium-hide no-hairlines no-margin-vertical sticky sticky-top">
-                                                    <div style={{ padding: '5px 8px' }} className={item.status === 'pending' || item.status === 'processing' ? 'list no-chevron no-hairlines no-hairlines-between no-safe-areas segmented-strong-pending' : 'list no-chevron no-hairlines no-hairlines-between no-safe-areas segmented-strong'}>
+                                                    <div style={{  
+                                                     borderRadius: '10px',
+                                                    textAlign: 'center',
+                                                    backgroundPosition: 'center',
+                                                    backgroundSize: 'cover',
+                                                    backgroundImage: `url(${sfondo2})`,
+                                                    padding: '5px 8px'
+                                                 }}
+                                                    className={item.status === 'pending' || item.status === 'processing' ? 'list no-chevron no-hairlines no-hairlines-between no-safe-areas segmented-strong-pending' : 'list no-chevron no-hairlines no-hairlines-between no-safe-areas segmented-strong'}>
 
                                                         <ul>
                                                             <li style={{ textAlign: 'center' }} ><b>Score</b>{item.datasfida !== '' && converttimedate(item.datasfida) && item.status === 'processing' && <span style={{ color: 'red' }}><b>IN RITARDO</b></span>}</li>
