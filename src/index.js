@@ -11,8 +11,8 @@ window.$mainteneance = "off";
 
 window.$servEmail ="https://servermail-fhuv.onrender.com";
 
-window.$devurl = "https://tennissapp.onrender.com";
-window.$produrl = "http://localhost:10000";
+window.$produrl = "https://tennissapp.onrender.com";
+window.$devurl = "http://localhost:10000";
      
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
