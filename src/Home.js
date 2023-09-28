@@ -130,35 +130,35 @@ const Home = () => {
 
     function formatdate(data) {
         let formattedDate = dayjs().format(data) // 2023-03-01
-          // console.log(formattedDate)
-    
+        // console.log(formattedDate)
+
         return formattedDate
     }
 
-    
+
     function converttimedate(data) {
-        
+
         let datasfida = data.split('/')
-        let convertdata = datasfida[2]+"/"+datasfida[1]+"/"+datasfida[0]
+        let convertdata = datasfida[2] + "/" + datasfida[1] + "/" + datasfida[0]
         let nuovadata = new Date(convertdata).getTime();
 
         let giorno = today.getDate()
-        let mese = today.getMonth() +1
+        let mese = today.getMonth() + 1
         let anno = today.getFullYear()
 
-        let convertiogg= new Date(anno+'/'+mese+'/'+giorno).getTime()
-        
-      //  console.log(convertdata)
-      //  console.log(nuovadata)
-      //  console.log(convertiogg)
+        let convertiogg = new Date(anno + '/' + mese + '/' + giorno).getTime()
 
-        if( convertiogg > nuovadata) {
+        //  console.log(convertdata)
+        //  console.log(nuovadata)
+        //  console.log(convertiogg)
+
+        if (convertiogg > nuovadata) {
             return true
-        }else {
+        } else {
             return false
         }
-      
-   
+
+
     }
     return (
         <div className="page-content">
@@ -202,25 +202,27 @@ const Home = () => {
                                             <div className="item-row">
                                                 <div className="item-cell flex-shrink-0 width-auto align-self-flex-start">
                                                     {item.status === 'pending' &&
-                                                        <b style={{ background: '#e7e7e7', padding: '3px' }} >Attesa Avversario</b>
+                                                        <>
+                                                            <i> <b> EV. {item.id} </b> </i> <b style={{ background: '#e7e7e7', padding: '3px' }} >Attesa Avversario</b>
+                                                        </>
                                                     }
                                                     {item.status === 'processing' &&
                                                         <>
                                                             {item.datasfida === '' ? (
-                                                                <b style={{ background: '#e7e7e7', color: '#f47f35', padding: '3px' }}>Da Porgrammare</b>
-
+                                                                <>    <i> <b> EV. {item.id} </b> </i>   <b style={{ background: '#e7e7e7', color: '#f47f35', padding: '3px' }}>Da Porgrammare</b>
+                                                                </>
                                                             ) : (
-                                                                <b style={{ background: '#e7e7e7', color: '#f47f35', padding: '3px' }}>In Corso</b>
-
+                                                                <>     <i> <b> EV. {item.id} </b> </i>    <b style={{ background: '#e7e7e7', color: '#f47f35', padding: '3px' }}>In Corso</b>
+                                                                </>
                                                             )}
                                                         </>
                                                     }
                                                     {item.status === 'cancel' &&
-                                                        <b style={{ background: '#e7e7e7', padding: '3px' }}>Annullata</b>
+                                                        <>  <i> <b> EV. {item.id} </b> </i>   <b style={{ background: '#e7e7e7', padding: '3px' }}>Annullata</b> </>
 
                                                     }
                                                     {item.status === 'complete' &&
-                                                        <b style={{ background: '#e7e7e7', padding: '3px' }} >Completata </b>
+                                                        <>  <i> <b> EV. {item.id} </b> </i>   <b style={{ background: '#e7e7e7', padding: '3px' }} >Completata </b> </>
 
                                                     }
 
@@ -281,7 +283,7 @@ const Home = () => {
                                                     <div style={{ padding: '5px 8px' }} className={item.status === 'pending' || item.status === 'processing' ? 'list no-chevron no-hairlines no-hairlines-between no-safe-areas segmented-strong-pending' : 'list no-chevron no-hairlines no-hairlines-between no-safe-areas segmented-strong'}>
 
                                                         <ul>
-                                                            <li style={{ textAlign: 'center' }} ><b>Score</b>{item.datasfida !== '' &&  converttimedate(item.datasfida) && item.status === 'processing' && <span style={{ color: 'red' }}><b>IN RITARDO</b></span>}</li>
+                                                            <li style={{ textAlign: 'center' }} ><b>Score</b>{item.datasfida !== '' && converttimedate(item.datasfida) && item.status === 'processing' && <span style={{ color: 'red' }}><b>IN RITARDO</b></span>}</li>
                                                             <li style={{ textDecoration: item.set1 === '0-0' ? 'line-through' : 'none', textAlign: 'center' }} >Set1: <b>{item.set1} </b></li>
                                                             <li style={{ textDecoration: item.set2 === '0-0' ? 'line-through' : 'none', textAlign: 'center' }}>Set2: <b>{item.set2} </b></li>
                                                             <li style={{ textDecoration: item.set3 === '0-0' ? 'line-through' : 'none', textAlign: 'center' }} >Set3: <b>{item.set3} </b> </li>

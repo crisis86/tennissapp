@@ -572,26 +572,26 @@ const ChallengeSingle = () => {
 
                                                         <li style={{ textTransform: 'capitalize' }}>{partite.players[0].p1} VS {partite.players[1].p2}</li>
                                                         {partite.status === 'pending' &&
-                                                            <b>Attesa Avversario</b>
+                                                            <b> <i>  EV. {partite.id} </i>-   Attesa Avversario</b>
 
                                                         }
                                                         {partite.status === 'processing' &&
                                                             <>
                                                                 {partite.datasfida === '' ? (
-                                                                    <b>Da Porgrammare</b>
+                                                                    <b> <i>  EV. {partite.id} </i>- Da Porgrammare</b>
 
                                                                 ) : (
-                                                                    <b>In Corso</b>
+                                                                    <b> <i>  EV. {partite.id} </i>- In Corso</b>
 
                                                                 )}
                                                             </>
                                                         }
                                                         {partite.status === 'cancel' &&
-                                                            <b>Annullata</b>
+                                                            <b> <i>  EV. {partite.id} </i>-  Annullata</b>
 
                                                         }
                                                         {partite.status === 'complete' &&
-                                                            <b>Completata </b>
+                                                            <b> <i>  EV. {partite.id} </i>-  Completata </b>
 
                                                         }
                                                         <li><b> Creata: </b>{partite.datacreate} <b>{partite.status==='cancel' ? 'Annullata: ' : 'Prevista: '}</b> {partite.datasfida} {partite.orasfida}</li>

@@ -947,13 +947,13 @@ const Mychallenge = () => {
 
                                                 <li style={{ textTransform: 'capitalize' }} key={index + 1}>{item.players[0].p1} VS {item.players[1].p2}</li>
                                                 {item.status === 'pending' &&
-                                                    <b>Attesa Avversario</b>
+                                                    <b><i>  EV. {item.id} </i>- Attesa Avversario</b>
 
                                                 }
                                                 {item.status === 'processing' &&
                                                     <>
                                                         {item.datasfida === '' ? (
-                                                            <b>Da Porgrammare</b>
+                                                            <b><i>  EV. {item.id} </i>- Da Porgrammare</b>
 
                                                         ) : (
                                                             <b>In Corso</b>
@@ -962,11 +962,11 @@ const Mychallenge = () => {
                                                     </>
                                                 }
                                                 {item.status === 'cancel' &&
-                                                    <b>Annullata</b>
+                                                    <b> <i>  EV. {item.id} </i>- Annullata</b>
 
                                                 }
                                                 {item.status === 'complete' &&
-                                                    <b>Completata </b>
+                                                    <b> <i>  EV. {item.id} </i>- Completata </b>
 
                                                 }
                                                 <li><b> Creata:</b> {item.datacreate} <b>{item.status==='cancel' ? 'Annullata: ' : 'Prevista: '}</b> {item.datasfida} {item.orasfida} </li>
