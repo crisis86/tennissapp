@@ -81,7 +81,6 @@ const EditChallenge = () => {
     const handlesubmit = (e) => {
         e.preventDefault();
 
-
         let regobj = {
             "datacreate": datacreate,
             "datasfida": datasfida,
@@ -109,7 +108,7 @@ const EditChallenge = () => {
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(regobj)
         }).then((res) => {
-            toast.success('Modified successfully.')
+            toast.success('Dati aggiornati!')
             navigate('/AdminChallenge');
 
         }).catch((err) => {
@@ -135,32 +134,32 @@ const EditChallenge = () => {
                                 </div>
                                 <div className="col-lg-6">
                                     <div className="form-group">
-                                        <label>Data Creazione <span className="errmsg">*</span></label>
-                                        <input value={datacreate} onChange={e => setdatacreate(e.target.value)} type="text" className="form-control"></input>
+                                        <label>Data Creazione <i>DD/MM/YYYY</i><span className="errmsg">*</span></label>
+                                        <input value={datacreate} onChange={e => setdatacreate(e.target.value)}  className="form-control"></input>
                                     </div>
                                 </div>
                                 <div className="col-lg-6">
                                     <div className="form-group">
-                                        <label>Set1 <span className="errmsg">*</span></label>
-                                        <input value={set1} onChange={e => setset1(e.target.value)} type="text" className="form-control"></input>
+                                        <label>Set1 <i>N-N</i><span className="errmsg"></span></label>
+                                        <input value={set1} onChange={e => setset1(e.target.value)}  className="form-control"></input>
                                     </div>
                                 </div>
                                 <div className="col-lg-6">
                                     <div className="form-group">
-                                        <label>Set2 <span className="errmsg">*</span></label>
-                                        <input value={set2} onChange={e => setset2(e.target.value)} type="text" className="form-control"></input>
+                                        <label>Set2 <i>N-N</i><span className="errmsg"></span></label>
+                                        <input value={set2} onChange={e => setset2(e.target.value)}  className="form-control"></input>
                                     </div>
                                 </div>
                                 <div className="col-lg-6">
                                     <div className="form-group">
-                                        <label>Set3 <span className="errmsg">*</span></label>
-                                        <input value={set3} onChange={e => setset3(e.target.value)} type="text" className="form-control"></input>
+                                        <label>Set3 <i>N-N</i> <span className="errmsg"></span></label>
+                                        <input value={set3} onChange={e => setset3(e.target.value)}  className="form-control"></input>
                                     </div>
                                 </div>
                                 <div className="col-lg-6">
                                     <div className="form-group">
                                         <label>Data Sfida <i>DD/MM/YYYY</i> <span className="errmsg">*</span></label>
-                                        <input value={datasfida} onChange={e => setdatasfida(e.target.value)} type="text" className="form-control"></input>
+                                        <input value={datasfida} onChange={e => setdatasfida(e.target.value)}  className="form-control"></input>
                                     </div>
                                 </div>
                                 <div className="col-lg-6">
@@ -221,7 +220,7 @@ const EditChallenge = () => {
 
                         </div>
                         <div className="card-footer">
-                            <button type="submit" className="btn btn-primary">Modifica</button> |
+                            <button type="submit" className="btn btn-primary">Modifica</button> 
 
                         </div>
                     </div>
