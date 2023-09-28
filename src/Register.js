@@ -171,6 +171,9 @@ const Register = () => {
 
             let trimtext = name.trim()
             namechange(trimtext)
+
+            let trimemail = email.trim()
+            emailchange(trimemail)
         
             let regobj = {email, password, name, phone, country, role, address, gender, posizione, insfida, fuorigioco, datafuorigioco};
             if (IsValidate()) {

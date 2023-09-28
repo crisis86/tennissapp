@@ -22,42 +22,42 @@ const Edit = () => {
     const [fuorigioco, fuorigiocochange] = useState(false)
     const [fuorigiocochek, setfuorigiocochek] = useState(false)
     const [datafuorigioco, setdatafuorigioco] = useState("")
-    
+
 
 
     const navigate = useNavigate();
 
 
-   
+
     useEffect(() => {
         let email = sessionStorage.getItem('email')
 
         if (email === '' || email === null) {
             //toast.error('Not Authenticate session');
             navigate('/login');
-        } else{
+        } else {
 
-        lastidjson();
+            lastidjson();
         }
     }, []);
 
 
-    
+
     useEffect(() => {
-      
-      if(fuorigioco !== fuorigiocochek) {
-       
-       if(fuorigioco) { 
-        let nuovadata = new Date().toLocaleDateString()
-       console.log(nuovadata)
-        setdatafuorigioco(nuovadata)
-      } else {
-        console.log('nessuna data')
 
-        setdatafuorigioco("")
+        if (fuorigioco !== fuorigiocochek) {
 
-      }
-    }
+            if (fuorigioco) {
+                let nuovadata = new Date().toLocaleDateString()
+                console.log(nuovadata)
+                setdatafuorigioco(nuovadata)
+            } else {
+                console.log('nessuna data')
+
+                setdatafuorigioco("")
+
+            }
+        }
     }, [fuorigioco]);
 
     function lastidjson() {
@@ -129,19 +129,19 @@ const Edit = () => {
         if (!isproceed) {
             toast.warning(errormessage)
         } else {
-            if(/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(email)){
+            if (/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(email)) {
 
-            }else if (/^[a-zA-Z0-9]+\.[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(email)){
-             
-            }else if (/^[a-zA-Z0-9]+\-[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(email)){
-             
-            }else if (/^[a-zA-Z0-9]+\_[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(email)){
-             
-            } else if (/^[a-zA-Z0-9]+\_[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+\.[A-Za-z]+$/.test(email)){
-             
-            }else if (/\S+@\S+\.\S+/.test(email)){
-             
-            }else {
+            } else if (/^[a-zA-Z0-9]+\.[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(email)) {
+
+            } else if (/^[a-zA-Z0-9]+\-[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(email)) {
+
+            } else if (/^[a-zA-Z0-9]+\_[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(email)) {
+
+            } else if (/^[a-zA-Z0-9]+\_[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+\.[A-Za-z]+$/.test(email)) {
+
+            } else if (/\S+@\S+\.\S+/.test(email)) {
+
+            } else {
                 isproceed = false;
                 toast.warning('Please enter the valid email')
             }
@@ -156,16 +156,18 @@ const Edit = () => {
         e.preventDefault();
 
         let trimtext = name.trim()
-     
         namechange(trimtext)
 
-        if(insfida){
+        let trimemail = email.trim()
+        emailchange(trimemail)
+
+        if (insfida) {
             fuorigiocochange(false)
         }
 
 
-      
-        let regobj = {email, password, name, phone, country, role, address, gender, posizione, insfida, fuorigioco, datafuorigioco};
+
+        let regobj = { email, password, name, phone, country, role, address, gender, posizione, insfida, fuorigioco, datafuorigioco };
         if (IsValidate()) {
             //  console.log(regobj);
             fetch(window.$produrl + "/user/" + id['id'], {
@@ -174,12 +176,12 @@ const Edit = () => {
                 body: JSON.stringify(regobj)
             }).then((res) => {
                 toast.success('Modified successfully.')
-                if(myrole==='admin') {
-                 navigate('/Player');
+                if (myrole === 'admin') {
+                    navigate('/Player');
                 } else {
                     navigate('/');
                 }
-                
+
             }).catch((err) => {
                 toast.error('Failed :' + err.message);
             });
@@ -196,7 +198,7 @@ const Edit = () => {
                         <div className="card-body">
                             <div className="row">
                                 <div className="col-lg-6">
-                                    {myrole==='admin' &&
+                                    {myrole === 'admin' &&
                                         <div className="form-group">
                                             <label>Poizione <span className="errmsg">*</span></label>
                                             <input type="number" style={{ background: '#32ab32', opacity: 0.8, color: "white" }} value={posizione} onChange={e => posizionechange(parseInt(e.target.value))} className="form-control"></input>
@@ -225,7 +227,7 @@ const Edit = () => {
                                 <div className="col-lg-6">
                                     <div className="form-group">
                                         <label>Email <span className="errmsg">*</span></label>
-                                        <input  value={email} onChange={e => emailchange(e.target.value)} className="form-control"></input>
+                                        <input value={email} onChange={e => emailchange(e.target.value)} className="form-control"></input>
                                     </div>
                                 </div>
                                 <div className="col-lg-6">
@@ -261,30 +263,30 @@ const Edit = () => {
                                         <label>Female</label>
                                     </div>
                                 </div>
-                                {myrole==='admin' &&
+                                {myrole === 'admin' &&
                                     <div className="col-lg-6">
                                         <div className="form-group">
                                             <label>Sfida Flag</label>
- 
+
                                             <select value={insfida} onChange={e => insfidachange((JSON.parse(e.target.value)))} className="form-control">
-                                            <option value="true">Si</option>
-                                            <option value="false">No</option>
-                                        </select>
+                                                <option value="true">Si</option>
+                                                <option value="false">No</option>
+                                            </select>
                                         </div>
                                     </div>
                                 }
-                                  <div className="col-lg-6">
-                                        <div className="form-group">
-                                            <label>Fuorigioco</label>
- 
-                                            <select disabled={insfida} value={fuorigioco} onChange={e => fuorigiocochange((JSON.parse(e.target.value)))} className="form-control">
+                                <div className="col-lg-6">
+                                    <div className="form-group">
+                                        <label>Fuorigioco</label>
+
+                                        <select disabled={insfida} value={fuorigioco} onChange={e => fuorigiocochange((JSON.parse(e.target.value)))} className="form-control">
                                             <option value="true">Si</option>
                                             <option value="false">No</option>
-                                        </select> 
-                                        Data:{datafuorigioco !=='' && datafuorigioco}
+                                        </select>
+                                        Data:{datafuorigioco !== '' && datafuorigioco}
                                         <input type="hidden" value={fuorigiocochek} className="form-control"></input>
-                                        </div>
                                     </div>
+                                </div>
                             </div>
 
                         </div>
@@ -292,7 +294,7 @@ const Edit = () => {
                             <button type="submit" className="btn btn-primary">Modifica</button>
 
                         </div>
-                        <span><a href="/Regolamento.html">Regolamento</a></span> 
+                        <span><a href="/Regolamento.html">Regolamento</a></span>
                     </div>
                 </form>
             </div>
