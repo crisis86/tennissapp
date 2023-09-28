@@ -209,20 +209,20 @@ const Home = () => {
                                                     {item.status === 'processing' &&
                                                         <>
                                                             {item.datasfida === '' ? (
-                                                                <>    <i> <b> EV. {item.id} </b> </i>   <b style={{ background: '#e7e7e7', color: '#f47f35', padding: '3px' }}>Da Porgrammare</b>
+                                                                <>    <i> <b> EV. {item.id} </b> </i> <br></br>   <b style={{ background: '#e7e7e7', color: '#f47f35', padding: '3px' }}>Da Porgrammare</b>
                                                                 </>
                                                             ) : (
-                                                                <>     <i> <b> EV. {item.id} </b> </i>    <b style={{ background: '#e7e7e7', color: '#f47f35', padding: '3px' }}>In Corso</b>
+                                                                <>     <i> <b> EV. {item.id} </b> </i>  <br></br>  <b style={{ background: '#e7e7e7', color: '#f47f35', padding: '3px' }}>In Corso</b>
                                                                 </>
                                                             )}
                                                         </>
                                                     }
                                                     {item.status === 'cancel' &&
-                                                        <>  <i> <b> EV. {item.id} </b> </i>   <b style={{ background: '#e7e7e7', padding: '3px' }}>Annullata</b> </>
+                                                        <>  <i> <b> EV. {item.id} </b> </i>  <br></br> <b style={{ background: '#e7e7e7', padding: '3px' }}>Annullata</b> </>
 
                                                     }
                                                     {item.status === 'complete' &&
-                                                        <>  <i> <b> EV. {item.id} </b> </i>   <b style={{ background: '#e7e7e7', padding: '3px' }} >Completata </b> </>
+                                                        <>  <i> <b> EV. {item.id} </b> </i> <br></br>  <b style={{ background: '#e7e7e7', padding: '3px' }} >Completata </b> </>
 
                                                     }
 
