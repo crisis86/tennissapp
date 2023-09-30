@@ -773,6 +773,9 @@ const Mychallenge = () => {
 
                             console.log("sale di uno quello sotto", obj.posizione)
                             updateUserPosition(obj)
+                        }else {
+                            obj.insfida = false;
+                            updateUserPosition(obj)
                         }
                     }
 
@@ -795,6 +798,9 @@ const Mychallenge = () => {
 
                             obj.posizione = obj.posizione + 1 // scende di uno quello sopra
                             console.log("scendi uno quello sopra", obj.posizione)
+                            updateUserPosition(obj)
+                        } else {
+                            obj.insfida = false;
                             updateUserPosition(obj)
                         }
                     }
