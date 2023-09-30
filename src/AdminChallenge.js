@@ -142,8 +142,8 @@ const AdminChallenge = () => {
                                         <td>{item.players[1].p2}</td>
                                         <td>{item.status}</td>
                                         <td>
-                                            <button onClick={(e) => handleedit(e, item.id)} className="btn btn-primary">Edit</button> &nbsp;
-                                            <button onClick={(e) => handleremove(e, item.id)}   className="btn btn-danger">X</button>
+                                            <button style={{width:'52px'}} onClick={(e) => handleedit(e, item.id)} className="btn btn-primary">Edit</button> &nbsp;
+                                            <button style={{width:'52px'}} onClick={(e) => handleremove(e, item.id)}   className="btn btn-danger">X</button>
                                         </td>
 
                                     </tr>

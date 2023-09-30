@@ -291,7 +291,7 @@ const Edit = () => {
 
                         </div>
                         <div className="card-footer">
-                            <button type="submit" className="btn btn-primary">Modifica</button>
+                            <button  type="submit" className="btn btn-primary">Modifica</button>
 
                         </div>
                         <span><a href="/Regolamento.html">Regolamento</a></span>

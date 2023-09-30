@@ -140,6 +140,7 @@ const Home = () => {
 
     function converttimedate(data) {
 
+      if(data !=='' || data !==null) { 
         let datasfida = data.split('/')
         let convertdata = datasfida[2] + "/" + datasfida[1] + "/" + datasfida[0]
         let nuovadata = new Date(convertdata).getTime();
@@ -159,7 +160,9 @@ const Home = () => {
         } else {
             return false
         }
-
+    }else{
+        return false
+    }
 
     }
     return (

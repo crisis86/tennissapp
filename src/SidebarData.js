@@ -29,13 +29,7 @@ export const SidebarData = [
     cName: 'nav-text'
   }, 
   {
-    title: 'Le mie Sfide',
-    path: '/Mychallenge',
-    icon: <FaIcons.FaCartPlus />,
-    cName: 'nav-text'
-  },
-  {
-    title: 'AdmiChallenge',
+    title: 'Eventi',
     path: '/AdminChallenge',
     icon: <FaIcons.FaCartPlus />,
     cName: 'nav-text'
