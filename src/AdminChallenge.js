@@ -125,7 +125,7 @@ const AdminChallenge = () => {
                     <table className="table table-bordered">
                         <thead className="bg-dark text-white">
                             <tr>
-                                <th>ID</th>
+                                <th>EV</th>
                                 <th>Player 1</th>
                                 <th>Player 2</th>
                                 <th>Status</th>

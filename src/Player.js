@@ -137,7 +137,7 @@ const Player = () => {
                             <tr>
                                 <th>ID</th>
                                 <th>Name</th>
-                                <th>Posizione</th>
+                                <th>Pos.</th>
                                 <th>Email</th>
                                 <th>Action</th>
                              
