@@ -30,7 +30,7 @@ function Navbar() {
           <Link style={{display: myrole==='admin' ? '' : 'none' }} to='#' className='menu-bars'>
             <FaIcons.FaBars onClick={showSidebar} />
           </Link>
-          <div className='logo'><img height="52px" src={logotennis} alt='logo'></img></div>
+          <div className='logo'><img height="60px" src={logotennis} alt='logo'></img></div>
         </div>
         
         <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
