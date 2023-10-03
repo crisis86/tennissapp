@@ -132,18 +132,33 @@ const Home = () => {
 
     function formatdate(data) {
         let formattedDate = dayjs().format(data) // 2023-03-01
-        // console.log(formattedDate)
+        //  console.log(formattedDate)
 
         return formattedDate
     }
 
+    function formattadata(data) {
 
-    function converttimedate(data) {
+        if (data !== '' || data !== null) {
+            let datasfida = data.split('/')
+            let convertdata = datasfida[2] + "/" + datasfida[1] + "/" + datasfida[0]
+            let nuovadata = new Date(convertdata).getTime();
 
-      if(data !=='' || data !==null) { 
-        let datasfida = data.split('/')
-        let convertdata = datasfida[2] + "/" + datasfida[1] + "/" + datasfida[0]
-        let nuovadata = new Date(convertdata).getTime();
+     
+
+            if (isNaN(nuovadata)) {
+                return 0
+            } else {
+                return nuovadata
+            }
+        } else {
+            return 0
+        }
+
+    }
+
+    function formattatoday() {
+
 
         let giorno = today.getDate()
         let mese = today.getMonth() + 1
@@ -151,18 +166,43 @@ const Home = () => {
 
         let convertiogg = new Date(anno + '/' + mese + '/' + giorno).getTime()
 
-        //  console.log(convertdata)
-        //  console.log(nuovadata)
-        //  console.log(convertiogg)
 
-        if (convertiogg > nuovadata) {
-            return true
+        if (isNaN(convertiogg)) {
+            return 0
+        } else {
+            return convertiogg
+        }
+
+    }
+
+
+
+
+    function converttimedate(data) {
+
+        if (data !== '' || data !== null) {
+            let datasfida = data.split('/')
+            let convertdata = datasfida[2] + "/" + datasfida[1] + "/" + datasfida[0]
+            let nuovadata = new Date(convertdata).getTime();
+
+            let giorno = today.getDate()
+            let mese = today.getMonth() + 1
+            let anno = today.getFullYear()
+
+            let convertiogg = new Date(anno + '/' + mese + '/' + giorno).getTime()
+
+            //  console.log(convertdata)
+            //  console.log(nuovadata)
+            //  console.log(convertiogg)
+
+            if (convertiogg > nuovadata) {
+                return true
+            } else {
+                return false
+            }
         } else {
             return false
         }
-    }else{
-        return false
-    }
 
     }
     return (
@@ -185,6 +225,7 @@ const Home = () => {
 
                     </select>
                     <select style={{ textAlign: 'center', margin: '0 10px', width: '10%', padding: '2px 0', background: '#f9f9f9' }} className="form-control select input-outline" selected="selected" value={pagination} onChange={(e) => setpagination(e.target.value)} >
+
                         <option value='5'>5</option>
                         <option value='10'>10</option>
                         <option value='20'>20</option>
@@ -199,7 +240,7 @@ const Home = () => {
                 </div>
                 <div className="row align-items-stretch">
                     {challenge &&
-                        challenge.sort((a, b) => formatdate(a.datasfida) < formatdate(b.datasfida) || a.status < b.status ? 1 : -1).map((item, index) => (
+                        challenge.sort((a, b) => formattadata(b.datasfida) >= formattatoday() || a.status < b.status ? 1 : -1).map((item, index) => (
                             <div style={{ border: '1px solid #cbc4c4', borderRadius: '10px' }} key={index + 1} className="col-100 small-50 xlarge-100">
                                 <div className="item-content height-100">
                                     <div className="item-inner item-cell height-100 padding-vertical">
@@ -240,7 +281,7 @@ const Home = () => {
                                                         <div className="item-cell flex-shrink-0 width-auto line-height-1">
                                                             <span style={{ fontSize: "14px", textAlign: 'left' }}><b>Creata:</b> &nbsp; <i>{item.datacreate}</i></span>
                                                             <br></br>
-                                                            <span style={{ color: dayjs(today).format('DD/MM/YYYY') === formatdate(item.datasfida) ? '#f47f35' : 'none', fontSize: "14px", textAlign: 'left' }}> <b>{item.status === 'cancel' ? 'Annullata: ' : 'Prevista: '} </b><i> {item.datasfida} {item.orasfida}</i> </span>
+                                                            <span style={{ color: formattadata(item.datasfida) === formattatoday() ? '#f47f35' : 'none', fontSize: "14px", textAlign: 'left' }}> <b>{item.status === 'cancel' ? 'Annullata: ' : 'Prevista: '} </b><i> {item.datasfida} {item.orasfida}</i> </span>
 
                                                         </div>
                                                     </div>
@@ -292,17 +333,17 @@ const Home = () => {
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div  className="card-contet">
+                                            <div className="card-contet">
                                                 <div style={{ paddingRight: '0' }} className="block block-strong medium-hide no-hairlines no-margin-vertical sticky sticky-top">
-                                                    <div style={{  
-                                                     borderRadius: '10px',
-                                                    textAlign: 'center',
-                                                    backgroundPosition: 'center',
-                                                    backgroundSize: 'cover',
-                                                    backgroundImage: `url(${sfondo2})`,
-                                                    padding: '5px 8px'
-                                                 }}
-                                                    className={item.status === 'pending' || item.status === 'processing' ? 'list no-chevron no-hairlines no-hairlines-between no-safe-areas segmented-strong-pending' : 'list no-chevron no-hairlines no-hairlines-between no-safe-areas segmented-strong'}>
+                                                    <div style={{
+                                                        borderRadius: '10px',
+                                                        textAlign: 'center',
+                                                        backgroundPosition: 'center',
+                                                        backgroundSize: 'cover',
+                                                        backgroundImage: `url(${sfondo2})`,
+                                                        padding: '5px 8px'
+                                                    }}
+                                                        className={item.status === 'pending' || item.status === 'processing' ? 'list no-chevron no-hairlines no-hairlines-between no-safe-areas segmented-strong-pending' : 'list no-chevron no-hairlines no-hairlines-between no-safe-areas segmented-strong'}>
 
                                                         <ul>
                                                             <li style={{ textAlign: 'center' }} ><b>Score</b>{item.datasfida !== '' && converttimedate(item.datasfida) && item.status === 'processing' && <span style={{ color: 'red' }}><b>IN RITARDO</b></span>}</li>
