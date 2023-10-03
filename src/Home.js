@@ -208,7 +208,7 @@ const Home = () => {
                                                 <div className="item-cell flex-shrink-0 width-auto align-self-flex-start">
                                                     {item.status === 'pending' &&
                                                         <>
-                                                            <i style={{ fontSize: '14px' }}> <b> EV. {item.id} </b> </i> <b style={{ fontSize: '14px', background: '#e7e7e7', padding: '3px' }} >Attesa Avversario</b>
+                                                            <i style={{ fontSize: '14px' }}> <b> EV. {item.id} </b> </i><br></br> <b style={{ fontSize: '14px', background: '#e7e7e7', padding: '3px' }} >Attesa Avversario</b>
                                                         </>
                                                     }
                                                     {item.status === 'processing' &&
