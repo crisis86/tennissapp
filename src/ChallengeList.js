@@ -68,7 +68,7 @@ const ChallengeList = () => {
                                                                 </div>
                                                                 <a className='link' style={{ width: '170px' }} href={'/Challenge-single/' + item.id + '/' + item.name}>
 
-                                                                    <div style={{ fontSize: '15px' }} className="item-cell">
+                                                                    <div style={{ fontSize: '15px', textTransform:'capitalize' }} className="item-cell">
                                                                         <div className="font-size-20 font-weight-bold text-color-primary">
 
                                                                             {item.name}

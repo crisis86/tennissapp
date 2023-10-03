@@ -19,19 +19,19 @@ export const SidebarData = [
   {
     title: 'Classifica',
     path: '/ChallengeList',
-    icon: <FaIcons.FaCartPlus />,
+    icon: <IoIcons.IoIosPaper />,
     cName: 'nav-text'
   },
    {
     title: 'Posts',
     path: '/Post',
-    icon: <FaIcons.FaCartPlus />,
+    icon: <IoIcons.IoIosPaper />,
     cName: 'nav-text'
   }, 
   {
     title: 'Eventi',
     path: '/AdminChallenge',
-    icon: <FaIcons.FaCartPlus />,
+    icon: <IoIcons.IoIosPaper />,
     cName: 'nav-text'
   }
 ];
