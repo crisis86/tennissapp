@@ -37,7 +37,7 @@ const Mychallenge = () => {
 
 
     useEffect(() => {
-   
+
         let email = sessionStorage.getItem('email')
 
         if (email === '' || email === null) {
@@ -252,7 +252,7 @@ const Mychallenge = () => {
                             player1 = obj.players[0].idp1
                             player2 = obj.players[1].idp2
                             if (vincitore === "Player1") {
-                                
+
                                 obj.finalplayer = obj.players[0].idp1;
                             } else {
                                 obj.finalplayer = obj.players[1].idp2;
@@ -277,7 +277,7 @@ const Mychallenge = () => {
                         result.json().then((resp) => {
 
 
-                          //  let vincitore = calcolavincitore()
+                            //  let vincitore = calcolavincitore()
                             // console.log('sono il vincitore:' +vincitore)
 
                             // rettifico classifica
@@ -527,7 +527,7 @@ const Mychallenge = () => {
             if (obj.id === idrecord) {
                 obj.status = "cancel";
                 obj.datasfida = datecancel;
-                obj.finalplayer= iduser
+                obj.finalplayer = iduser
                 idriga = obj.id;
 
                 player1 = obj.players[0].idp1
@@ -773,7 +773,7 @@ const Mychallenge = () => {
 
                             console.log("sale di uno quello sotto", obj.posizione)
                             updateUserPosition(obj)
-                        }else {
+                        } else {
                             obj.insfida = false;
                             updateUserPosition(obj)
                         }
@@ -941,7 +941,7 @@ const Mychallenge = () => {
                     {challengepending &&
 
                         challengepending.sort((a, b) => a.id < b.id ? 1 : -1).map((item, index) => (
-                            <div key={index + 1} style={{ paddingLeft: '5px' }} className="card no-shadow no-safe-area-left">
+                            <div key={index + 1} style={{ paddingLeft: '5px', border: '0' }} className="card no-shadow no-safe-area-left">
 
 
                                 <div className="card-contet">
@@ -950,41 +950,42 @@ const Mychallenge = () => {
                                         <div style={{ padding: '5px 8px' }} className={item.status === 'pending' || item.status === 'processing' ? 'list no-chevron no-hairlines no-hairlines-between no-safe-areas segmented-strong-pending' : 'list no-chevron no-hairlines no-hairlines-between no-safe-areas segmented-strong'}>
 
                                             <ul>
+                                                <li style={{ textAlign: 'center' }}>
+                                                    {item.status === 'pending' &&
+                                                        <b><i>  EV. {item.id} </i>- Attesa Avversario</b>
 
-                                                <li style={{ textTransform: 'capitalize' }} key={index + 1}>{item.players[0].p1} VS {item.players[1].p2}</li>
-                                                {item.status === 'pending' &&
-                                                    <b><i>  EV. {item.id} </i>- Attesa Avversario</b>
+                                                    }
+                                                    {item.status === 'processing' &&
+                                                        <>
+                                                            {item.datasfida === '' ? (
+                                                                <b><i>  EV. {item.id} </i>- Da Porgrammare</b>
 
-                                                }
-                                                {item.status === 'processing' &&
-                                                    <>
-                                                        {item.datasfida === '' ? (
-                                                            <b><i>  EV. {item.id} </i>- Da Porgrammare</b>
+                                                            ) : (
+                                                                <b><i>  EV. {item.id} </i>- In Corso</b>
 
-                                                        ) : (
-                                                            <b>In Corso</b>
+                                                            )}
+                                                        </>
+                                                    }
+                                                    {item.status === 'cancel' &&
+                                                        <b> <i>  EV. {item.id} </i>- Annullata</b>
 
-                                                        )}
-                                                    </>
-                                                }
-                                                {item.status === 'cancel' &&
-                                                    <b> <i>  EV. {item.id} </i>- Annullata</b>
+                                                    }
+                                                    {item.status === 'complete' &&
+                                                        <b> <i>  EV. {item.id} </i>- Completata </b>
 
-                                                }
-                                                {item.status === 'complete' &&
-                                                    <b> <i>  EV. {item.id} </i>- Completata </b>
-
-                                                }
-                                                <li><b> Creata:</b> {item.datacreate} <b>{item.status==='cancel' ? 'Annullata: ' : 'Prevista: '}</b> {item.datasfida} {item.orasfida} </li>
+                                                    }
+                                                </li>
+                                                <li style={{ textAlign: 'center' }}><b> Del:</b> {item.datacreate} <b>{item.status === 'cancel' ? ' Annullata: ' : ' Prevista: '}</b> {item.datasfida} {item.orasfida} </li>
                                                 {item.players[0].idp1 === iduser ? (
-                                                    <li> <b> {loadnumberphone(item.players[1].idp2)}</b></li>
+                                                    <li style={{ textAlign: 'center' }}> <b> {loadnumberphone(item.players[1].idp2)}</b></li>
                                                 ) : (
-                                                    <li> <b>{loadnumberphone(item.players[0].idp1)}</b></li>    
+                                                    <li style={{ textAlign: 'center' }}> <b>{loadnumberphone(item.players[0].idp1)}</b></li>
                                                 )}
-                                                <li ><b>Score</b></li>
-                                                <li style={{ textDecoration: item.set1 === '0-0' ? 'line-through' : 'none' }} >Set1: <b>{item.set1} </b></li>
-                                                <li style={{ textDecoration: item.set2 === '0-0' ? 'line-through' : 'none' }} >Set2: <b>{item.set2} </b></li>
-                                                <li style={{ textDecoration: item.set3 === '0-0' ? 'line-through' : 'none' }} >Set3: <b>{item.set3} </b> </li>
+                                                <li style={{ textAlign: 'center', textTransform: 'capitalize', fontWeight: '600', textDecoration: 'underline' }} key={index + 1}>{item.players[0].p1} VS {item.players[1].p2}</li>
+                                                <li style={{ textAlign: 'center' }} ><b>Score</b></li>
+                                                <li style={{ textAlign: 'center', textDecoration: item.set1 === '0-0' ? 'line-through' : 'none' }} >Set1: <b>{item.set1} </b></li>
+                                                <li style={{ textAlign: 'center', textDecoration: item.set2 === '0-0' ? 'line-through' : 'none' }} >Set2: <b>{item.set2} </b></li>
+                                                <li style={{ textAlign: 'center', textDecoration: item.set3 === '0-0' ? 'line-through' : 'none' }} >Set3: <b>{item.set3} </b> </li>
 
                                             </ul>
 
@@ -1017,7 +1018,7 @@ const Mychallenge = () => {
                                                                         formatday={(locale, date) => dayjs(date).format('DD/MM/YYYY')}
                                                                         onChange={date => setdatadellasfida(date)} value={datadellasfida} />
 
-                                                                    <b>Orario</b>:<select style={{ maxWidth: '36%', marginBottom:'5px' }} value={orasfida} onChange={e => setordasfida((e.target.value))} className="list form-control">
+                                                                    <b>Orario</b>:<select style={{ maxWidth: '36%', marginBottom: '5px' }} value={orasfida} onChange={e => setordasfida((e.target.value))} className="list form-control">
                                                                         <option value="09.00">09.00</option>
                                                                         <option value="09.30">09.30</option>
                                                                         <option value="10.30">10.00</option>
@@ -1149,7 +1150,7 @@ const Mychallenge = () => {
                                                                     formatday={(locale, date) => dayjs(date).format('DD/MM/YYYY')}
                                                                     onChange={date => setdatadellasfida(date)} value={datadellasfida} />
 
-                                                                <b>Orario</b>:<select style={{ maxWidth: '36%', marginBottom:'5px' }} value={orasfida} onChange={e => setordasfida((e.target.value))} className="list form-control">
+                                                                <b>Orario</b>:<select style={{ maxWidth: '36%', marginBottom: '5px' }} value={orasfida} onChange={e => setordasfida((e.target.value))} className="list form-control">
                                                                     <option value="09.00">09.00</option>
                                                                     <option value="09.30">09.30</option>
                                                                     <option value="10.30">10.00</option>
@@ -1203,8 +1204,8 @@ const Mychallenge = () => {
                                                             </>
                                                             {dayjs(today).format('DD/MM/YYYY') >= formatdate(item.datasfida) &&
 
-                                                                /*   {Date(today) >= Date(item.datasfida) &&
-       */
+                                                                /*   {Date(today) >= Date(item.datasfida) && */
+
                                                                 <div>
 
                                                                     <span><i>Inserisci Il risultati</i></span>

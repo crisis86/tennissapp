@@ -209,7 +209,7 @@ const Home = () => {
         <div className="page-content">
             <div className="list cards-list inset margin-vertical-half no-chevron no-hairlines no-hairlines-between">
 
-                <div style={{ display: 'flex' }} className="filter">
+                <div style={{ display: 'flex', borderBottom:'1px solid #e9e9e9' }} className="filter">
 
                     <img style={{ float: 'left' }} src={iconafiltro} alt="filter" width={23} ></img>
 
@@ -241,7 +241,7 @@ const Home = () => {
                 <div className="row align-items-stretch">
                     {challenge &&
                         challenge.sort((a, b) => formattadata(b.datasfida) >= formattatoday() || a.status < b.status ? 1 : -1).map((item, index) => (
-                            <div style={{ border: '1px solid #cbc4c4', borderRadius: '10px' }} key={index + 1} className="col-100 small-50 xlarge-100">
+                            <div key={index + 1} className="col-100 small-50 xlarge-100">
                                 <div className="item-content height-100">
                                     <div className="item-inner item-cell height-100 padding-vertical">
                                         <div className="item-row flex-direction-column height-100">
@@ -298,11 +298,11 @@ const Home = () => {
                                                 <div style={{
                                                     borderRadius: '10px',
                                                     textAlign: 'center',
-                                                    backgroundColor: '#e7e7e7',
+                                                    background: 'rgba(190,190,190,0.6)',
                                                     backgroundPosition: 'center',
                                                     backgroundSize: 'cover',
                                                     backgroundImage: `url(${sfondo})`,
-                                                    opacity: '0.7'
+                                                  
                                                 }}
                                                     className="item-cell item-background">
                                                     <div className="font-size-14 multi-line-text lines-3 text-color-gray">
@@ -338,9 +338,6 @@ const Home = () => {
                                                     <div style={{
                                                         borderRadius: '10px',
                                                         textAlign: 'center',
-                                                        backgroundPosition: 'center',
-                                                        backgroundSize: 'cover',
-                                                        backgroundImage: `url(${sfondo2})`,
                                                         padding: '5px 8px'
                                                     }}
                                                         className={item.status === 'pending' || item.status === 'processing' ? 'list no-chevron no-hairlines no-hairlines-between no-safe-areas segmented-strong-pending' : 'list no-chevron no-hairlines no-hairlines-between no-safe-areas segmented-strong'}>

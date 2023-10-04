@@ -563,14 +563,14 @@ const ChallengeSingle = () => {
 
                                 </div>
                                 {challenge.sort((a, b) => a.id < b.id ? 1 : -1).map((partite, i) => (
-                                    <div key={i + 1} style={{ paddingLeft: '5px' }} className="card no-shadow no-safe-area-left">
+                                    <div key={i + 1} style={{ paddingLeft: '5px', border:'0' }} className="card no-shadow no-safe-area-left">
                                         <div className="card-contet">
                                             <div className="block block-strong medium-hide no-hairlines no-margin-vertical sticky sticky-top">
                                                 <div style={{ padding: '5px 8px' }} className={partite.status === 'pending' || partite.status === 'processing' ? 'list no-chevron no-hairlines no-hairlines-between no-safe-areas segmented-strong-pending' : 'list no-chevron no-hairlines no-hairlines-between no-safe-areas segmented-strong'}>
 
                                                     <ul>
 
-                                                        <li style={{ textTransform: 'capitalize' }}>{partite.players[0].p1} VS {partite.players[1].p2}</li>
+                                                       <li style={{textAlign:'center'}}> 
                                                         {partite.status === 'pending' &&
                                                             <b> <i>  EV. {partite.id} </i>-   Attesa Avversario</b>
 
@@ -594,11 +594,14 @@ const ChallengeSingle = () => {
                                                             <b> <i>  EV. {partite.id} </i>-  Completata </b>
 
                                                         }
-                                                        <li><b> Creata: </b>{partite.datacreate} <b>{partite.status==='cancel' ? 'Annullata: ' : 'Prevista: '}</b> {partite.datasfida} {partite.orasfida}</li>
-                                                        <li ><b>Score</b></li>
-                                                        <li style={{ textDecoration: partite.set1 === '0-0' ? 'line-through' : 'none' }}>Set1: <b>{partite.set1} </b></li>
-                                                        <li style={{ textDecoration: partite.set2 === '0-0' ? 'line-through' : 'none' }}>Set2: <b>{partite.set2} </b></li>
-                                                        <li style={{ textDecoration: partite.set3 === '0-0' ? 'line-through' : 'none' }}>Set3: <b>{partite.set3} </b> </li>
+                                                  </li>       
+                                                    <li style={{textAlign:'center'}}>     <b> Del: </b>{partite.datacreate}  
+                                                      <b>{partite.status==='cancel' ? ' Annullata: ' : ' Prevista: '}</b> {partite.datasfida} {partite.orasfida}</li>
+                                                        <li style={{ textTransform: 'capitalize',textAlign:'center', fontWeight:'600',textDecoration:'underline' }}>{partite.players[0].p1} VS {partite.players[1].p2}</li>
+                                                        <li style={{textAlign:'center'}} ><b>Score</b></li>
+                                                        <li style={{textAlign:'center', textDecoration: partite.set1 === '0-0' ? 'line-through' : 'none' }}>Set1: <b>{partite.set1} </b></li>
+                                                        <li style={{textAlign:'center', textDecoration: partite.set2 === '0-0' ? 'line-through' : 'none' }}>Set2: <b>{partite.set2} </b></li>
+                                                        <li style={{textAlign:'center', textDecoration: partite.set3 === '0-0' ? 'line-through' : 'none' }}>Set3: <b>{partite.set3} </b> </li>
                                                     </ul>
 
                                                 </div>
