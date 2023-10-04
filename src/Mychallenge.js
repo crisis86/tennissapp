@@ -941,7 +941,7 @@ const Mychallenge = () => {
                     {challengepending &&
 
                         challengepending.sort((a, b) => a.id < b.id ? 1 : -1).map((item, index) => (
-                            <div key={index + 1} style={{ paddingLeft: '5px', border: '0', marginBottom:'0', marginTop:'0'}} className="card no-shadow no-safe-area-left">
+                            <div key={index + 1} style={{ paddingLeft: '5px', border: '0', marginBottom:'0', marginTop:'0', marginRight:'4px'}} className="card no-shadow no-safe-area-left">
 
 
                                 <div className="card-contet">
