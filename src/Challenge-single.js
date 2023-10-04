@@ -563,8 +563,8 @@ const ChallengeSingle = () => {
 
                                 </div>
                                 {challenge.sort((a, b) => a.id < b.id ? 1 : -1).map((partite, i) => (
-                                    <div key={i + 1} style={{ paddingLeft: '5px', border:'0' }} className="card no-shadow no-safe-area-left">
-                                        <div className="card-contet">
+                                    <div key={i + 1} style={{ paddingLeft: '5px', border:'0',  marginBottom:'0' }} className="card no-shadow no-safe-area-left">
+                                        <div style={{marginRight:'14px'}} className="card-contet">
                                             <div className="block block-strong medium-hide no-hairlines no-margin-vertical sticky sticky-top">
                                                 <div style={{ padding: '5px 8px' }} className={partite.status === 'pending' || partite.status === 'processing' ? 'list no-chevron no-hairlines no-hairlines-between no-safe-areas segmented-strong-pending' : 'list no-chevron no-hairlines no-hairlines-between no-safe-areas segmented-strong'}>
 

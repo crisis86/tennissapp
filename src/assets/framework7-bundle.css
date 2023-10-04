@@ -10847,7 +10847,6 @@
   .card .list,
   .card .block {
     margin: 0;
-    padding: 2px 0;
   }
   .row:not(.no-gap) .col > .card {
     margin-left: 0;
