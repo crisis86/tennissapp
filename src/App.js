@@ -32,10 +32,10 @@ function App() {
     
   
     const cron = require('node-schedule')
-  cron.scheduleJob('*/10000 * * * *', () => {    
+  cron.scheduleJob('*/1 * * * *', () => {    
  
-   // controllasfide()
-   //controllpending();
+  //   controllasfide()
+ // controllpending();
   // console.log('running a task every  minute', new Date());
     });
 
