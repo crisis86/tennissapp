@@ -44,7 +44,7 @@ function App() {
   }, [])
   function controllasfide() {
 
-    fetch("http://localhost:10000/challenge?status=processing", {
+    fetch(window.$produrl + "/challenge?status=processing", {
       method: 'GET',
       headers: {
         accept: 'application/json',
@@ -102,7 +102,7 @@ function App() {
   }
   function controllpending() {
 
-    fetch("http://localhost:10000/challenge?status=pending", {
+    fetch(window.$produrl + "/challenge?status=pending", {
       method: 'GET',
       headers: {
         accept: 'application/json',
@@ -161,7 +161,7 @@ function App() {
 
   function cancelchallenge(objchallenge, idriga) {
   
-    fetch("http://localhost:10000/challenge/" + idriga, {
+    fetch(window.$produrl + "/challenge/" + idriga, {
       method: 'PUT',
       headers: {
         'Accept': 'application/json',
@@ -183,7 +183,7 @@ function App() {
   
   function penalizzazione(idp1, idp2) {
   
-    fetch("http://localhost:10000/user?role=player", {
+    fetch(window.$produrl + "/user?role=player", {
       method: 'GET',
       headers: {
         accept: 'application/json',
@@ -272,7 +272,7 @@ function App() {
   }
   function controllafuorigioco() {
 
-    fetch("http://localhost:10000/user?role=player&fuorigioco=true", {
+    fetch(window.$produrl +"/user?role=player&fuorigioco=true", {
       method: 'GET',
       headers: {
         accept: 'application/json',   
@@ -312,7 +312,7 @@ function App() {
           if (days >= 6) {
             console.log('Fuorigioco >= di 6 giorni')
              
-            // penalizzazionesingola(obj.id)
+           //   penalizzazionesingola(obj.id)
                console.log('penalizzo:', obj.name)
           } else {
             console.log('Fuorigioco Dentro i 6 girni')
@@ -328,7 +328,7 @@ function App() {
   
   function penalizzazionesingola(idp1) {
   
-    fetch("http://localhost:10000/user?role=player", {
+    fetch(window.$produrl + "/user?role=player", {
       method: 'GET',
       headers: {
         accept: 'application/json',
@@ -393,7 +393,7 @@ function App() {
   
   function penalizzazionePending(idp1, idp2) {
 
-    fetch("http://localhost:10000/user?role=player", {
+    fetch(window.$produrl + "/user?role=player", {
       method: 'GET',
       headers: {
         accept: 'application/json',
@@ -509,7 +509,7 @@ function App() {
 
   function updateUserPosition(ogettogioc) {
   
-    fetch("http://localhost:10000/user/" + ogettogioc.id, {
+    fetch(window.$produrl +"/user/" + ogettogioc.id, {
       method: 'PUT',
       headers: {
         'Accept': 'application/json',
