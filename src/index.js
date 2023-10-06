@@ -8,7 +8,6 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import 'react-toastify/dist/ReactToastify.css';
 window.$mainteneance = "off";
 
-
 window.$servEmail ="https://servermail-fhuv.onrender.com";
 
 window.$produrl = "https://tennissapp.onrender.com";

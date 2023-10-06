@@ -290,7 +290,6 @@ function App() {
       //console.log(userfuorigioco);
   
       console.log((userfuorigioco));
-  
       const current = new Date();
       //  const currentDate = current.getDate();
   
