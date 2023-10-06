@@ -312,7 +312,7 @@ function App() {
           if (days >= 6) {
             console.log('Fuorigioco >= di 6 giorni')
              
-           //   penalizzazionesingola(obj.id)
+             penalizzazionesingola(obj.id)
                console.log('penalizzo:', obj.name)
           } else {
             console.log('Fuorigioco Dentro i 6 girni')
