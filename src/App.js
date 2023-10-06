@@ -36,6 +36,7 @@ function App() {
  
   //   controllasfide()
  // controllpending();
+ controllafuorigioco()
   // console.log('running a task every  minute', new Date());
     });
 
@@ -312,8 +313,8 @@ function App() {
           if (days >= 6) {
             console.log('Fuorigioco >= di 6 giorni')
              
-             penalizzazionesingola(obj.id)
-  
+            // penalizzazionesingola(obj.id)
+               console.log('penalizzo:', obj.name)
           } else {
             console.log('Fuorigioco Dentro i 6 girni')
           }
@@ -435,68 +436,75 @@ function App() {
       console.log(posp2);
   
       const foundannulla = classicica.sort((a, b) => a.posizione > b.posizione ? 1 : -1).filter((obj, index) => {
+
+        if (index + 1 === posp2 + 1) {
   
-        if (obj.id === idp1) {
+          if (obj.id !== idp1) {
   
-            obj.insfida = false;
-            if (Object.keys(classicica).length > index + 1) { //controllo la fine della classifica
-                obj.posizione = obj.posizione + 1 // scendo di 1 perchè ho annullato
-  
-                console.log("id chi anulla:" + obj.id)
-                console.log("posizione iniz:" + posp1)
-                console.log("pod do chi anulla:" + obj.posizione)
-            }
-  
-            updateUserPosition(obj)
-  
-        }
-  
-        if (index + 1 === posp1 + 1) {
-  
-            if (obj.id !== idp2) {
-  
-                obj.posizione = obj.posizione - 1 // sale di uno quello sotto
-  
-                if (obj.posizione <= 0) { obj.posizione = 1 }  //check primo classifica 
-  
-                console.log("sale di uno quello sotto", obj.posizione)
-                updateUserPosition(obj)
-            }else {
-                obj.insfida = false;
-                updateUserPosition(obj)
-            }
-        }
-  
-        if (obj.id === idp2) {
-  
-            obj.insfida = false;
-            obj.posizione = obj.posizione - 1  // sale di uno subisce annullo
+            obj.posizione = obj.posizione - 1 // sale di uno quello sotto
   
             if (obj.posizione <= 0) { obj.posizione = 1 }  //check primo classifica 
   
-            console.log("id chi subisce anullo:" + obj.id)
-            console.log("posizione iniz:" + posp2)
-            console.log("sale di uno subisce annullo", obj.posizione)
+            console.log("sale di uno quello sotto al player2: " + obj.name + " - ", obj.posizione)
             updateUserPosition(obj)
+          } else {
+            console.log("becca player2: " + obj.name + " - ", obj.posizione)
+  
+            obj.insfida = false;
+            updateUserPosition(obj)
+          }
+        }
+        else if (obj.id === idp2) {
+  
+          obj.insfida = false;
+          if (Object.keys(classicica).length > index + 1) { //controllo la fine della classifica
+            obj.posizione = obj.posizione + 1 // scendo di 1 perchè ho annullato
+  
+            console.log("id chi anulla:" + obj.id)
+            console.log("posizione iniz:" + posp2)
+            console.log("pod do chi anulla:" + obj.posizione)
+          }
+  
+          updateUserPosition(obj)
+  
         }
   
-        if (index + 1 === posp2 - 1) {
+      })
   
-            if (obj.id !== idp1) {
+      let classificatemp = classicica
   
-                obj.posizione = obj.posizione + 1 // scende di uno quello sopra
-                console.log("scendi uno quello sopra", obj.posizione)
-                updateUserPosition(obj)
-            } else {
-                obj.insfida = false;
-                updateUserPosition(obj)
-            }
+      const foundannullaC2 = classificatemp.sort((a, b) => a.posizione > b.posizione ? 1 : -1).filter((object, coda) => {
+  
+        if (coda + 1 === posp1 - 1) {
+  
+          if (object.id !== idp2) {
+  
+            object.posizione = object.posizione + 1 // scende di uno quello sopra
+            console.log("scendi uno quello sopra al player1: " + object.name + " - ", object.posizione)
+            updateUserPosition(object)
+          } else {
+            object.posizione = object.posizione + 1 // scende di uno quello sopra
+  
+            console.log("becca player1: " + object.name + " - ", object.posizione)
+            object.insfida = false;
+            updateUserPosition(object)
+          }
         }
   
-        return obj.id
+        if (object.id === idp1) {
   
-    })
-     
+          object.insfida = false;
+          object.posizione = object.posizione - 1  // sale di uno subisce annullo
+  
+          if (object.posizione <= 0) { object.posizione = 1 }  //check primo classifica 
+  
+          console.log("id chi subisce anullo:" + object.id)
+          console.log("posizione iniz:" + posp1)
+          console.log("sale di uno subisce annullo", object.posizione)
+          updateUserPosition(object)
+        }
+      })
+  
     });
   }
 
