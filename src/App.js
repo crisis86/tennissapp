@@ -295,7 +295,7 @@ function App() {
       //  const currentDate = current.getDate();
   
       const found = userfuorigioco.filter((obj, index) => {
-        // console.log(obj.status)
+         console.log(current)
         if (obj.datafuorigioco !== '' || obj.datafuorigioco !== null) {
   
           let fuoridata = obj.datafuorigioco;
