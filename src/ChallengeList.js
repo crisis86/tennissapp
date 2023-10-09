@@ -473,6 +473,8 @@ const ChallengeList = () => {
                         console.log("sale di uno quello sotto al player2: " + obj.name + " - ", obj.posizione)
                         updateUserPosition(obj)
                     } else {
+                        obj.posizione = obj.posizione - 1 // sale di uno quello sotto
+
                         console.log("becca player2: " + obj.name + " - ", obj.posizione)
 
                         obj.insfida = false;
