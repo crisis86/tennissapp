@@ -829,8 +829,8 @@ const Mychallenge = () => {
                             console.log("sale di uno quello sotto al player2: " + obj.name + " - ", obj.posizione)
                             updateUserPosition(obj)
                         } else {
+                            obj.posizione = obj.posizione - 1 // sale di uno quello sotto
                             console.log("becca player2: " + obj.name + " - ", obj.posizione)
-
                             obj.insfida = false;
                             updateUserPosition(obj)
                         }
@@ -866,7 +866,6 @@ const Mychallenge = () => {
                             updateUserPosition(object)
                         } else {
                             object.posizione = object.posizione + 1 // scende di uno quello sopra
-
                             console.log("becca player1: " + object.name + " - ", object.posizione)
                             object.insfida = false;
                             updateUserPosition(object)
@@ -958,7 +957,7 @@ const Mychallenge = () => {
     }
 
     function sendemail(names, emails, status) {
-
+ 
         let message = "";
         let subject = "";
         if (status === 'add') {
