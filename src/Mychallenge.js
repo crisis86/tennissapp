@@ -746,7 +746,7 @@ const Mychallenge = () => {
 
             case 'Annulla_sfida1':
 
-            console.log('Annulla sfida p1')
+                console.log('Annulla sfida p1')
 
                 const foundannulla = classicica.sort((a, b) => a.posizione > b.posizione ? 1 : -1).filter((obj, index) => {
 
@@ -812,13 +812,13 @@ const Mychallenge = () => {
                 })
                 return foundannulla;
 
-                case 'Annulla_sfida2':
+            case 'Annulla_sfida2':
 
                 console.log('Annulla sfida p2')
 
                 const foundannulla2 = classicica.sort((a, b) => a.posizione > b.posizione ? 1 : -1).filter((obj, index) => {
-                
-                     if (index + 1 === posp2 + 1) {
+
+                    if (index + 1 === posp2 + 1) {
 
                         if (obj.id !== idp1) {
 
@@ -826,10 +826,10 @@ const Mychallenge = () => {
 
                             if (obj.posizione <= 0) { obj.posizione = 1 }  //check primo classifica 
 
-                            console.log("sale di uno quello sotto al player2: "+obj.name +" - ", obj.posizione)
+                            console.log("sale di uno quello sotto al player2: " + obj.name + " - ", obj.posizione)
                             updateUserPosition(obj)
                         } else {
-                            console.log("becca player2: "+obj.name +" - ", obj.posizione)
+                            console.log("becca player2: " + obj.name + " - ", obj.posizione)
 
                             obj.insfida = false;
                             updateUserPosition(obj)
@@ -849,11 +849,11 @@ const Mychallenge = () => {
                         updateUserPosition(obj)
 
                     }
-                 
-                
+
+
                 })
 
-                let classificatemp = classicica          
+                let classificatemp = classicica
 
                 const foundannullaC2 = classificatemp.sort((a, b) => a.posizione > b.posizione ? 1 : -1).filter((object, coda) => {
 
@@ -862,21 +862,21 @@ const Mychallenge = () => {
                         if (object.id !== idp2) {
 
                             object.posizione = object.posizione + 1 // scende di uno quello sopra
-                            console.log("scendi uno quello sopra al player1: "+object.name +" - ", object.posizione)
+                            console.log("scendi uno quello sopra al player1: " + object.name + " - ", object.posizione)
                             updateUserPosition(object)
                         } else {
                             object.posizione = object.posizione + 1 // scende di uno quello sopra
 
-                            console.log("becca player1: "+object.name +" - ", object.posizione)
+                            console.log("becca player1: " + object.name + " - ", object.posizione)
                             object.insfida = false;
                             updateUserPosition(object)
                         }
                     }
-                  
-                   if (object.id === idp1) {
 
-                    object.insfida = false;
-                    object.posizione = object.posizione - 1  // sale di uno subisce annullo
+                    if (object.id === idp1) {
+
+                        object.insfida = false;
+                        object.posizione = object.posizione - 1  // sale di uno subisce annullo
 
                         if (object.posizione <= 0) { object.posizione = 1 }  //check primo classifica 
 
@@ -885,8 +885,8 @@ const Mychallenge = () => {
                         console.log("sale di uno subisce annullo", object.posizione)
                         updateUserPosition(object)
                     }
-                })      
-      //          console.log(JSON.stringify(foundannulla2));
+                })
+                //          console.log(JSON.stringify(foundannulla2));
                 return foundannulla2;
 
 
@@ -1003,6 +1003,33 @@ const Mychallenge = () => {
         //   console.log(formattedDate)
         return formattedDate
     }
+
+    function addforfait(e, idplayer) {
+        e.preventDefault();
+        if (window.confirm("Sei sicuro di volerti RITIRARE dalla sfida? Aggiorna iL risultato per confermare")) {
+            if (idplayer === iduser) {
+                setset1casa(0)
+                setset2casa(0)
+                setset3casa(0)
+                setset1ospite(6)
+                setset2ospite(6)
+                setset3ospite(6)
+
+
+            } else {
+
+
+                setset1casa(6)
+                setset2casa(6)
+                setset3casa(6)
+                setset1ospite(0)
+                setset2ospite(0)
+                setset3ospite(0)
+            }
+        }
+    }
+
+
     return (
         <>
             <div className="page-content">
@@ -1020,7 +1047,7 @@ const Mychallenge = () => {
                     {challengepending &&
 
                         challengepending.sort((a, b) => a.id < b.id ? 1 : -1).map((item, index) => (
-                            <div key={index + 1} style={{ paddingLeft: '5px', border: '0', marginBottom:'0', marginTop:'0', marginRight:'4px'}} className="card no-shadow no-safe-area-left">
+                            <div key={index + 1} style={{ paddingLeft: '5px', border: '0', marginBottom: '0', marginTop: '0', marginRight: '4px' }} className="card no-shadow no-safe-area-left">
 
 
                                 <div className="card-contet">
@@ -1155,9 +1182,8 @@ const Mychallenge = () => {
                                                                 {dayjs(today).format('DD/MM/YYYY') >= formatdate(item.datasfida) &&
 
                                                                     <div>
-
-                                                                        <span><i>Inserisci Il risultati </i></span>
-
+                                                                        <span style={{ textAlign: 'center' }}><strong><h6> Inserisci Il risultato </h6></strong></span>
+                                                                        <button style={{ display: 'inerith' }} onClick={(e) => addforfait(e, item.players[0].idp1)} type="button" className="button button-fill button-small color-red">RITIRO</button><hr></hr>
                                                                         <table className="data-table">
                                                                             <tbody>
                                                                                 <tr index={index + 1}>
@@ -1192,8 +1218,8 @@ const Mychallenge = () => {
                                                                                 </tr>
                                                                             </tbody>
                                                                         </table>
-
-                                                                        <button style={{ display: 'inerith' }} onClick={(e) => aggiornapunteggio(e, item.id, item.players[0].idp1, item.players[1].idp2)} type="button" className="button button-fill button-small">Aggiorna Risultati</button>
+<hr></hr>
+                                                                        <button style={{ display: 'inerith' }} onClick={(e) => aggiornapunteggio(e, item.id, item.players[0].idp1, item.players[1].idp2)} type="button" className="button button-fill button-small">Aggiorna Risultato</button>
 
                                                                     </div>
                                                                 }
@@ -1287,7 +1313,8 @@ const Mychallenge = () => {
 
                                                                 <div>
 
-                                                                    <span><i>Inserisci Il risultati</i></span>
+                                                                    <span style={{ textAlign: 'center' }}><strong><h6> Inserisci Il risultato </h6></strong></span>
+                                                                    <button style={{ display: 'inerith' }} onClick={(e) => addforfait(e, item.players[0].idp1)} type="button" className="button button-fill button-small color-red">RITIRO</button>
 
                                                                     <table className="data-table">
                                                                         <tbody>
@@ -1331,8 +1358,8 @@ const Mychallenge = () => {
                                                                             </tr>
                                                                         </tbody>
                                                                     </table>
-
-                                                                    <button style={{ display: 'inerith' }} onClick={(e) => aggiornapunteggio(e, item.id, item.players[0].idp1, item.players[1].idp2)} type="button" className="button button-fill button-small">Aggiorna Risultati</button>
+<hr></hr>
+                                                                    <button style={{ display: 'inerith' }} onClick={(e) => aggiornapunteggio(e, item.id, item.players[0].idp1, item.players[1].idp2)} type="button" className="button button-fill button-small">Aggiorna Risultato</button>
 
                                                                 </div>
 
