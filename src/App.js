@@ -22,26 +22,26 @@ import Mainteneance from './mainteneance';
 
 
 
-function App() {  
- 
-  
+function App() {
+
+
   useEffect(() => {
     let vh = window.innerHeight * 0.01;
     // Then we set the value in the --vh custom property to the root of the document
     document.documentElement.style.setProperty('--vh', `${vh}px`);
-    
-  
- // const cron = require('node-schedule')
-//  cron.scheduleJob('*/100 * * * *', () => {    
- 
- //)
-  // console.log('running a task every  minute', new Date());
-  //  });
+
+
+    // const cron = require('node-schedule')
+    //  cron.scheduleJob('*/100 * * * *', () => {    
+
+    //)
+    // console.log('running a task every  minute', new Date());
+    //  });
 
 
   }, [])
- 
- 
+
+
   return (
     <div className="App">
       <ToastContainer theme='colored' autoClose='2000' position='top-center'></ToastContainer>
@@ -63,8 +63,8 @@ function App() {
           <Route path="/mainteneance" element={<Mainteneance />}> </Route>
           <Route path="/Edit/:id" element={<Edit />}> </Route>
           <Route path="/AdminChallenge" element={<AdminChallenge />}> </Route>
-           <Route path="/EditChallenge/:id" element={<EditChallenge />}> </Route>
-           <Route path="/Challenge-single/:id/:name" element={<ChallengeSingle />}> </Route>
+          <Route path="/EditChallenge/:id" element={<EditChallenge />}> </Route>
+          <Route path="/Challenge-single/:id/:name" element={<ChallengeSingle />}> </Route>
 
 
         </Routes>
