@@ -22,7 +22,8 @@ const Edit = () => {
     const [fuorigioco, fuorigiocochange] = useState(false)
     const [fuorigiocochek, setfuorigiocochek] = useState(false)
     const [datafuorigioco, setdatafuorigioco] = useState("")
-
+    const [codiceclub, setsetclub] = useState(sessionStorage.getItem('club'));
+    const [club, setsetclubname] = useState('');
 
 
     const navigate = useNavigate();
@@ -30,6 +31,11 @@ const Edit = () => {
 
 
     useEffect(() => {
+
+        if(codiceclub==="" || codiceclub === undefined){
+            navigate('/login');    
+        }
+
         let email = sessionStorage.getItem('email')
 
         if (email === '' || email === null) {
@@ -90,6 +96,8 @@ const Edit = () => {
             fuorigiocochange(resp.fuorigioco)
             setdatafuorigioco(resp.datafuorigioco)
             setfuorigiocochek(resp.fuorigioco)
+            setsetclub(resp.codiceclub)
+            setsetclubname(resp.club)
 
 
         });
@@ -167,7 +175,7 @@ const Edit = () => {
 
 
 
-        let regobj = { email, password, name, phone, country, role, address, gender, posizione, insfida, fuorigioco, datafuorigioco };
+        let regobj = { email, password, name, phone, country, role, address, gender, posizione, insfida, fuorigioco, datafuorigioco, codiceclub,club};
         if (IsValidate()) {
             //  console.log(regobj);
             fetch(window.$produrl + "/user/" + id['id'], {
@@ -207,16 +215,8 @@ const Edit = () => {
                                     }
                                 </div>
                                 <div className="col-lg-6">
-                                    <div className="form-group">
-                                        <label>Password <span className="errmsg">*</span></label>
-                                        <input value={password} onChange={e => passwordchange(e.target.value)} type="password" className="form-control"></input>
-                                    </div>
-                                </div>
-                                <div className="col-lg-6">
-                                    <div className="form-group">
-                                        <label>Confirm Password <span className="errmsg">*</span></label>
-                                        <input value={confirmpassword} onChange={e => confirmpassworchange(e.target.value)} type="password" className="form-control"></input>
-                                    </div>
+                                <label>Club:{codiceclub} - {club}</label>
+
                                 </div>
                                 <div className="col-lg-6">
                                     <div className="form-group">
@@ -228,6 +228,18 @@ const Edit = () => {
                                     <div className="form-group">
                                         <label>Email <span className="errmsg">*</span></label>
                                         <input value={email} onChange={e => emailchange(e.target.value)} className="form-control"></input>
+                                    </div>
+                                </div>
+                                <div className="col-lg-6">
+                                    <div className="form-group">
+                                        <label>Password <span className="errmsg">*</span></label>
+                                        <input value={password} onChange={e => passwordchange(e.target.value)} type="password" className="form-control"></input>
+                                    </div>
+                                </div>
+                                <div className="col-lg-6">
+                                    <div className="form-group">
+                                        <label>Confirm Password <span className="errmsg">*</span></label>
+                                        <input value={confirmpassword} onChange={e => confirmpassworchange(e.target.value)} type="password" className="form-control"></input>
                                     </div>
                                 </div>
                                 <div className="col-lg-6">

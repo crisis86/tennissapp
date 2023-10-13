@@ -14,6 +14,8 @@ const Login = () => {
     const [email, emailupdate] = useState('');
     const [getiduser, setiduser] = useState(null);
     const [password, passwordupdate] = useState('');
+    const [setclub, setclubupdate] = useState('');
+
     const [loading, setloading] = useState(false);
     const usenavigate = useNavigate();
     const savelogin = GetCookie('utente');
@@ -35,6 +37,10 @@ const Login = () => {
                 sessionStorage.setItem('fullname', obuser.name);
                 sessionStorage.setItem('stoinsfida', obuser.insfida);
                 localStorage.setItem('datiuserlogin', JSON.stringify(obuser));
+                sessionStorage.setItem('club', obuser.codiceclub);
+                sessionStorage.setItem('clubname', obuser.club);
+
+
                // toast.success('Success');
                 usenavigate('/')
                // console.log(obuser)
@@ -54,7 +60,7 @@ const Login = () => {
             // console.log('proceed');
             //getUsersid();
 
-            fetch(window.$produrl + "/user?email=" + email,
+            fetch(window.$produrl + "/user?email=" + email+"&codiceclub="+setclub,
                 {
                     headers: {
                         accept: 'application/json',
@@ -85,6 +91,8 @@ const Login = () => {
                             sessionStorage.setItem('iduser', resp[0].id);
                             sessionStorage.setItem('fullname', resp[0].name);
                             sessionStorage.setItem('stoinsfida', resp[0].insfida);
+                            sessionStorage.setItem('club', resp[0].codiceclub);
+                            sessionStorage.setItem('clubname', resp[0].club)
                             localStorage.setItem('datiuserlogin', JSON.stringify(resp[0]));
                             toast.success('Success');
                             setloading(false)
@@ -105,9 +113,21 @@ const Login = () => {
     }
 
 
- 
+ function selectclub(club) {
+    setclubupdate(club)
+    sessionStorage.setItem('club',club)
+    window.produrl = club
+    console.log(club)
+    console.log(window.produrl)
+    
+ }
     const validate = () => {
         let result = true;
+        if (setclub === '' || setclub === null) {
+            setloading(false);
+            result = false;
+            toast.warning('Please Enter Club');
+        }
         if (email === '' || email === null) {
             setloading(false);
             result = false;
@@ -132,6 +152,16 @@ const Login = () => {
                             <span><a href="/login"><img src={logo} width="30px" /></a></span>
                         </div>
                         <div className="card-body">
+                        <div className="form-group">
+                                <label>Club <span className="errmsg">*</span></label>
+                        <select  onChange={e => selectclub(e.target.value)} className="form-control">
+                        <option value="">seleziona club</option>
+
+                            <option value="DM00">Locale</option>
+                            <option value="DM01">SpinUptennis</option>
+
+                       </select>
+                            </div>
                             <div className="form-group">
                                 <label>Email <span className="errmsg">*</span></label>
                                 <input style={{textTransform:'lowercase'}} value={email} onChange={e => emailupdate(e.target.value.toLowerCase())} className="form-control"></input>

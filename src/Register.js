@@ -4,6 +4,7 @@ import { toast } from "react-toastify";
 import FontAwesome from 'react-fontawesome'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCoffee } from '@fortawesome/fontawesome-free-solid'
+import index from "toastify";
 
 const Register = () => {
 
@@ -26,19 +27,27 @@ const Register = () => {
     const [chekname, setcheckname] = useState(false);
     const navigate = useNavigate();
     const [loading, setloading] = useState(false);
+    const [codiceclub, setsetclub] = useState(sessionStorage.getItem('club'));
+    const [club, setsetclubname] = useState('');
 
 
 
     useEffect(() => {
-        lastidjson();
+     //   lastidjson();
     }, []);
+
+    useEffect(() => {
+        lastidjson();
+    }, [codiceclub]);
 
 
     function lastidjson() {
 
+        if (codiceclub !== "" || codiceclub !==undefined) {
+
         let pos = {};
 
-        fetch(window.$produrl + "/user", {
+        fetch(window.$produrl + "/user?codiceclub="+codiceclub, {
             method: 'GET'
         }).then(res => {
             if (!res.ok) {
@@ -55,6 +64,8 @@ const Register = () => {
             posizionechange(maxValue + 1)
 
         });
+
+    }
     }
 
     const IsValidate = () => {
@@ -84,6 +95,12 @@ const Register = () => {
             isproceed = false;
             errormessage += 'Giocatore';
         }
+
+        if (codiceclub === null || codiceclub === '') {
+            isproceed = false;
+            errormessage += 'Club';
+        }
+        
         if (phone === null || phone === '') {
             isproceed = false;
             errormessage += '  Telefono';
@@ -131,7 +148,7 @@ const Register = () => {
     function checkemail(email) {
 
 
-        fetch(window.$produrl + "/user?role=player&email=" + email).then(res => {
+        fetch(window.$produrl + "/user?role=player&email=" + email+"&codiceclub="+codiceclub).then(res => {
             if (!res.ok) {
                 return false
             }
@@ -149,7 +166,7 @@ const Register = () => {
 
     function checkfullname(nome) {
 
-        fetch(window.$produrl + "/user?role=player&name=" + nome).then(res => {
+        fetch(window.$produrl + "/user?role=player&name=" + nome+"&codiceclub="+codiceclub).then(res => {
             if (!res.ok) {
                 return false
             }
@@ -164,6 +181,30 @@ const Register = () => {
         });
     }
 
+    function selectclub(club, clubname) {
+        setsetclub(club)
+        setsetclubname(clubname)
+        sessionStorage.setItem('club',club)
+        sessionStorage.setItem('clubname',clubname)
+        caseclub(club)
+      //  window.produrl = club
+        console.log(club)
+        console.log(clubname)
+        console.log(window.$produrl)
+        
+     }
+
+     function caseclub(clubid) {
+        if (clubid === 'DM00') {
+            window.$produrl = "https://tennissapp.onrender.com";
+       //     window.$produrl = "http://localhost:10000";
+          } else if (clubid === 'DM01') {
+        //    url di altro club
+          } else {
+            toast.error('club non definito');
+          }
+    
+     }
     const handlesubmit = (e) => {
         setloading(true)
         e.preventDefault();
@@ -174,8 +215,8 @@ const Register = () => {
 
             let trimemail = email.trim()
             emailchange(trimemail)
-        
-            let regobj = {email, password, name, phone, country, role, address, gender, posizione, insfida, fuorigioco, datafuorigioco};
+
+            let regobj = { email, password, name, phone, country, role, address, gender, posizione, insfida, fuorigioco, datafuorigioco, codiceclub, club};
             if (IsValidate()) {
                 //  console.log(regobj);
                 fetch(window.$produrl + "/user", {
@@ -186,7 +227,7 @@ const Register = () => {
                     setloading(false)
 
                     toast.success('Registered successfully.')
-                   // navigate('/login');
+                    // navigate('/login');
                     navigate('/player');
                 }).catch((err) => {
                     setloading(false)
@@ -211,6 +252,17 @@ const Register = () => {
 
                             <div className="row">
                                 <div className="col-lg-6">
+                                    <div className="form-group">
+                                        <label>Club <span className="errmsg">*</span></label>
+                                        <select onChange={e => selectclub(e.target.value, e.target.options[e.target.options.selectedIndex].text)} className="form-control">
+                                            <option value="">seleziona club</option>
+
+                                            <option value="DM00">Locale Nola</option>
+                                            <option value="DM01">SpinUptennis</option>
+
+                                        </select>
+                                    </div>
+
                                     <div className="form-group">
                                         {/* <label>User Name <span className="errmsg">*</span></label> */}
                                         <input type="hidden" value={posizione} onChange={e => posizione(e.target.value)} className="form-control"></input>
@@ -275,14 +327,14 @@ const Register = () => {
                                     </div>
                                 </div>
                                 <div className="col-lg-6">
-                                        <div className="form-group">
-                                            <label>Fuorigioco</label>
-                                            <select value={fuorigioco} onChange={e => fuorigiocochange((JSON.parse(e.target.value)))} className="form-control">
+                                    <div className="form-group">
+                                        <label>Fuorigioco</label>
+                                        <select value={fuorigioco} onChange={e => fuorigiocochange((JSON.parse(e.target.value)))} className="form-control">
                                             <option value="true">Si</option>
                                             <option value="false">No</option>
                                         </select>
-                                        </div>
                                     </div>
+                                </div>
 
                             </div>
 

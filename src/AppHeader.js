@@ -7,11 +7,12 @@ const Appheader = () => {
     const [showmenu, showmenuupdateupdate] = useState(false);
     const usenavigate = useNavigate();
     const location = useLocation();
-
+ 
     const [badge, setbadge] = useState(false)
     const datiuserloging = JSON.parse(localStorage.getItem('datiuserlogin'))
 
     useEffect(() => {
+       
         if (location.pathname === '/login' || location.pathname === '/register' || location.pathname === '/Regolamento.html') {
             showmenuupdateupdate(false);
         } else {
@@ -56,7 +57,7 @@ const Appheader = () => {
                 <div className="header">
 
 
-                    <span style={{ marginTop:'3px', float: 'left' }}><b>Ciao,</b> <i>{sessionStorage.getItem('fullname')} </i> </span>
+                    <span style={{ marginTop:'3px', float: 'left' }}><b>Ciao,</b> <i>{sessionStorage.getItem('fullname')} - {sessionStorage.getItem('clubname')}</i> </span>
                     {badge === true && <span className="badge">News</span>}
                     <span>  <Link className="logout" style={{ float: 'right', color: '#ffffff !important' }} to={'/logout'}>
                     <FaIcons.FaSignOutAlt style={{color: '#ffffff' }} /></Link> </span>

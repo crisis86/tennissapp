@@ -9,11 +9,16 @@ const Player = () => {
     const [haveadd, addchange] = useState(false);
     const [haveremove, removechange] = useState(false);
     const myrole = sessionStorage.getItem('userrole')
+    const club = sessionStorage.getItem('club')
 
     const navigate=useNavigate();
 
 
     useEffect(() => {
+
+        if (club ==="" || club ===undefined) {
+            navigate('/login')
+        }
         if(myrole === 'admin') {
             GetUserAccess();
             loadcustomer();
@@ -29,7 +34,7 @@ const Player = () => {
     const loadcustomer = () => {
         
 
-        fetch(window.$produrl+"/user?role=player").then(res => {
+        fetch(window.$produrl+"/user?role=player&codiceclub="+club).then(res => {
             if (!res.ok) {
                
                 return false
@@ -113,6 +118,7 @@ const Player = () => {
             //  console.log(result)
             result.json().then((resp) => {
                 toast.success("Player Eliminato!");
+                loadcustomer();
             })
         }).catch((err) => {
             toast.error(err.message);

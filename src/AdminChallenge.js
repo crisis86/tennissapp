@@ -9,11 +9,16 @@ const AdminChallenge = () => {
     const [haveadd, addchange] = useState(false);
     const [haveremove, removechange] = useState(false);
     const myrole = sessionStorage.getItem('userrole')
+    const club = sessionStorage.getItem('club')
 
     const navigate=useNavigate();
 
 
     useEffect(() => {
+        if(club==="" || club === undefined){
+            navigate('/login');    
+        }
+        
         if(myrole === 'admin') {
             GetUserAccess();
             loacdchallenger();

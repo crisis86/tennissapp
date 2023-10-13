@@ -20,11 +20,14 @@ const Home = () => {
     const [today, setday] = useState(new Date())
     const [numberpost, setnumberpost] = useState(0);
     const [pagination, setpagination] = useState(30);
+    const club = sessionStorage.getItem('club')
 
 
     useEffect(() => {
 
-
+        if(club==="" || club === undefined){
+            usenavigate('/login');    
+        }
 
         if (location.pathname === '/Regolamento') {
             usenavigate('/Regolamento');
@@ -66,7 +69,7 @@ const Home = () => {
 
     const countpost = () => {
 
-        fetch(window.$produrl + "/post").then(res => {
+        fetch(window.$produrl + "/post?codiceclub="+club).then(res => {
             if (!res.ok) {
                 console.log(res)
                 // navigate('/');
@@ -83,7 +86,7 @@ const Home = () => {
     const loadcgallengeByFilter = (filro) => {
         /*    e.preventDefault(); */
 
-        fetch(window.$produrl + "/challenge?status=" + filro + "&_limit=" + parseInt(pagination)).then(res => {
+        fetch(window.$produrl + "/challenge?codiceclub="+club+"&status=" + filro + "&_limit=" + parseInt(pagination)).then(res => {
             if (!res.ok) {
                 console.log(res)
                 // navigate('/');
@@ -98,7 +101,7 @@ const Home = () => {
     const loadcgallengeToday = (filro) => {
 
 
-        fetch(window.$produrl + "/challenge?datasfida=" + filro).then(res => {
+        fetch(window.$produrl + "/challenge?codiceclub="+club+"&datasfida=" + filro).then(res => {
             if (!res.ok) {
                 console.log(res)
                 // navigate('/');
@@ -115,7 +118,7 @@ const Home = () => {
 
         // console.log(pagination)
 
-        fetch(window.$produrl + "/challenge?_limit=" + parseInt(pagination)).then(res => {
+        fetch(window.$produrl + "/challenge?codiceclub="+club+"&_limit=" + parseInt(pagination)).then(res => {
             if (!res.ok) {
                 console.log(res)
                 // navigate('/');

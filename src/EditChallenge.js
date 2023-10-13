@@ -29,11 +29,17 @@ const EditChallenge = () => {
     const [set2, setset2] = useState(0)
     const [set3, setset3] = useState(0)
     const [finalplayer, setfinalplayer] = useState(0)
+    const [codiceclub, setcodiceclub] = useState(sessionStorage.getItem('club'))
+
+   
 
     const navigate = useNavigate();
 
 
     useEffect(() => {
+
+        
+
         let email = sessionStorage.getItem('email')
 
         if (email === '' || email === null) {
@@ -74,6 +80,7 @@ const EditChallenge = () => {
             setset2(resp.set2)
             setset3(resp.set3)
             setfinalplayer(resp.finalplayer)
+            setcodiceclub(resp.codiceclub)
 
         });
     }
@@ -99,7 +106,8 @@ const EditChallenge = () => {
             "set1": set1,
             "set2": set2,
             "set3": set3,
-            "finalplayer":finalplayer
+            "finalplayer":finalplayer,
+            "codiceclub":codiceclub
         }
 
         //  console.log(regobj);

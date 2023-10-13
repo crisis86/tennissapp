@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import avatar from './assets/avatar.png';
-    const myrole = sessionStorage.getItem('userrole')
+ 
 
 const Post = () => {
 
@@ -15,10 +15,15 @@ const Post = () => {
     const nameuser = sessionStorage.getItem('email')
     const iduser = parseInt(sessionStorage.getItem('iduser'))
     const [post, setposts] = useState([]);
+     const codiceclub = sessionStorage.getItem('club')
 
     const usenavigate = useNavigate();
 
     useEffect(() => {
+        if(codiceclub==="" || codiceclub === undefined){
+            usenavigate('/login');    
+        }
+
         let email = sessionStorage.getItem('email')
 
         if (email === '' || email === null) {
@@ -34,7 +39,7 @@ const Post = () => {
 
     const loadpost = () => {
 
-        fetch(window.$produrl + "/post").then(res => {
+        fetch(window.$produrl + "/post?codiceclub="+codiceclub).then(res => {
             if (!res.ok) {
                 console.log(res)
                 // navigate('/');
@@ -55,7 +60,7 @@ const Post = () => {
 
         if (window.confirm("Sei sicuro?")) {
 
-            let regobj = { title, descrizione, datapost, iduser, nameuser, visible };
+            let regobj = { title, descrizione, datapost, iduser, nameuser, visible, codiceclub };
             if (IsValidate()) {
 
                 fetch(window.$produrl + "/post", {

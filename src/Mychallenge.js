@@ -25,6 +25,7 @@ const Mychallenge = () => {
     const [orasfida, setordasfida] = useState("")
     const [today, setday] = useState(new Date())
     const locale = 'it';
+    const club = sessionStorage.getItem('club');
 
     const [set1casa, setset1casa] = useState(0)
     const [set1ospite, setset1ospite] = useState(0)
@@ -37,6 +38,11 @@ const Mychallenge = () => {
 
 
     useEffect(() => {
+
+
+        if (club === "" || club === undefined) {
+            navigate('/login');
+        }
 
         let email = sessionStorage.getItem('email')
 
@@ -60,11 +66,11 @@ const Mychallenge = () => {
             const results = await Promise.all(
                 [
 
-                    fetch(window.$produrl + "/user?id=" + iduser).then((response) =>
+                    fetch(window.$produrl + "/user?id=" + iduser + "&codiceclub=" + club).then((response) =>
                         response.json()),
-                    fetch(window.$produrl + "/user?insfida=true").then((response) =>
+                    fetch(window.$produrl + "/user?insfida=true&codiceclub=" + club).then((response) =>
                         response.json()),
-                    fetch(window.$produrl + "/user?role=player").then((response) =>
+                    fetch(window.$produrl + "/user?role=player&codiceclub=" + club).then((response) =>
                         response.json()
 
                     ),
@@ -494,7 +500,7 @@ const Mychallenge = () => {
     const checksfidapending = () => {
 
 
-        fetch(window.$produrl + "/challenge?status!=cancel&q=" + fullname).then(res => {
+        fetch(window.$produrl + "/challenge?status!=cancel&codiceclub=" + club + "&q=" + fullname).then(res => {
             if (!res.ok) {
                 // console.log('nulla')
                 return false
@@ -697,7 +703,7 @@ const Mychallenge = () => {
                         console.log("Posizioni nel mezzo:" + obj.posizione)
                         updateUserPosition(obj)
                     }
-                    if (obj.id === idp2) {
+                      if (obj.id === idp2) {
                         obj.insfida = false
                         obj.posizione = posp2 - 2 // Salgo di 2 posizioni
 
@@ -710,7 +716,17 @@ const Mychallenge = () => {
 
                     }
 
-                    if (obj.id === idp1) {
+                     if (index + 1 === posp1 + 1) {
+                        obj.posizione = obj.posizione - 1  // sale di uno quello sotto a me
+
+                        if (obj.posizione <= 0) { obj.posizione = 1 }  //check primo classifica 
+                        console.log("lunghezza indice poss che deve salire ", index)
+                        console.log("pos che sale sotto al perdente", obj.posizione + " " + obj.name)
+                        updateUserPosition(obj)
+                    }
+
+
+                     if (obj.id === idp1) {
 
                         obj.insfida = false
 
@@ -725,17 +741,9 @@ const Mychallenge = () => {
 
                         updateUserPosition(obj)
 
-                    }
+                    }  
 
-                    if (index + 1 === posp1 + 1) {
-                        obj.posizione = obj.posizione - 1  // sale di uno quello sotto a me
-
-                        if (obj.posizione <= 0) { obj.posizione = 1 }  //check primo classifica 
-                        console.log("lunghezza indice poss che deve salire ", index)
-                        console.log("pos che sale sotto al perdente", obj.posizione + " " + obj.name)
-                        updateUserPosition(obj)
-                    }
-
+                  
                     return obj.id
 
                 })
@@ -957,7 +965,7 @@ const Mychallenge = () => {
     }
 
     function sendemail(names, emails, status) {
- 
+return
         let message = "";
         let subject = "";
         if (status === 'add') {
@@ -1013,11 +1021,7 @@ const Mychallenge = () => {
                 setset1ospite(6)
                 setset2ospite(6)
                 setset3ospite(6)
-
-
             } else {
-
-
                 setset1casa(6)
                 setset2casa(6)
                 setset3casa(6)

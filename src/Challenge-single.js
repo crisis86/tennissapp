@@ -39,6 +39,7 @@ const ChallengeSingle = () => {
     const [annullabotton, setannullabotton] = useState(false);
     // flag per sfidare se è possibile
     const [sfidabutton, setsfidabutton] = useState(false);
+    const club = sessionStorage.getItem('club');
 
     const { id, name } = useParams()
 
@@ -46,8 +47,15 @@ const ChallengeSingle = () => {
 
     useEffect(() => {
 
+        if(club==="" || club === undefined){
+            navigate('/login');    
+        }
+
+
+
         let email = sessionStorage.getItem('email')
 
+        
         if (email === '' || email === null) {
             //toast.error('Not Authenticate session');
             navigate('/login');
@@ -58,7 +66,6 @@ const ChallengeSingle = () => {
 
             checksfidapending();
             //   sendemail('test', 'crisisart86@gmail.com','test test test');
-
         }
     }, []);
 
@@ -68,11 +75,11 @@ const ChallengeSingle = () => {
 
             const results = await Promise.all(
                 [
-                    fetch(window.$produrl + "/user?role=player&id=" + id).then((response) =>
+                    fetch(window.$produrl + "/user?role=player&id=" + id+"&codiceclub="+club).then((response) =>
                         response.json()),
-                    fetch(window.$produrl + "/user?id=" + iduser).then((response) =>
+                    fetch(window.$produrl + "/user?id=" + iduser+"&codiceclub="+club).then((response) =>
                         response.json()),
-                    fetch(window.$produrl + '/challenge?q=' + name + '&status!=cancel').then((response) =>
+                    fetch(window.$produrl + '/challenge?q=' + name + '&status!=cancel&codiceclub='+club).then((response) =>
                         response.json()
                     ),
                 ]);
@@ -218,7 +225,8 @@ const ChallengeSingle = () => {
             "set1": "",
             "set2": "",
             "set3": "",
-            "finalplayer":null
+            "finalplayer":null,
+            "codiceclub":club
         }
         //  console.log(obj);
 
@@ -243,7 +251,7 @@ const ChallengeSingle = () => {
     }
 
     function sendemail(names, emails, status) {
-
+return
         let message = "";
         let subject = "";
         if (status === 'add') {
@@ -324,7 +332,7 @@ const ChallengeSingle = () => {
 
         let sfidecoolete = {};
      
-        fetch(window.$produrl + "/challenge?status=complete&q=" + fullname, {
+        fetch(window.$produrl + "/challenge?status=complete&codiceclub="+club+"&q=" + fullname, {
             method: 'GET'
         }).then(res => {
             if (!res.ok) {
@@ -387,7 +395,7 @@ const ChallengeSingle = () => {
         let sfidecoolete = {};
         // let datalastfida = new Date();
 
-        fetch(window.$produrl + "/challenge?status=cancel&finalplayer=" + iduser, {
+        fetch(window.$produrl + "/challenge?status=cancel&codiceclub="+club+"&finalplayer=" + iduser, {
             method: 'GET'
         }).then(res => {
             if (!res.ok) {
@@ -411,7 +419,10 @@ const ChallengeSingle = () => {
 
                 const time = Math.abs(dataconvert - datadioggi);
                 const days = Math.ceil(time / (1000 * 60 * 60 * 24));
-                // console.log(days);
+                let notificagioni=0;
+                console.log(days);
+                
+                if(days===1) {notificagioni=2}else if(days===2) {notificagioni=1}
 
 
                 if (days > 2) {
@@ -424,7 +435,7 @@ const ChallengeSingle = () => {
                     if (recorddatalastfida.players[0].idp1 === iduser) {
                         console.log("sono io blocca")
                         setsfidabutton(false)
-                        setgiornisfida(parseInt(days - 1));
+                        setgiornisfida(notificagioni);
                     } else {
                         setsfidabutton(true)
                         console.log("non sono io")
@@ -441,7 +452,7 @@ const ChallengeSingle = () => {
 
     const checksfidapending = () => {
 
-        fetch(window.$produrl + "/challenge?status=pending&q=" + name).then(res => {
+        fetch(window.$produrl + "/challenge?status=pending&codiceclub="+club+"&q=" + name).then(res => {
             return res.json();
         }).then(resp => {
             if (Object.keys(resp).length === 0) {
@@ -485,7 +496,7 @@ const ChallengeSingle = () => {
 
                                     <div style={{ float: 'right' }}>
 
-                                        <Report />
+                                        <Report name={plr.name} id={plr.id} view="single" />
 
                                     </div>
 

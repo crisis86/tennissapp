@@ -4,10 +4,12 @@ import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import iconchallengeblu from './assets/icone/chhallenge-blu.svg';
 import iconchallenge from './assets/icone/chhallenge.svg';
+import Report from './hooks/Report';
 
 const ChallengeList = () => {
     const navigate = useNavigate();
     const iduser = parseInt(sessionStorage.getItem('iduser'))
+    const club = sessionStorage.getItem('club');
 
     const [playerlist, playerupdt] = useState([]);
 
@@ -32,6 +34,10 @@ const ChallengeList = () => {
 
 
     useEffect(() => {
+        if(club==="" || club === undefined){
+            navigate('/login');    
+        }
+
         let email = sessionStorage.getItem('email')
 
         if (email === '' || email === null) {
@@ -47,7 +53,7 @@ const ChallengeList = () => {
 
 
     const loadlistplayer = () => {
-        fetch(window.$produrl + "/user?role=player").then(res => {
+        fetch(window.$produrl + "/user?role=player&codiceclub="+club).then(res => {
             if (!res.ok) {
                 return false
             }
@@ -70,7 +76,7 @@ const ChallengeList = () => {
 
     function controllasfide() {
 
-        fetch(window.$produrl + "/challenge?status=processing", {
+        fetch(window.$produrl + "/challenge?status=processing&codiceclub="+club, {
             method: 'GET',
             headers: {
                 accept: 'application/json',
@@ -128,7 +134,7 @@ const ChallengeList = () => {
     }
     function controllpending() {
 
-        fetch(window.$produrl + "/challenge?status=pending", {
+        fetch(window.$produrl + "/challenge?status=pending&codiceclub="+club, {
             method: 'GET',
             headers: {
                 accept: 'application/json',
@@ -209,7 +215,7 @@ const ChallengeList = () => {
 
     function penalizzazione(idp1, idp2) {
 
-        fetch(window.$produrl + "/user?role=player", {
+        fetch(window.$produrl + "/user?role=player&codiceclub="+club, {
             method: 'GET',
             headers: {
                 accept: 'application/json',
@@ -298,7 +304,7 @@ const ChallengeList = () => {
     }
     function controllafuorigioco() {
 
-        fetch(window.$produrl + "/user?role=player&fuorigioco=true", {
+        fetch(window.$produrl + "/user?role=player&fuorigioco=true&codiceclub="+club, {
             method: 'GET',
             headers: {
                 accept: 'application/json',
@@ -354,7 +360,7 @@ const ChallengeList = () => {
 
     function penalizzazionesingola(idp1) {
 
-        fetch(window.$produrl + "/user?role=player", {
+        fetch(window.$produrl + "/user?role=player&codiceclub="+club, {
             method: 'GET',
             headers: {
                 accept: 'application/json',
@@ -419,7 +425,7 @@ const ChallengeList = () => {
 
     function penalizzazionePending(idp1, idp2) {
 
-        fetch(window.$produrl + "/user?role=player", {
+        fetch(window.$produrl + "/user?role=player&codiceclub="+club, {
             method: 'GET',
             headers: {
                 accept: 'application/json',
@@ -598,7 +604,7 @@ const ChallengeList = () => {
 
                                                                     </div>
                                                                 </a>
-
+<Report name={item.name} id={item.id} view="list" ></Report>
                                                                 <div className="item-cell flex-shrink-0 width-auto">
                                                                     <div className="classifica font-size-18 font-weight-bold text-color-bluegray">{item.posizione}</div>
                                                                 </div>
