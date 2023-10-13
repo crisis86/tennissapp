@@ -28,8 +28,7 @@ const Register = () => {
     const navigate = useNavigate();
     const [loading, setloading] = useState(false);
     const [codiceclub, setsetclub] = useState(sessionStorage.getItem('club'));
-    const [club, setsetclubname] = useState('');
-
+    const [club, setsetclubname] = useState(sessionStorage.getItem('clubname'));
 
 
     useEffect(() => {
@@ -226,7 +225,7 @@ const Register = () => {
 
                     toast.success('Registered successfully.')
                     // navigate('/login');
-                //    navigate('/player');
+                    navigate('/player');
                 }).catch((err) => {
                     setloading(false)
                     toast.error('Failed :' + err.message);
@@ -252,7 +251,7 @@ const Register = () => {
                                 <div className="col-lg-6">
                                     <div className="form-group">
                                         <label>Club <span className="errmsg">*</span></label>
-                                        <select  value={codiceclub} onChange={e => selectclub(e.target.value, e.target.options[e.target.options.selectedIndex].text)} className="form-control">
+                                        <select disabled  value={codiceclub} onChange={e => selectclub(e.target.value, e.target.options[e.target.options.selectedIndex].text)} className="form-control">
                                             <option value="">seleziona club</option>
 
                                             <option value="DM00">L. De Mita Nola</option>
