@@ -251,7 +251,7 @@ const Register = () => {
                                 <div className="col-lg-6">
                                     <div className="form-group">
                                         <label>Club <span className="errmsg">*</span></label>
-                                        <select value={club} onChange={e => selectclub(e.target.value, e.target.options[e.target.options.selectedIndex].text)} className="form-control">
+                                        <select disabled value={codiceclub} onChange={e => selectclub(e.target.value, e.target.options[e.target.options.selectedIndex].text)} className="form-control">
                                             <option value="">seleziona club</option>
 
                                             <option value="DM00">L. De Mita Nola</option>
