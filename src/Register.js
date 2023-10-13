@@ -257,8 +257,8 @@ const Register = () => {
                                         <select onChange={e => selectclub(e.target.value, e.target.options[e.target.options.selectedIndex].text)} className="form-control">
                                             <option value="">seleziona club</option>
 
-                                            <option value="DM00">Locale Nola</option>
-                                            <option value="DM01">SpinUptennis</option>
+                                            <option value="DM00">L. De Mita Nola</option>
+                                            {/* <option value="DM01">SpinUptennis</option> */}
 
                                         </select>
                                     </div>

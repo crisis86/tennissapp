@@ -157,8 +157,8 @@ const Login = () => {
                         <select  onChange={e => selectclub(e.target.value)} className="form-control">
                         <option value="">seleziona club</option>
 
-                            <option value="DM00">Locale</option>
-                            <option value="DM01">SpinUptennis</option>
+                            <option value="DM00">L. De Mita Nola</option>
+                           {/*  <option value="DM01">SpinUptennis</option> */}
 
                        </select>
                             </div>
