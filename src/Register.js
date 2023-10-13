@@ -179,6 +179,7 @@ const Register = () => {
     }
 
     function selectclub(club, clubname) {
+        
         setsetclub(club)
         setsetclubname(clubname)
         sessionStorage.setItem('club',club)
@@ -225,7 +226,7 @@ const Register = () => {
 
                     toast.success('Registered successfully.')
                     // navigate('/login');
-                    navigate('/player');
+                //    navigate('/player');
                 }).catch((err) => {
                     setloading(false)
                     toast.error('Failed :' + err.message);
