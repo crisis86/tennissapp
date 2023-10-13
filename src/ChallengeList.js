@@ -579,7 +579,7 @@ const ChallengeList = () => {
                                                                 <div className="item-cell width-auto">
                                                                     <img src={item.id === iduser ? iconchallengeblu : iconchallenge} height="30" width="30" alt="Challenge" />
                                                                 </div>
-                                                                <a className='link' style={{ width: '170px' }} href={'/Challenge-single/' + item.id + '/' + item.name}>
+                                                                <a className='link' style={{ width: '160px' }} href={'/Challenge-single/' + item.id + '/' + item.name}>
 
                                                                     <div style={{ fontSize: '15px', textTransform: 'capitalize' }} className="item-cell">
                                                                         <div className="font-size-20 font-weight-bold text-color-primary">
