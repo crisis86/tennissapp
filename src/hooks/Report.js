@@ -22,8 +22,8 @@ const Report = (props) => {
 
             if (props.view === "list") {
                 setwinlabel(false)
-                setwidht(45)
-                setheight(45)
+                setwidht(48)
+                setheight(48)
             } else {
                 setwinlabel(true)
                 setwidht(70)
