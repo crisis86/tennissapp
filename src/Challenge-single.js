@@ -251,7 +251,7 @@ const ChallengeSingle = () => {
     }
 
     function sendemail(names, emails, status) {
-return
+
         let message = "";
         let subject = "";
         if (status === 'add') {
