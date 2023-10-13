@@ -70,7 +70,7 @@ const Report = (props) => {
                 percentuale = 0;
             }
           
-            setpercentage(percentuale)
+            setpercentage(Math.round(percentuale))
 
 
         });

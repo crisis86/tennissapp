@@ -16,8 +16,8 @@ window.$servEmail = "https://servermail-fhuv.onrender.com";
 if (sessionStorage.getItem('club') !== '' || sessionStorage.getItem('club') !== undefined) {
   if (sessionStorage.getItem('club') === 'DM00') {
 
-   window.$produrl = "https://tennissapp.onrender.com";
- //   window.$produrl = "http://localhost:10000";
+  window.$produrl = "https://tennissapp.onrender.com";
+  // window.$produrl = "http://localhost:10000";
 
   } else if (sessionStorage.getItem('club') === 'DM01') {
  //   url db di altro club
