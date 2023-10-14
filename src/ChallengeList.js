@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import iconchallengeblu from './assets/icone/chhallenge-blu.svg';
+import iconchallengered from './assets/icone/chhallenge-active.svg';
 import iconchallenge from './assets/icone/chhallenge.svg';
 import Report from './hooks/Report';
 
@@ -34,8 +35,8 @@ const ChallengeList = () => {
 
 
     useEffect(() => {
-        if(club==="" || club === undefined){
-            navigate('/login');    
+        if (club === "" || club === undefined) {
+            navigate('/login');
         }
 
         let email = sessionStorage.getItem('email')
@@ -53,7 +54,7 @@ const ChallengeList = () => {
 
 
     const loadlistplayer = () => {
-        fetch(window.$produrl + "/user?role=player&codiceclub="+club).then(res => {
+        fetch(window.$produrl + "/user?role=player&codiceclub=" + club).then(res => {
             if (!res.ok) {
                 return false
             }
@@ -76,7 +77,7 @@ const ChallengeList = () => {
 
     function controllasfide() {
 
-        fetch(window.$produrl + "/challenge?status=processing&codiceclub="+club, {
+        fetch(window.$produrl + "/challenge?status=processing&codiceclub=" + club, {
             method: 'GET',
             headers: {
                 accept: 'application/json',
@@ -134,7 +135,7 @@ const ChallengeList = () => {
     }
     function controllpending() {
 
-        fetch(window.$produrl + "/challenge?status=pending&codiceclub="+club, {
+        fetch(window.$produrl + "/challenge?status=pending&codiceclub=" + club, {
             method: 'GET',
             headers: {
                 accept: 'application/json',
@@ -215,7 +216,7 @@ const ChallengeList = () => {
 
     function penalizzazione(idp1, idp2) {
 
-        fetch(window.$produrl + "/user?role=player&codiceclub="+club, {
+        fetch(window.$produrl + "/user?role=player&codiceclub=" + club, {
             method: 'GET',
             headers: {
                 accept: 'application/json',
@@ -304,7 +305,7 @@ const ChallengeList = () => {
     }
     function controllafuorigioco() {
 
-        fetch(window.$produrl + "/user?role=player&fuorigioco=true&codiceclub="+club, {
+        fetch(window.$produrl + "/user?role=player&fuorigioco=true&codiceclub=" + club, {
             method: 'GET',
             headers: {
                 accept: 'application/json',
@@ -360,7 +361,7 @@ const ChallengeList = () => {
 
     function penalizzazionesingola(idp1) {
 
-        fetch(window.$produrl + "/user?role=player&codiceclub="+club, {
+        fetch(window.$produrl + "/user?role=player&codiceclub=" + club, {
             method: 'GET',
             headers: {
                 accept: 'application/json',
@@ -425,7 +426,7 @@ const ChallengeList = () => {
 
     function penalizzazionePending(idp1, idp2) {
 
-        fetch(window.$produrl + "/user?role=player&codiceclub="+club, {
+        fetch(window.$produrl + "/user?role=player&codiceclub=" + club, {
             method: 'GET',
             headers: {
                 accept: 'application/json',
@@ -577,7 +578,7 @@ const ChallengeList = () => {
                                                         <div className="item-inner item-cell">
                                                             <div className="item-row">
                                                                 <div className="item-cell width-auto">
-                                                                    <img src={item.id === iduser ? iconchallengeblu : iconchallenge} height="30" width="30" alt="Challenge" />
+                                                                    <div className="classifica font-size-18 font-weight-bold text-color-bluegray">{item.posizione}</div>
                                                                 </div>
                                                                 <a className='link' style={{ width: '160px' }} href={'/Challenge-single/' + item.id + '/' + item.name}>
 
@@ -604,9 +605,15 @@ const ChallengeList = () => {
 
                                                                     </div>
                                                                 </a>
-<Report name={item.name} id={item.id} view="list" ></Report>
+                                                                <Report name={item.name} id={item.id} view="list" ></Report>
                                                                 <div className="item-cell flex-shrink-0 width-auto">
-                                                                    <div className="classifica font-size-18 font-weight-bold text-color-bluegray">{item.posizione}</div>
+                                                                    {item.fuorigioco ? (
+
+                                                                        <img src={iconchallengered} height="30" width="30" alt="Challenge" />
+                                                                    ) : (
+                                                                        <img src={iconchallengeblu} height="30" width="30" alt="Challenge" />
+
+                                                                    )}
                                                                 </div>
                                                             </div>
                                                         </div>
