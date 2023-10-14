@@ -11,6 +11,7 @@ const ChallengeList = () => {
     const navigate = useNavigate();
     const iduser = parseInt(sessionStorage.getItem('iduser'))
     const club = sessionStorage.getItem('club');
+    const myrole = sessionStorage.getItem('userrole')
 
     const [playerlist, playerupdt] = useState([]);
     const [mypos, setmypos] = useState(0)
@@ -64,6 +65,8 @@ const ChallengeList = () => {
 
 
     function getmyposition()  {
+
+        if(myrole==='player') { 
         fetch(window.$produrl + "/user?role=player&codiceclub=" + club+"&id="+iduser).then(res => {
             if (!res.ok) {
                 return false
@@ -76,6 +79,8 @@ const ChallengeList = () => {
             setmypos(res[0].posizione);
           // console.log(res[0].posizione);
         });
+
+    }
     }
 
     const loadlistplayer = () => {
@@ -608,7 +613,7 @@ const ChallengeList = () => {
                                                                 <a className='link' style={{ width: '160px' }} href={'/Challenge-single/' + item.id + '/' + item.name}>
 
                                                                     <div style={{ fontSize: '15px', textTransform: 'capitalize' }} className="item-cell">
-                                                                        <div style={{ color: item.insfida===false && item.posizione + 1 > mypos || item.posizione + 8 < mypos ? '#005484': '#71b852'}} className="font-size-20 font-weight-bold text-color-primary">
+                                                                        <div style={{ color: myrole==='player' && item.insfida===false && item.posizione + 1 > mypos || item.posizione + 8 < mypos ? '#005484': '#71b852'}} className="font-size-20 font-weight-bold text-color-primary">
 
                                                                             {item.name}
 
@@ -636,7 +641,7 @@ const ChallengeList = () => {
 
                                                                         <img src={iconchallengered} height="30" width="30" alt="Challenge" />
                                                                     ) : (
-                                                                        <img src={item.insfida===false && item.posizione + 1 > mypos || item.posizione + 8 < mypos ? iconchallengeblu: iconchallenge} height="30" width="30" alt="Challenge" />
+                                                                        <img src={myrole==='player' && item.insfida===false && item.posizione + 1 > mypos || item.posizione + 8 < mypos ? iconchallengeblu: iconchallenge} height="30" width="30" alt="Challenge" />
                                                                     )}
                                                                 </div>
                                                             </div>

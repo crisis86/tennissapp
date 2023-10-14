@@ -14,6 +14,7 @@ window.$servEmail = "https://servermail-fhuv.onrender.com";
 // window.$produrl = "http://localhost:10000";
 
 if (sessionStorage.getItem('club') !== '' || sessionStorage.getItem('club') !== undefined) {
+
   if (sessionStorage.getItem('club') === 'DM00') {
 
   window.$produrl = "https://tennissapp.onrender.com";
@@ -22,7 +23,7 @@ if (sessionStorage.getItem('club') !== '' || sessionStorage.getItem('club') !== 
   } else if (sessionStorage.getItem('club') === 'DM01') {
  //   url db di altro club
   } else {
-    console.log(window.$produrl);
+    console.log('nessun codice club');
   }
 } else {
 
