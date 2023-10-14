@@ -22574,10 +22574,10 @@
     margin-right: calc(var(--f7-typography-margin) / 2) !important;
   }
   [class*='text-color-'] {
-    color: var(--f7-theme-color-text-color) !important;
+    color: var(--f7-theme-color-text-color);
   }
   [class*='bg-color-'] {
-    background-color: var(--f7-theme-color-bg-color) !important;
+    background-color: var(--f7-theme-color-bg-color);
   }
   [class*='border-color-'] {
     border-color: var(--f7-theme-color-border-color) !important;
