@@ -66,7 +66,9 @@ const Login = () => {
                         accept: 'application/json',
                     }
                 }).then((res) => {
-                    if (!res.ok) {    setloading(false); }
+                    if (!res.ok) { 
+                        toast.error('Selezionare il club');
+                        setloading(false); }
 
                     return res.json();
                 }).then((resp) => {
@@ -117,8 +119,8 @@ const Login = () => {
     setclubupdate(club)
     sessionStorage.setItem('club',club)
     window.produrl = club
-    console.log(club)
-    console.log(window.produrl)
+  // console.log(club)
+  //  console.log(window.produrl)
     
  }
     const validate = () => {

@@ -185,9 +185,9 @@ const Register = () => {
         sessionStorage.setItem('clubname',clubname)
         caseclub(club)
       //  window.produrl = club
-        console.log(club)
-        console.log(clubname)
-        console.log(window.$produrl)
+      //  console.log(club)
+     //   console.log(clubname)
+      //  console.log(window.$produrl)
         
      }
 
