@@ -73,7 +73,6 @@ const ChallengeList = () => {
             }
             return res.json();
         }).then(res => {
-
             
             //console.log(datax);
             setmypos(res[0].posizione);
