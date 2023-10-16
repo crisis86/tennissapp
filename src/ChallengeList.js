@@ -203,8 +203,13 @@ const ChallengeList = () => {
                     if (days > 2) {
                         console.log('sfida scaduta tra ' + obj.players[0].p1 + " VS " + obj.players[1].p2)
 
+                        let giorno = current.getDate()
+                        let mese = current.getMonth() + 1
+                        let anno = current.getFullYear()
+    
                         obj.status = 'cancel';
-                        obj.datasfida = obj.datacreate;
+                        obj.datasfida = giorno + "/" + mese + "/" + anno;
+                        obj.finalplayer =null;
 
                         cancelchallenge(obj, obj.id)
                         penalizzazionePending(obj.players[1].idp2, obj.players[0].idp1)
