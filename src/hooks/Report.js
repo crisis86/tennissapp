@@ -82,18 +82,27 @@ const Report = (props) => {
             <div style={{textAlign:'center', width: widht, height: height }}>
 
                 <CircularProgressbar
+                
                     styles={buildStyles({
                         textColor: "#007aff ",
-                        
+                        pathColor: "#0054b4",
                         trailColor: "gold"
               
 
                     })}
-                    minValue={0} maxValue={100} value={percentage} text={`${percentage}%`} />
+                    minValue={0} maxValue={100} value={percentage}  text={`${percentage}%`} >
+
+                    </CircularProgressbar>
+      
+                    {winlabel===false &&
+            <div style={{ fontWeight:'500', color:'#0054b4', fontSize: 8, marginTop: -18 }}>
+             WIN
+            </div>
+ }
 
             </div>
             {winlabel &&
-                <span style={{ color: '#0054b4', fontSize: '14px', paddingLeft: '5px' }}>WIN</span>
+                <span style={{ color: '#0054b4', fontSize: '15px', paddingLeft: '5px' }}>WIN</span>
             }
         </>
     );
