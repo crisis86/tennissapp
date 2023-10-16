@@ -21,16 +21,17 @@ const ChallengeList = () => {
             navigate('/login');
         } else { 
         
-     //   controllasfide()
-     //   controllpending();
-     //   controllafuorigioco();
+          controllafuorigioco()
+          controllasfide()
+          controllpending();
 
         const cron = require('node-schedule')
-        cron.scheduleJob('*/10 * * * *', () => {
+        cron.scheduleJob('*/1 * * * *', () => {
+          
+            controllafuorigioco()
+            controllasfide()
+            controllpending();
 
-          //  controllasfide()
-          //  controllpending();
-          //  controllafuorigioco()
             console.log('running a task every 10min', new Date());
         });
     }
@@ -212,7 +213,7 @@ const ChallengeList = () => {
                         obj.finalplayer =null;
 
                         cancelchallenge(obj, obj.id)
-                        penalizzazionePending(obj.players[1].idp2, obj.players[0].idp1)
+                        penalizzazionePending(obj.players[0].idp1, obj.players[1].idp2)
 
                     } else {
                         console.log('sfida in attesa di risposta')
