@@ -965,7 +965,7 @@ const Mychallenge = () => {
     }
 
     function sendemail(names, emails, status) {
-return
+
         let message = "";
         let subject = "";
         if (status === 'add') {
