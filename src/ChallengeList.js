@@ -26,7 +26,7 @@ const ChallengeList = () => {
           controllpending();
 
         const cron = require('node-schedule')
-        cron.scheduleJob('*/1 * * * *', () => {
+        cron.scheduleJob('*/10 * * * *', () => {
           
             controllafuorigioco()
             controllasfide()
