@@ -84,7 +84,7 @@ const Report = (props) => {
                 <CircularProgressbar
                 
                     styles={buildStyles({
-                        textColor: "#007aff ",
+                        textColor: "#0054b4",
                         pathColor: "#0054b4",
                         trailColor: "gold"
               

@@ -613,7 +613,7 @@ const ChallengeList = () => {
                                                         <div className="item-inner item-cell">
                                                             <div className="item-row">
                                                                 <div className="item-cell width-auto">
-                                                                    <div className="classifica font-size-18 font-weight-bold text-color-bluegray">{item.posizione}</div>
+                                                                    <div style={{ minWidth: '20px' }} className="classifica font-size-18 font-weight-bold text-color-bluegray">{item.posizione}</div>
                                                                 </div>
                                                                 <a className='link' style={{ width: '160px' }} href={'/Challenge-single/' + item.id + '/' + item.name}>
 
