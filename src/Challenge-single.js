@@ -252,6 +252,8 @@ const ChallengeSingle = () => {
 
     function sendemail(names, emails, status) {
 
+        if(window.$produrl === "http://localhost:10000") {return}
+
         let message = "";
         let subject = "";
         if (status === 'add') {
@@ -346,13 +348,15 @@ const ChallengeSingle = () => {
 
                 // datalastfida = Math.max(...sfidecoolete.map(o => o.datasfida))
 
-                let recorddatalastfida = sfidecoolete.sort((a, b) => a.datasfida > b.datasfida ? 1 : -1)[0]
+                let recorddatalastfida = sfidecoolete.sort((a, b) => a.id < b.id ? 1 : -1)[0]
+
+                console.log(recorddatalastfida.datasfida)
 
                 let splidate = recorddatalastfida.datasfida.split("/")
                 let dataconvert = new Date(splidate[2] + "/" + splidate[1] + "/" + splidate[0])
 
-                //   console.log(datadioggi.getDate())
-                //  console.log(dataconvert.getDate())
+                  console.log(datadioggi)
+                  console.log(dataconvert)
 
                 const time = Math.abs(dataconvert - datadioggi);
                 const days = Math.ceil(time / (1000 * 60 * 60 * 24));

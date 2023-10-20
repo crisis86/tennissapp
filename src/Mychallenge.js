@@ -965,6 +965,8 @@ const Mychallenge = () => {
     }
 
     function sendemail(names, emails, status) {
+        
+        if(window.$produrl === "http://localhost:10000") {return}
 
         let message = "";
         let subject = "";
