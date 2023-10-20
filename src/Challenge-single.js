@@ -413,7 +413,7 @@ const ChallengeSingle = () => {
 
                 // datalastfida = Math.max(...sfidecoolete.map(o => o.datasfida))
 
-                let recorddatalastfida = sfidecoolete.sort((a, b) => a.datasfida > b.datasfida ? 1 : -1)[0]
+                let recorddatalastfida = sfidecoolete.sort((a, b) => a.id < b.id ? 1 : -1)[0]
 
                 let splidate = recorddatalastfida.datasfida.split("/")
                 let dataconvert = new Date(splidate[2] + "/" + splidate[1] + "/" + splidate[0])
