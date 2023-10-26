@@ -29,12 +29,11 @@ const ChallengeList = () => {
         const cron = require('node-schedule')
         cron.scheduleJob('*/10 * * * *', () => {
           
-           
-            controllasfide()
-            controllpending();
-            controllafuorigioco()
+           // controllasfide()
+          //  controllpending();
+          //  controllafuorigioco()
 
-            console.log('running a task every 10min', new Date());
+          //  console.log('running a task every 10min', new Date());
         });
     }
 
