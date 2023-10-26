@@ -21,16 +21,18 @@ const ChallengeList = () => {
             navigate('/login');
         } else { 
         
-          controllafuorigioco()
+          
           controllasfide()
-          controllpending();
+         controllpending();
+         controllafuorigioco()
 
         const cron = require('node-schedule')
         cron.scheduleJob('*/10 * * * *', () => {
           
-            controllafuorigioco()
+           
             controllasfide()
             controllpending();
+            controllafuorigioco()
 
             console.log('running a task every 10min', new Date());
         });
