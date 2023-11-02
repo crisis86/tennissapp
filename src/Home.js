@@ -77,7 +77,7 @@ const Home = () => {
             }
             return res.json();
         }).then(resp => {
-            let lunghezza = Object.keys(resp).length
+            let lunghezza =  Object.keys(resp).length
 
             setnumberpost(lunghezza);
         })
@@ -86,7 +86,7 @@ const Home = () => {
     const loadcgallengeByFilter = (filro) => {
         /*    e.preventDefault(); */
 
-        fetch(window.$produrl + "/challenge?codiceclub="+club+"&status=" + filro + "&_limit=" + parseInt(pagination)).then(res => {
+        fetch(window.$produrl + "/challenge?codiceclub="+club+"&status=" + filro + "&_limit=" + parseInt(pagination)+"&_sort=id&_order=desc").then(res => {
             if (!res.ok) {
                 console.log(res)
                 // navigate('/');
@@ -101,7 +101,7 @@ const Home = () => {
     const loadcgallengeToday = (filro) => {
 
 
-        fetch(window.$produrl + "/challenge?codiceclub="+club+"&datasfida=" + filro).then(res => {
+        fetch(window.$produrl + "/challenge?codiceclub="+club+"&datasfida=" + filro+"&_sort=id&_order=desc").then(res => {
             if (!res.ok) {
                 console.log(res)
                 // navigate('/');
@@ -118,7 +118,7 @@ const Home = () => {
 
         // console.log(pagination)
 
-        fetch(window.$produrl + "/challenge?codiceclub="+club+"&_limit=" + parseInt(pagination)).then(res => {
+        fetch(window.$produrl + "/challenge?codiceclub="+club+"&_limit=" + parseInt(pagination)+"&_sort=id&_order=desc").then(res => {
             if (!res.ok) {
                 console.log(res)
                 // navigate('/');
@@ -243,7 +243,7 @@ const Home = () => {
                 </div>
                 <div className="row align-items-stretch">
                     {challenge &&
-                        challenge.sort((a, b) => formattadata(b.datasfida) >= formattatoday()  ? 1 : -1).map((item, index) => (
+                        challenge.sort((a, b) => formattadata(b.datasfida) <= formattatoday()  ? 1 : -1).map((item, index) => (
                             <div key={index + 1} className="col-100 small-50 xlarge-100">
                                 <div className="item-content height-100">
                                     <div className="item-inner item-cell height-100 padding-vertical">
