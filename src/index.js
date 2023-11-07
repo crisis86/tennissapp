@@ -17,11 +17,14 @@ if (sessionStorage.getItem('club') !== '' || sessionStorage.getItem('club') !== 
 
   if (sessionStorage.getItem('club') === 'DM00') {
 
-  window.$produrl = "https://tennissapp.onrender.com";
-// window.$produrl = "http://localhost:10000";
+      window.$produrl = "https://tennissapp.onrender.com";
+   // window.$produrl = "http://localhost:10000";
 
   } else if (sessionStorage.getItem('club') === 'DM01') {
- //   url db di altro club
+    //   url db di altro club
+  } else if (sessionStorage.getItem('club') === 'DM02') { //database test e prove
+
+    window.$produrl = "https://testprovedb.onrender.com/";
   } else {
     console.log('nessun codice club');
   }

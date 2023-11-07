@@ -160,6 +160,7 @@ const Login = () => {
                         <option value="">seleziona club</option>
 
                             <option value="DM00">L. De Mita Nola</option>
+                            <option value="DM02">Test Prova</option>
                            {/*  <option value="DM01">SpinUptennis</option> */}
 
                        </select>

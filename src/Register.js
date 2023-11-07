@@ -32,36 +32,36 @@ const Register = () => {
 
 
     useEffect(() => {
-      lastidjson();
+        lastidjson();
     }, []);
 
-  
+
 
     function lastidjson() {
 
-        if (codiceclub !== "" || codiceclub !==undefined) {
+        if (codiceclub !== "" || codiceclub !== undefined) {
 
-        let pos = {};
+            let pos = {};
 
-        fetch(window.$produrl + "/user?codiceclub="+codiceclub, {
-            method: 'GET'
-        }).then(res => {
-            if (!res.ok) {
-                // console.log('nulla')
-                return false
-            }
-            return res.json();
-        }).then(res => {
+            fetch(window.$produrl + "/user?codiceclub=" + codiceclub, {
+                method: 'GET'
+            }).then(res => {
+                if (!res.ok) {
+                    // console.log('nulla')
+                    return false
+                }
+                return res.json();
+            }).then(res => {
 
-            pos = res;
+                pos = res;
 
-            let maxValue = Math.max(...pos.map(o => o.posizione))
+                let maxValue = Math.max(...pos.map(o => o.posizione))
 
-            posizionechange(maxValue + 1)
+                posizionechange(maxValue + 1)
 
-        });
+            });
 
-    }
+        }
     }
 
     const IsValidate = () => {
@@ -96,7 +96,7 @@ const Register = () => {
             isproceed = false;
             errormessage += 'Club';
         }
-        
+
         if (phone === null || phone === '') {
             isproceed = false;
             errormessage += '  Telefono';
@@ -144,7 +144,7 @@ const Register = () => {
     function checkemail(email) {
 
 
-        fetch(window.$produrl + "/user?role=player&email=" + email+"&codiceclub="+codiceclub).then(res => {
+        fetch(window.$produrl + "/user?role=player&email=" + email + "&codiceclub=" + codiceclub).then(res => {
             if (!res.ok) {
                 return false
             }
@@ -162,7 +162,7 @@ const Register = () => {
 
     function checkfullname(nome) {
 
-        fetch(window.$produrl + "/user?role=player&name=" + nome+"&codiceclub="+codiceclub).then(res => {
+        fetch(window.$produrl + "/user?role=player&name=" + nome + "&codiceclub=" + codiceclub).then(res => {
             if (!res.ok) {
                 return false
             }
@@ -178,30 +178,35 @@ const Register = () => {
     }
 
     function selectclub(club, clubname) {
-        
+
         setsetclub(club)
         setsetclubname(clubname)
-        sessionStorage.setItem('club',club)
-        sessionStorage.setItem('clubname',clubname)
+        sessionStorage.setItem('club', club)
+        sessionStorage.setItem('clubname', clubname)
         caseclub(club)
-      //  window.produrl = club
-      //  console.log(club)
-     //   console.log(clubname)
-      //  console.log(window.$produrl)
-        
-     }
+        //  window.produrl = club
+        //  console.log(club)
+        //   console.log(clubname)
+        //  console.log(window.$produrl)
 
-     function caseclub(clubid) {
+    }
+
+    function caseclub(clubid) {
         if (clubid === 'DM00') {
             window.$produrl = "https://tennissapp.onrender.com";
-       //     window.$produrl = "http://localhost:10000";
-          } else if (clubid === 'DM01') {
-        //    url di altro club
-          } else {
+            //     window.$produrl = "http://localhost:10000";
+        } else if (clubid === 'DM01') {
+            //    url di altro club
+        }
+        else if (clubid === 'DM02') {     //  DB test e prove
+     
+            window.$produrl = "https://testprovedb.onrender.com/";
+
+        } else {
             toast.error('club non definito');
-          }
-    
-     }
+        }
+
+    }
     const handlesubmit = (e) => {
         setloading(true)
         e.preventDefault();
@@ -213,7 +218,7 @@ const Register = () => {
             let trimemail = email.trim()
             emailchange(trimemail)
 
-            let regobj = { email, password, name, phone, country, role, address, gender, posizione, insfida, fuorigioco, datafuorigioco, codiceclub, club};
+            let regobj = { email, password, name, phone, country, role, address, gender, posizione, insfida, fuorigioco, datafuorigioco, codiceclub, club };
             if (IsValidate()) {
                 //  console.log(regobj);
                 fetch(window.$produrl + "/user", {
@@ -251,7 +256,7 @@ const Register = () => {
                                 <div className="col-lg-6">
                                     <div className="form-group">
                                         <label>Club <span className="errmsg">*</span></label>
-                                        <select disabled  value={codiceclub} onChange={e => selectclub(e.target.value, e.target.options[e.target.options.selectedIndex].text)} className="form-control">
+                                        <select disabled value={codiceclub} onChange={e => selectclub(e.target.value, e.target.options[e.target.options.selectedIndex].text)} className="form-control">
                                             <option value="">seleziona club</option>
 
                                             <option value="DM00">L. De Mita Nola</option>
