@@ -200,7 +200,7 @@ const Register = () => {
         }
         else if (clubid === 'DM02') {     //  DB test e prove
      
-            window.$produrl = "https://testprovedb.onrender.com/";
+            window.$produrl = "https://testprovedb.onrender.com";
 
         } else {
             toast.error('club non definito');
