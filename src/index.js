@@ -24,7 +24,7 @@ if (sessionStorage.getItem('club') !== '' || sessionStorage.getItem('club') !== 
     //   url db di altro club
   } else if (sessionStorage.getItem('club') === 'DM02') { //database test e prove
 
-    window.$produrl = "https://testprovedb.onrender.com";
+    window.$produrl = "http://localhost:10000";
   } else {
     console.log('nessun codice club');
   }

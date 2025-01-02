@@ -122,7 +122,7 @@ const Login = () => {
     function checkclub(clubid) {
         if (clubid === 'DM00') {
             window.$produrl = "https://tennissapp.onrender.com";
-            //     window.$produrl = "http://localhost:10000";
+        //     window.$produrl = "http://localhost:10000";
         } else if (clubid === 'DM01') {
             //    url di altro club
         }
@@ -166,8 +166,8 @@ const Login = () => {
                                     <select onChange={e => selectclub(e.target.value)} className="form-control">
                                         <option value="">seleziona club</option>
 
-                                        <option value="DM00">L. De Mita Nola</option>
-                                        <option value="DM02">Test Prova</option>
+                                        <option value="DM00">Rocca Padel</option>
+                                        <option value="DM02">De mita Nola</option>
                                         {/*  <option value="DM01">SpinUptennis</option> */}
 
                                     </select>
