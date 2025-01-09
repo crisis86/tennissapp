@@ -973,14 +973,14 @@ const Mychallenge = () => {
         if (status === 'add') {
             message = "Ciao " + names + ", \n\n" +
                 "Sfida accettata da " + fullname + " \n" +
-                "Controlla Le tue Sfide cliccando sul link https://tennissapp.vercel.app/Mychallenge \n per accettare o rifiutare la sfida \n\n" +
+                "Controlla Le tue Sfide cliccando sul link https://www.spinuptennis.it/Mychallenge \n per accettare o rifiutare la sfida \n\n" +
                 "Questa email è stata inviata da SpinupTennis"
             subject = "Sfida accettata da " + fullname
 
         } else {
             message = "Ciao " + names + ", \n\n" +
                 "Il giocatore " + fullname + " ha non accetato la sfida \n" +
-                "Controlla Le tue Sfide cliccando sul link https://tennissapp.vercel.app/Mychallenge \n\n" +
+                "Controlla Le tue Sfide cliccando sul link https://www.spinuptennis.it/Mychallenge \n\n" +
                 "Questa email è stata inviata da SpinupTennis"
             subject = "Sfida annullata " + fullname
         }
