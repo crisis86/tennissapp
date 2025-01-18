@@ -2,6 +2,9 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
+import up from '../assets/icone/up.png';
+import down from '../assets/icone/down.png';
+import neu from '../assets/icone/neu.png';
 
 const Report = (props) => {
 
@@ -11,6 +14,7 @@ const Report = (props) => {
     const [winlabel, setwinlabel] = useState(true)
     const [widht, setwidht] = useState(70)
     const [height, setheight] = useState(70)
+    const [lastesito, selastesito] = useState(0)
 
 
     useEffect(() => {
@@ -50,15 +54,18 @@ const Report = (props) => {
 
             let challengelist = resp
 
-            let sommavittorie = 0
+            let sommavittorie = 0;
             let lunghezza = 0;
             let percentuale = 0;
+            let esitoultimoincontro = 0;
             const idscheda = parseInt(idpd)
 
             const found = challengelist.filter(obj => {
                 if (obj.finalplayer === parseInt(idpd)) {
                     sommavittorie += 1
+                  
                 }
+                esitoultimoincontro = obj.finalplayer
                 lunghezza = Object.keys(challengelist).length
 
                 return obj.id;
@@ -72,13 +79,26 @@ const Report = (props) => {
             }
 
             setpercentage(Math.round(percentuale))
-
+            selastesito(esitoultimoincontro)
 
         });
     }
      
     return (
         <>
+        <div>
+        {lastesito === 0 && 
+         <span style={{position:'relative', top:'8px'}}> <img src={neu}></img></span>
+           
+         }
+         {lastesito === props.id && 
+       <span style={{position:'relative', top:'8px'}}><img src={up}></img></span>
+           
+         }
+          {lastesito != props.id && lastesito !=0 &&
+           <span style={{position:'relative', top:'8px'}}> <img src={down}></img></span>
+          }
+         </div>
             <div style={{textAlign:'center', width: widht, height: height }}>
 
                 <CircularProgressbar
