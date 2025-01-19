@@ -88,15 +88,15 @@ const Report = (props) => {
         <>
         <div>
         {lastesito === 0 && 
-         <span style={{position:'relative', top:'8px', right:'30px'}}> <img src={neu}></img></span>
+         <span style={{position:'relative', top:'8px', right:'20px'}}> <img src={neu}></img></span>
            
          }
          {lastesito === props.id && 
-        <span style={{position:'relative', top:'8px', right:'30px'}}>  <img src={up}></img></span>
+        <span style={{position:'relative', top:'8px', right:'20px'}}>  <img src={up}></img></span>
            
          }
           {lastesito != props.id && lastesito !=0 &&
-           <span style={{position:'relative', top:'8px', right:'30px'}}>  <img src={down}></img></span>
+           <span style={{position:'relative', top:'8px', right:'20px'}}>  <img src={down}></img></span>
           }
          </div>
             <div style={{textAlign:'center', width: widht, height: height }}>
