@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams,useLocation } from "react-router-dom";
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import up from '../assets/icone/up.png';
@@ -9,16 +9,22 @@ import neu from '../assets/icone/neu.png';
 const Report = (props) => {
 
     const club = sessionStorage.getItem('club')
+    const location = useLocation();
     const param = useParams()
     const [percentage, setpercentage] = useState(0)
     const [winlabel, setwinlabel] = useState(true)
     const [widht, setwidht] = useState(70)
     const [height, setheight] = useState(70)
     const [lastesito, selastesito] = useState(0)
+    const [displayfreccia, setdisplayfreccia] = useState('block')
 
 
     useEffect(() => {
-
+       
+        
+        if (location.pathname.includes('Challenge-single')) {
+           setdisplayfreccia('none'); //nascondo le frecce icone nella scheda singola giocatore
+        }
 
         if (props !== undefined) {
 
@@ -86,7 +92,7 @@ const Report = (props) => {
      
     return (
         <>
-        <div>
+        <div style={{display: displayfreccia}}>
         {lastesito === 0 && 
          <span style={{position:'relative', top:'8px', right:'10px'}}> <img src={neu}></img></span>
            
