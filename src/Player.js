@@ -157,8 +157,8 @@ const Player = () => {
                                        <td>{item.name}</td>
                                         <td>{item.posizione}</td>
                                         <td>
-                                            <button style={{width:'52px'}} onClick={(e) => handleedit(e, item.id)} className="btn btn-primary">Edit</button> &nbsp;
-                                            <button style={{width:'52px'}} onClick={(e) => handleremove(e, item.id)}   className="btn btn-danger">X</button>
+                                            <button style={{width:'52px;', margin:'1px'}} onClick={(e) => handleedit(e, item.id)} className="btn btn-primary">Edit</button>
+                                            <button style={{width:'52px;', margin:'1px'}} onClick={(e) => handleremove(e, item.id)}   className="btn btn-danger">X</button>
                                         </td>
                                         <td>{item.email}</td>
 
