@@ -108,7 +108,7 @@ const AdminChallenge = () => {
             //  console.log(result)
             result.json().then((resp) => {
                 toast.success("challenge Eliminato!");
-                navigate('/AdminChallenge')
+                
             })
         }).catch((err) => {
             toast.error(err.message);
@@ -148,7 +148,7 @@ const AdminChallenge = () => {
                                         <td>{item.status}</td>
                                         <td>
                                             <button style={{width:'52px'}} onClick={(e) => handleedit(e, item.id)} className="btn btn-primary">Edit</button> &nbsp;
-                                            <button style={{width:'52px'}} onClick={(e) => handleremove(e, item.id)}   className="btn btn-danger">X</button>
+                                            <button disabled={item.id===1} style={{width:'52px'}} onClick={(e) => handleremove(e, item.id)}   className="btn btn-danger">X</button>
                                         </td>
 
                                     </tr>
