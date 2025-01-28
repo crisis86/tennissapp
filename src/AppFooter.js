@@ -43,7 +43,7 @@ const AppFooter = () => {
     return (
         <>
             {showmenu &&
-                <div className="views tabs safe-areas">
+                <div id="containertabs" className="views tabs safe-areas">
                     <div id="tabbar" className="toolbar toolbar-bottom tabbar tabbar-labels color-theme-mono">
                         <div className="toolbar-inner">
                             <a href="/" className="tab-link tab-link-active">
