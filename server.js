@@ -3,8 +3,8 @@ const cors = require('cors')
 const path = require('path')
 
 const server = jsonServer.create()
-// const router = jsonServer.router(path.join(__dirname, 'data/db.json'))
-const router = jsonServer.router(__dirname, 'data/db.json') //change per deploy render DIsk
+ const router = jsonServer.router(path.join(__dirname, 'data/db.json'))
+//const router = jsonServer.router(__dirname, 'data/db.json') //change per deploy render DIsk
 const middlewares = jsonServer.defaults()
 const PORT = process.env.PORT || 10000; //  chose port from here like 8080, 3001
 

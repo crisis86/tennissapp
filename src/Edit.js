@@ -221,7 +221,7 @@ const Edit = () => {
                                 <div className="col-lg-6">
                                     <div className="form-group">
                                         <label>Full Name <span className="errmsg">*</span></label>
-                                        <input value={name} onChange={e => namechange(e.target.value)} className="form-control"></input>
+                                        <input disabled value={name} onChange={e => namechange(e.target.value)} className="form-control"></input>
                                     </div>
                                 </div>
                                 <div className="col-lg-6">
