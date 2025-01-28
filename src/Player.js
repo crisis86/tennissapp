@@ -144,8 +144,8 @@ const Player = () => {
                                 <th>ID</th>
                                 <th>Name</th>
                                 <th>Pos.</th>
-                                <th>Email</th>
                                 <th>Action</th>
+                                <th>Email</th>
                              
                             </tr>
                         </thead>
@@ -156,11 +156,12 @@ const Player = () => {
                                        <td>{item.id}</td>
                                        <td>{item.name}</td>
                                         <td>{item.posizione}</td>
-                                        <td>{item.email}</td>
                                         <td>
                                             <button style={{width:'52px'}} onClick={(e) => handleedit(e, item.id)} className="btn btn-primary">Edit</button> &nbsp;
                                             <button style={{width:'52px'}} onClick={(e) => handleremove(e, item.id)}   className="btn btn-danger">X</button>
                                         </td>
+                                        <td>{item.email}</td>
+
 
                                     </tr>
                                 ))

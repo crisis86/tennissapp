@@ -131,8 +131,8 @@ const AdminChallenge = () => {
                         <thead className="bg-dark text-white">
                             <tr>
                                 <th>EV</th>
-                                <th>Player 1</th>
-                                <th>Player 2</th>
+                                <th>Plr 1</th>
+                                <th>Plr 2</th>
                                 <th>Status</th>
                                 <th>Action</th>
                              
