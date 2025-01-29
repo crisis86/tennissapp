@@ -302,8 +302,9 @@ const Home = () => {
                                                     borderRadius: '10px',
                                                     textAlign: 'center',
                                                     background: 'rgba(190,190,190,0.6)',
-                                                    backgroundPosition: 'center',
-                                                    backgroundSize: 'cover',
+                                                    backgroundPosition: 'left',
+                                                    backgroundRepeat: 'no-repeat',
+                                                    backgroundSize: '60%',
                                                     backgroundImage: `url(${sfondo})`,
                                                   
                                                 }}
