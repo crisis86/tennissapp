@@ -859,7 +859,9 @@
 
     /* Fallback for browsers that do not support Custom Properties */
     height: 100vh; 
-     height: calc(var(--vh, 1vh) * 77.5); 
+     /* height: calc(var(--vh, 1vh) * 77.5); */
+     height: calc(var(--vh, 1vh) * 100 - 150px);
+
        
     -webkit-overflow-scrolling: touch;
     box-sizing: border-box;
@@ -881,7 +883,9 @@
     max-height: calc(100vh - 240px);  */
 
     height: 100vh; /* Fallback for browsers that do not support Custom Properties */
-    height: calc(var(--vh, 1vh) * 58.5);
+   /* height: calc(var(--vh, 1vh) * 58.5); */
+    height: calc(var(--vh, 1vh) * 100 - 285px);
+
        
     -webkit-overflow-scrolling: touch;
     box-sizing: border-box;
