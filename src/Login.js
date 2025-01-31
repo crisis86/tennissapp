@@ -167,7 +167,7 @@ const Login = () => {
                                         <option value="">seleziona club</option>
 
                                         <option value="DM00">Rocca Padel</option>
-                                        <option value="DM02">Green Club NA</option>
+                                        <option value="DM02">Green Club</option>
                                         {/*  <option value="DM01">SpinUptennis</option> */}
 
                                     </select>
