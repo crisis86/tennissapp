@@ -11,6 +11,8 @@ const Regolamento = () => {
                     <span className="if-not-md">Home</span>
                 </a>
             </div>
+            <p><strong><u>Data Inizio e Fine RoccaPadel League</u></strong> <br /></p>
+            <p>- I Giocatori potranno iniziare a lanciere le sfide Dal Giorno 31/01/2025 dalle ore 23.59. Fino al giorno 31/05/2025 alle ore 23.59</p>
             <p><strong><u>PUOI LANCIARE UNA SFIDA</u></strong> <br /></p>
             <p>- Puoi sfidare uno degli 8 partecipanti che ti precedono , obbligo dello sfidato sarà di accettare la sfida entro 24 ore, Obbligo di entrambi sarà di inserire la data di disputa del match entro le complessive 48 ore dalla sfida.Obbligo di entrambi sarà disputare il match entro 8 giorni, tutte le scadenze si intendono decorrenti dal momento esatto in cui la sfida è stata lanciata</p>
             <p>- Se hai sfidato e vinci: prendi il posto dello sfidato mentre lo sfidato perderà una posizione in classifica</p>
