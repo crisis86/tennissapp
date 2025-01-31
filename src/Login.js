@@ -42,7 +42,7 @@ const Login = () => {
 
 
             // toast.success('Success');
-            usenavigate('/')
+            usenavigate('/ChallengeList')
             // console.log(obuser)
 
 
@@ -93,7 +93,7 @@ const Login = () => {
                         localStorage.setItem('datiuserlogin', JSON.stringify(resp[0]));
                         toast.success('Success');
                         setloading(false)
-                        usenavigate('/')
+                        usenavigate('/ChallengeList')
                     } else {
                         setloading(false)
                         toast.error('Please Enter valid credentials');
