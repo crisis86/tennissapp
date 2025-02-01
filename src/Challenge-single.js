@@ -515,7 +515,9 @@ const ChallengeSingle = () => {
                                         <span className="font-size-22 font-weight-bold vertical-align-middle name"></span>
                                     </div>
 
-                                    <div className="font-size-14 single-line-text text-color-gray">{plr.name}</div>
+                                    <div style={{fontWeight:'600'}} className="font-size-14 single-line-text text-color-gray">{plr.name}</div>
+                                    <div className="font-size-22 font-weight-bold vertical-align-middle name">{plr.address}</div>
+
                                     {plr.fuorigioco &&
                                         <div className="font-size-14 single-line-text text-color-red"><b>FUORIGIOCO</b>
                                          <br></br>

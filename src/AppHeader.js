@@ -11,8 +11,18 @@ const Appheader = () => {
     const [badge, setbadge] = useState(false)
     const datiuserloging = JSON.parse(localStorage.getItem('datiuserlogin'))
 
+    //const [contatore, setcount] = useState(0);
+
+
     useEffect(() => {
-       
+
+         
+          //  let count = parseInt(sessionStorage.getItem("onlineUsers") || "0", 10);
+          //  count += 1;
+          //  sessionStorage.setItem("onlineUsers", count);
+          //  setcount(count);
+     
+
         if (location.pathname === '/login' || location.pathname === '/register' || location.pathname === '/Regolamento.html') {
             showmenuupdateupdate(false);
         } else {
@@ -57,7 +67,8 @@ const Appheader = () => {
                 <div className="header">
 
 
-                    <span style={{ marginTop:'3px', float: 'left' }}><b>Ciao,</b> <i>{sessionStorage.getItem('fullname')} - {sessionStorage.getItem('clubname')}</i> </span>
+                    <span style={{ marginTop:'3px', float: 'left' }}><b>Ciao,</b> <i>{sessionStorage.getItem('fullname')} - {sessionStorage.getItem('clubname')}</i> 
+                    </span>
                     {badge === true && <span className="badge">News</span>}
                     <span>  <Link className="logout" style={{ float: 'right', color: '#ffffff !important' }} to={'/logout'}>
                     <FaIcons.FaSignOutAlt style={{color: '#ffffff' }} /></Link> </span>

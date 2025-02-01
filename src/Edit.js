@@ -261,7 +261,7 @@ const Edit = () => {
                                 </div>
                                 <div className="col-lg-12">
                                     <div className="form-group">
-                                        <label>Address</label>
+                                        <label>Team</label>
                                         <textarea value={address} onChange={e => addresschange(e.target.value)} className="form-control"></textarea>
                                     </div>
                                 </div>
