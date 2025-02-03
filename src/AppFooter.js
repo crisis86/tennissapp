@@ -8,7 +8,6 @@ import iconclass from './assets/icone/classifica-1.svg';
 import iconprofilo from './assets/icone/profilo.svg';
 import iconpost from './assets/icone/post.svg';
 import iconchallenge from './assets/icone/sfide.svg';
-
 import iconhomeActive from './assets/icone/home-active.svg';
 import iconclassActive from './assets/icone/classifica-1-active.svg';
 import iconprofiloActive from './assets/icone/profilo-active.svg';
@@ -19,9 +18,11 @@ import iconchallengeActive from './assets/icone/sfide-active.svg';
 const AppFooter = () => {
     const [displayusername, displayusernameupdate] = useState('');
     const [showmenu, showmenuupdateupdate] = useState(false);
-
+    const club = sessionStorage.getItem('club');
     const location = useLocation();
     const iduser = parseInt(sessionStorage.getItem('iduser'))
+
+
 
     useEffect(() => {
         if (location.pathname === '/login' || location.pathname === '/register' || location.pathname === '/Regolamento.html') {
