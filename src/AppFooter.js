@@ -56,9 +56,9 @@ const AppFooter = () => {
                             <a href="/Mychallenge" className="tab-link">
                                 <span className="icons">
                                 {location.pathname === '/Mychallenge' ? (
-                                  <img src={iconchallengeActive} width={38} />
+                                  <img src={iconchallengeActive} width={36} />
                                 ):(
-                                   <img src={iconchallenge} width={38} />
+                                   <img src={iconchallenge} width={36} />
                                 )}
                                 </span>                           
                             </a>
@@ -83,9 +83,9 @@ const AppFooter = () => {
                             <a href={'/edit/' + iduser} className="tab-link">
                                 <span className="icons">
                                 {location.pathname.includes('/edit') ? (
-                                  <img src={iconprofiloActive} width={22} />
+                                  <img src={iconprofiloActive} width={35} />
                                 ):(
-                                   <img src={iconprofilo} width={22} />
+                                   <img src={iconprofilo} width={35} />
                                 )}                                </span>
                             </a>
                         </div>
