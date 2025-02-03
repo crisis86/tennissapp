@@ -43,8 +43,8 @@
 }
 .header{
   width: 100%;
-  background-color: #71b852;
-  color: #fff;
+  background-color: #d3e742;
+  color: #013777;
   padding:0 4px;
   height: auto;
   overflow: hidden;
@@ -52,7 +52,7 @@
 }
 a{
   text-decoration: none !important;
-  color: black ;
+  color: #013777 !important;
   padding: 2px;
 }
 app-check{
@@ -92,7 +92,7 @@ ul li {
 }
 
 .classifica {
-  color:#0054b4 !important;
+  color:#013777 !important;
   font-weight: 600;
   font-size:18px;
 }
@@ -105,7 +105,7 @@ ul li {
 }
 
 .me {
-  background: #71b852;
+  background: #d3e742;
   font-weight:bold;
   font-size: 20px;
   color: white;
@@ -149,17 +149,14 @@ ul li {
   width: 5% !important;
 }
 
-.btn-primary {
-  background-color: #32ab32 !important;
-}
-
 .regolamento p {
   padding:  5px 10px;
   text-align: justify;
   line-height: 1.4;
 }
 .btn-primary {
-background: #71b852 !important;
+background: #d3e742 !important;
+color: #173000 !important;
 border: none !important ;
 }
 

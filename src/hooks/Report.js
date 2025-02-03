@@ -110,9 +110,9 @@ const Report = (props) => {
                 <CircularProgressbar
                 
                     styles={buildStyles({
-                        textColor: "#0054b4",
-                        pathColor: "#0054b4",
-                        trailColor: "gold"
+                        textColor: "#013777",
+                        pathColor: "#013777",
+                        trailColor: "#f0de46"
               
 
                     })}
@@ -121,14 +121,14 @@ const Report = (props) => {
                     </CircularProgressbar>
       
                     {winlabel===false &&
-            <div style={{ fontWeight:'500', color:'#0054b4', fontSize: 8, marginTop: -18 }}>
+            <div style={{ fontWeight:'500', color:'#013777', fontSize: 8, marginTop: -18 }}>
              WIN
             </div>
  }
 
             </div>
             {winlabel &&
-                <span style={{ color: '#0054b4', fontSize: '15px', paddingLeft: '5px' }}>WIN</span>
+                <span style={{ color: '#013777', fontSize: '15px', paddingLeft: '5px' }}>WIN</span>
             }
         </>
     );

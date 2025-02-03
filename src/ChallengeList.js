@@ -116,7 +116,7 @@ const ChallengeList = () => {
                                         {playerlist &&
                                             playerlist.sort((a, b) => a.posizione > b.posizione ? 1 : -1).map((item, index) => (
                                                 <li style={{ borderRadius: '30px' }} key={index + 1} className={item.id === iduser ? 'my-rank me' : 'my-rank'}>
-                                                    <div style={{ borderRadius: '30px', background: item.insfida ? 'rgba(244,127,53,0.3)' : '', fontWeight: item.insfida ? 'bold' : '500' }} className="item-content">
+                                                    <div style={{ borderRadius: '30px', background: item.insfida ? 'rgba(220,81,59,0.9)' : '', fontWeight: item.insfida ? 'bold' : '500' }} className="item-content">
                                                         <div className="item-inner item-cell">
                                                             <div className="item-row">
                                                                 <div className="item-cell width-auto">
@@ -125,7 +125,7 @@ const ChallengeList = () => {
                                                                 <a className='link' style={{ width: '168px' }} href={'/Challenge-single/' + item.id + '/' + item.name}>
 
                                                                     <div style={{ fontSize: '15px', textTransform: 'capitalize' }} className="item-cell">
-                                                                        <div style={{ color: myrole==='player' && item.insfida===false && item.posizione + 1 > mypos || item.posizione + 8 < mypos ? '#005484': '#71b852'}} className="font-size-20 font-weight-bold text-color-primary">
+                                                                        <div style={{ color: myrole==='player' && item.insfida===false && item.posizione + 1 > mypos || item.posizione + 8 < mypos ? '#013777': '#d3e742'}} className="font-size-20 font-weight-bold text-color-primary">
 
                                                                             {item.name}
 

@@ -100,7 +100,7 @@ const Appheader = () => {
                     console.log(days);
 
                     // idays > 2{
-                    if (days > 3) {
+                    if (days > 2) {
                         console.log('sfida scaduta tra ' + obj.players[0].p1 + " VS " + obj.players[1].p2)
 
                         obj.status = 'cancel';
@@ -565,8 +565,8 @@ const Appheader = () => {
                     <span style={{ marginTop:'3px', float: 'left' }}><b>Ciao,</b> <i>{sessionStorage.getItem('fullname')} - {sessionStorage.getItem('clubname')}</i> 
                     </span>
                     {badge === true && <span className="badge">News</span>}
-                    <span>  <Link className="logout" style={{ float: 'right', color: '#ffffff !important' }} to={'/logout'}>
-                    <FaIcons.FaSignOutAlt style={{color: '#ffffff' }} /></Link> </span>
+                    <span>  <Link className="logout" style={{ float: 'right', color: '#013777 !important' }} to={'/logout'}>
+                    <FaIcons.FaSignOutAlt style={{color: '#013777' }} /></Link> </span>
                 </div>
             }
         </div>

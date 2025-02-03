@@ -110,8 +110,8 @@ const ChallengeSingle = () => {
             text: mtext,
             icon: 'warning',
             showCancelButton: true,
-            confirmButtonColor: '#71b852',
-            cancelButtonColor: '#f47f35',
+            confirmButtonColor: '#d3e472',
+            cancelButtonColor: '#dc513b',
             confirmButtonText: mconfirmtext
         }).then((result) => {
             if (result.isConfirmed) {
@@ -509,7 +509,7 @@ const ChallengeSingle = () => {
 
                                 <div className="col flex-grow-1 margin-right-half">
                                     <div className="multi-line-text lines-2">
-                                        <i className="icon material-icons color-green tooltip-init" data-tooltip="Verified">Posizione:{plr.posizione}</i>
+                                        <b className="icon material-icons color-green tooltip-init" data-tooltip="Verified">Posizione:{plr.posizione}</b>
 
 
                                         <span className="font-size-22 font-weight-bold vertical-align-middle name"></span>
@@ -576,7 +576,7 @@ const ChallengeSingle = () => {
 
                                 <span className="segmented-highlight"></span>
 
-                                <div style={{ textAlign: "center", background: "#060b26", opacity: 0.8, color: 'white', fontSize: "20px" }} className="title">Ultime Sfide
+                                <div style={{ textAlign: "center", background: "#013777", opacity: 1, color: 'white', fontSize: "20px" }} className="title">Ultime Sfide
 
                                 </div>
                                 {challenge.sort((a, b) => a.id < b.id ? 1 : -1).map((partite, i) => (

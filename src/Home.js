@@ -238,7 +238,7 @@ const Home = () => {
                         <option value='10000'>Tutti</option>
 
                     </select>
-                    <span style={{ float: 'right', color: '#71b852' }} ><a style={{ color: '#71b852' }} href="/post"><img width={23} alt="post" src={iconpost}></img> <b>({numberpost})</b> </a></span>
+                    <span style={{ float: 'right', color: '#d3e472' }} ><a style={{ color: '#d3e472' }} href="/post"><img width={23} alt="post" src={iconpost}></img> <b>({numberpost})</b> </a></span>
 
                 </div>
                 <div className="row align-items-stretch">
@@ -258,10 +258,10 @@ const Home = () => {
                                                     {item.status === 'processing' &&
                                                         <>
                                                             {item.datasfida === '' ? (
-                                                                <>    <i style={{ fontSize: '14px' }}> <b> EV. {item.id} </b> </i> <br></br>   <b style={{ fontSize: '14px', background: '#e7e7e7', color: '#f47f35', padding: '3px' }}>Da Porgrammare</b>
+                                                                <>    <i style={{ fontSize: '14px' }}> <b> EV. {item.id} </b> </i> <br></br>   <b style={{ fontSize: '14px', background: '#e7e7e7', color: '#dc513b', padding: '3px' }}>Da Porgrammare</b>
                                                                 </>
                                                             ) : (
-                                                                <>     <i style={{ fontSize: '14px' }}> <b> EV. {item.id} </b> </i>  <br></br>  <b style={{ fontSize: '14px', background: '#e7e7e7', color: '#f47f35', padding: '3px' }}>In Corso</b>
+                                                                <>     <i style={{ fontSize: '14px' }}> <b> EV. {item.id} </b> </i>  <br></br>  <b style={{ fontSize: '14px', background: '#e7e7e7', color: '#dc513b', padding: '3px' }}>In Corso</b>
                                                                 </>
                                                             )}
                                                         </>
@@ -284,7 +284,7 @@ const Home = () => {
                                                         <div className="item-cell flex-shrink-0 width-auto line-height-1">
                                                             <span style={{ fontSize: "14px", textAlign: 'left' }}><b>Creata:</b> &nbsp; <i>{item.datacreate}</i></span>
                                                             <br></br>
-                                                            <span style={{ color: formattadata(item.datasfida) === formattatoday() ? '#f47f35' : 'none', fontSize: "14px", textAlign: 'left' }}> <b>{item.status === 'cancel' ? 'Annullata: ' : 'Prevista: '} </b><i> {item.datasfida} {item.orasfida}</i> </span>
+                                                            <span style={{ color: formattadata(item.datasfida) === formattatoday() ? '#dc513b' : 'none', fontSize: "14px", textAlign: 'left' }}> <b>{item.status === 'cancel' ? 'Annullata: ' : 'Prevista: '} </b><i> {item.datasfida} {item.orasfida}</i> </span>
 
                                                         </div>
                                                     </div>

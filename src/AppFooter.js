@@ -18,11 +18,8 @@ import iconchallengeActive from './assets/icone/sfide-active.svg';
 const AppFooter = () => {
     const [displayusername, displayusernameupdate] = useState('');
     const [showmenu, showmenuupdateupdate] = useState(false);
-    const club = sessionStorage.getItem('club');
     const location = useLocation();
     const iduser = parseInt(sessionStorage.getItem('iduser'))
-
-
 
     useEffect(() => {
         if (location.pathname === '/login' || location.pathname === '/register' || location.pathname === '/Regolamento.html') {

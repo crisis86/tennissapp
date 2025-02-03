@@ -96,8 +96,8 @@ const Mychallenge = () => {
             text: 'Vuoi programmare la sfida?',
             icon: 'warning',
             showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#f47f35',
+            confirmButtonColor: '#d3e472',
+            cancelButtonColor: '#dc513b',
             confirmButtonText: 'Si sono sicuro!'
         }).then((result) => {
             if (result.isConfirmed) {
@@ -230,8 +230,8 @@ const Mychallenge = () => {
             text: 'Vuoi aggiornare il risultato?',
             icon: 'warning',
             showCancelButton: true,
-            confirmButtonColor: '#71b852',
-            cancelButtonColor: '#f47f35',
+            confirmButtonColor: '#d3e472',
+            cancelButtonColor: '#dc513b',
             confirmButtonText: 'Operazione irreversibile!'
         }).then((result) => {
 
@@ -1046,7 +1046,7 @@ const Mychallenge = () => {
                 </div>
 
                 <div className="">
-                    <div style={{ textAlign: "center", background: "#060b26", opacity: 0.8, color: 'white', fontSize: "20px" }} className="title">Ultime Sfide
+                    <div style={{ textAlign: "center", background: "#013777", opacity: 1, color: 'white', fontSize: "20px" }} className="title">Ultime Sfide
 
                     </div>
                     {challengepending &&
