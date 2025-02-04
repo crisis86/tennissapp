@@ -110,7 +110,7 @@ const ChallengeSingle = () => {
             text: mtext,
             icon: 'warning',
             showCancelButton: true,
-            confirmButtonColor: '#d3e472',
+            confirmButtonColor: '#afb72f',
             cancelButtonColor: '#dc513b',
             confirmButtonText: mconfirmtext
         }).then((result) => {
@@ -557,7 +557,7 @@ const ChallengeSingle = () => {
                                                             {plr.posizione > flagmeplayer[0].posizione || flagmeplayer[0].posizione <= plr.posizione + 8 &&  // fino a 8 posizione sopra
                                                                 <>
                                                                     {plr.fuorigioco === false &&
-                                                                        <button disabled={plr.insfida || flagmeplayer[0].insfida } onClick={(e) => sfidahandle(e, plr.id, plr.name, 'update')} type="button" className={plr.insfida  ||  flagmeplayer[0].insfida  ? 'disabled button button-fill button-small' : 'button button-fill button-small'}>Sfida</button>
+                                                                        <button style={{width:'50%', margin:'4px auto', background:'#d3e742', color:'#137000', fontWeight:'600', padding:'3px'}} disabled={plr.insfida || flagmeplayer[0].insfida } onClick={(e) => sfidahandle(e, plr.id, plr.name, 'update')} type="button" className={plr.insfida  ||  flagmeplayer[0].insfida  ? 'disabled button button-fill button-small' : 'button button-fill button-small'}>Sfida</button>
                                                                     }
                                                                 </>
                                                             }

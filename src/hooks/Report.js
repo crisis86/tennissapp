@@ -71,6 +71,7 @@ const Report = (props) => {
                     sommavittorie += 1
                   
                 }
+                
                 esitoultimoincontro = obj.finalplayer
                 lunghezza = Object.keys(challengelist).length
 
@@ -104,6 +105,7 @@ const Report = (props) => {
           {lastesito != props.id && lastesito !=0 &&
            <span style={{position:'relative', top:'8px', right:'10px'}}>  <img src={down}></img></span>
           }
+         
          </div>
             <div style={{textAlign:'center', width: widht, height: height }}>
 

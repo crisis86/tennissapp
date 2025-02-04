@@ -96,7 +96,7 @@ const Mychallenge = () => {
             text: 'Vuoi programmare la sfida?',
             icon: 'warning',
             showCancelButton: true,
-            confirmButtonColor: '#d3e472',
+            confirmButtonColor: '#afb72f',
             cancelButtonColor: '#dc513b',
             confirmButtonText: 'Si sono sicuro!'
         }).then((result) => {
@@ -230,7 +230,7 @@ const Mychallenge = () => {
             text: 'Vuoi aggiornare il risultato?',
             icon: 'warning',
             showCancelButton: true,
-            confirmButtonColor: '#d3e472',
+            confirmButtonColor: '#afb72f',
             cancelButtonColor: '#dc513b',
             confirmButtonText: 'Operazione irreversibile!'
         }).then((result) => {
@@ -326,8 +326,8 @@ const Mychallenge = () => {
             text: mtext,
             icon: 'warning',
             showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
+            confirmButtonColor: '#afb72f',
+            cancelButtonColor: '#dc513b',
             confirmButtonText: mconfirmtext
         }).then((result) => {
             if (result.isConfirmed) {
@@ -398,8 +398,8 @@ const Mychallenge = () => {
             text: mtext,
             icon: 'warning',
             showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
+            confirmButtonColor: '#afb72f',
+            cancelButtonColor: '#dc513b',
             confirmButtonText: mconfirmtext
         }).then((result) => {
             if (result.isConfirmed) {
@@ -1116,7 +1116,7 @@ const Mychallenge = () => {
                                             <div className="row">
                                                 <div className="col-100 small-50">
                                                     {item.status === 'pending' &&
-                                                        <button onClick={(e) => sfidahandle(e, item.players[1].idp2, 'cancel', item.id)} type="button" className="button button-fill color-red">Annulla </button>
+                                                        <button style={{width:'50%', margin:'4px auto', background:'#dc513b', color:'#fff', fontWeight:'600', padding:'3px'}} onClick={(e) => sfidahandle(e, item.players[1].idp2, 'cancel', item.id)} type="button" className="button button-fill color-red">Annulla </button>
 
                                                     }
 
