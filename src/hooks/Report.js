@@ -66,13 +66,17 @@ const Report = (props) => {
             let esitoultimoincontro = 0;
             const idscheda = parseInt(idpd)
 
+
+        
+
             const found = challengelist.filter(obj => {
+
+                 esitoultimoincontro = challengelist[0].finalplayer
+
                 if (obj.finalplayer === parseInt(idpd)) {
                     sommavittorie += 1
-                  
-                }
+                 }
                 
-                esitoultimoincontro = obj.finalplayer
                 lunghezza = Object.keys(challengelist).length
 
                 return obj.id;
