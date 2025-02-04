@@ -569,7 +569,7 @@ const Appheader = () => {
                 <div className="header">
 
 
-                    <span style={{ marginTop:'3px', float: 'left' }}><b>Ciao,</b> <i>{sessionStorage.getItem('fullname')} - {sessionStorage.getItem('clubname')}</i> 
+                    <span style={{ marginTop:'3px', float: 'left' }}><i>{sessionStorage.getItem('fullname')} - {sessionStorage.getItem('clubname')}</i> 
                     </span>
                     {badge === true && <span className="badge">News</span>}
                     <span>  <Link className="logout" style={{ float: 'right', color: '#013777 !important' }} to={'/logout'}>
