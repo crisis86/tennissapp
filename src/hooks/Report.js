@@ -112,7 +112,7 @@ const Report = (props) => {
                     styles={buildStyles({
                         textColor: "#013777",
                         pathColor: "#013777",
-                        trailColor: "#f0de46"
+                        trailColor: "#d7ea60"
               
 
                     })}
