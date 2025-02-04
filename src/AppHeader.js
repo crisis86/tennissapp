@@ -103,8 +103,13 @@ const Appheader = () => {
                     if (days > 2) {
                         console.log('sfida scaduta tra ' + obj.players[0].p1 + " VS " + obj.players[1].p2)
 
+                        
+                        let giorno = current.getDate()
+                        let mese = current.getMonth() + 1
+                        let anno = current.getFullYear()
+                        
                         obj.status = 'cancel';
-                        obj.datasfida = obj.datacreate;
+                        obj.datasfida = giorno + "/" + mese + "/" + anno;
 
                         cancelchallenge(obj, obj.id)
                         penalizzazione(obj.players[0].idp1, obj.players[1].idp2)
@@ -158,6 +163,7 @@ const Appheader = () => {
                     const time = Math.abs(dataconvert - current);
                     const days = Math.ceil(time / (1000 * 60 * 60 * 24));
                     console.log(days);
+                    
 
                     // idays > 2{
                     if (days > 2) {
@@ -166,6 +172,7 @@ const Appheader = () => {
                         let giorno = current.getDate()
                         let mese = current.getMonth() + 1
                         let anno = current.getFullYear()
+ 
     
                         obj.status = 'cancel';
                         obj.datasfida = giorno + "/" + mese + "/" + anno;
