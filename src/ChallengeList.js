@@ -125,7 +125,7 @@ const ChallengeList = () => {
                                                                 <a className='link' style={{ width: '168px' }} href={'/Challenge-single/' + item.id + '/' + item.name}>
 
                                                                     <div style={{ fontSize: '15px', textTransform: 'capitalize' }} className="item-cell">
-                                                                        <div style={{ color: myrole==='player' && item.insfida===false && item.posizione + 1 > mypos || item.posizione + 8 < mypos ? '#013777': '#d3e742'}} className="font-size-20 font-weight-bold text-color-primary">
+                                                                        <div style={{ color: myrole==='player' && item.insfida===false && item.posizione + 1 > mypos || item.posizione + 8 < mypos ? '#013777': '#afb72f'}} className="font-size-20 font-weight-bold text-color-primary">
 
                                                                             {item.name}
 
