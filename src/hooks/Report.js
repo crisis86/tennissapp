@@ -45,7 +45,7 @@ const Report = (props) => {
     }, [])
     function splittarisultatiByprops(name, idpd) {
 
-        fetch(window.$produrl + "/challenge?codiceclub=" + club + "&status=complete&q=" + name, {
+        fetch(window.$produrl + "/challenge?codiceclub=" + club + "&status=complete&q=" + name+"&_sort=datasfida&_order=asc", {
             method: 'GET',
             headers: {
                 accept: 'application/json',
@@ -65,23 +65,22 @@ const Report = (props) => {
             let percentuale = 0;
             let esitoultimoincontro = 0;
             const idscheda = parseInt(idpd)
-
-
-        
+       
 
             const found = challengelist.filter(obj => {
 
-                 esitoultimoincontro = challengelist[0].finalplayer
+            
+                esitoultimoincontro = challengelist[0].finalplayer
 
                 if (obj.finalplayer === parseInt(idpd)) {
                     sommavittorie += 1
                  }
-                
                 lunghezza = Object.keys(challengelist).length
-
                 return obj.id;
 
             });
+
+            //fuori const found
 
             percentuale = sommavittorie / lunghezza * 100
 
@@ -103,11 +102,11 @@ const Report = (props) => {
            
          }
          {lastesito === props.id && 
-        <span style={{position:'relative', top:'8px', right:'10px'}}>  <img src={up}></img></span>
+         <span style={{position:'relative', top:'8px', right:'10px'}}>  <img src={up}></img></span>
            
          }
           {lastesito != props.id && lastesito !=0 &&
-           <span style={{position:'relative', top:'8px', right:'10px'}}>  <img src={down}></img></span>
+          <span style={{position:'relative', top:'8px', right:'10px'}}>  <img src={down}></img></span>
           }
          
          </div>
