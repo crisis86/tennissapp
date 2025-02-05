@@ -47,15 +47,15 @@ const ChallengeSingle = () => {
 
     useEffect(() => {
 
-        if(club==="" || club === undefined){
-            navigate('/login');    
+        if (club === "" || club === undefined) {
+            navigate('/login');
         }
 
 
 
         let email = sessionStorage.getItem('email')
 
-        
+
         if (email === '' || email === null) {
             //toast.error('Not Authenticate session');
             navigate('/login');
@@ -75,11 +75,11 @@ const ChallengeSingle = () => {
 
             const results = await Promise.all(
                 [
-                    fetch(window.$produrl + "/user?role=player&id=" + id+"&codiceclub="+club).then((response) =>
+                    fetch(window.$produrl + "/user?role=player&id=" + id + "&codiceclub=" + club).then((response) =>
                         response.json()),
-                    fetch(window.$produrl + "/user?id=" + iduser+"&codiceclub="+club).then((response) =>
+                    fetch(window.$produrl + "/user?id=" + iduser + "&codiceclub=" + club).then((response) =>
                         response.json()),
-                    fetch(window.$produrl + '/challenge?q=' + name + '&status!=cancel&codiceclub='+club).then((response) =>
+                    fetch(window.$produrl + '/challenge?q=' + name + '&status!=cancel&codiceclub=' + club).then((response) =>
                         response.json()
                     ),
                 ]);
@@ -225,8 +225,8 @@ const ChallengeSingle = () => {
             "set1": "",
             "set2": "",
             "set3": "",
-            "finalplayer":null,
-            "codiceclub":club
+            "finalplayer": null,
+            "codiceclub": club
         }
         //  console.log(obj);
 
@@ -252,7 +252,7 @@ const ChallengeSingle = () => {
 
     function sendemail(names, emails, status) {
 
-        if(window.$produrl === "http://localhost:10000") {return}
+        if (window.$produrl === "http://localhost:10000") { return }
 
         let message = "";
         let subject = "";
@@ -295,7 +295,7 @@ const ChallengeSingle = () => {
         const found = challengepending.filter(obj => {
 
             obj.status = "cancel";
-            obj.datasfida=datecancel;
+            obj.datasfida = datecancel;
             idriga = obj.id;
 
             return obj.id;
@@ -333,8 +333,8 @@ const ChallengeSingle = () => {
     const getlastsfidacomplete = () => {
 
         let sfidecoolete = {};
-     
-        fetch(window.$produrl + "/challenge?status=complete&codiceclub="+club+"&q=" + fullname, {
+
+        fetch(window.$produrl + "/challenge?status=complete&codiceclub=" + club + "&q=" + fullname, {
             method: 'GET'
         }).then(res => {
             if (!res.ok) {
@@ -355,16 +355,16 @@ const ChallengeSingle = () => {
                 let splidate = recorddatalastfida.datasfida.split("/")
                 let dataconvert = new Date(splidate[2] + "/" + splidate[1] + "/" + splidate[0])
 
-                  console.log(datadioggi)
-                  console.log(dataconvert)
+                console.log(datadioggi)
+                console.log(dataconvert)
 
                 const time = Math.abs(dataconvert - datadioggi);
                 const days = Math.ceil(time / (1000 * 60 * 60 * 24));
-                let notificagioni=0;
+                let notificagioni = 0;
                 console.log(days);
-                
-                if(days===1) {notificagioni=2}else if(days===2) {notificagioni=1}
-                
+
+                if (days === 1) { notificagioni = 2 } else if (days === 2) { notificagioni = 1 }
+
                 if (days > 2) {
                     console.log("> = di 2 days")
 
@@ -387,7 +387,7 @@ const ChallengeSingle = () => {
             } else {
                 setsfidabutton(true)
                 getlastsfidaCancel()
-             
+
                 console.log("vuoto nessuna sfida complete")
             }
         });
@@ -399,7 +399,7 @@ const ChallengeSingle = () => {
         let sfidecoolete = {};
         // let datalastfida = new Date();
 
-        fetch(window.$produrl + "/challenge?status=cancel&codiceclub="+club+"&finalplayer=" + iduser, {
+        fetch(window.$produrl + "/challenge?status=cancel&codiceclub=" + club + "&finalplayer=" + iduser, {
             method: 'GET'
         }).then(res => {
             if (!res.ok) {
@@ -423,10 +423,10 @@ const ChallengeSingle = () => {
 
                 const time = Math.abs(dataconvert - datadioggi);
                 const days = Math.ceil(time / (1000 * 60 * 60 * 24));
-                let notificagioni=0;
+                let notificagioni = 0;
                 console.log(days);
-                
-                if(days===1) {notificagioni=2}else if(days===2) {notificagioni=1}
+
+                if (days === 1) { notificagioni = 2 } else if (days === 2) { notificagioni = 1 }
 
 
                 if (days > 2) {
@@ -456,7 +456,7 @@ const ChallengeSingle = () => {
 
     const checksfidapending = () => {
 
-        fetch(window.$produrl + "/challenge?status=pending&codiceclub="+club+"&q=" + name).then(res => {
+        fetch(window.$produrl + "/challenge?status=pending&codiceclub=" + club + "&q=" + name).then(res => {
             return res.json();
         }).then(resp => {
             if (Object.keys(resp).length === 0) {
@@ -515,13 +515,13 @@ const ChallengeSingle = () => {
                                         <span className="font-size-22 font-weight-bold vertical-align-middle name"></span>
                                     </div>
 
-                                    <div style={{fontWeight:'600'}} className="font-size-14 single-line-text text-color-gray">{plr.name}</div>
+                                    <div style={{ fontWeight: '600' }} className="font-size-14 single-line-text text-color-gray">{plr.name}</div>
                                     <div className="font-size-22 font-weight-bold vertical-align-middle name">{plr.address}</div>
 
                                     {plr.fuorigioco &&
                                         <div className="font-size-14 single-line-text text-color-red"><b>FUORIGIOCO</b>
-                                         <br></br>
-                                        Dal: <i> {plr.datafuorigioco} </i> 
+                                            <br></br>
+                                            Dal: <i> {plr.datafuorigioco} </i>
                                         </div>
                                     }
                                     {plr.insfida &&
@@ -557,13 +557,13 @@ const ChallengeSingle = () => {
                                                             {plr.posizione > flagmeplayer[0].posizione || flagmeplayer[0].posizione <= plr.posizione + 8 &&  // fino a 8 posizione sopra
                                                                 <>
                                                                     {plr.fuorigioco === false &&
-                                                                        <button style={{width:'50%', margin:'4px auto', background:'#d3e742', color:'#137000', fontWeight:'600', padding:'3px'}} disabled={plr.insfida || flagmeplayer[0].insfida } onClick={(e) => sfidahandle(e, plr.id, plr.name, 'update')} type="button" className={plr.insfida  ||  flagmeplayer[0].insfida  ? 'disabled button button-fill button-small' : 'button button-fill button-small'}>Sfida</button>
+                                                                        <button style={{ width: '50%', margin: '4px auto', background: '#d3e742', color: '#137000', fontWeight: '600', padding: '3px' }} disabled={plr.insfida || flagmeplayer[0].insfida} onClick={(e) => sfidahandle(e, plr.id, plr.name, 'update')} type="button" className={plr.insfida || flagmeplayer[0].insfida ? 'disabled button button-fill button-small' : 'button button-fill button-small'}>Sfida</button>
                                                                     }
                                                                 </>
                                                             }
                                                         </>
                                                     ) : (
-                                                        <div style={{ textAlign: 'center', margin: '0 auto' }}><span style={{background:'#e7e7e7', padding:'5px', color:'#ff3b30'}}> Giorni di Attesa per la prossima sfida: <b>{giornisfida}</b></span></div>
+                                                        <div style={{ textAlign: 'center', margin: '0 auto' }}><span style={{ background: '#e7e7e7', padding: '5px', color: '#ff3b30' }}> Giorni di Attesa per la prossima sfida: <b>{giornisfida}</b></span></div>
                                                     )}
 
                                                 </div>
@@ -580,45 +580,62 @@ const ChallengeSingle = () => {
 
                                 </div>
                                 {challenge.sort((a, b) => a.id < b.id ? 1 : -1).map((partite, i) => (
-                                    <div key={i + 1} style={{ paddingLeft: '5px', border:'0',  marginBottom:'0' }} className="card no-shadow no-safe-area-left">
-                                        <div style={{marginRight:'14px'}} className="card-contet">
+                                    <div key={i + 1} style={{ paddingLeft: '5px', border: '0', marginBottom: '0' }} className="card no-shadow no-safe-area-left">
+                                        <div style={{ marginRight: '14px' }} className="card-contet">
                                             <div className="block block-strong medium-hide no-hairlines no-margin-vertical sticky sticky-top">
                                                 <div style={{ padding: '5px 8px' }} className={partite.status === 'pending' || partite.status === 'processing' ? 'list no-chevron no-hairlines no-hairlines-between no-safe-areas segmented-strong-pending' : 'list no-chevron no-hairlines no-hairlines-between no-safe-areas segmented-strong'}>
 
                                                     <ul>
 
-                                                       <li style={{textAlign:'center'}}> 
-                                                        {partite.status === 'pending' &&
-                                                            <b> <i>  EV. {partite.id} </i>-   Attesa Avversario</b>
+                                                        <li style={{ textAlign: 'center' }}>
+                                                            {partite.status === 'pending' &&
+                                                                <b> <i>  EV. {partite.id} </i>-   Attesa Avversario</b>
 
-                                                        }
-                                                        {partite.status === 'processing' &&
-                                                            <>
-                                                                {partite.datasfida === '' ? (
-                                                                    <b> <i>  EV. {partite.id} </i>- Da Porgrammare</b>
+                                                            }
+                                                            {partite.status === 'processing' &&
+                                                                <>
+                                                                    {partite.datasfida === '' ? (
+                                                                        <b> <i>  EV. {partite.id} </i>- Da Porgrammare</b>
 
-                                                                ) : (
-                                                                    <b> <i>  EV. {partite.id} </i>- In Corso</b>
+                                                                    ) : (
+                                                                        <b> <i>  EV. {partite.id} </i>- In Corso</b>
 
-                                                                )}
-                                                            </>
-                                                        }
-                                                        {partite.status === 'cancel' &&
-                                                            <b> <i>  EV. {partite.id} </i>-  Annullata</b>
+                                                                    )}
+                                                                </>
+                                                            }
+                                                            {partite.status === 'cancel' &&
+                                                                <>
+                                                                    <b> <i>  EV. {partite.id} </i>-  Annullata da:</b>
 
-                                                        }
-                                                        {partite.status === 'complete' &&
-                                                            <b> <i>  EV. {partite.id} </i>-  Completata </b>
 
-                                                        }
-                                                  </li>       
-                                                    <li style={{textAlign:'center'}}>     <b> Del: </b>{partite.datacreate}  
-                                                      <b>{partite.status==='cancel' ? ' Annullata: ' : ' Prevista: '}</b> {partite.datasfida} {partite.orasfida}</li>
-                                                        <li style={{ textTransform: 'capitalize',textAlign:'center', fontWeight:'600',textDecoration:'underline' }}>{partite.players[0].p1} VS {partite.players[1].p2}</li>
-                                                        <li style={{textAlign:'center'}} ><b>Score</b></li>
-                                                        <li style={{textAlign:'center', textDecoration: partite.set1 === '0-0' ? 'line-through' : 'none' }}>Set1: <b>{partite.set1} </b></li>
-                                                        <li style={{textAlign:'center', textDecoration: partite.set2 === '0-0' ? 'line-through' : 'none' }}>Set2: <b>{partite.set2} </b></li>
-                                                        <li style={{textAlign:'center', textDecoration: partite.set3 === '0-0' ? 'line-through' : 'none' }}>Set3: <b>{partite.set3} </b> </li>
+                                                                    {partite.finalplayer != null &&
+                                                                        <>
+                                                                            {partite.finalplayer === partite.players[0].idp1 ? (
+                                                                                <i style={{ color: '#dc513b' }}>  {partite.players[0].p1} </i>
+
+                                                                            ) : (
+                                                                                <i style={{ color: '#dc513b' }}>  {partite.players[1].p2} </i>
+
+                                                                            )}
+                                                                        </>
+                                                                    }
+
+
+                                                                </>
+
+                                                            }
+                                                            {partite.status === 'complete' &&
+                                                                <b> <i>  EV. {partite.id} </i>-  Completata </b>
+
+                                                            }
+                                                        </li>
+                                                        <li style={{ textAlign: 'center' }}>     <b> Del: </b>{partite.datacreate}
+                                                            <b>{partite.status === 'cancel' ? ' Annullata: ' : ' Prevista: '}</b> {partite.datasfida} {partite.orasfida}</li>
+                                                        <li style={{ textTransform: 'capitalize', textAlign: 'center', fontWeight: '600', textDecoration: 'underline' }}>{partite.players[0].p1} VS {partite.players[1].p2}</li>
+                                                        <li style={{ textAlign: 'center' }} ><b>Score</b></li>
+                                                        <li style={{ textAlign: 'center', textDecoration: partite.set1 === '0-0' ? 'line-through' : 'none' }}>Set1: <b>{partite.set1} </b></li>
+                                                        <li style={{ textAlign: 'center', textDecoration: partite.set2 === '0-0' ? 'line-through' : 'none' }}>Set2: <b>{partite.set2} </b></li>
+                                                        <li style={{ textAlign: 'center', textDecoration: partite.set3 === '0-0' ? 'line-through' : 'none' }}>Set3: <b>{partite.set3} </b> </li>
                                                     </ul>
 
                                                 </div>
