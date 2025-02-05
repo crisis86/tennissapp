@@ -82,16 +82,16 @@ const Report = (props) => {
 
 
                     esitoultimaperdita = obj.finalplayer
-                    console.log("primo else if")
+                 //   console.log("primo else if")
 
                 } else if (obj.status === 'cancel' && obj.finalplayer != parseInt(idpd) && obj.finalplayer != null) { //se annulla l'avversario
                    if(esitoultimaperdita===0) { 
                     esitoultimoincontro = idpd
-                    console.log("secondo else if" + esitoultimaperdita)
+                   // console.log("secondo else if" + esitoultimaperdita)
                    }
                 } else {
                     esitoultimaperdita = idpd // se annullato automaticamente imposto il mio id
-                    console.log("entro finale")
+                    //console.log("entro finale")
 
 
                 }

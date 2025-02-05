@@ -322,7 +322,7 @@ const Home = () => {
                                                 <div style={{
                                                     borderRadius: '10px',
                                                     textAlign: 'center',
-                                                    background: 'rgba(190,190,190,0.6)',
+                                                    background: 'rgba(190,190,190,0.8)',
                                                     backgroundPosition: 'left',
                                                     backgroundRepeat: 'no-repeat',
                                                     backgroundSize: '60%',
