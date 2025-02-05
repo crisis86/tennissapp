@@ -243,7 +243,7 @@ const Home = () => {
                 </div>
                 <div className="row align-items-stretch">
                     {challenge &&
-                        challenge.sort((a, b) => formattadata(b.datasfida) <= formattatoday() ? 1 : -1).map((item, index) => (
+                        challenge.map((item, index) => (
                             <div key={index + 1} className="col-100 small-50 xlarge-100">
                                 <div className="item-content height-100">
                                     <div className="item-inner item-cell height-100 padding-vertical">
