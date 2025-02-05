@@ -25,8 +25,8 @@ const Home = () => {
 
     useEffect(() => {
 
-        if(club==="" || club === undefined){
-            usenavigate('/login');    
+        if (club === "" || club === undefined) {
+            usenavigate('/login');
         }
 
         if (location.pathname === '/Regolamento') {
@@ -69,7 +69,7 @@ const Home = () => {
 
     const countpost = () => {
 
-        fetch(window.$produrl + "/post?codiceclub="+club).then(res => {
+        fetch(window.$produrl + "/post?codiceclub=" + club).then(res => {
             if (!res.ok) {
                 console.log(res)
                 // navigate('/');
@@ -77,7 +77,7 @@ const Home = () => {
             }
             return res.json();
         }).then(resp => {
-            let lunghezza =  Object.keys(resp).length
+            let lunghezza = Object.keys(resp).length
 
             setnumberpost(lunghezza);
         })
@@ -86,7 +86,7 @@ const Home = () => {
     const loadcgallengeByFilter = (filro) => {
         /*    e.preventDefault(); */
 
-        fetch(window.$produrl + "/challenge?codiceclub="+club+"&status=" + filro + "&_limit=" + parseInt(pagination)+"&_sort=id&_order=desc").then(res => {
+        fetch(window.$produrl + "/challenge?codiceclub=" + club + "&status=" + filro + "&_limit=" + parseInt(pagination) + "&_sort=id&_order=desc").then(res => {
             if (!res.ok) {
                 console.log(res)
                 // navigate('/');
@@ -101,7 +101,7 @@ const Home = () => {
     const loadcgallengeToday = (filro) => {
 
 
-        fetch(window.$produrl + "/challenge?codiceclub="+club+"&datasfida=" + filro+"&_sort=id&_order=desc").then(res => {
+        fetch(window.$produrl + "/challenge?codiceclub=" + club + "&datasfida=" + filro + "&_sort=id&_order=desc").then(res => {
             if (!res.ok) {
                 console.log(res)
                 // navigate('/');
@@ -118,7 +118,7 @@ const Home = () => {
 
         // console.log(pagination)
 
-        fetch(window.$produrl + "/challenge?codiceclub="+club+"&_limit=" + parseInt(pagination)+"&_sort=id&_order=desc").then(res => {
+        fetch(window.$produrl + "/challenge?codiceclub=" + club + "&_limit=" + parseInt(pagination) + "&_sort=id&_order=desc").then(res => {
             if (!res.ok) {
                 console.log(res)
                 // navigate('/');
@@ -147,7 +147,7 @@ const Home = () => {
             let convertdata = datasfida[2] + "/" + datasfida[1] + "/" + datasfida[0]
             let nuovadata = new Date(convertdata).getTime();
 
-     
+
 
             if (isNaN(nuovadata)) {
                 return 0
@@ -212,7 +212,7 @@ const Home = () => {
         <div className="page-content">
             <div className="list cards-list inset margin-vertical-half no-chevron no-hairlines no-hairlines-between">
 
-                <div style={{ display: 'flex', borderBottom:'1px solid #e9e9e9' }} className="filter">
+                <div style={{ display: 'flex', borderBottom: '1px solid #e9e9e9' }} className="filter">
 
                     <img style={{ float: 'left' }} src={iconafiltro} alt="filter" width={23} ></img>
 
@@ -243,7 +243,7 @@ const Home = () => {
                 </div>
                 <div className="row align-items-stretch">
                     {challenge &&
-                        challenge.sort((a, b) => formattadata(b.datasfida) <= formattatoday()  ? 1 : -1).map((item, index) => (
+                        challenge.sort((a, b) => formattadata(b.datasfida) <= formattatoday() ? 1 : -1).map((item, index) => (
                             <div key={index + 1} className="col-100 small-50 xlarge-100">
                                 <div className="item-content height-100">
                                     <div className="item-inner item-cell height-100 padding-vertical">
@@ -267,7 +267,23 @@ const Home = () => {
                                                         </>
                                                     }
                                                     {item.status === 'cancel' &&
-                                                        <>  <i style={{ fontSize: '14px' }}> <b> EV. {item.id} </b> </i>  <br></br> <b style={{ fontSize: '14px', background: '#e7e7e7', padding: '3px' }}>Annullata</b> </>
+                                                        <>
+                                                            <i style={{ fontSize: '14px' }}> <b> EV. {item.id} </b> </i>  
+                                                            <br></br> <b style={{ fontSize: '14px', background: '#e7e7e7', padding: '3px' }}>Annullata da</b>
+                                                            <br></br>
+
+                                                            {item.finalplayer != null &&
+                                                                <>
+                                                                    {item.finalplayer === item.players[0].idp1 ? (
+                                                                        <i style={{ fontSize:'12px', color: '#dc513b' }}>  {item.players[0].p1} </i>
+
+                                                                    ) : (
+                                                                        <i style={{ fontSize:'12px', color: '#dc513b' }}>  {item.players[1].p2} </i>
+
+                                                                    )}
+                                                                </>
+                                                            }
+                                                        </>
 
                                                     }
                                                     {item.status === 'complete' &&
@@ -306,7 +322,7 @@ const Home = () => {
                                                     backgroundRepeat: 'no-repeat',
                                                     backgroundSize: '60%',
                                                     backgroundImage: `url(${sfondo})`,
-                                                  
+
                                                 }}
                                                     className="item-cell item-background">
                                                     <div className="font-size-14 multi-line-text lines-3 text-color-gray">
