@@ -3,9 +3,9 @@
   <defs>
     <style>
       .cls-1 {
-        fill: #130777;
+        fill: #013777;
         stroke: #fff;
-        stroke-miterlimit: 10;
+        stroke-miterlimit:0;
       }
     </style>
   </defs>

@@ -104,8 +104,8 @@ const Appheader = () => {
                         console.log('sfida scaduta tra ' + obj.players[0].p1 + " VS " + obj.players[1].p2)
 
                         
-                        let giorno = current.getDate()
-                        let mese = current.getMonth() + 1
+                        let giorno = String(current.getDate()).padStart(2, '0'); // Aggiunge lo 0 se serve
+                        let mese = String(current.getMonth() + 1).padStart(2, '0'); // Aggiunge lo 0 se serve
                         let anno = current.getFullYear()
                         
                         obj.status = 'cancel';

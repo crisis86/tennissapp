@@ -86,7 +86,7 @@ const Home = () => {
     const loadcgallengeByFilter = (filro) => {
         /*    e.preventDefault(); */
 
-        fetch(window.$produrl + "/challenge?codiceclub=" + club + "&status=" + filro + "&_limit=" + parseInt(pagination) + "&_sort=id&_order=desc").then(res => {
+        fetch(window.$produrl + "/challenge?codiceclub=" + club + "&status=" + filro + "&_limit=" + parseInt(pagination) + "&datasfida<>null&_sort=datasfida&_order=desc").then(res => {
             if (!res.ok) {
                 console.log(res)
                 // navigate('/');
@@ -287,7 +287,12 @@ const Home = () => {
 
                                                     }
                                                     {item.status === 'complete' &&
-                                                        <>  <i style={{ fontSize: '14px' }}> <b> EV. {item.id} </b> </i> <br></br>  <b style={{ fontSize: '14px', background: '#e7e7e7', padding: '3px' }} >Completata </b> </>
+                                                        <>
+                                                          <i style={{ fontSize: '14px' }}> <b> EV. {item.id} </b> </i>
+                                                          <br></br> <b style={{ontSize: '14px', background: '#e7e7e7', padding: '3px' }} >Completata </b> 
+                                                          
+                                                          
+                                                          </>
 
                                                     }
 
@@ -327,8 +332,8 @@ const Home = () => {
                                                     className="item-cell item-background">
                                                     <div className="font-size-14 multi-line-text lines-3 text-color-gray">
                                                         <ul>
-                                                            <li> <a style={{ textTransform: 'capitalize' }} className='link' href={'/Challenge-single/' + item.players[0].idp1 + '/' + item.players[0].p1}>
-                                                                <span style={{ fontSize: "14px" }}> <i>{item.players[0].p1}</i>
+                                                            <li> <a style={{textTransform: 'capitalize' }} className='link' href={'/Challenge-single/' + item.players[0].idp1 + '/' + item.players[0].p1}>
+                                                                <span style={{fontWeight:item.finalplayer===item.players[0].idp1 ? 'bold' : '200', fontSize: "14px" }}> <i>{item.players[0].p1}</i>
                                                                     {dayjs(today).format('DD/MM/YYYY') === formatdate(item.datasfida) &&
                                                                         <i><img width={15} src={pallina} alt="Challenge1"></img></i>
                                                                     }
@@ -341,8 +346,8 @@ const Home = () => {
                                                                 {/*  {dayjs(today).format('DD/MM/YYYY')} - {formatdate(item.datasfida)} */}
                                                             </li>
 
-                                                            <li>  <a style={{ textTransform: 'capitalize' }} className='link' href={'/Challenge-single/' + item.players[1].idp2 + '/' + item.players[1].p2}>
-                                                                <span style={{ fontSize: "14px" }}> <i>{item.players[1].p2}</i>
+                                                            <li>  <a style={{textTransform: 'capitalize' }} className='link' href={'/Challenge-single/' + item.players[1].idp2 + '/' + item.players[1].p2}>
+                                                                <span style={{fontWeight: item.finalplayer===item.players[1].idp2 ? 'bold' : '200', fontSize: "14px" }}> <i>{item.players[1].p2}</i>
                                                                     {dayjs(today).format('DD/MM/YYYY') === formatdate(item.datasfida) &&
                                                                         <i><img width={15} src={pallina} alt="Challenge2"></img></i>
                                                                     }
