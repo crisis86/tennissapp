@@ -101,7 +101,7 @@ const Home = () => {
     const loadcgallengeToday = (filro) => {
 
 
-        fetch(window.$produrl + "/challenge?codiceclub=" + club + "&datasfida=" + filro + "&_sort=id&_order=desc").then(res => {
+        fetch(window.$produrl + "/challenge?codiceclub=" + club + "&datasfida=" + filro + "&_sort=datasfida&_order=desc").then(res => {
             if (!res.ok) {
                 console.log(res)
                 // navigate('/');
