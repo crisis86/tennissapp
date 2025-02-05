@@ -115,7 +115,7 @@ const ChallengeList = () => {
                                     <ul>
                                         {playerlist &&
                                             playerlist.sort((a, b) => a.posizione > b.posizione ? 1 : -1).map((item, index) => (
-                                                <li style={{ borderRadius: '30px' }} key={index + 1} className={item.id === iduser ? 'my-rank me' : 'my-rank'}>
+                                                <li style={{ borderRadius: '0px' }} key={index + 1} className={item.id === iduser ? 'my-rank me' : 'my-rank'}>
                                                     <div style={{ borderRadius: '0px', background: item.insfida ? 'rgba(231,55,27,0.8)' : '', fontWeight: item.insfida ? 'bold' : '500' }} className="item-content">
                                                         <div className="item-inner item-cell">
                                                             <div className="item-row">
