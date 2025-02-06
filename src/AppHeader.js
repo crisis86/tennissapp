@@ -20,7 +20,7 @@ const Appheader = () => {
            // non fa nulla
         } else { 
         
-       //  controllasfide()
+         controllasfide()
          controllpending();
          controllafuorigioco()
 
@@ -263,7 +263,7 @@ const Appheader = () => {
                             obj.posizione = posp1 + 1 // scendo di 1 perchè ho annullato
                         }
                     }
-                    console.log("pod do chi anulla:" + obj.posizione)
+                    console.log("posiz do chi anulla:" + obj.posizione)
                     updateUserPosition(obj)
 
                 } if (index + 1 === posp1 + 1) {
@@ -278,21 +278,25 @@ const Appheader = () => {
                     }
                 } if (obj.id === idp2) {
                     obj.insfida = false;
-                    if (obj.posizione !== 1) {
+                //    if (obj.posizione !== 1) {
+                       
 
                         if (Object.keys(plrlist).length > index + 1) { //controllo la fine della classifica
                             obj.posizione = posp2 + 1  // scendo di 1 perchè ho annullato
+
                         }
-                    }
-                    console.log("sale di uno subisce annullo", obj.posizione)
+                  //  }
+ 
+                    console.log(obj.id + "annullamento: sale di uno quelle sotto", obj.posizione)
                     updateUserPosition(obj)
 
                 }
                 if (index + 1 === posp2 + 1) {
                     if (obj.id !== idp1) {
                         obj.posizione = obj.posizione - 1 // sale di uno quello sotto
+
                         if (obj.posizione <= 0) { obj.posizione = 1 }  //check primo classifica 
-                        console.log("scendi uno quello sopra", obj.posizione)
+                        console.log(obj.id + "annullamento: scende di uno quelle sopra", obj.posizione)
                         updateUserPosition(obj)
                     } else {
                         obj.insfida = false;
@@ -544,6 +548,8 @@ const Appheader = () => {
     }
 
     function updateUserPosition(ogettogioc) {
+
+       
 
         fetch(window.$produrl + "/user/" + ogettogioc.id, {
             method: 'PUT',
