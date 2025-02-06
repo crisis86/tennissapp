@@ -86,7 +86,7 @@ const Home = () => {
     const loadcgallengeByFilter = (filro) => {
         /*    e.preventDefault(); */
 
-        fetch(window.$produrl + "/challenge?codiceclub=" + club + "&status=" + filro + "&_limit=" + parseInt(pagination) + "&datasfida<>null&_sort=datasfida&_order=desc").then(res => {
+        fetch(window.$produrl + "/challenge?codiceclub=" + club + "&status=" + filro + "&_limit=" + parseInt(pagination) + "&_sort=datasfida:date&_order=desc").then(res => {
             if (!res.ok) {
                 console.log(res)
                 // navigate('/');
@@ -94,14 +94,26 @@ const Home = () => {
             }
             return res.json();
         }).then(res => {
-            setchallenge(res);
+            const sortedChallenges = res.sort((a, b) => {
+                if (!a.datasfida || !b.datasfida) return 0; // Evita errori se il campo manca
+                
+                const convertDate = (dateString) => {
+                    const [day, month, year] = dateString.split("/");
+                    return new Date(`${year}-${month}-${day}`); // Formato YYYY-MM-DD
+                };
+
+                return convertDate(b.datasfida) - convertDate(a.datasfida); // Ordine DESC
+            });
+
+          //  setchallenge(res);
+          setchallenge(sortedChallenges)
         })
     }
 
     const loadcgallengeToday = (filro) => {
 
 
-        fetch(window.$produrl + "/challenge?codiceclub=" + club + "&datasfida=" + filro + "&_sort=datasfida&_order=desc").then(res => {
+        fetch(window.$produrl + "/challenge?codiceclub=" + club + "&datasfida=" + filro + "&_sort=datasfida:date&_order=desc").then(res => {
             if (!res.ok) {
                 console.log(res)
                 // navigate('/');
