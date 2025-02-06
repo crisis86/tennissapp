@@ -74,7 +74,7 @@ const Report = (props) => {
 
                 if (obj.status === 'complete') { // mi l'ultimo evento controllo lo stato
                     esitoultimoincontro = challengelist[0].finalplayer  // prendo l'id del vincitore dell'ultimo evento complete
-
+                    lunghezza+=1
                 }
 
                 if(esitoultimoincontro ===0) {
@@ -102,7 +102,7 @@ const Report = (props) => {
                     sommavittorie += 1
                     console.log('sommavittorie ' + sommavittorie)
                 }
-                lunghezza = Object.keys(challengelist).length
+               // lunghezza = Object.keys(challengelist).length
                 return obj.id;
 
             });

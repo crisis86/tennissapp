@@ -20,7 +20,7 @@ const Appheader = () => {
            // non fa nulla
         } else { 
         
-         controllasfide()
+       //  controllasfide()
          controllpending();
          controllafuorigioco()
 
