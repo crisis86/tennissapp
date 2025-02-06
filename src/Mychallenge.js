@@ -261,10 +261,7 @@ const Mychallenge = () => {
                     let player2 = 0;
                     //  const play = player.map(obj => obj.posizione) 
                     let vincitore = calcolavincitore()
-
-                    console.log(vincitore)
-                    return
-
+                  
                     const found = challengepending.filter(obj => {
                         if (obj.id === idrecord) {
 
