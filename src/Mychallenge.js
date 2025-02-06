@@ -146,21 +146,36 @@ const Mychallenge = () => {
         let player1 = 0
         let player2 = 0
 
+      
         if (set1casa > set1ospite) {
             player1 += 1
-        } else if (player1 < player2) {
+       //     console.log('set 1 vince p1'+ player1)
+        } else if (set1casa < set1ospite) {
             player2 += 1
+         //   console.log('set 1 vince p2'+ player2)
         }
-        if (set2casa > set2ospite) {
+         if (set2casa > set2ospite) {
             player1 += 1
-        } else if (player1 < player2) {
+           // console.log('set 2 vince p1'+ player1)
+
+        } else if (set2casa < set2ospite) {
             player2 += 1
+           // console.log('set 2 vince p1'+ player2)
+
         }
+       
         if (set3casa > set3ospite) {
             player1 += 1
-        } else if (player1 < player2) {
+         //   console.log('set 3 vince p1'+ player1)
+
+        } else if (set3casa < set3ospite) {
             player2 += 1
+        //    console.log('set 3 vince p1'+ player2)
+
         }
+        console.log(player1)
+        console.log(player2)
+
         if (player1 > player2) {
             return "Player1"
         } else if (player1 < player2) {
@@ -246,6 +261,9 @@ const Mychallenge = () => {
                     let player2 = 0;
                     //  const play = player.map(obj => obj.posizione) 
                     let vincitore = calcolavincitore()
+
+                    console.log(vincitore)
+                    return
 
                     const found = challengepending.filter(obj => {
                         if (obj.id === idrecord) {
@@ -1215,31 +1233,31 @@ const Mychallenge = () => {
                                                                                 <tr index={index + 1}>
                                                                                     <td>Set 1</td>
                                                                                     <td>
-                                                                                        <input type="number" min="1" max="100" value={set1casa} onChange={e => setset1casa(e.target.value)} className="form-control"></input>
+                                                                                        <input type="number" min="1" max="100" value={set1casa} onChange={e => setset1casa(parseInt(e.target.value))} className="form-control"></input>
                                                                                     </td>
                                                                                     <td>-</td>
                                                                                     <td>
-                                                                                        <input type="number" min="1" max="100" value={set1ospite} onChange={e => setset1ospite(e.target.value)} className="form-control"></input>
+                                                                                        <input type="number" min="1" max="100" value={set1ospite} onChange={e => setset1ospite(parseInt(e.target.value))} className="form-control"></input>
                                                                                     </td>
                                                                                 </tr>
                                                                                 <tr>
                                                                                     <td>Set 2</td>
                                                                                     <td>
-                                                                                        <input type="number" min="1" max="100" value={set2casa} onChange={e => setset2casa(e.target.value)} className="form-control"></input>
+                                                                                        <input type="number" min="1" max="100" value={set2casa} onChange={e => setset2casa(parseInt(e.target.value))} className="form-control"></input>
                                                                                     </td>
                                                                                     <td>-</td>
                                                                                     <td>
-                                                                                        <input type="number" min="1" max="100" value={set2ospite} onChange={e => setset2ospite(e.target.value)} className="form-control"></input>
+                                                                                        <input type="number" min="1" max="100" value={set2ospite} onChange={e => setset2ospite(parseInt(e.target.value))} className="form-control"></input>
                                                                                     </td>
                                                                                 </tr>
                                                                                 <tr>
                                                                                     <td>Set 3</td>
                                                                                     <td>
-                                                                                        <input type="number" min="1" max="100" value={set3casa} onChange={e => setset3casa(e.target.value)} className="form-control"></input>
+                                                                                        <input type="number" min="1" max="100" value={set3casa} onChange={e => setset3casa(parseInt(e.target.value))} className="form-control"></input>
                                                                                     </td>
                                                                                     <td>-</td>
                                                                                     <td>
-                                                                                        <input type="number" min="1" max="100" value={set3ospite} onChange={e => setset3ospite(e.target.value)} className="form-control"></input>
+                                                                                        <input type="number" min="1" max="100" value={set3ospite} onChange={e => setset3ospite(parseInt(e.target.value))} className="form-control"></input>
                                                                                     </td>
                                                                                 </tr>
                                                                             </tbody>
@@ -1351,11 +1369,11 @@ const Mychallenge = () => {
                                                                             <tr index={index + 1}>
                                                                                 <td>Set 1</td>
                                                                                 <td>
-                                                                                    <input type="number" min="1" max="100" value={set1casa} onChange={e => setset1casa(e.target.value)} className="form-control"></input>
+                                                                                    <input type="number" min="1" max="100" value={set1casa} onChange={e => setset1casa(parseInt(e.target.value))} className="form-control"></input>
                                                                                 </td>
                                                                                 <td>-</td>
                                                                                 <td>
-                                                                                    <input type="number" min="1" max="100" value={set1ospite} onChange={e => setset1ospite(e.target.value)} className="form-control"></input>
+                                                                                    <input type="number" min="1" max="100" value={set1ospite} onChange={e => setset1ospite(parseInt(e.target.value))} className="form-control"></input>
                                                                                 </td>
 
 
@@ -1364,11 +1382,11 @@ const Mychallenge = () => {
                                                                             <tr>
                                                                                 <td>Set 2</td>
                                                                                 <td>
-                                                                                    <input type="number" min="1" max="100" value={set2casa} onChange={e => setset2casa(e.target.value)} className="form-control"></input>
+                                                                                    <input type="number" min="1" max="100" value={set2casa} onChange={e => setset2casa(parseInt(e.target.value))} className="form-control"></input>
                                                                                 </td>
                                                                                 <td>-</td>
                                                                                 <td>
-                                                                                    <input type="number" min="1" max="100" value={set2ospite} onChange={e => setset2ospite(e.target.value)} className="form-control"></input>
+                                                                                    <input type="number" min="1" max="100" value={set2ospite} onChange={e => setset2ospite(parseInt(e.target.value))} className="form-control"></input>
                                                                                 </td>
 
 
@@ -1377,11 +1395,11 @@ const Mychallenge = () => {
                                                                             <tr>
                                                                                 <td>Set 3</td>
                                                                                 <td>
-                                                                                    <input type="number" min="1" max="100" value={set3casa} onChange={e => setset3casa(e.target.value)} className="form-control"></input>
+                                                                                    <input type="number" min="1" max="100" value={set3casa} onChange={e => setset3casa(parseInt(e.target.value))} className="form-control"></input>
                                                                                 </td>
                                                                                 <td>-</td>
                                                                                 <td>
-                                                                                    <input type="number" min="1" max="100" value={set3ospite} onChange={e => setset3ospite(e.target.value)} className="form-control"></input>
+                                                                                    <input type="number" min="1" max="100" value={set3ospite} onChange={e => setset3ospite(parseInt(e.target.value))} className="form-control"></input>
                                                                                 </td>
 
 

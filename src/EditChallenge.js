@@ -166,9 +166,16 @@ const EditChallenge = () => {
                                 </div>
                                 <div className="col-lg-6">
                                     <div className="form-group">
+                                        <label>ID Vincitore <span className="errmsg">*</span></label>
+                                        <input value={finalplayer} onChange={e => setfinalplayer(parseInt(e.target.value))}  className="form-control"></input>
+                                    </div>
+                                </div>
+                                <div className="col-lg-6">
+                                    <div className="form-group">
                                         <label>Data Sfida <i>DD/MM/YYYY</i> <span className="errmsg">*</span></label>
                                         <input value={datasfida} onChange={e => setdatasfida(e.target.value)}  className="form-control"></input>
                                     </div>
+                                
                                 </div>
                                 <div className="col-lg-6">
                                     <div className="form-group">

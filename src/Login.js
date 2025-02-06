@@ -40,7 +40,8 @@ const Login = () => {
             sessionStorage.setItem('club', obuser.codiceclub);
             sessionStorage.setItem('clubname', obuser.club);
 
-
+ 
+            
             // toast.success('Success');
             usenavigate('/ChallengeList')
             // console.log(obuser)

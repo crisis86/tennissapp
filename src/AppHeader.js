@@ -20,9 +20,11 @@ const Appheader = () => {
            // non fa nulla
         } else { 
         
+        if(sessionStorage.getItem('iduser')>0) {
          controllasfide()
          controllpending();
          controllafuorigioco()
+        }
 
         const cron = require('node-schedule')
         cron.scheduleJob('*/1 * * * *', () => {
@@ -576,7 +578,9 @@ const Appheader = () => {
 
 
                     <span style={{ marginTop:'3px', float: 'left' }}><i>{sessionStorage.getItem('fullname')} - {sessionStorage.getItem('clubname')}</i> 
-                    </span>
+                   
+               
+                     </span>
                     {badge === true && <span className="badge">News</span>}
                     <span>  <Link className="logout" style={{ float: 'right', color: '#013777 !important' }} to={'/logout'}>
                     <FaIcons.FaSignOutAlt style={{color: '#013777' }} /></Link> </span>
