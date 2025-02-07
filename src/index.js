@@ -28,7 +28,7 @@ if (sessionStorage.getItem('club') !== '' || sessionStorage.getItem('club') !== 
   } else {
     
     console.log('nessun codice club');
-    window.location.href = "/login";
+   // window.location.href = "/login";
   }
 } else {
 

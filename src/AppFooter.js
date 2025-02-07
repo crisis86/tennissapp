@@ -22,7 +22,7 @@ const AppFooter = () => {
     const iduser = parseInt(sessionStorage.getItem('iduser'))
 
     useEffect(() => {
-        if (location.pathname === '/login' || location.pathname === '/register' || location.pathname === '/Regolamento.html') {
+        if (location.pathname === '/login' || location.pathname === '/register' || location.pathname === '/Regolamento.html' || location.pathname === '/Presentation.html') {
             showmenuupdateupdate(false);
         } else {
         

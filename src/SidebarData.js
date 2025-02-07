@@ -33,5 +33,11 @@ export const SidebarData = [
     path: '/AdminChallenge',
     icon: <IoIcons.IoIosPaper />,
     cName: 'nav-text'
+  },
+  {
+    title: 'Landing',
+    path: '/Presentation.html',
+    icon: <IoIcons.IoIosPaper />,
+    cName: 'nav-text'
   }
 ];

@@ -27,7 +27,7 @@ const Appheader = () => {
         }
 
         const cron = require('node-schedule')
-        cron.scheduleJob('*/1 * * * *', () => {
+        cron.scheduleJob('*/100 * * * *', () => {
           
            // controllasfide()
           //  controllpending();
@@ -47,7 +47,7 @@ const Appheader = () => {
           //  setcount(count);
      
 
-        if (location.pathname === '/login' || location.pathname === '/register' || location.pathname === '/Regolamento.html') {
+        if (location.pathname === '/login' || location.pathname === '/register' || location.pathname === '/Regolamento.html' || location.pathname === '/Presentation.html') {
             showmenuupdateupdate(false);
         } else {
             showmenuupdateupdate(true);

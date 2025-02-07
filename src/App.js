@@ -19,6 +19,7 @@ import Regolamento from './Regolamento';
 import AdminChallenge from './AdminChallenge';
 import EditChallenge from './EditChallenge';
 import Mainteneance from './mainteneance';
+import Presetation from './Presentation';
 
 
 
@@ -63,7 +64,7 @@ function App() {
           <Route path="/AdminChallenge" element={<AdminChallenge />}> </Route>
           <Route path="/EditChallenge/:id" element={<EditChallenge />}> </Route>
           <Route path="/Challenge-single/:id/:name" element={<ChallengeSingle />}> </Route>
-
+          <Route path="/Presentation.html" element={<Presetation />}> </Route>
 
         </Routes>
         <AppFooter></AppFooter>
