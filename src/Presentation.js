@@ -6,7 +6,7 @@ import "./assets/presentation.css"; // File CSS per lo stile
 const Presetation = () => {
 
     return (
-        <div className="landing-container">
+        <div style={{overflow: 'auto !important'}} className="landing-container">
         {/* Hero Section */}
         <header className="hero">
           <div className="hero-content">
