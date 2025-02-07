@@ -130,7 +130,8 @@ const EditChallenge = () => {
                 <form className="container" onSubmit={handlesubmit}>
                     <div className="card">
                         <div className="card-header">
-                            <h1>Challenge</h1>
+                            <h1>Challenge </h1>
+                            <span> <b style={{textAlign:'right'}}>{idp1}</b> vs  <b>{idp2}</b></span>
                         </div>
                         <div className="card-body">
 
@@ -142,7 +143,7 @@ const EditChallenge = () => {
                                 </div>
                                 <div className="col-lg-6">
                                     <div className="form-group">
-                                        <label>Data Creazione <i>DD/MM/YYYY</i><span className="errmsg">*</span></label>
+                                        <label>Data Creazione <i>dd/mm/yyyy</i><span className="errmsg">*</span></label>
                                         <input value={datacreate} onChange={e => setdatacreate(e.target.value)}  className="form-control"></input>
                                     </div>
                                 </div>
@@ -166,13 +167,13 @@ const EditChallenge = () => {
                                 </div>
                                 <div className="col-lg-6">
                                     <div className="form-group">
-                                        <label>ID Vincitore <span className="errmsg">*</span></label>
+                                        <label>ID Vincitore <span className="errmsg">*</span></label> 
                                         <input value={finalplayer} onChange={e => setfinalplayer(parseInt(e.target.value))}  className="form-control"></input>
                                     </div>
                                 </div>
                                 <div className="col-lg-6">
                                     <div className="form-group">
-                                        <label>Data Sfida <i>DD/MM/YYYY</i> <span className="errmsg">*</span></label>
+                                        <label>Data Sfida <i>dd/mm/yyyy</i> <span className="errmsg">*</span></label>
                                         <input value={datasfida} onChange={e => setdatasfida(e.target.value)}  className="form-control"></input>
                                     </div>
                                 

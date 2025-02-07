@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import editicon from './assets/icone/edit.png';
 
 const AdminChallenge = () => {
     const [challenge, challengelist] = useState([]);
@@ -146,8 +147,8 @@ const AdminChallenge = () => {
                                        <td>{item.players[0].p1}</td>
                                         <td>{item.players[1].p2}</td>
                                         <td>{item.status}</td>
-                                        <td>
-                                            <button sstyle={{width:'52px;', margin:'1px'}} onClick={(e) => handleedit(e, item.id)} className="btn btn-primary">Edit</button>
+                                        <td style={{display:'flex'}}>
+                                            <button sstyle={{width:'52px;', margin:'1px'}} onClick={(e) => handleedit(e, item.id)} className="btn btn-primary"><img alt="edit" src={editicon}></img></button>
                                             <button disabled={item.id===1} style={{width:'52px;', margin:'1px'}} onClick={(e) => handleremove(e, item.id)}   className="btn btn-danger">X</button>
                                         </td>
 

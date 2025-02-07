@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import editicon from './assets/icone/edit.png';
+
 
 const Player = () => {
     const [custlist, custupdate] = useState([]);
@@ -154,10 +156,20 @@ const Player = () => {
                                 custlist.sort((a, b) => a.posizione > b.posizione ? 1 : -1).map((item, index) => (
                                     <tr key={index+1}>
                                        <td>{item.id}</td>
-                                       <td>{item.name}</td>
-                                        <td>{item.posizione}</td>
-                                        <td>
-                                            <button style={{width:'52px;', margin:'1px'}} onClick={(e) => handleedit(e, item.id)} className="btn btn-primary">Edit</button>
+                                       <td>{item.name}   
+                                    {item.insfida===true ? ( 
+                                       <span><br></br><i>In sfida</i> </span>
+                                    ):(
+                                        <span><br></br><i>Libero </i></span>
+
+                                    )}
+                                     {item.fuorigioco===true && 
+                                       <label style={{color:'#bb2d3b'}}> - Fuorigioco</label>
+                                    }
+                                       </td>
+                                        <td style={{ textAlign:'center'}}> <b> {item.posizione}</b></td>
+                                        <td style={{display:'flex'}}>
+                                            <button style={{width:'52px;', margin:'1px'}} onClick={(e) => handleedit(e, item.id)} className="btn btn-primary"><img alt="edit" src={editicon}></img></button>
                                             <button style={{width:'52px;', margin:'1px'}} onClick={(e) => handleremove(e, item.id)}   className="btn btn-danger">X</button>
                                         </td>
                                         <td>{item.email}</td>
