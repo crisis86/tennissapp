@@ -509,7 +509,7 @@ const ChallengeSingle = () => {
 
                                 <div className="col flex-grow-1 margin-right-half">
                                     <div className="multi-line-text lines-2">
-                                        <b style={{color: 'rgb(175, 183, 47)'}} className="icon material-icons tooltip-init" data-tooltip="Verified">Posizione:{plr.posizione}</b>
+                                        <b style={{ color: 'rgb(175, 183, 47)' }} className="icon material-icons tooltip-init" data-tooltip="Verified">Posizione:{plr.posizione}</b>
 
 
                                         <span className="font-size-22 font-weight-bold vertical-align-middle name"></span>
@@ -619,6 +619,9 @@ const ChallengeSingle = () => {
                                                                             )}
                                                                         </>
                                                                     }
+                                                                    {partite.finalplayer === null &&
+                                                                        <i style={{ color: '#dc513b' }}> Sistema </i>
+                                                                    }
 
 
                                                                 </>
@@ -631,7 +634,7 @@ const ChallengeSingle = () => {
                                                         </li>
                                                         <li style={{ textAlign: 'center' }}>     <b> Del: </b>{partite.datacreate}
                                                             <b>{partite.status === 'cancel' ? ' Annullata: ' : ' Prevista: '}</b> {partite.datasfida} {partite.orasfida}</li>
-                                                        <li style={{ textTransform: 'capitalize', textAlign: 'center', color: '#013777', textDecoration: 'underline' }}><div style={{fontWeight: partite.finalplayer===partite.players[0].idp1 ? 'bold' : '200'}}>{partite.players[0].p1}</div> VS <div style={{fontWeight: partite.finalplayer===partite.players[1].idp2 ? 'bold' : '200'}}>{partite.players[1].p2}</div></li>
+                                                        <li style={{ textTransform: 'capitalize', textAlign: 'center', color: '#013777', textDecoration: 'underline' }}><div style={{ fontWeight: partite.finalplayer === partite.players[0].idp1 ? 'bold' : '200' }}>{partite.players[0].p1}</div> VS <div style={{ fontWeight: partite.finalplayer === partite.players[1].idp2 ? 'bold' : '200' }}>{partite.players[1].p2}</div></li>
                                                         <li style={{ textAlign: 'center' }} ><b>Score</b></li>
                                                         <li style={{ textAlign: 'center', textDecoration: partite.set1 === '0-0' ? 'line-through' : 'none' }}>Set1: <b>{partite.set1} </b></li>
                                                         <li style={{ textAlign: 'center', textDecoration: partite.set2 === '0-0' ? 'line-through' : 'none' }}>Set2: <b>{partite.set2} </b></li>

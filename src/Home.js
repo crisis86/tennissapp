@@ -296,6 +296,9 @@ const Home = () => {
                                                                     )}
                                                                 </>
                                                             }
+                                                            {item.finalplayer === null  &&  
+                                                              <i style={{ fontSize:'12px', color: '#dc513b' }}> Sistema </i>
+                                                            } 
                                                         </>
 
                                                     }
@@ -335,7 +338,7 @@ const Home = () => {
                                                 <div style={{
                                                     borderRadius: '10px',
                                                     textAlign: 'center',
-                                                    background: 'rgba(190,190,190,0.8)',
+                                                    background: 'rgba(190,190,190,0.6)',
                                                     backgroundPosition: 'left',
                                                     backgroundRepeat: 'no-repeat',
                                                     backgroundSize: '60%',
@@ -383,7 +386,7 @@ const Home = () => {
                                                         <ul>
                                                             <li style={{ textAlign: 'center' }} ><b>Score</b>{item.datasfida !== '' && converttimedate(item.datasfida) && item.status === 'processing' && <span style={{ color: 'red' }}><b>IN RITARDO</b></span>}</li>
                                                             <li style={{ textDecoration: item.set1 === '0-0' ? 'line-through' : 'none', textAlign: 'center' }} >Set1: <b>{item.set1} </b></li>
-                                                            <li style={{ textDecoration: item.set2 === '0-0' ? 'line-through' : 'none', textAlign: 'center' }}>Set2: <b>{item.set2} </b></li>
+                                                            <li style={{ textDecoration: item.set2 === '0-0' ? 'line-through' : 'none', textAlign: 'center' }}> Set2: <b>{item.set2} </b></li>
                                                             <li style={{ textDecoration: item.set3 === '0-0' ? 'line-through' : 'none', textAlign: 'center' }} >Set3: <b>{item.set3} </b> </li>
                                                         </ul>
 

@@ -146,29 +146,29 @@ const Mychallenge = () => {
         let player1 = 0
         let player2 = 0
 
-      
+
         if (set1casa > set1ospite) {
             player1 += 1
-       //     console.log('set 1 vince p1'+ player1)
+            //     console.log('set 1 vince p1'+ player1)
         } else if (set1casa < set1ospite) {
             player2 += 1
-         //   console.log('set 1 vince p2'+ player2)
+            //   console.log('set 1 vince p2'+ player2)
         }
-         if (set2casa > set2ospite) {
+        if (set2casa > set2ospite) {
             player1 += 1
-           // console.log('set 2 vince p1'+ player1)
+            // console.log('set 2 vince p1'+ player1)
 
         } else if (set2casa < set2ospite) {
             player2 += 1
-           // console.log('set 2 vince p1'+ player2)
+            // console.log('set 2 vince p1'+ player2)
         }
         if (set3casa > set3ospite) {
             player1 += 1
-         //   console.log('set 3 vince p1'+ player1)
+            //   console.log('set 3 vince p1'+ player1)
 
         } else if (set3casa < set3ospite) {
             player2 += 1
-        //    console.log('set 3 vince p1'+ player2)
+            //    console.log('set 3 vince p1'+ player2)
         }
         console.log(player1)
         console.log(player2)
@@ -258,7 +258,7 @@ const Mychallenge = () => {
                     let player2 = 0;
                     //  const play = player.map(obj => obj.posizione) 
                     let vincitore = calcolavincitore()
-                  
+
                     const found = challengepending.filter(obj => {
                         if (obj.id === idrecord) {
 
@@ -715,7 +715,7 @@ const Mychallenge = () => {
                         console.log("Posizioni nel mezzo:" + obj.posizione)
                         updateUserPosition(obj)
                     }
-                      if (obj.id === idp2) {
+                    if (obj.id === idp2) {
                         obj.insfida = false
                         obj.posizione = posp2 - 2 // Salgo di 2 posizioni
 
@@ -728,7 +728,7 @@ const Mychallenge = () => {
 
                     }
 
-                     if (index + 1 === posp1 + 1) {
+                    if (index + 1 === posp1 + 1) {
                         obj.posizione = obj.posizione - 1  // sale di uno quello sotto a me
 
                         if (obj.posizione <= 0) { obj.posizione = 1 }  //check primo classifica 
@@ -738,7 +738,7 @@ const Mychallenge = () => {
                     }
 
 
-                     if (obj.id === idp1) {
+                    if (obj.id === idp1) {
 
                         obj.insfida = false
 
@@ -753,9 +753,9 @@ const Mychallenge = () => {
 
                         updateUserPosition(obj)
 
-                    }  
+                    }
 
-                  
+
                     return obj.id
 
                 })
@@ -977,8 +977,8 @@ const Mychallenge = () => {
     }
 
     function sendemail(names, emails, status) {
-        
-        if(window.$produrl === "http://localhost:10000") {return}
+
+        if (window.$produrl === "http://localhost:10000") { return }
 
         let message = "";
         let subject = "";
@@ -1091,23 +1091,27 @@ const Mychallenge = () => {
                                                     }
                                                     {item.status === 'cancel' &&
                                                         <>
-                                                        <b> <i>  EV. {item.id} </i>-  Annullata da:</b>
+                                                            <b> <i>  EV. {item.id} </i>-  Annullata da:</b>
 
 
-                                                        {item.finalplayer != null &&
-                                                            <>
-                                                                {item.finalplayer === item.players[0].idp1 ? (
-                                                                    <i style={{ color: '#dc513b' }}>  {item.players[0].p1} </i>
+                                                            {item.finalplayer != null &&
+                                                                <>
+                                                                    {item.finalplayer === item.players[0].idp1 ? (
+                                                                        <i style={{ color: '#dc513b' }}>  {item.players[0].p1} </i>
 
-                                                                ) : (
-                                                                    <i style={{ color: '#dc513b' }}>  {item.players[1].p2} </i>
+                                                                    ) : (
+                                                                        <i style={{ color: '#dc513b' }}>  {item.players[1].p2} </i>
 
-                                                                )}
-                                                            </>
-                                                        }
+                                                                    )}
+                                                                </>
+                                                            }
+
+                                                            {item.finalplayer === null &&
+                                                                <i style={{ color: '#dc513b' }}> Sistema </i>
+                                                            }
 
 
-                                                    </>
+                                                        </>
 
 
                                                     }
@@ -1122,10 +1126,10 @@ const Mychallenge = () => {
                                                 ) : (
                                                     <li style={{ textAlign: 'center' }}> <b>{loadnumberphone(item.players[0].idp1)}</b></li>
                                                 )}
-                                                { club === 'DM00' &&  item.status!='cancel' && item.status!='complete' &&
-                                                <li style={{ textAlign: 'center', textTransform: 'capitalize', fontWeight: '600', textDecoration: 'underline' }}> <a href="https://playtomic.io/asd-club-padel-roccarainola/e438540f-6e1f-4a0e-9a83-f2e5968a8dae?q=PADEL~2025-01-29~~~" target="_blank"> Prenota il Campo</a></li>
+                                                {club === 'DM00' && item.status != 'cancel' && item.status != 'complete' &&
+                                                    <li style={{ textAlign: 'center', textTransform: 'capitalize', fontWeight: '600', textDecoration: 'underline' }}> <a href="https://playtomic.io/asd-club-padel-roccarainola/e438540f-6e1f-4a0e-9a83-f2e5968a8dae?q=PADEL~2025-01-29~~~" target="_blank"> Prenota il Campo</a></li>
                                                 }
-                                                <li style={{ textAlign: 'center', textTransform: 'capitalize',  textDecoration: 'underline' }} key={index + 1}><div style={{fontWeight: item.finalplayer===item.players[0].idp1 ? 'bold' : '200'}}> {item.players[0].p1}</div> VS <div style={{fontWeight: item.finalplayer===item.players[1].idp2 ? 'bold' : '200'}}>{item.players[1].p2}</div></li>
+                                                <li style={{ textAlign: 'center', textTransform: 'capitalize', textDecoration: 'underline' }} key={index + 1}><div style={{ fontWeight: item.finalplayer === item.players[0].idp1 ? 'bold' : '200' }}> {item.players[0].p1}</div> VS <div style={{ fontWeight: item.finalplayer === item.players[1].idp2 ? 'bold' : '200' }}>{item.players[1].p2}</div></li>
                                                 <li style={{ textAlign: 'center' }} ><b>Score</b></li>
                                                 <li style={{ textAlign: 'center', textDecoration: item.set1 === '0-0' ? 'line-through' : 'none' }} >Set1: <b>{item.set1} </b></li>
                                                 <li style={{ textAlign: 'center', textDecoration: item.set2 === '0-0' ? 'line-through' : 'none' }} >Set2: <b>{item.set2} </b></li>
@@ -1146,7 +1150,7 @@ const Mychallenge = () => {
                                             <div className="row">
                                                 <div className="col-100 small-50">
                                                     {item.status === 'pending' &&
-                                                        <button style={{width:'50%', margin:'4px auto', background:'#dc513b', color:'#fff', fontWeight:'600', padding:'3px'}} onClick={(e) => sfidahandle(e, item.players[1].idp2, 'cancel', item.id)} type="button" className="button button-fill color-red">Annulla </button>
+                                                        <button style={{ width: '50%', margin: '4px auto', background: '#dc513b', color: '#fff', fontWeight: '600', padding: '3px' }} onClick={(e) => sfidahandle(e, item.players[1].idp2, 'cancel', item.id)} type="button" className="button button-fill color-red">Annulla </button>
 
                                                     }
 
@@ -1199,12 +1203,12 @@ const Mychallenge = () => {
                                                                     <button onClick={(e) => progmatchandle(e, item.id)} type="button" className="button button-fill button-small">Conferma data</button>
                                                                     &nbsp;
                                                                     {item.datasfida === '' ? (
-                                                                        <button style={{width:'50%', margin:'4px auto', background:'#dc513b', color:'#fff', fontWeight:'600', padding:'3px'}} onClick={(e) => sfidahandle(e, item.players[1].idp2, 'cancel', item.id)} type="button" className="button button-fill color-red">Annulla </button>
+                                                                        <button style={{ width: '50%', margin: '4px auto', background: '#dc513b', color: '#fff', fontWeight: '600', padding: '3px' }} onClick={(e) => sfidahandle(e, item.players[1].idp2, 'cancel', item.id)} type="button" className="button button-fill color-red">Annulla </button>
                                                                     ) : (
                                                                         <>
                                                                             {dayjs(today).format('DD/MM/YYYY') < formatdate(item.datasfida) &&
 
-                                                                                <button style={{width:'50%', margin:'4px auto', background:'#dc513b', color:'#fff', fontWeight:'600', padding:'3px'}} onClick={(e) => sfidahandle(e, item.players[1].idp2, 'cancel', item.id)} type="button" className="button button-fill color-red">Annulla </button>
+                                                                                <button style={{ width: '50%', margin: '4px auto', background: '#dc513b', color: '#fff', fontWeight: '600', padding: '3px' }} onClick={(e) => sfidahandle(e, item.players[1].idp2, 'cancel', item.id)} type="button" className="button button-fill color-red">Annulla </button>
                                                                             }
                                                                         </>
                                                                     )}
@@ -1262,7 +1266,7 @@ const Mychallenge = () => {
                                                                     </div>
 
                                                                 ) : (
-                                                                    <button style={{width:'50%', margin:'4px auto', background:'#dc513b', color:'#fff', fontWeight:'600', padding:'3px'}} onClick={(e) => sfidahandle(e, item.players[1].idp2, 'cancel', item.id)} type="button" className="button button-fill color-red">Annulla </button>
+                                                                    <button style={{ width: '50%', margin: '4px auto', background: '#dc513b', color: '#fff', fontWeight: '600', padding: '3px' }} onClick={(e) => sfidahandle(e, item.players[1].idp2, 'cancel', item.id)} type="button" className="button button-fill color-red">Annulla </button>
 
                                                                 )}
                                                             </div>
@@ -1278,10 +1282,10 @@ const Mychallenge = () => {
                                                 {item.status === 'pending' && item.datasfida === '' &&
                                                     <>
                                                         <div className="col-100 small-50">
-                                                            <button style={{width:'50%', margin:'4px auto', background:'#dc513b', color:'#fff', fontWeight:'600', padding:'3px'}} onClick={(e) => sfidahandle(e, item.players[0].idp1, 'cancel', item.id)} type="button" className="button button-fill color-red">Annulla</button>
+                                                            <button style={{ width: '50%', margin: '4px auto', background: '#dc513b', color: '#fff', fontWeight: '600', padding: '3px' }} onClick={(e) => sfidahandle(e, item.players[0].idp1, 'cancel', item.id)} type="button" className="button button-fill color-red">Annulla</button>
                                                         </div>&nbsp;
                                                         <div className="col-100 small-50">
-                                                            <button style={{width:'50%', margin:'4px auto', background:'#d3e742', color:'#137000', fontWeight:'600', padding:'3px'}} onClick={(e) => accettasfidahandle(e, item.id, 'accept')} type="button" className="button button-fill button-small">Accetta</button>
+                                                            <button style={{ width: '50%', margin: '4px auto', background: '#d3e742', color: '#137000', fontWeight: '600', padding: '3px' }} onClick={(e) => accettasfidahandle(e, item.id, 'accept')} type="button" className="button button-fill button-small">Accetta</button>
                                                         </div>
                                                     </>
                                                 }
@@ -1334,12 +1338,12 @@ const Mychallenge = () => {
                                                                 <button onClick={(e) => progmatchandle(e, item.id)} type="button" className="button button-fill button-small">Conferma data</button>
                                                                 &nbsp;
                                                                 {item.datasfida === '' ? (
-                                                                    <button style={{width:'50%', margin:'4px auto', background:'#dc513b', color:'#fff', fontWeight:'600', padding:'3px'}} onClick={(e) => sfidahandle(e, item.players[0].idp1, 'cancel', item.id)} type="button" className="button button-fill color-red">Annulla</button>
+                                                                    <button style={{ width: '50%', margin: '4px auto', background: '#dc513b', color: '#fff', fontWeight: '600', padding: '3px' }} onClick={(e) => sfidahandle(e, item.players[0].idp1, 'cancel', item.id)} type="button" className="button button-fill color-red">Annulla</button>
                                                                 ) : (
                                                                     <>
                                                                         {dayjs(today).format('DD/MM/YYYY') < formatdate(item.datasfida) &&
 
-                                                                            <button style={{width:'50%', margin:'4px auto', background:'#dc513b', color:'#fff', fontWeight:'600', padding:'3px'}} onClick={(e) => sfidahandle(e, item.players[0].idp1, 'cancel', item.id)} type="button" className="button button-fill color-red">Annulla</button>
+                                                                            <button style={{ width: '50%', margin: '4px auto', background: '#dc513b', color: '#fff', fontWeight: '600', padding: '3px' }} onClick={(e) => sfidahandle(e, item.players[0].idp1, 'cancel', item.id)} type="button" className="button button-fill color-red">Annulla</button>
                                                                         }
                                                                     </>
                                                                 )}
@@ -1406,7 +1410,7 @@ const Mychallenge = () => {
                                                                 </div>
 
                                                             ) : (
-                                                                <button style={{width:'50%', margin:'4px auto', background:'#dc513b', color:'#fff', fontWeight:'600', padding:'3px'}} onClick={(e) => sfidahandle(e, item.players[0].idp1, 'cancel', item.id)} type="button" className="button button-fill color-red">Annulla</button>
+                                                                <button style={{ width: '50%', margin: '4px auto', background: '#dc513b', color: '#fff', fontWeight: '600', padding: '3px' }} onClick={(e) => sfidahandle(e, item.players[0].idp1, 'cancel', item.id)} type="button" className="button button-fill color-red">Annulla</button>
 
                                                             )}
 
