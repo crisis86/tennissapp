@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import editicon from './assets/icone/edit.png';
+import closeicon from './assets/icone/close.png';
+
 
 
 const Player = () => {
@@ -140,7 +142,7 @@ const Player = () => {
                 <div className="card-body">
                     <button onClick={handleadd} className="btn btn-success">Add (+)</button>
                     <br></br>
-                    <table className="table table-bordered">
+                    <table style={{fontSize: '14px'}} className="table table-bordered">
                         <thead className="bg-dark text-white">
                             <tr>
                                 <th>ID</th>
@@ -170,7 +172,7 @@ const Player = () => {
                                         <td style={{ textAlign:'center'}}> <b> {item.posizione}</b></td>
                                         <td style={{display:'flex'}}>
                                             <button style={{width:'52px;', margin:'1px'}} onClick={(e) => handleedit(e, item.id)} className="btn btn-primary"><img alt="edit" src={editicon}></img></button>
-                                            <button style={{width:'52px;', margin:'1px'}} onClick={(e) => handleremove(e, item.id)}   className="btn btn-danger">X</button>
+                                            <button style={{width:'52px;', margin:'1px'}} onClick={(e) => handleremove(e, item.id)}   className="btn btn-danger"><img alt="edit" src={closeicon}></img></button>
                                         </td>
                                         <td>{item.email}</td>
 
