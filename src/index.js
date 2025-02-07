@@ -26,7 +26,9 @@ if (sessionStorage.getItem('club') !== '' || sessionStorage.getItem('club') !== 
 
     window.$produrl = "http://localhost:10000";
   } else {
+    
     console.log('nessun codice club');
+    window.location.href = "/login";
   }
 } else {
 
