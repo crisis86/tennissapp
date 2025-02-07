@@ -161,9 +161,7 @@ const Mychallenge = () => {
         } else if (set2casa < set2ospite) {
             player2 += 1
            // console.log('set 2 vince p1'+ player2)
-
         }
-       
         if (set3casa > set3ospite) {
             player1 += 1
          //   console.log('set 3 vince p1'+ player1)
@@ -171,7 +169,6 @@ const Mychallenge = () => {
         } else if (set3casa < set3ospite) {
             player2 += 1
         //    console.log('set 3 vince p1'+ player2)
-
         }
         console.log(player1)
         console.log(player2)

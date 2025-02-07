@@ -402,8 +402,8 @@ const Appheader = () => {
                 if (obj.id === idp1) {
 
                     let nuovadata = new Date()
-                    let giorno = nuovadata.getDate()
-                    let mese = nuovadata.getMonth() + 1
+                    let giorno = String(nuovadata.getDate()).padStart(2, '0'); // Aggiunge lo 0 se serve
+                    let mese = String(nuovadata.getMonth() + 1).padStart(2, '0'); // Aggiunge lo 0 se serve
                     let anno = nuovadata.getFullYear()
 
                     obj.datafuorigioco = giorno + "/" + mese + "/" + anno
