@@ -64,7 +64,7 @@ const AppFooter = () => {
                             </a>
                             <a href="/ChallengeList" className="tab-link">
                                 <span className="icons">
-                                {location.pathname === '/ChallengeList' ? (
+                                {location.pathname === '/ChallengeList'  ? (
                                   <img src={iconclassActive} width={38} />
                                 ):(
                                    <img src={iconclass} width={38} />

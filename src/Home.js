@@ -265,16 +265,16 @@ const Home = () => {
                                                 <div className="item-cell flex-shrink-0 width-auto align-self-flex-start">
                                                     {item.status === 'pending' &&
                                                         <>
-                                                            <i style={{ fontSize: '14px' }}> <b> EV. {item.id} </b> </i><br></br> <b style={{ fontSize: '14px', background: '#e7e7e7', padding: '3px' }} >Attesa Avversario</b>
+                                                            <i style={{ fontSize: '14px' }}> <b> EV. {item.id} </b> </i><br></br> <b style={{ fontSize: '12px', background: '#e7e7e7', padding: '3px' }} >Attesa Avversario</b>
                                                         </>
                                                     }
                                                     {item.status === 'processing' &&
                                                         <>
                                                             {item.datasfida === '' ? (
-                                                                <>    <i style={{ fontSize: '14px' }}> <b> EV. {item.id} </b> </i> <br></br>   <b style={{ fontSize: '14px', background: '#e7e7e7', color: '#dc513b', padding: '3px' }}>Da Porgrammare</b>
+                                                                <>    <i style={{ fontSize: '14px' }}> <b> EV. {item.id} </b> </i> <br></br>   <b style={{ fontSize: '12px', background: '#e7e7e7', color: '#dc513b', padding: '3px' }}>Da Porgrammare</b>
                                                                 </>
                                                             ) : (
-                                                                <>     <i style={{ fontSize: '14px' }}> <b> EV. {item.id} </b> </i>  <br></br>  <b style={{ fontSize: '14px', background: '#e7e7e7', color: '#dc513b', padding: '3px' }}>In Corso</b>
+                                                                <>     <i style={{ fontSize: '14px' }}> <b> EV. {item.id} </b> </i>  <br></br>  <b style={{ fontSize: '12px', background: '#e7e7e7', color: '#dc513b', padding: '3px' }}>In Corso</b>
                                                                 </>
                                                             )}
                                                         </>
@@ -282,7 +282,7 @@ const Home = () => {
                                                     {item.status === 'cancel' &&
                                                         <>
                                                             <i style={{ fontSize: '14px' }}> <b> EV. {item.id} </b> </i>  
-                                                            <br></br> <b style={{ fontSize: '14px', background: '#e7e7e7', padding: '3px' }}>Annullata da</b>
+                                                            <br></br> <b style={{ fontSize: '12px', background: '#e7e7e7', padding: '3px' }}>Annullata da</b>
                                                             <br></br>
 
                                                             {item.finalplayer != null &&
@@ -305,7 +305,7 @@ const Home = () => {
                                                     {item.status === 'complete' &&
                                                         <>
                                                           <i style={{ fontSize: '14px' }}> <b> EV. {item.id} </b> </i>
-                                                          <br></br> <b style={{ontSize: '14px', background: '#e7e7e7', padding: '3px' }} >Completata </b> 
+                                                          <br></br> <b style={{fontSize: '12px', background: '#e7e7e7', padding: '3px' }} >Completata </b> 
                                                           
                                                           
                                                           </>

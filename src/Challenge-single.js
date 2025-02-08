@@ -634,7 +634,11 @@ const ChallengeSingle = () => {
                                                         </li>
                                                         <li style={{ textAlign: 'center' }}>     <b> Del: </b>{partite.datacreate}
                                                             <b>{partite.status === 'cancel' ? ' Annullata: ' : ' Prevista: '}</b> {partite.datasfida} {partite.orasfida}</li>
-                                                        <li style={{ textTransform: 'capitalize', textAlign: 'center', color: '#013777', textDecoration: 'underline' }}><div style={{ fontWeight: partite.finalplayer === partite.players[0].idp1 ? 'bold' : '200' }}>{partite.players[0].p1}</div> VS <div style={{ fontWeight: partite.finalplayer === partite.players[1].idp2 ? 'bold' : '200' }}>{partite.players[1].p2}</div></li>
+                                                        <li style={{ textTransform: 'capitalize', textAlign: 'center', color: '#013777' }}>
+                                                        <div style={{ fontWeight: partite.finalplayer === partite.players[0].idp1 ? 'bold' : '200' }}><a href={'/Challenge-single/' + partite.players[0].idp1 + '/' + partite.players[0].p1}>{partite.players[0].p1} </a></div>
+                                                         <label>VS</label>  
+                                                         <div style={{ fontWeight: partite.finalplayer === partite.players[1].idp2 ? 'bold' : '200' }}><a href={'/Challenge-single/' + partite.players[1].idp2 + '/' + partite.players[1].p2}>{partite.players[1].p2}</a></div>
+                                                        </li>
                                                         <li style={{ textAlign: 'center' }} ><b>Score</b></li>
                                                         <li style={{ textAlign: 'center', textDecoration: partite.set1 === '0-0' ? 'line-through' : 'none' }}>Set1: <b>{partite.set1} </b></li>
                                                         <li style={{ textAlign: 'center', textDecoration: partite.set2 === '0-0' ? 'line-through' : 'none' }}>Set2: <b>{partite.set2} </b></li>
