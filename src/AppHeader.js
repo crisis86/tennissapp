@@ -21,8 +21,8 @@ const Appheader = () => {
         } else { 
         
         if(sessionStorage.getItem('iduser')>0) {
-         controllasfide()
-         controllpending();
+       //  controllasfide()
+        // controllpending();
          controllafuorigioco()
         }
 
@@ -46,7 +46,7 @@ const Appheader = () => {
           //  sessionStorage.setItem("onlineUsers", count);
           //  setcount(count);
      
-           console.log(location.pathname)
+       
         if (location.pathname === '/login' || location.pathname === '/register' || location.pathname === '/Regolamento.html' || location.pathname === '/Presentation.html') {
             showmenuupdateupdate(false);
         } else {
