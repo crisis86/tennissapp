@@ -21,13 +21,11 @@ const Appheader = () => {
         } else { 
         
         if(sessionStorage.getItem('iduser')>0) {
-       //  controllasfide()
-        // controllpending();
-         controllafuorigioco()
+            eseguiControlli();
         }
 
         const cron = require('node-schedule')
-        cron.scheduleJob('*/100 * * * *', () => {
+        cron.scheduleJob('*/180 * * * *', () => {
           
            // controllasfide()
           //  controllpending();
@@ -38,6 +36,17 @@ const Appheader = () => {
     }
     }, [])
 
+    async function eseguiControlli() {
+        try {
+          await controllasfide();
+          await controllpending();
+          await controllafuorigioco();
+        } catch (error) {
+          console.error("Errore durante l'esecuzione dei controlli:", error);
+        }
+      }
+
+    
     useEffect(() => {
 
          
@@ -62,309 +71,256 @@ const Appheader = () => {
 
     }, [location])
 
-   
+         
 
-    function controllasfide() {
+   async function controllasfide() {
 
-        fetch(window.$produrl + "/challenge?status=processing&codiceclub=" + club, {
-            method: 'GET',
-            headers: {
-                accept: 'application/json',
-            }
-        }).then(res => {
-            if (!res.ok) {
-                // console.log('nulla')
-                return false
-            }
-            return res.json();
-        }).then(resp => {
-
-            let challenger = resp;
-
-            //console.log(challenger);
-
-            console.log((challenger));
-
-            const current = new Date();
-            //  const currentDate = current.getDate();
-
-            const found = challenger.filter((obj, index) => {
-                // console.log(obj.status)
-                if (obj.datasfida === '' || obj.datasfida === null) {
-
-                    let datasdellfida = obj.datacreate;
-
-                    let splidate = datasdellfida.split("/")
-                    let dataconvert = new Date(splidate[2] + "/" + splidate[1] + "/" + splidate[0])
-
-                    const time = Math.abs(dataconvert - current);
-                    const days = Math.ceil(time / (1000 * 60 * 60 * 24));
-                    console.log(days);
-
-                    // idays > 2{
-                    if (days > 2) {
-                        console.log('sfida scaduta tra ' + obj.players[0].p1 + " VS " + obj.players[1].p2)
-
-                        
-                        let giorno = String(current.getDate()).padStart(2, '0'); // Aggiunge lo 0 se serve
-                        let mese = String(current.getMonth() + 1).padStart(2, '0'); // Aggiunge lo 0 se serve
-                        let anno = current.getFullYear()
-                        
-                        obj.status = 'cancel';
-                        obj.datasfida = giorno + "/" + mese + "/" + anno;
-
-                        cancelchallenge(obj, obj.id)
-                        penalizzazione(obj.players[0].idp1, obj.players[1].idp2)
-
-                    } else {
-                        console.log('sfida in attesa di risposta')
-                    }
-
-                } else {
-                    console.log('sfida trovata in status:' + obj.status)
-                }
-                return obj.id
-            });
+    try {
+        const response = await fetch(`${window.$produrl}/challenge?status=processing&codiceclub=${club}`, {
+          method: 'GET',
+          headers: { accept: 'application/json' }
         });
-    }
-
-
-    function controllpending() {
-
-        fetch(window.$produrl + "/challenge?status=pending&codiceclub=" + club, {
-            method: 'GET',
-            headers: {
-                accept: 'application/json',
-            }
-        }).then(res => {
-            if (!res.ok) {
-                // console.log('nulla')
-                return false
-            }
-            return res.json();
-        }).then(resp => {
-
-            let challenger = resp;
-
-            //console.log(challenger);
-
-            console.log((challenger));
-
-            const current = new Date();
-            //  const currentDate = current.getDate();
-
-            const found = challenger.filter((obj, index) => {
-                // console.log(obj.status)
-                if (obj.datasfida === '' || obj.datasfida === null) {
-
-                    let datasdellfida = obj.datacreate;
-
-                    let splidate = datasdellfida.split("/")
-                    let dataconvert = new Date(splidate[2] + "/" + splidate[1] + "/" + splidate[0])
-
-                    const time = Math.abs(dataconvert - current);
-                    const days = Math.ceil(time / (1000 * 60 * 60 * 24));
-                    console.log(days);
-                    
-
-                    // idays > 2{
-                    if (days > 2) {
-                        console.log('sfida scaduta tra ' + obj.players[0].p1 + " VS " + obj.players[1].p2)
-
-                        let giorno = String(current.getDate()).padStart(2, '0'); // Aggiunge lo 0 se serve
-                        let mese = String(current.getMonth() + 1).padStart(2, '0'); // Aggiunge lo 0 se serve
-                        let anno = current.getFullYear()
- 
     
-                        obj.status = 'cancel';
-                        obj.datasfida = giorno + "/" + mese + "/" + anno;
-                        obj.finalplayer =null;
-
-                        cancelchallenge(obj, obj.id)
-                        penalizzazionePending(obj.players[0].idp1, obj.players[1].idp2)
-
-                    } else {
-                        console.log('sfida in attesa di risposta')
-                    }
-
-                } else {
-                    // console.log('sfida trovata in status:' + obj.status)
-                }
-                return obj.id
-            });
-        });
+        if (!response.ok) return;  //  Evita di eseguire altro se la risposta non è valida
+    
+        let challenger = await response.json();  //  Attendi il parsing del JSON
+        const current = new Date();
+    
+        for (let obj of challenger) {  //  Usa un ciclo `for...of` per iterare sugli oggetti
+          if (!obj.datasfida) {
+            let splidate = obj.datacreate.split("/");
+            let dataconvert = new Date(`${splidate[2]}/${splidate[1]}/${splidate[0]}`);
+            const days = Math.ceil(Math.abs(dataconvert - current) / (1000 * 60 * 60 * 24));
+    
+            if (days > 2) {
+              console.log(`Sfida scaduta tra ${obj.players[0].p1} VS ${obj.players[1].p2}`);
+    
+              let giorno = String(current.getDate()).padStart(2, '0');
+              let mese = String(current.getMonth() + 1).padStart(2, '0');
+              let anno = current.getFullYear();
+    
+              obj.status = 'cancel';
+              obj.datasfida = `${giorno}/${mese}/${anno}`;
+    
+              await cancelchallenge(obj, obj.id);  // ⏳ Attendi che la PUT sia completata
+              await penalizzazione(obj.players[0].idp1, obj.players[1].idp2);
+            }
+          }
+        }
+      } catch (error) {
+        console.error("Errore in controllasfide:", error);
+      }
     }
 
-    function cancelchallenge(objchallenge, idriga) {
 
-        fetch(window.$produrl + "/challenge/" + idriga, {
-            method: 'PUT',
-            headers: {
+   async function controllpending() {
+
+        try {
+            const response = await fetch(`${window.$produrl}/challenge?status=pending&codiceclub=${club}`, {
+              method: 'GET',
+              headers: { accept: 'application/json' }
+            });
+        
+            if (!response.ok) return;
+        
+            let challenger = await response.json();
+            const current = new Date();
+        
+            for (let obj of challenger) {
+              if (!obj.datasfida) {
+                let splidate = obj.datacreate.split("/");
+                let dataconvert = new Date(`${splidate[2]}/${splidate[1]}/${splidate[0]}`);
+                const days = Math.ceil(Math.abs(dataconvert - current) / (1000 * 60 * 60 * 24));
+        
+                if (days > 2) {
+                  console.log(`Sfida scaduta tra ${obj.players[0].p1} VS ${obj.players[1].p2}`);
+        
+                  let giorno = String(current.getDate()).padStart(2, '0');
+                  let mese = String(current.getMonth() + 1).padStart(2, '0');
+                  let anno = current.getFullYear();
+        
+                  obj.status = 'cancel';
+                  obj.datasfida = `${giorno}/${mese}/${anno}`;
+                  obj.finalplayer = null;
+        
+                  await cancelchallenge(obj, obj.id);
+                  await penalizzazionePending(obj.players[0].idp1, obj.players[1].idp2);
+                }
+              }
+            }
+          } catch (error) {
+            console.error("Errore in controllpending:", error);
+          }
+    }
+ 
+  async  function controllafuorigioco() {
+
+        try {
+            const response = await fetch(`${window.$produrl}/user?role=player&fuorigioco=true&codiceclub=${club}`, {
+              method: 'GET',
+              headers: { accept: 'application/json' }
+            });
+        
+            if (!response.ok) return;
+        
+            let userfuorigioco = await response.json();
+            const current = new Date();
+        
+            for (let obj of userfuorigioco) {
+              if (obj.datafuorigioco) {
+                let splidate = obj.datafuorigioco.split("/");
+                let dataconvert = new Date(`${splidate[2]}/${splidate[1]}/${splidate[0]}`);
+                const days = Math.ceil(Math.abs(dataconvert - current) / (1000 * 60 * 60 * 24));
+        
+                if (days >= 6) {
+                  console.log(`Fuorigioco >= 6 giorni per ${obj.name}`);
+                  await penalizzazionesingola(obj.id);  // ⏳ Attendi la penalizzazione
+                }
+              }
+            }
+          } catch (error) {
+            console.error("Errore in controllafuorigioco:", error);
+          }try {
+            const response = await fetch(`${window.$produrl}/user?role=player&fuorigioco=true&codiceclub=${club}`, {
+              method: 'GET',
+              headers: { accept: 'application/json' }
+            });
+        
+            if (!response.ok) return;
+        
+            let userfuorigioco = await response.json();
+            const current = new Date();
+        
+            for (let obj of userfuorigioco) {
+              if (obj.datafuorigioco) {
+                let splidate = obj.datafuorigioco.split("/");
+                let dataconvert = new Date(`${splidate[2]}/${splidate[1]}/${splidate[0]}`);
+                const days = Math.ceil(Math.abs(dataconvert - current) / (1000 * 60 * 60 * 24));
+        
+                if (days >= 6) {
+                  console.log(`Fuorigioco >= 6 giorni per ${obj.name}`);
+                  await penalizzazionesingola(obj.id);  // ⏳ Attendi la penalizzazione
+                }
+              }
+            }
+          } catch (error) {
+            console.error("Errore in controllafuorigioco:", error);
+          }
+    }
+   
+  async function cancelchallenge(objchallenge, idriga) {
+
+        try {
+            const response = await fetch(`${window.$produrl}/challenge/${idriga}`, {
+              method: 'PUT',
+              headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(objchallenge)
-        }).then((result) => {
-            //  console.log(result)
-            result.json().then((resp) => {
-                console.log('chanllenge in status cancel :' + objchallenge.id)
-
-            })
-        }).catch((err) => {
-
-            console.log(err.message)
-        });
-
-    }
-
-    function penalizzazione(idp1, idp2) {
-
-        fetch(window.$produrl + "/user?role=player&codiceclub=" + club, {
-            method: 'GET',
-            headers: {
-                accept: 'application/json',
-            }
-        }).then(res => {
-            if (!res.ok) {
-                // console.log('nulla')
-                return false
-            }
-            return res.json();
-        }).then(resp => {
-
-            let plrlist = resp;
-
-            //console.log(plrlist);
-            let posp1 = 0
-            let posp2 = 0
-            const cercapos1 = plrlist.filter(obj => {
-                if (obj.id === idp1) {
-                    posp1 = obj.posizione;
-                }
-                return posp1
-            })
-            const cercapos2 = plrlist.filter(obj => {
-                if (obj.id === idp2) {
-                    posp2 = obj.posizione;
-                }
-                return posp2
-            })
-
-            console.log(posp1);
-            console.log(posp2);
-
-            const foundannullaforzato = plrlist.sort((a, b) => a.posizione > b.posizione ? 1 : -1).filter((obj, index) => {
-
-
-                if (obj.id === idp1) {
-                    obj.insfida = false;
-
-                    if (obj.posizione !== 1) {
-
-                        if (Object.keys(plrlist).length > index + 1) { //controllo la fine della classifica
-                            obj.posizione = posp1 + 1 // scendo di 1 perchè ho annullato
-                        }
-                    }
-                    console.log("posiz do chi anulla:" + obj.posizione)
-                    updateUserPosition(obj)
-
-                } if (index + 1 === posp1 + 1) {
-                    if (obj.id !== idp2) {
-                        obj.posizione = obj.posizione - 1 // sale di uno quello sotto
-                        if (obj.posizione <= 0) { obj.posizione = 1 }  //check primo classifica 
-                        console.log("sale di uno quello sotto", obj.posizione)
-                        updateUserPosition(obj)
-                    } else {
-                        obj.insfida = false;
-                        updateUserPosition(obj)
-                    }
-                } if (obj.id === idp2) {
-                    obj.insfida = false;
-                //    if (obj.posizione !== 1) {
-                       
-
-                        if (Object.keys(plrlist).length > index + 1) { //controllo la fine della classifica
-                            obj.posizione = posp2 + 1  // scendo di 1 perchè ho annullato
-
-                        }
-                  //  }
- 
-                    console.log(obj.id + "annullamento: sale di uno quelle sotto", obj.posizione)
-                    updateUserPosition(obj)
-
-                }
-                if (index + 1 === posp2 + 1) {
-                    if (obj.id !== idp1) {
-                        obj.posizione = obj.posizione - 1 // sale di uno quello sotto
-
-                        if (obj.posizione <= 0) { obj.posizione = 1 }  //check primo classifica 
-                        console.log(obj.id + "annullamento: scende di uno quelle sopra", obj.posizione)
-                        updateUserPosition(obj)
-                    } else {
-                        obj.insfida = false;
-                        updateUserPosition(obj)
-                    }
-                }
-
-            })
-
-        });
-    }
-    function controllafuorigioco() {
-
-        fetch(window.$produrl + "/user?role=player&fuorigioco=true&codiceclub=" + club, {
-            method: 'GET',
-            headers: {
-                accept: 'application/json',
-            }
-        }).then(res => {
-            if (!res.ok) {
-                // console.log('nulla')
-                return false
-            }
-            return res.json();
-        }).then(resp => {
-
-            let userfuorigioco = resp;
-
-            //console.log(userfuorigioco);
-
-            console.log((userfuorigioco));
-            const current = new Date();
-            //  const currentDate = current.getDate();
-
-            const found = userfuorigioco.filter((obj, index) => {
-                console.log(current)
-                if (obj.datafuorigioco !== '' || obj.datafuorigioco !== null) {
-
-                    let fuoridata = obj.datafuorigioco;
-
-                    let splidate = fuoridata.split("/")
-                    let dataconvert = new Date(splidate[2] + "/" + splidate[1] + "/" + splidate[0])
-                    console.log(fuoridata);
-                    console.log(dataconvert);
-
-                    const time = Math.abs(dataconvert - current);
-                    const days = Math.ceil(time / (1000 * 60 * 60 * 24));
-                    console.log(days);
-
-
-                    if (days >= 6) {
-                        console.log('Fuorigioco >= di 6 giorni')
-
-                        penalizzazionesingola(obj.id)
-                        console.log('penalizzo:', obj.name)
-                    } else {
-                        console.log('Fuorigioco Dentro i 6 giorni')
-                    }
-
-                } else {
-                    console.log('nessuna data da fuorigioco da controllare')
-                }
-                return obj.id
+              },
+              body: JSON.stringify(objchallenge)
             });
-        });
+        
+            const result = await response.json();
+            console.log(`Challenge in status cancel: ${objchallenge.id}`);
+          } catch (error) {
+            console.error("Errore in cancelchallenge:", error);
+          }
+
     }
+
+   function penalizzazione(idp1, idp2) {
+
+         fetch(window.$produrl + "/user?role=player&codiceclub=" + club, {
+             method: 'GET',
+             headers: {
+                 accept: 'application/json',
+             }
+         }).then(res => {
+             if (!res.ok) {
+                 // console.log('nulla')
+                 return false
+             }
+             return res.json();
+         }).then(resp => {
+ 
+             let plrlist = resp;
+ 
+             //console.log(plrlist);
+             let posp1 = 0
+             let posp2 = 0
+             const cercapos1 = plrlist.filter(obj => {
+                 if (obj.id === idp1) {
+                     posp1 = obj.posizione;
+                 }
+                 return posp1
+             })
+             const cercapos2 = plrlist.filter(obj => {
+                 if (obj.id === idp2) {
+                     posp2 = obj.posizione;
+                 }
+                 return posp2
+             })
+ 
+             console.log(posp1);
+             console.log(posp2);
+ 
+             const foundannullaforzato = plrlist.sort((a, b) => a.posizione > b.posizione ? 1 : -1).filter((obj, index) => {
+ 
+ 
+                 if (obj.id === idp1) {
+                     obj.insfida = false;
+ 
+                     if (obj.posizione !== 1) {
+ 
+                         if (Object.keys(plrlist).length > index + 1) { //controllo la fine della classifica
+                             obj.posizione = posp1 + 1 // scendo di 1 perchè ho annullato
+                         }
+                     }
+                     console.log("posiz do chi anulla:" + obj.posizione)
+                   updateUserPosition(obj)
+ 
+                 } if (index + 1 === posp1 + 1) {
+                     if (obj.id !== idp2) {
+                         obj.posizione = obj.posizione - 1 // sale di uno quello sotto
+                         if (obj.posizione <= 0) { obj.posizione = 1 }  //check primo classifica 
+                         console.log("sale di uno quello sotto", obj.posizione)
+                       updateUserPosition(obj)
+                     } else {
+                         obj.insfida = false;
+                        updateUserPosition(obj)
+                     }
+                 } if (obj.id === idp2) {
+                     obj.insfida = false;
+                 //    if (obj.posizione !== 1) {
+                        
+ 
+                         if (Object.keys(plrlist).length > index + 1) { //controllo la fine della classifica
+                             obj.posizione = posp2 + 1  // scendo di 1 perchè ho annullato
+ 
+                         }
+                   //  }
+  
+                     console.log(obj.id + "annullamento: sale di uno quelle sotto", obj.posizione)
+                    updateUserPosition(obj)
+ 
+                 }
+                 if (index + 1 === posp2 + 1) {
+                     if (obj.id !== idp1) {
+                         obj.posizione = obj.posizione - 1 // sale di uno quello sotto
+ 
+                         if (obj.posizione <= 0) { obj.posizione = 1 }  //check primo classifica 
+                         console.log(obj.id + "annullamento: scende di uno quelle sopra", obj.posizione)
+                         updateUserPosition(obj)
+                     } else {
+                         obj.insfida = false;
+                         updateUserPosition(obj)
+                     }
+                 }
+ 
+             })
+ 
+         });
+     }
 
     function penalizzazionesingola(idp1) {
 
