@@ -13,8 +13,6 @@ const Appheader = () => {
 
     //const [contatore, setcount] = useState(0);
 
-
-
     useEffect(() => {
         if (club === "" || club === undefined) {
            // non fa nulla
@@ -103,7 +101,7 @@ const Appheader = () => {
               obj.datasfida = `${giorno}/${mese}/${anno}`;
     
               await cancelchallenge(obj, obj.id);  // ⏳ Attendi che la PUT sia completata
-              await penalizzazione(obj.players[0].idp1, obj.players[1].idp2);
+              penalizzazione(obj.players[0].idp1, obj.players[1].idp2);
             }
           }
         }
@@ -144,7 +142,7 @@ const Appheader = () => {
                   obj.finalplayer = null;
         
                   await cancelchallenge(obj, obj.id);
-                  await penalizzazionePending(obj.players[0].idp1, obj.players[1].idp2);
+                  penalizzazionePending(obj.players[0].idp1, obj.players[1].idp2);
                 }
               }
             }
@@ -174,7 +172,7 @@ const Appheader = () => {
         
                 if (days >= 6) {
                   console.log(`Fuorigioco >= 6 giorni per ${obj.name}`);
-                  await penalizzazionesingola(obj.id);  // ⏳ Attendi la penalizzazione
+                   penalizzazionesingola(obj.id);  // ⏳ Attendi la penalizzazione
                 }
               }
             }
@@ -199,7 +197,7 @@ const Appheader = () => {
         
                 if (days >= 6) {
                   console.log(`Fuorigioco >= 6 giorni per ${obj.name}`);
-                  await penalizzazionesingola(obj.id);  // ⏳ Attendi la penalizzazione
+                   penalizzazionesingola(obj.id);  // ⏳ Attendi la penalizzazione
                 }
               }
             }
@@ -529,7 +527,7 @@ const Appheader = () => {
 
     return (
         <div>
-            {showmenu &&
+            {showmenu  &&
                 <div className="header">
 
 

@@ -1,98 +1,175 @@
 body {
-    font-family: 'Lato', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f8f9fa;
-    color: #333;
-    overflow: auto;
-  }
-  
-  /* Contenitore principale */
-  .landing-container {
-    text-align: center;
-  }
-  
-  /* Hero Section */
-  .hero {
-    background-color: #004080;
-    color: white;
-    padding: 60px 20px;
-    display: flex;
+  font-family: 'Lato', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f9fa;
+  color: #333;
+  overflow: auto;
+}
+
+.landing-container {
+  text-align: center;
+}
+
+.hero {
+  background: #004080;
+  background: url('images/image-hero.png');
+  background-size: cover;
+  background-position: center ;
+  color: white;
+  background-repeat: no-repeat;
+  padding: 80px 20px;
+}
+
+.logo {
+  max-width: 100px;
+  margin-bottom: 20px;
+}
+
+.hero h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.hero h1 span {
+  color: #f4c542;
+}
+
+.hero p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 12px 25px;
+  background-color: #f4c542;
+  color: #004080;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+
+.cta-button:hover {
+  background-color: #ffdb70;
+}
+/* Sezione Tematica */
+.sections .section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 5px 0;
+  padding: 20px;
+  justify-content: space-evenly;
+}
+
+.section.reverse {
+  flex-direction: row-reverse;
+}
+ 
+.section-image {
+  width: 45%;
+  max-width: 400px;
+  border-radius: 10px;
+  background: #d3e472;
+  box-shadow: 0px 4px 8px rgba(211, 228, 214, 1);
+}
+
+.section-content {
+  width: 45%;
+  text-align: left;
+}
+
+.section-content h2 {
+  color: #004080;
+  margin-bottom: 10px;
+}
+
+.section-content p {
+  font-size: 1rem;
+  margin-bottom: 15px;
+}
+
+/* Footer */
+.footer {
+  background: #004080;
+  color: white;
+  padding: 20px;
+  font-size: 0.9rem;
+}
+
+.footer p {
+  margin: 5px 0;
+}
+
+.footer-link {
+  color: #ffffff !important;
+  text-decoration: none;
+}
+
+.footer-link:hover {
+  text-decoration: underline;
+}
+ 
+/* Box Value Proposition */
+.value-propositions {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 40px 20px;
+  background-color: #e9f5e9;
+}
+
+.value-box {
+  flex: 1;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.value-icon {
+  width: 50px;
+  margin-bottom: 15px;
+}
+
+.value-box h3 {
+  color: #004080;
+  margin-bottom: 10px;
+}
+
+.value-box p {
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Media Query per dispositivi mobili */
+@media (max-width: 768px) {
+  .section {
     flex-direction: column;
-    align-items: center;
     text-align: center;
   }
-  
-  .hero-content {
-    max-width: 600px;
+
+  .section.reverse {
+    flex-direction: column;
   }
-  
-  .hero h1 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-  }
-  
-  .highlight {
-    color: #f4c542;
-  }
-  
-  .hero p {
-    font-size: 1.2rem;
+
+  .section-image {
+    width: 100%;
     margin-bottom: 20px;
   }
-  
-  .cta-button {
-    display: inline-block;
-    padding: 12px 25px;
-    background-color: #f4c542;
-    color: #004080;
-    font-size: 1.2rem;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background 0.3s ease;
-  }
-  
-  .cta-button:hover {
-    background-color: #ffdb70;
-  }
-  
-  /* Immagine Hero */
-  .hero-image {
+
+  .section-content {
     width: 100%;
-    max-width: 500px;
-    margin-top: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
   }
-  
-  /* Sezione caratteristiche */
-  .features {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    padding: 40px 20px;
-    background-color: white;
+
+  .value-propositions {
+    flex-direction: column;
   }
-  
-  .feature {
-    background: #f8f9fa;
-    padding: 20px;
-    max-width: 300px;
-    border-radius: 8px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+
+  .value-box {
+    margin-bottom: 20px;
   }
-  
-  .feature h2 {
-    font-size: 1.5rem;
-    color: #004080;
-    margin-bottom: 10px;
-  }
-  
-  /* Footer */
-  .footer {
-    background-color: #004080;
-    color: white;
-    padding: 15px;
-    font-size: 0.9rem;
-  }
+}

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { SidebarData } from './SidebarData';
 import { IconContext } from 'react-icons';
 import logotennis from './assets/logo.svg';
@@ -15,7 +15,8 @@ function Navbar() {
   const showSidebar = () => setSidebar(!sidebar);
   const [badge, setbadge] = useState(false)
   const myrole = sessionStorage.getItem('userrole')
-
+  const location = useLocation();
+  
   useEffect(() => {
 
 }, []);
@@ -24,6 +25,8 @@ function Navbar() {
 
 // console.log(SidebarData);
   return (
+    <> 
+    { location.pathname !='/Presentation.html' &&
    <div>
       <IconContext.Provider value={{ color: '#fff' }}>
         <div className='navbar'>
@@ -56,7 +59,10 @@ function Navbar() {
         </nav>
       </IconContext.Provider>
     </div>
+}
+</>
   );
 }
+
 
 export default Navbar;
