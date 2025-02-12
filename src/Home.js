@@ -349,9 +349,9 @@ const Home = () => {
                                                     <div className="font-size-14 multi-line-text lines-3 text-color-gray">
                                                         <ul>
                                                             <li> <a style={{textTransform: 'capitalize' }} className='link' href={'/Challenge-single/' + item.players[0].idp1 + '/' + item.players[0].p1}>
-                                                                <span style={{fontWeight:item.finalplayer===item.players[0].idp1 ? 'bold' : '200', fontSize: "14px" }}> <i>{item.players[0].p1}</i>
+                                                                <span style={{fontWeight:item.finalplayer===item.players[0].idp1 ? 'bold' : '200', fontSize: "14px" }}> {item.players[0].p1}
                                                                     {dayjs(today).format('DD/MM/YYYY') === formatdate(item.datasfida) &&
-                                                                        <i><img width={15} src={pallina} alt="Challenge1"></img></i>
+                                                                     <i>   <img width={15} src={pallina} alt="Challenge1"></img> </i>
                                                                     }
                                                                 </span>
                                                             </a></li>
@@ -363,9 +363,9 @@ const Home = () => {
                                                             </li>
 
                                                             <li>  <a style={{textTransform: 'capitalize' }} className='link' href={'/Challenge-single/' + item.players[1].idp2 + '/' + item.players[1].p2}>
-                                                                <span style={{fontWeight: item.finalplayer===item.players[1].idp2 ? 'bold' : '200', fontSize: "14px" }}> <i>{item.players[1].p2}</i>
+                                                                <span style={{fontWeight: item.finalplayer===item.players[1].idp2 ? 'bold' : '200', fontSize: "14px" }}> {item.players[1].p2}
                                                                     {dayjs(today).format('DD/MM/YYYY') === formatdate(item.datasfida) &&
-                                                                        <i><img width={15} src={pallina} alt="Challenge2"></img></i>
+                                                                        <i><img width={15} src={pallina} alt="Challenge2"></img> </i>
                                                                     }
                                                                 </span>
                                                             </a></li>

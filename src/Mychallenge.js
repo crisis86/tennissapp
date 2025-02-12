@@ -978,7 +978,7 @@ const Mychallenge = () => {
 
     function sendemail(names, emails, status) {
 
-        if (window.$produrl === "http://localhost:10000") { return }
+       if (window.$produrl === "http://localhost:10000") { return }
 
         let message = "";
         let subject = "";
@@ -1010,7 +1010,7 @@ const Mychallenge = () => {
             body: JSON.stringify(data)
         }).then((res) => {
 
-            toast.success("Message Sent.");
+            toast.success("Messaggio Inviato!");
 
         }).catch((err) => {
             toast.error(err + " Message failed to send.")

@@ -277,7 +277,7 @@ const ChallengeSingle = () => {
             body: JSON.stringify(data)
         }).then((res) => {
 
-            toast.success("Message Sent.");
+            toast.success("Messaggio Inviato!");
 
         }).catch((err) => {
             toast.error(err + " Message failed to send.")

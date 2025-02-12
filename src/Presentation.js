@@ -19,7 +19,7 @@ const Presetation = () => {
       <section className="hero">
          <h1>Benvenuto su <span>SpinUp TENNIS</span></h1>
         <p>La piattaforma perfetta per organizzare e monitorare le tue sfide di tennis e padel.</p>
-        <a href="/register" className="cta-button">Registrati</a>
+        <a href="/Login" className="cta-button">Login</a>
       </section>
 
       {/* Sezioni Tematiche */}
