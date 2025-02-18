@@ -137,7 +137,7 @@ const Report = (props) => {
                 {lastesito != props.id && lastesito != 0 && lastyperdita != props.id &&
                     <span style={{ position: 'relative', top: '8px', right: '10px' }}>  <img src={down}></img></span>
                 }
-                {lastyperdita === props.id &&
+                {lastyperdita === props.id && lastesito !== props.id &&
                     <span style={{ position: 'relative', top: '8px', right: '10px' }}>  <img src={down}></img></span>
                 }
 
