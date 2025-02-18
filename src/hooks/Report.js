@@ -127,18 +127,18 @@ const Report = (props) => {
             <div style={{ display: displayfreccia }}>
                 {lastesito === 0 && lastyperdita != props.id &&
 
-                    <span style={{ position: 'relative', top: '8px', right: '10px' }}> <img src={neu}></img></span>
+                    <span style={{ position: 'relative', top: '8px', right: '5px' }}> <img src={neu}></img></span>
 
                 }
                 {lastesito === props.id && lastyperdita !== props.id &&
-                    <span style={{ position: 'relative', top: '8px', right: '10px' }}>  <img src={up}></img></span>
+                    <span style={{ position: 'relative', top: '8px', right: '5px' }}>  <img src={up}></img></span>
 
                 }
                 {lastesito != props.id && lastesito != 0 && lastyperdita != props.id &&
-                    <span style={{ position: 'relative', top: '8px', right: '10px' }}>  <img src={down}></img></span>
+                    <span style={{ position: 'relative', top: '8px', right: '5px' }}>  <img src={down}></img></span>
                 }
                 {lastyperdita === props.id &&
-                    <span style={{ position: 'relative', top: '8px', right: '10px' }}>  <img src={down}></img></span>
+                    <span style={{ position: 'relative', top: '8px', right: '5px' }}>  <img src={down}></img></span>
                 }
 
             </div>

@@ -4562,6 +4562,7 @@
     min-height: calc(var(--f7-list-item-min-height) - var(--menu-list-offset));
     padding-left: calc(var(--f7-list-item-padding-horizontal) + var(--f7-safe-area-left) - var(--menu-list-offset));
     border-bottom:1px solid #e7e7e7 ;
+    margin-left: -15px; /* pezzotto mobile */
   }
   .list .item-subtitle {
     position: relative;
@@ -4609,7 +4610,7 @@
     box-sizing: border-box;
     width: 100%;
     min-width: 0;
-    margin-left: var(--f7-list-item-cell-margin);
+   /* margin-left: var(--f7-list-item-cell-margin); */
     flex-shrink: 1;
   }
  
