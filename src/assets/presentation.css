@@ -13,7 +13,7 @@ body {
 
 .hero {
   background: #004080;
-  background: url('images/image-hero.png');
+  background: url('images/image-hero.jpg');
   background-size: cover;
   background-position: center ;
   color: white;
