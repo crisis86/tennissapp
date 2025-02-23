@@ -122,8 +122,8 @@ const Login = () => {
 
     function checkclub(clubid) {
         if (clubid === 'DM00') {
-           window.$produrl = "https://tennissapp.onrender.com";
-      //   window.$produrl = "http://localhost:10000";
+         window.$produrl = "https://tennissapp.onrender.com";
+   //     window.$produrl = "http://localhost:10000";
         } else if (clubid === 'DM01') {
             //    url di altro club
         }

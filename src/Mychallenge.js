@@ -978,7 +978,7 @@ const Mychallenge = () => {
 
     function sendemail(names, emails, status) {
 
-       if (window.$produrl === "http://localhost:10000") { return }
+        if (window.$produrl === "http://localhost:10000") { return }
 
         let message = "";
         let subject = "";
@@ -1061,6 +1061,7 @@ const Mychallenge = () => {
                     <div style={{ textAlign: "center", background: "#013777", opacity: 1, color: 'white', fontSize: "20px" }} className="title">Ultime Sfide
 
                     </div>
+
                     {challengepending &&
 
                         challengepending.sort((a, b) => a.id < b.id ? 1 : -1).map((item, index) => (
@@ -1129,7 +1130,7 @@ const Mychallenge = () => {
                                                 {club === 'DM00' && item.status != 'cancel' && item.status != 'complete' &&
                                                     <li style={{ textAlign: 'center', textTransform: 'capitalize', fontWeight: '600', textDecoration: 'underline' }}> <a href="https://playtomic.io/asd-club-padel-roccarainola/e438540f-6e1f-4a0e-9a83-f2e5968a8dae?q=PADEL~2025-01-29~~~" target="_blank"> Prenota il Campo</a></li>
                                                 }
-                                                <li style={{ textAlign: 'center', textTransform: 'capitalize'}} key={index + 1}><div style={{ fontWeight: item.finalplayer === item.players[0].idp1 ? 'bold' : '200' }}> {item.players[0].p1}</div> VS <div style={{ fontWeight: item.finalplayer === item.players[1].idp2 ? 'bold' : '200' }}>{item.players[1].p2}</div></li>
+                                                <li style={{ textAlign: 'center', textTransform: 'capitalize' }} key={index + 1}><div style={{ fontWeight: item.finalplayer === item.players[0].idp1 ? 'bold' : '200' }}> {item.players[0].p1}</div> VS <div style={{ fontWeight: item.finalplayer === item.players[1].idp2 ? 'bold' : '200' }}>{item.players[1].p2}</div></li>
                                                 <li style={{ textAlign: 'center' }} ><b>Score</b></li>
                                                 <li style={{ textAlign: 'center', textDecoration: item.set1 === '0-0' ? 'line-through' : 'none' }} >Set1: <b>{item.set1} </b></li>
                                                 <li style={{ textAlign: 'center', textDecoration: item.set2 === '0-0' ? 'line-through' : 'none' }} >Set2: <b>{item.set2} </b></li>
@@ -1226,36 +1227,38 @@ const Mychallenge = () => {
                                                                     <div>
                                                                         <span style={{ textAlign: 'center' }}><strong><h6> Inserisci Il risultato </h6></strong></span>
                                                                         <button style={{ display: 'inerith' }} onClick={(e) => addforfait(e, item.players[0].idp1)} type="button" className="button button-fill button-small color-red">RITIRO</button><hr></hr>
-                                                                        <table className="data-table">
+                                                                        <div style={{ textAlign: 'center', marginBottom: '15px' }}> {item.players[0].p1}     <br></br> <b> vs</b>  <br></br>   {item.players[1].p2}     </div>
+                                                                        <table className="data-table risultato">
                                                                             <tbody>
+
                                                                                 <tr index={index + 1}>
                                                                                     <td>Set 1</td>
-                                                                                    <td>
-                                                                                        <input type="number" min="1" max="100" value={set1casa} onChange={e => setset1casa(parseInt(e.target.value))} className="form-control"></input>
+                                                                                    <td style={{ width: '40%' }}>
+                                                                                        <input style={{ textAlign: 'center' }} type="number" min="1" max="100" value={set1casa} onChange={e => setset1casa(parseInt(e.target.value))} className="form-control"></input>
                                                                                     </td>
                                                                                     <td>-</td>
-                                                                                    <td>
-                                                                                        <input type="number" min="1" max="100" value={set1ospite} onChange={e => setset1ospite(parseInt(e.target.value))} className="form-control"></input>
+                                                                                    <td style={{ width: '40%' }}>
+                                                                                        <input style={{ textAlign: 'center' }} type="number" min="1" max="100" value={set1ospite} onChange={e => setset1ospite(parseInt(e.target.value))} className="form-control"></input>
                                                                                     </td>
                                                                                 </tr>
                                                                                 <tr>
                                                                                     <td>Set 2</td>
                                                                                     <td>
-                                                                                        <input type="number" min="1" max="100" value={set2casa} onChange={e => setset2casa(parseInt(e.target.value))} className="form-control"></input>
+                                                                                        <input style={{ textAlign: 'center' }} type="number" min="1" max="100" value={set2casa} onChange={e => setset2casa(parseInt(e.target.value))} className="form-control"></input>
                                                                                     </td>
                                                                                     <td>-</td>
                                                                                     <td>
-                                                                                        <input type="number" min="1" max="100" value={set2ospite} onChange={e => setset2ospite(parseInt(e.target.value))} className="form-control"></input>
+                                                                                        <input style={{ textAlign: 'center' }} type="number" min="1" max="100" value={set2ospite} onChange={e => setset2ospite(parseInt(e.target.value))} className="form-control"></input>
                                                                                     </td>
                                                                                 </tr>
                                                                                 <tr>
                                                                                     <td>Set 3</td>
                                                                                     <td>
-                                                                                        <input type="number" min="1" max="100" value={set3casa} onChange={e => setset3casa(parseInt(e.target.value))} className="form-control"></input>
+                                                                                        <input style={{ textAlign: 'center' }} type="number" min="1" max="100" value={set3casa} onChange={e => setset3casa(parseInt(e.target.value))} className="form-control"></input>
                                                                                     </td>
                                                                                     <td>-</td>
                                                                                     <td>
-                                                                                        <input type="number" min="1" max="100" value={set3ospite} onChange={e => setset3ospite(parseInt(e.target.value))} className="form-control"></input>
+                                                                                        <input style={{ textAlign: 'center' }} type="number" min="1" max="100" value={set3ospite} onChange={e => setset3ospite(parseInt(e.target.value))} className="form-control"></input>
                                                                                     </td>
                                                                                 </tr>
                                                                             </tbody>
@@ -1269,6 +1272,8 @@ const Mychallenge = () => {
                                                                     <button style={{ width: '50%', margin: '4px auto', background: '#dc513b', color: '#fff', fontWeight: '600', padding: '3px' }} onClick={(e) => sfidahandle(e, item.players[1].idp2, 'cancel', item.id)} type="button" className="button button-fill color-red">Annulla </button>
 
                                                                 )}
+
+                                                                <div style={{ textAlign: 'center', marginTop: '15px' }}><h5>Altri Eventi</h5></div>
                                                             </div>
                                                         )}
                                                     </>
@@ -1361,17 +1366,19 @@ const Mychallenge = () => {
 
                                                                     <span style={{ textAlign: 'center' }}><strong><h6> Inserisci Il risultato </h6></strong></span>
                                                                     <button style={{ display: 'inerith' }} onClick={(e) => addforfait(e, item.players[0].idp1)} type="button" className="button button-fill button-small color-red">RITIRO</button>
+                                                                    <div style={{ textAlign: 'center;', marginBottom: '15px' }}> {item.players[0].p1}     <br></br> <b> vs</b>  <br></br>   {item.players[1].p2}     </div>
 
                                                                     <table className="data-table">
                                                                         <tbody>
                                                                             <tr index={index + 1}>
+
                                                                                 <td>Set 1</td>
-                                                                                <td>
-                                                                                    <input type="number" min="1" max="100" value={set1casa} onChange={e => setset1casa(parseInt(e.target.value))} className="form-control"></input>
+                                                                                <td style={{ width: '40%' }}>
+                                                                                    <input style={{ textAlign: 'center' }} type="number" min="1" max="100" value={set1casa} onChange={e => setset1casa(parseInt(e.target.value))} className="form-control"></input>
                                                                                 </td>
                                                                                 <td>-</td>
-                                                                                <td>
-                                                                                    <input type="number" min="1" max="100" value={set1ospite} onChange={e => setset1ospite(parseInt(e.target.value))} className="form-control"></input>
+                                                                                <td style={{ width: '40%' }}>
+                                                                                    <input style={{ textAlign: 'center' }} type="number" min="1" max="100" value={set1ospite} onChange={e => setset1ospite(parseInt(e.target.value))} className="form-control"></input>
                                                                                 </td>
 
 
@@ -1380,11 +1387,11 @@ const Mychallenge = () => {
                                                                             <tr>
                                                                                 <td>Set 2</td>
                                                                                 <td>
-                                                                                    <input type="number" min="1" max="100" value={set2casa} onChange={e => setset2casa(parseInt(e.target.value))} className="form-control"></input>
+                                                                                    <input style={{ textAlign: 'center' }} type="number" min="1" max="100" value={set2casa} onChange={e => setset2casa(parseInt(e.target.value))} className="form-control"></input>
                                                                                 </td>
                                                                                 <td>-</td>
                                                                                 <td>
-                                                                                    <input type="number" min="1" max="100" value={set2ospite} onChange={e => setset2ospite(parseInt(e.target.value))} className="form-control"></input>
+                                                                                    <input style={{ textAlign: 'center' }} type="number" min="1" max="100" value={set2ospite} onChange={e => setset2ospite(parseInt(e.target.value))} className="form-control"></input>
                                                                                 </td>
 
 
@@ -1393,11 +1400,11 @@ const Mychallenge = () => {
                                                                             <tr>
                                                                                 <td>Set 3</td>
                                                                                 <td>
-                                                                                    <input type="number" min="1" max="100" value={set3casa} onChange={e => setset3casa(parseInt(e.target.value))} className="form-control"></input>
+                                                                                    <input style={{ textAlign: 'center' }} type="number" min="1" max="100" value={set3casa} onChange={e => setset3casa(parseInt(e.target.value))} className="form-control"></input>
                                                                                 </td>
                                                                                 <td>-</td>
                                                                                 <td>
-                                                                                    <input type="number" min="1" max="100" value={set3ospite} onChange={e => setset3ospite(parseInt(e.target.value))} className="form-control"></input>
+                                                                                    <input style={{ textAlign: 'center' }} type="number" min="1" max="100" value={set3ospite} onChange={e => setset3ospite(parseInt(e.target.value))} className="form-control"></input>
                                                                                 </td>
 
 
@@ -1414,6 +1421,7 @@ const Mychallenge = () => {
 
                                                             )}
 
+                                                            <div style={{ textAlign: 'center', marginTop: '15px' }}><h5>Altri Eventi</h5></div>
 
                                                         </div>
                                                     )}

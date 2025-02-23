@@ -6,9 +6,9 @@ const Regolamento = () => {
             <br />
             <h1> Regolamento</h1>
             <div className="left">
-                <a href="/" className="link back">
+                <a href="javascript:history.go(-1)" className="link back">
                     <i className="icon icon-back"></i>
-                    <span className="if-not-md">Home</span>
+                    <span className="if-not-md">Back</span>
                 </a>
             </div>
             <p><strong><u>Data Inizio e Fine RoccaPadel League</u></strong> <br /></p>

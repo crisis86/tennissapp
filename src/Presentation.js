@@ -75,6 +75,11 @@ const Presetation = () => {
           <img style={{ width: '60px' }} src={iconcomunyt} alt="SpinUp TENNIS" className="logo" />
         </div>
       </section>
+      <section>
+          
+          <a className="" href="/Regolamento.html">REGOLAMENTO</a>
+        
+        </section>
 
       {/* Footer */}
       <footer className="footer">
