@@ -215,7 +215,7 @@ const Mychallenge = () => {
         }
         if (s3o === null || s3o === '' || parseInt(s3o) < 0) {
             isproceed = false;
-            errormessage += 'inserire un risultato valido';
+            errormessage += 'inserire un risultato valido o 0-0';
 
         }
 
@@ -855,7 +855,8 @@ const Mychallenge = () => {
                             updateUserPosition(obj)
                         }
                     }
-                    else if (obj.id === idp2) {
+                    
+                    if (obj.id === idp2) {
 
                         obj.insfida = false;
                         if (Object.keys(classicica).length > index + 1) { //controllo la fine della classifica
