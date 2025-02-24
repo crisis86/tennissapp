@@ -94,7 +94,7 @@ const ChallengeSingle = () => {
         }
     }
 
-    const sfidahandle = (e, idp1, idname1, status) => {
+    const sfidahandle = (e, idp1, idname1, posizp1, status) => {
 
         e.preventDefault();
 
@@ -147,7 +147,7 @@ const ChallengeSingle = () => {
                         flagmesfida(status);
 
                         if (status === 'update') {
-                            addchallenge(idp1, idname1, mailforsend);
+                            addchallenge(idp1, idname1, posizp1, mailforsend);
 
                         } else {
                             removechallenge(idname1);
@@ -200,7 +200,7 @@ const ChallengeSingle = () => {
 
     }
 
-    function addchallenge(iddasfidare, nomedasfidare, emailperinvio) {
+    function addchallenge(iddasfidare, nomedasfidare, posizionedasfidare, emailperinvio) {
 
         const current = new Date();
 
@@ -214,11 +214,13 @@ const ChallengeSingle = () => {
             "players": [
                 {
                     "idp1": iduser,
-                    "p1": fullname
+                    "p1": fullname,
+                    "Posizp1": miaposizione
                 },
                 {
                     "idp2": iddasfidare,
                     "p2": nomedasfidare,
+                    "Posizp2": posizionedasfidare
                 }
             ],
             "status": 'pending',
@@ -545,7 +547,7 @@ const ChallengeSingle = () => {
                                             {plr.insfida ? (
                                                 <div className="col-100 small-50">
                                                     {annullabotton &&
-                                                        <button style={{ display: 'none' }} onClick={(e) => sfidahandle(e, plr.id, plr.name, 'cancel')} type="button" className="button button-fill color-red">Annulla</button>
+                                                        <button style={{ display: 'none' }} onClick={(e) => sfidahandle(e, plr.id, plr.name, plr.posizione, 'cancel')} type="button" className="button button-fill color-red">Annulla</button>
                                                     }
                                                 </div>
                                             ) : (
@@ -557,7 +559,7 @@ const ChallengeSingle = () => {
                                                             {plr.posizione > flagmeplayer[0].posizione || flagmeplayer[0].posizione <= plr.posizione + 8 &&  // fino a 8 posizione sopra
                                                                 <>
                                                                     {plr.fuorigioco === false &&
-                                                                        <button style={{ width: '50%', margin: '4px auto', background: '#d3e742', color: '#137000', fontWeight: '600', padding: '3px' }} disabled={plr.insfida || flagmeplayer[0].insfida} onClick={(e) => sfidahandle(e, plr.id, plr.name, 'update')} type="button" className={plr.insfida || flagmeplayer[0].insfida ? 'disabled button button-fill button-small' : 'button button-fill button-small'}>Sfida</button>
+                                                                        <button style={{ width: '50%', margin: '4px auto', background: '#d3e742', color: '#137000', fontWeight: '600', padding: '3px' }} disabled={plr.insfida || flagmeplayer[0].insfida} onClick={(e) => sfidahandle(e, plr.id, plr.name, plr.posizione, 'update')} type="button" className={plr.insfida || flagmeplayer[0].insfida ? 'disabled button button-fill button-small' : 'button button-fill button-small'}>Sfida</button>
                                                                     }
                                                                 </>
                                                             }

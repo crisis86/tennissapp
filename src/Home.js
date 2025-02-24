@@ -291,7 +291,7 @@ const Home = () => {
                                                                         <i style={{ fontSize:'12px', color: '#dc513b' }}>  {item.players[0].p1} </i>
 
                                                                     ) : (
-                                                                        <i style={{ fontSize:'12px', color: '#dc513b' }}>  {item.players[1].p2} </i>
+                                                                        <i style={{ fontSize:'12px', color: '#dc513b' }}>  {item.players[1].p2}  </i>
 
                                                                     )}
                                                                 </>
@@ -349,7 +349,7 @@ const Home = () => {
                                                     <div className="font-size-14 multi-line-text lines-3 text-color-gray">
                                                         <ul>
                                                             <li> <a style={{textTransform: 'capitalize' }} className='link' href={'/Challenge-single/' + item.players[0].idp1 + '/' + item.players[0].p1}>
-                                                                <span style={{fontWeight:item.finalplayer===item.players[0].idp1 ? 'bold' : '200', fontSize: "14px" }}> {item.players[0].p1}
+                                                                <span style={{fontWeight:item.finalplayer===item.players[0].idp1 ? 'bold' : '200', fontSize: "14px" }}> {item.players[0].p1} 
                                                                     {dayjs(today).format('DD/MM/YYYY') === formatdate(item.datasfida) &&
                                                                      <i>   <img width={15} src={pallina} alt="Challenge1"></img> </i>
                                                                     }
