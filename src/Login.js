@@ -36,6 +36,7 @@ const Login = () => {
             sessionStorage.setItem('iduser', obuser.id);
             sessionStorage.setItem('fullname', obuser.name);
             sessionStorage.setItem('stoinsfida', obuser.insfida);
+            sessionStorage.setItem('posizione', obuser.posizione);
             localStorage.setItem('datiuserlogin', JSON.stringify(obuser));
             sessionStorage.setItem('club', obuser.codiceclub);
             sessionStorage.setItem('clubname', obuser.club);
@@ -89,6 +90,7 @@ const Login = () => {
                         sessionStorage.setItem('iduser', resp[0].id);
                         sessionStorage.setItem('fullname', resp[0].name);
                         sessionStorage.setItem('stoinsfida', resp[0].insfida);
+                        sessionStorage.setItem('posizione', resp[0].posizione);
                         sessionStorage.setItem('club', resp[0].codiceclub);
                         sessionStorage.setItem('clubname', resp[0].club)
                         localStorage.setItem('datiuserlogin', JSON.stringify(resp[0]));
@@ -122,8 +124,8 @@ const Login = () => {
 
     function checkclub(clubid) {
         if (clubid === 'DM00') {
-       window.$produrl = "https://tennissapp.onrender.com";
-       // window.$produrl = "http://localhost:10000";
+      window.$produrl = "https://tennissapp.onrender.com";
+    //   window.$produrl = "http://localhost:10000";
         } else if (clubid === 'DM01') {
             //    url di altro club
         }

@@ -21,7 +21,7 @@ const ChallengeSingle = () => {
     const fullname = sessionStorage.getItem('fullname');
     // dati utente collegato
     const datiuserloging = JSON.parse(localStorage.getItem('datiuserlogin'));
-    const miaposizione = parseInt(datiuserloging.posizione);
+    const [miaposizione, setmiaposizione] = useState(0);
     // oggetto giocatore 
     const [player, setplayer] = useState([]);
     // oggetto user collegato
@@ -144,10 +144,10 @@ const ChallengeSingle = () => {
                     //  console.log(result)
                     result.json().then((resp) => {
 
-                        flagmesfida(status);
+                    let mpos =  flagmesfida(status); // flag me in sfida e ritorna la miaposizione
 
                         if (status === 'update') {
-                            addchallenge(idp1, idname1, posizp1, mailforsend);
+                            addchallenge(idp1, idname1, posizp1, mpos, mailforsend);
 
                         } else {
                             removechallenge(idname1);
@@ -164,15 +164,17 @@ const ChallengeSingle = () => {
 
     function flagmesfida(status) {
 
+        let miaposizine = 0
         const found = flagmeplayer.filter(obj => {
             if (obj.id === iduser && status === "update") {
                 obj.insfida = true;
                 obj.fuorigioco = false;
+                miaposizine = obj.posizione
 
             } else if (obj.id === iduser && status === "cancel") {
                 obj.insfida = false;
-                //  obj.posizione = obj.posizione - 2;
-            }
+                miaposizine = obj.posizione
+             }
             return obj.id === iduser;
         });
         //  console.log(found);
@@ -192,15 +194,15 @@ const ChallengeSingle = () => {
                 } else {
                     toast.error('Sfida Annullata');
                 }
-
+            
             })
         }).catch((err) => {
             toast.error(err.message);
         });
-
+        return miaposizine 
     }
 
-    function addchallenge(iddasfidare, nomedasfidare, posizionedasfidare, emailperinvio) {
+    function addchallenge(iddasfidare, nomedasfidare, posizionedasfidare, miaposizione, emailperinvio) {
 
         const current = new Date();
 

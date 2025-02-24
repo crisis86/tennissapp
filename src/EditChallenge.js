@@ -28,6 +28,8 @@ const EditChallenge = () => {
     const [set1, setset1] = useState(0)
     const [set2, setset2] = useState(0)
     const [set3, setset3] = useState(0)
+    const [posizp1, setposizp1] = useState(0)
+    const [posizp2, setposizp2] = useState(0)
     const [finalplayer, setfinalplayer] = useState(0)
     const [codiceclub, setcodiceclub] = useState(sessionStorage.getItem('club'))
 
@@ -75,6 +77,8 @@ const EditChallenge = () => {
             setidplayer2(resp.players[1].idp2)
             setp1(resp.players[0].p1)
             setp2(resp.players[1].p2)
+            setposizp1(resp.players[0].Posizp1)
+            setposizp2(resp.players[1].Posizp2)
             setstatus(resp.status)
             setset1(resp.set1)
             setset2(resp.set2)
@@ -95,11 +99,15 @@ const EditChallenge = () => {
             "players": [
                 {
                     "idp1": idp1,
-                    "p1": p1
+                    "p1": p1,
+                    "Posizp1": posizp1
+
                 },
                 {
                     "idp2": idp2,
                     "p2": p2,
+                    "Posizp2": posizp2
+
                 }
             ],
             "status": status,
@@ -131,7 +139,7 @@ const EditChallenge = () => {
                     <div className="card">
                         <div className="card-header">
                             <h1>Challenge </h1>
-                            <span> <b style={{textAlign:'right'}}>{idp1}</b> vs  <b>{idp2}</b></span>
+                            <span> <b style={{textAlign:'right'}}>ID: {idp1}</b> vs  <b>ID:{idp2}</b></span>
                         </div>
                         <div className="card-body">
 
@@ -147,6 +155,19 @@ const EditChallenge = () => {
                                         <input value={datacreate} onChange={e => setdatacreate(e.target.value)}  className="form-control"></input>
                                     </div>
                                 </div>
+                                <div className="col-lg-6">
+                                    <div className="form-group">
+                                        <label>{p1} <span className="errmsg">*</span></label> 
+                                        <input disabled value={posizp1} onChange={e => setposizp1(parseInt(e.target.value))}  className="form-control"></input>
+                                    </div>
+                                </div>
+                                <div className="col-lg-6">
+                                    <div className="form-group">
+                                        <label>{p2} <span className="errmsg">*</span></label> 
+                                        <input disabled value={posizp2} onChange={e => setposizp2(parseInt(e.target.value))}  className="form-control"></input>
+                                    </div>
+                                </div>
+                          
                                 <div className="col-lg-6">
                                     <div className="form-group">
                                         <label>Set1 <i>N-N</i><span className="errmsg"></span></label>
@@ -171,6 +192,7 @@ const EditChallenge = () => {
                                         <input value={finalplayer} onChange={e => setfinalplayer(parseInt(e.target.value))}  className="form-control"></input>
                                     </div>
                                 </div>
+                         
                                 <div className="col-lg-6">
                                     <div className="form-group">
                                         <label>Data Sfida <i>dd/mm/yyyy</i> <span className="errmsg">*</span></label>
