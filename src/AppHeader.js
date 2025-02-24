@@ -39,7 +39,7 @@ const Appheader = () => {
             await controllasfide();
             await controllpending();
             await controllafuorigioco();
-           // await checkAndFixPositions()
+            await checkAndFixPositions()
         } catch (error) {
             console.error("Errore durante l'esecuzione dei controlli:", error);
         }
@@ -512,7 +512,7 @@ const Appheader = () => {
             //  console.log(result)
             result.json().then((resp) => {
                 console.log(ogettogioc.name + " Classifica aggiornata iduser: ", ogettogioc.id)
-
+              
             })
         }).catch((err) => {
             console.log(err.message);
