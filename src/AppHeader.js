@@ -450,7 +450,7 @@ const Appheader = () => {
                     }
                 }
                 
-                 if (obj.id === idp2) {
+                 if (obj.id === idp2) { // cambiato else if in if 24/02/2025
 
                     obj.insfida = false;
                     if (Object.keys(classicica).length > index + 1) { //controllo la fine della classifica
@@ -464,7 +464,7 @@ const Appheader = () => {
                  //   updateUserPosition(obj)
 
                 }
-                
+
                 updateUserPosition(obj)
             })
 

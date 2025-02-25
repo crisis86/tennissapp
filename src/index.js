@@ -17,7 +17,7 @@ if (sessionStorage.getItem('club') !== '' || sessionStorage.getItem('club') !== 
 
   if (sessionStorage.getItem('club') === 'DM00') { //rocca padel
 
-   window.$produrl = "https://tennissapp.onrender.com";
+  window.$produrl = "https://tennissapp.onrender.com";
   
   // window.$produrl = "http://localhost:10000";
 
