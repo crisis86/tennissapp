@@ -269,7 +269,7 @@ const Appheader = () => {
                         }
                     }
                     console.log(obj.name + " posiz do chi anulla:" + obj.posizione)
-                 //   updateUserPosition(obj)
+                  updateUserPosition(obj)
 
                 }
                 
@@ -278,10 +278,10 @@ const Appheader = () => {
                         obj.posizione = obj.posizione - 1 // sale di uno quello sotto
                         if (obj.posizione <= 0) { obj.posizione = 1 }  //check primo classifica 
                         console.log("sale di uno quello sotto", obj.posizione)
-                //        updateUserPosition(obj)
+                    updateUserPosition(obj)
                     } else {
                         obj.insfida = false;
-                  //      updateUserPosition(obj)
+                  updateUserPosition(obj)
                     }
                 }
                 
@@ -297,7 +297,7 @@ const Appheader = () => {
                     //  }
 
                     console.log(obj.name + "annullamento: sale di uno quelle sotto", obj.posizione)
-                  //  updateUserPosition(obj)
+                  updateUserPosition(obj)
                 }
               
                 if (index + 1 === posp2 + 1) {
@@ -306,13 +306,13 @@ const Appheader = () => {
 
                         if (obj.posizione <= 0) { obj.posizione = 1 }  //check primo classifica 
                         console.log(obj.name + "annullamento: scende di uno quelle sopra", obj.posizione)
-                   //     updateUserPosition(obj)
+                        updateUserPosition(obj)
                     } else {
                         obj.insfida = false;
-                     //   updateUserPosition(obj)
+                        updateUserPosition(obj)
                     }
                 }
-                updateUserPosition(obj)
+             
             })
 
         });
@@ -366,7 +366,7 @@ const Appheader = () => {
                     }
                   
                     console.log(obj.name + " pod do chi sta in fuorigioco: " + obj.posizione)
-                  //  updateUserPosition(obj)
+                  updateUserPosition(obj)
 
                 }
                 
@@ -375,11 +375,10 @@ const Appheader = () => {
                     obj.posizione = obj.posizione - 1 // sale di uno quello sotto
                     if (obj.posizione <= 0) { obj.posizione = 1 }  //check primo classifica 
                     console.log(obj.name + " sale di uno quello sotto al fuorigioco", obj.posizione)
-                   // updateUserPosition(obj)
+                    updateUserPosition(obj)
 
                 }
-                updateUserPosition(obj)
-
+ 
             })
 
         });
@@ -439,14 +438,14 @@ const Appheader = () => {
                         if (obj.posizione <= 0) { obj.posizione = 1 }  //check primo classifica 
 
                         console.log("sale di uno quello sotto al player2: " + obj.name + " - ", obj.posizione)
-                       // updateUserPosition(obj)
+                         updateUserPosition(obj)
                     } else {
                         obj.posizione = obj.posizione - 1 // sale di uno quello sotto
 
                         console.log("becca player2: " + obj.name + " - ", obj.posizione)
 
                         obj.insfida = false;
-                     //   updateUserPosition(obj)
+                        updateUserPosition(obj)
                     }
                 }
                 
@@ -461,11 +460,11 @@ const Appheader = () => {
                         console.log("pod do chi anulla:" + obj.posizione)
                     }
 
-                 //   updateUserPosition(obj)
+                   updateUserPosition(obj)
 
                 }
 
-                updateUserPosition(obj)
+             
             })
 
             let classificatemp = classicica
@@ -478,13 +477,13 @@ const Appheader = () => {
 
                         object.posizione = object.posizione + 1 // scende di uno quello sopra
                         console.log("scendi uno quello sopra al player1: " + object.name + " - ", object.posizione)
-                       // updateUserPosition(object)
+                      updateUserPosition(object)
                     } else {
                         object.posizione = object.posizione + 1 // scende di uno quello sopra
 
                         console.log("becca player1: " + object.name + " - ", object.posizione)
                         object.insfida = false;
-                     //   updateUserPosition(object)
+                     updateUserPosition(object)
                     }
                 }
 
@@ -498,10 +497,10 @@ const Appheader = () => {
                     console.log("id chi subisce anullo:" + object.id)
                     console.log("posizione iniz:" + posp1)
                     console.log("sale di uno subisce annullo", object.posizione)
-                //    updateUserPosition(object)
+                     updateUserPosition(object)
                 }
 
-                updateUserPosition(object)
+             
 
             })
 
