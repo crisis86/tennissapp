@@ -146,11 +146,11 @@ const AdminChallenge = () => {
                                 challenge.sort((a, b) => a.id < b.id ? 1 : -1).map((item, index) => (
                                     <tr key={index+1}>
                                        <td>{item.id}</td>
-                                       <td>{item.players[0].p1} {item.players[0].Posizp1}</td>
-                                        <td>{item.players[1].p2} {item.players[1].Posizp2}</td>
+                                       <td style={{color: item.finalplayer === item.players[0].idp1 ? '#0d6efd' : '#000'}}>{item.players[0].p1} {item.players[0].Posizp1}</td>
+                                        <td style={{color: item.finalplayer === item.players[1].idp2 ? '#0d6efd' : '#000'}}>{item.players[1].p2} {item.players[1].Posizp2}</td>
                                         <td style={{textTransform: 'capitalize'}}>{item.status}</td>
                                         <td style={{display:'flex'}}>
-                                            <button sstyle={{width:'52px;', margin:'1px'}} onClick={(e) => handleedit(e, item.id)} className="btn btn-primary"><img alt="edit" src={editicon}></img></button>
+                                            <button style={{width:'52px;', margin:'1px'}} onClick={(e) => handleedit(e, item.id)} className="btn btn-primary"><img alt="edit" src={editicon}></img></button>
                                             <button disabled={item.id===1} style={{width:'52px;', margin:'1px'}} onClick={(e) => handleremove(e, item.id)}   className="btn btn-danger"><img alt="edit" src={closeicon}></img></button>
                                         </td>
 

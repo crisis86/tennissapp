@@ -32,6 +32,7 @@ const ChallengeSingle = () => {
     const [challengepending, setchallengepending] = useState([]);
     const [datadioggi, setdatadioggi] = useState(new Date());
     const [giornisfida, setgiornisfida] = useState(0);
+    const [messaggiosfida, setmessaggiosfida] = useState('');
 
     // flag SFIDA user collegato
     // const [stoinsfida, setstoinsifa] = useState(sessionStorage.getItem('stoinsfida'));
@@ -353,7 +354,7 @@ const ChallengeSingle = () => {
                 // datalastfida = Math.max(...sfidecoolete.map(o => o.datasfida))
 
                 let recorddatalastfida = sfidecoolete.sort((a, b) => a.id < b.id ? 1 : -1)[0]
-
+ 
                 console.log(recorddatalastfida.datasfida)
 
                 let splidate = recorddatalastfida.datasfida.split("/")
@@ -369,17 +370,25 @@ const ChallengeSingle = () => {
 
                 if (days === 1) { notificagioni = 2 } else if (days === 2) { notificagioni = 1 }
 
-                if (days > 2) {
-                    console.log("> = di 2 days")
+                if (days > 2 ) {
+                    console.log("complete > = di 2 days")
+     
+                    if (recorddatalastfida.players[1].idp2 === parseInt(id)) { // aggiunta riga
+                        setsfidabutton(false) // aggiunta riga
 
-                    setsfidabutton(true)
-                    getlastsfidaCancel()
+                    } else  { // aggiunta riga
+
+                        setsfidabutton(true) //stava dentro if  days > 2
+                        getlastsfidaCancel() //stava dentro if  days > 2
+                    }
+
                 } else {
                     console.log("minore di 2 days " + recorddatalastfida.players[0].idp1)
                     if (recorddatalastfida.players[0].idp1 === iduser) {
                         console.log("sono io blocca")
                         setsfidabutton(false)
                         setgiornisfida(parseInt(notificagioni));
+                    
                     } else {
                         setsfidabutton(true)
                         getlastsfidaCancel()
@@ -434,9 +443,13 @@ const ChallengeSingle = () => {
 
 
                 if (days > 2) {
-                    console.log("> = di 2 days")
+                    console.log("cancel > = di 2 days")
 
-                    setsfidabutton(true)
+                    if (recorddatalastfida.players[1].idp2 === parseInt(id)) { //aggiunta riga
+                        setsfidabutton(false) //aggiunta riga
+                    } else { //aggiunta riga
+                        setsfidabutton(true)  //stava dentro if  days > 2
+                    }
 
                 } else {
                     console.log("minore di 2 days " + recorddatalastfida.players[0].idp1)
@@ -444,7 +457,7 @@ const ChallengeSingle = () => {
                         console.log("sono io blocca")
                         setsfidabutton(false)
                         setgiornisfida(notificagioni);
-                    } else {
+                      }  else {
                         setsfidabutton(true)
                         console.log("non sono io")
                     }
@@ -567,7 +580,12 @@ const ChallengeSingle = () => {
                                                             }
                                                         </>
                                                     ) : (
-                                                        <div style={{ textAlign: 'center', margin: '0 auto' }}><span style={{ background: '#e7e7e7', padding: '5px', color: '#ff3b30' }}> Giorni di Attesa per la prossima sfida: <b>{giornisfida}</b></span></div>
+                                                        <div style={{ textAlign: 'center', margin: '0 auto' }}>
+                                                            {giornisfida === 0 && 
+                                                            <span style={{ background: '#e7e7e7', padding: '5px', color: '#ff3b30' }}> Player Già Sfidato</span>
+                                                            }
+                                                        <span style={{display: giornisfida === 0 ? 'none' : 'block', background: '#e7e7e7', padding: '5px', color: '#ff3b30' }}> Giorni di Attesa per la prossima sfida: <b>{giornisfida}</b></span>
+                                                      </div>
                                                     )}
 
                                                 </div>
