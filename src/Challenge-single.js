@@ -32,8 +32,7 @@ const ChallengeSingle = () => {
     const [challengepending, setchallengepending] = useState([]);
     const [datadioggi, setdatadioggi] = useState(new Date());
     const [giornisfida, setgiornisfida] = useState(0);
-    const [messaggiosfida, setmessaggiosfida] = useState('');
-
+ 
     // flag SFIDA user collegato
     // const [stoinsfida, setstoinsifa] = useState(sessionStorage.getItem('stoinsfida'));
     //flag annulla bottone
@@ -51,8 +50,6 @@ const ChallengeSingle = () => {
         if (club === "" || club === undefined) {
             navigate('/login');
         }
-
-
 
         let email = sessionStorage.getItem('email')
 
@@ -598,7 +595,7 @@ const ChallengeSingle = () => {
 
                                 <span className="segmented-highlight"></span>
 
-                                <div style={{ textAlign: "center", background: "#013777", opacity: 1, color: 'white', fontSize: "20px" }} className="title">Ultime Sfide
+                                <div style={{ textAlign: "center", background: "#013777", opacity: 1, color: 'white', fontSize: "20px" }} className="title">Ultime Sfide ({challenge.length})
 
                                 </div>
                                 {challenge.sort((a, b) => a.id < b.id ? 1 : -1).map((partite, i) => (
@@ -657,9 +654,9 @@ const ChallengeSingle = () => {
                                                         <li style={{ textAlign: 'center' }}>     <b> Del: </b>{partite.datacreate}
                                                             <b>{partite.status === 'cancel' ? ' Annullata: ' : ' Prevista: '}</b> {partite.datasfida} {partite.orasfida}</li>
                                                         <li style={{ textTransform: 'capitalize', textAlign: 'center', color: '#013777' }}>
-                                                        <div style={{ fontWeight: partite.finalplayer === partite.players[0].idp1 ? 'bold' : '200' }}><a href={'/Challenge-single/' + partite.players[0].idp1 + '/' + partite.players[0].p1}>{partite.players[0].p1} </a></div>
+                                                        <div style={{ fontWeight: partite.finalplayer === partite.players[0].idp1 ? 'bold' : '200' }}><a href={'/Challenge-single/' + partite.players[0].idp1 + '/' + partite.players[0].p1}>{partite.players[0].p1}</a><b>{partite.players[0].Posizp1} </b></div>
                                                          <label>VS</label>  
-                                                         <div style={{ fontWeight: partite.finalplayer === partite.players[1].idp2 ? 'bold' : '200' }}><a href={'/Challenge-single/' + partite.players[1].idp2 + '/' + partite.players[1].p2}>{partite.players[1].p2}</a></div>
+                                                         <div style={{ fontWeight: partite.finalplayer === partite.players[1].idp2 ? 'bold' : '200' }}><a href={'/Challenge-single/' + partite.players[1].idp2 + '/' + partite.players[1].p2}>{partite.players[1].p2}</a><b>{partite.players[1].Posizp2}</b></div>
                                                         </li>
                                                         <li style={{ textAlign: 'center' }} ><b>Score</b></li>
                                                         <li style={{ textAlign: 'center', textDecoration: partite.set1 === '0-0' ? 'line-through' : 'none' }}>Set1: <b>{partite.set1} </b></li>

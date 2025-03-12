@@ -17,6 +17,9 @@ const Report = (props) => {
     const [height, setheight] = useState(70)
     const [lastesito, selastesito] = useState(0)
     const [lastyperdita, setlastyperdita] = useState(0)
+    const [sommv, setsommv] = useState(0)
+    const [somml, setsomml] = useState(0)
+    const [somma, setsomma] = useState(0)
 
     const [displayfreccia, setdisplayfreccia] = useState('block')
 
@@ -63,6 +66,9 @@ const Report = (props) => {
             let challengelist = resp
 
             let sommavittorie = 0;
+            let sommaperdite = 0;
+            let sommaannulli=0;
+            let sommainconrso = 0
             let lunghezza = 0;
             let percentuale = 0;
             let esitoultimoincontro = 0;
@@ -71,6 +77,10 @@ const Report = (props) => {
 
 
             const found = challengelist.filter(obj => {
+
+                if (obj.status === 'processing') { // mi l'ultimo evento controllo lo stato
+                    sommainconrso +=1
+                }
 
                 if (obj.status === 'complete') { // mi l'ultimo evento controllo lo stato
                     esitoultimoincontro = challengelist[0].finalplayer  // prendo l'id del vincitore dell'ultimo evento complete
@@ -102,11 +112,18 @@ const Report = (props) => {
                     sommavittorie += 1
                     console.log('sommavittorie ' + sommavittorie)
                 }
+                if (obj.status === 'complete' && obj.finalplayer !== parseInt(idpd) && obj.finalplayer !==null) {
+                    sommaperdite += 1
+                    console.log('sommaperdite ' + sommaperdite)
+                }
+                sommaannulli = sommavittorie + sommaperdite
+                sommaannulli=  parseInt(Object.keys(challengelist).length) - sommaannulli
+
                // lunghezza = Object.keys(challengelist).length
                 return obj.id;
 
             });
-
+        
             //fuori const found
 
             percentuale = sommavittorie / lunghezza * 100
@@ -114,7 +131,9 @@ const Report = (props) => {
             if (isNaN(percentuale)) {
                 percentuale = 0;
             }
-
+            setsommv(sommavittorie)
+            setsomml(sommaperdite)
+            setsomma(sommaannulli)
             setpercentage(Math.round(percentuale))
             selastesito(esitoultimoincontro)
             setlastyperdita(esitoultimaperdita)
@@ -163,10 +182,18 @@ const Report = (props) => {
                     </div>
                 }
 
-            </div>
+           
             {winlabel &&
-                <span style={{ color: '#013777', fontSize: '15px', paddingLeft: '5px' }}>WIN</span>
+            <> 
+            <div style={{marginLeft:'-10px', position: 'relative', width: '40px', border: '0px solid red', color:'#013777', textAlign:"left"}}> 
+                V:<span style={{ color: '#198754', fontSize: '15px', margin:'0 5px 0 2px' }}>{sommv}</span> 
+                P:<span style={{ color: '#dc5135', fontSize: '15px', margin:'0 5px 0 2px'}}>{somml}</span>  
+                A:<span style={{ color: '#000', fontSize: '15px', margin:'0 5px 0 2px'}}>{somma}</span>
+                </div>
+            </>
+
             }
+             </div>
         </>
     );
 }

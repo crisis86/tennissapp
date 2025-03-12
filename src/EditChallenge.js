@@ -157,14 +157,14 @@ const EditChallenge = () => {
                                 </div>
                                 <div className="col-lg-6">
                                     <div className="form-group">
-                                        <label>{p1} <span className="errmsg">*</span></label> 
-                                        <input   value={posizp1} onChange={e => setposizp1(parseInt(e.target.value))}  className="form-control"></input>
+                                        <label>  Pos  {p1}:  </label> 
+                                        <input   disabled  value={posizp1} onChange={e => setposizp1(parseInt(e.target.value))}  className="form-control"></input>
                                     </div>
                                 </div>
                                 <div className="col-lg-6">
                                     <div className="form-group">
-                                        <label>{p2} <span className="errmsg">*</span></label> 
-                                        <input   value={posizp2} onChange={e => setposizp2(parseInt(e.target.value))}  className="form-control"></input>
+                                        <label>  Pos:  {p2}: </label> 
+                                         <input  disabled value={posizp2} onChange={e => setposizp2(parseInt(e.target.value))}  className="form-control"></input>
                                     </div>
                                 </div>
                           

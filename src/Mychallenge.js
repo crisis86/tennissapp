@@ -600,7 +600,7 @@ const Mychallenge = () => {
 
             if (obj.id === idacercare) {
 
-                telefono = "Contatto: " + obj.phone;
+                telefono =  obj.phone;
             }
             return obj.id === idacercare
 
@@ -1058,7 +1058,7 @@ const Mychallenge = () => {
                 </div>
 
                 <div className="">
-                    <div style={{ textAlign: "center", background: "#013777", opacity: 1, color: 'white', fontSize: "20px" }} className="title">Ultime Sfide
+                    <div style={{ textAlign: "center", background: "#013777", opacity: 1, color: 'white', fontSize: "20px" }} className="title">Ultime Sfide ({challengepending.length})
 
                     </div>
 
@@ -1123,14 +1123,14 @@ const Mychallenge = () => {
                                                 </li>
                                                 <li style={{ textAlign: 'center' }}><b> Del:</b> {item.datacreate} <b>{item.status === 'cancel' ? ' Annullata: ' : ' Prevista: '}</b> {item.datasfida} {item.orasfida} </li>
                                                 {item.players[0].idp1 === iduser ? (
-                                                    <li style={{ textAlign: 'center' }}> <b> {loadnumberphone(item.players[1].idp2)}</b></li>
+                                                    <li style={{ textAlign: 'center' }}> Telefono: <b> {loadnumberphone(item.players[1].idp2)}</b></li>
                                                 ) : (
-                                                    <li style={{ textAlign: 'center' }}> <b>{loadnumberphone(item.players[0].idp1)}</b></li>
+                                                    <li style={{ textAlign: 'center' }}> Telefono: <b>{loadnumberphone(item.players[0].idp1)}</b></li>
                                                 )}
                                                 {club === 'DM00' && item.status != 'cancel' && item.status != 'complete' &&
                                                     <li style={{ textAlign: 'center', textTransform: 'capitalize', fontWeight: '600', textDecoration: 'underline' }}> <a href="https://playtomic.io/asd-club-padel-roccarainola/e438540f-6e1f-4a0e-9a83-f2e5968a8dae?q=PADEL~2025-01-29~~~" target="_blank"> Prenota il Campo</a></li>
                                                 }
-                                                <li style={{ textAlign: 'center', textTransform: 'capitalize' }} key={index + 1}><div style={{ fontWeight: item.finalplayer === item.players[0].idp1 ? 'bold' : '200' }}> {item.players[0].p1}</div> VS <div style={{ fontWeight: item.finalplayer === item.players[1].idp2 ? 'bold' : '200' }}>{item.players[1].p2}</div></li>
+                                                <li style={{ textAlign: 'center', textTransform: 'capitalize' }} key={index + 1}><div style={{ fontWeight: item.finalplayer === item.players[0].idp1 ? 'bold' : '200' }}> {item.players[0].p1} <b>{item.players[0].Posizp1} </b></div> VS <div style={{ fontWeight: item.finalplayer === item.players[1].idp2 ? 'bold' : '200' }}>{item.players[1].p2} <b>{item.players[1].Posizp2} </b></div></li>
                                                 <li style={{ textAlign: 'center' }} ><b>Score</b></li>
                                                 <li style={{ textAlign: 'center', textDecoration: item.set1 === '0-0' ? 'line-through' : 'none' }} >Set1: <b>{item.set1} </b></li>
                                                 <li style={{ textAlign: 'center', textDecoration: item.set2 === '0-0' ? 'line-through' : 'none' }} >Set2: <b>{item.set2} </b></li>

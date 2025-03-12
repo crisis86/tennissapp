@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 import iconchallengeblu from './assets/icone/chhallenge-blu.svg';
 import iconchallengered from './assets/icone/chhallenge-active.svg';
 import iconchallenge from './assets/icone/chhallenge.svg';
+import iconsfidabile from './assets/icone/sfidabile.svg';
 import Report from './hooks/Report';
 
 const ChallengeList = () => {
@@ -115,11 +116,11 @@ const ChallengeList = () => {
                                     <ul>
                                         {playerlist &&
                                             playerlist.sort((a, b) => a.posizione > b.posizione ? 1 : -1).map((item, index) => (
-                                                <li style={{ borderRadius: '0px' }} key={index + 1} >
+                                                <li key={index + 1} >
                                                     <div style={{ borderRadius: '0px', background: item.insfida ? 'rgba(231,55,27,0.8)' : '', fontWeight: item.insfida ? 'bold' : '500' }} className={item.id === iduser ? 'item-content my-rank me' : 'item-content my-rank'}>
                                                         <div className="item-inner item-cell">
                                                             <div className="item-row">
-                                                                <div className="item-cell width-auto">
+                                                                <div  className="item-cell width-auto">
                                                                     <div style={{ minWidth: '20px' }} className="classifica font-size-18 font-weight-bold text-color-bluegray">{item.posizione}</div>
                                                                 </div>
                                                                 <a className='link' style={{ width: '170px' }} href={'/Challenge-single/' + item.id + '/' + item.name}>
@@ -137,7 +138,9 @@ const ChallengeList = () => {
                                                                         ) : (
                                                                             <>
                                                                                 {item.fuorigioco === false ? (
-                                                                                    <div className="country font-size-14 text-color-gray">{item.insfida ? 'Non Sfidabile' : 'Sfidabile'}</div>
+                                                                                    <div className="country font-size-14 text-color-gray">{item.insfida ? 'Non Sfidabile' : 'Sfidabile'}
+                                                                                   
+                                                                                    </div>
                                                                                 ) : (
                                                                                     <div className="country font-size-14 text-color-red"><b>FUORIGIOCO</b></div>
 
