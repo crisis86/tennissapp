@@ -36,10 +36,10 @@ const Appheader = () => {
 
     async function eseguiControlli() {
         try {
-             await controllasfide();
-            await controllpending();
-           await controllafuorigioco();
-         //   await checkAndFixPositions()
+           await controllasfide();
+           await controllpending();
+         await controllafuorigioco();
+         await checkAndFixPositions()
         } catch (error) {
             console.error("Errore durante l'esecuzione dei controlli:", error);
         }

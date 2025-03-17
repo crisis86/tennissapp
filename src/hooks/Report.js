@@ -185,7 +185,7 @@ const Report = (props) => {
            
             {winlabel &&
             <> 
-            <div style={{marginLeft:'-10px', position: 'relative', width: '40px', border: '0px solid red', color:'#013777', textAlign:"left"}}> 
+            <div style={{marginLeft:'-10px', position: 'relative', color:'#013777', textAlign:"left"}}> 
                 V:<span style={{ color: '#198754', fontSize: '15px', margin:'0 5px 0 2px' }}>{sommv}</span> 
                 P:<span style={{ color: '#dc5135', fontSize: '15px', margin:'0 5px 0 2px'}}>{somml}</span>  
                 A:<span style={{ color: '#000', fontSize: '15px', margin:'0 5px 0 2px'}}>{somma}</span>
